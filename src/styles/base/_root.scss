@@ -1,0 +1,11 @@
+@use '../base/variables/colors' as *;
+@use '../base/variables/fonts' as *;
+@use '../base/variables/sizes' as *;
+
+@mixin create-root {
+  :root {
+    @include generate-colors;
+    @include generate-fonts;
+    @include generate-sizes;
+  }
+}

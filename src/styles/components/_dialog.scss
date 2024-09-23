@@ -1,0 +1,23 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-dialog{
+    body:has(dialog[open]) {
+        padding-inline-end: $gap-l;
+        overflow: hidden;
+      }
+    
+    dialog {
+        position: fixed;
+        border: none;
+        isolation: isolate;
+        z-index: 9999;
+
+        &::backdrop {
+            position: fixed;
+            inset: 0;
+            background: hsl(from #{$color-black} h s l / 0.65);
+            backdrop-filter: blur($gap-l);
+        }
+    }
+}

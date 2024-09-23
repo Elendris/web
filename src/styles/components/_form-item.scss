@@ -1,0 +1,75 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-form-item {
+
+  .form-item{
+    position: relative;
+    display: grid;
+    gap: $gap-s;
+    color: $color-label; 
+    text-transform: uppercase;
+    isolation: isolate;
+    &:focus-within{
+      z-index: 999;
+    }
+  }
+
+  input, select{
+    display: block;
+    min-width: 0;
+    min-block-size: 50px;
+    padding: $gap-l;
+    border: $border-width solid $color-primary;
+    border-radius: $input-border-radius;
+    font-family: $font-text;
+    font-size: $gap-l;
+    font-weight: initial;
+    line-height: 1;
+    color: $color-text;
+    outline-offset: -2px;
+
+    &:not([type="checkbox"]){
+      &:not(:placeholder-shown):invalid{
+        outline: $border-width-2 solid $color-error;
+      }
+      
+  
+      &:user-valid{
+        outline: $border-width-2 solid $color-success;
+      }
+  
+      &:focus{
+        outline: $border-width-2 solid $color-primary;
+      }
+    }
+  }
+
+  select{
+    appearance: none;
+
+    + .icon{
+      position: absolute;
+      inset: auto $gap-l $gap-l auto;
+      color: $color-primary;
+      z-index: 2;
+      pointer-events: none;
+    }
+  }
+
+  .check-box{
+    @include flex-set(inline-flex, row, nowrap, $gap-m, center, start);
+    font-size: large;
+    color: $color-text;
+    cursor: pointer;
+    
+    input[type="checkbox"]{
+      display: block;
+      inline-size: $gap-xl;
+      aspect-ratio: 1;
+      border: $border-width solid $color-primary;
+      border-radius: $input-border-radius;
+      cursor: pointer;
+    }
+  }
+}

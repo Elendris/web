@@ -1,0 +1,156 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+$alignTypes: (
+  'sb': space-between,
+  'sa': space-around,
+  'c': center,
+  'fe': flex-end,
+  'fs': flex-start,
+  'st': stretch,
+);
+
+$gapTypes: (
+  'xs': var(--gap-xs),
+  's': var(--gap-s),
+  'm': var(--gap-m),
+  'l': var(--gap-l),
+  'xl': var(--gap-xl),
+  '2xl': var(--gap-2xl),
+  '3xl': var(--gap-3xl),
+  'no': 0,
+);
+
+$displayTypes: (
+  'block': block,
+  'inline-block': inline-block,
+  'flex': flex,
+  'inline-flex': inline-flex,
+  'grid': grid,
+  'inline-grid': inline-grid,
+  'contents': contents,
+  'none': none,
+);
+
+@mixin create-utilities {
+  .d {
+    @each $type, $value in $displayTypes {
+      &-#{$type} {
+        display: #{$value};
+      }
+    }
+  }
+
+  // flex direction
+  .fd {
+    &-row {
+      flex-direction: row;
+    }
+
+    &-ccolumn {
+      flex-direction: column;
+    }
+  }
+
+  //paddings
+  .p {
+    @each $type, $value in $gapTypes {
+      &-#{$type} {
+        padding: #{$value};
+      }
+
+      &-x {
+        &-#{$type} {
+          padding-inline: #{$value};
+        }
+      }
+
+      &-y {
+        &-#{$type} {
+          padding-bloxk: #{$value};
+        }
+      }
+    }
+  }
+
+  //margins
+  .m {
+    @each $type, $value in $gapTypes {
+      &-#{$type} {
+        padding: #{$value};
+      }
+
+      &-x {
+        &-#{$type} {
+          padding-inline: #{$value};
+        }
+      }
+
+      &-y {
+        &-#{$type} {
+          padding-block: #{$value};
+        }
+      }
+    }
+
+    &-auto {
+      margin-inline: auto;
+    }
+  }
+
+  //gaps
+  .gap {
+    @each $type, $value in $gapTypes {
+      &-#{$type} {
+        gap: #{$value};
+      }
+    }
+  }
+
+  // justifi content
+  .jc {
+    @each $type, $value in $alignTypes {
+      &-#{$type} {
+        justify-content: $value;
+      }
+    }
+  }
+
+  // align items
+  .ai {
+    @each $type, $value in $alignTypes {
+      &-#{$type} {
+        align-items: $value;
+      }
+    }
+  }
+
+  .truncate {
+    @include text-truncate(100%);
+  }
+
+  .col-span {
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        @include grid-col-span($i);
+      }
+    }
+  }
+
+  .row-span {
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        @include grid-row-span($i);
+      }
+    }
+  }
+
+  .center-text{
+    text-align: center;
+  }
+
+  .w-100{
+    inline-size: 100%;
+    max-inline-size: none;
+  }
+}

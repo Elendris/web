@@ -1,0 +1,9 @@
+@mixin input-placeholder {
+  $parent-selector: if(&, '&', '');
+  #{$parent-selector}::placeholder,
+  #{$parent-selector}::-webkit-input-placeholder,
+  #{$parent-selector}::-moz-placeholder,
+  #{$parent-selector}:-ms-input-placeholder {
+    @content;
+  }
+}

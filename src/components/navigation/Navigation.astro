@@ -1,0 +1,72 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
+<nav>
+    <div class="nav__top">
+        <a href="tel: +420758695456" class="link">
+            <Icon name="phone" />
+            +420 758 695 456
+        </a>
+        <div>Lang</div>
+    </div>
+    <hr />
+    <div class="nav__bottom">
+        <a href="" class="nav__logo">
+            <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" />
+        </a>
+        <ul class="menu" data-sticky="false">
+            <li>
+                <a href="#home">Elendris</a>
+            </li>
+            <li>
+                <a href="#about">O nás</a>
+            </li>
+            <li>
+                <a href="#rooms">Pokoje</a>
+            </li>
+            <li>
+                <a href="#contact">Kontakt</a>
+            </li>
+        </ul>
+        <div class="d-flex gap-s">
+            <button class="btn btn--small" data-reservation>Rezervovat</button>
+            <button id="menuBtn" class="burger"> </button>
+        </div>
+    </div>
+</nav>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+  const nav = document.querySelector('nav'); 
+  const menu = document.querySelector('.menu'); 
+
+  const options: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.01
+  };
+
+  let timeoutId: number | undefined; 
+
+  const callback: IntersectionObserverCallback = (entries: IntersectionObserverEntry[]) => {
+      if (timeoutId !== undefined) {
+          window.cancelAnimationFrame(timeoutId); 
+      }
+      timeoutId = window.requestAnimationFrame(() => {
+          entries.forEach(entry => {
+              const isSticky = menu?.getAttribute('data-sticky') === 'true';
+              if (!entry.isIntersecting && !isSticky) {
+                  menu?.setAttribute('data-sticky', 'true');
+              } else if (entry.isIntersecting && isSticky) {
+                  menu?.setAttribute('data-sticky', 'false');
+              }
+          });
+      });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  if (nav) observer.observe(nav);
+});
+</script>

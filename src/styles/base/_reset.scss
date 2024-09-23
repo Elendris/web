@@ -1,0 +1,30 @@
+@use '../base/variables/colors' as *;
+
+@mixin reset {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-block-size: 100svb;
+        margin: 0;
+        font-family: system-ui;
+        accent-color:  $color-primary;
+        overflow-x: hidden;
+    }
+
+    textarea {
+        font-family: inherit;
+        resize: vertical;
+    }
+
+    dialog {
+        overscroll-behavior: contain;
+    }
+}

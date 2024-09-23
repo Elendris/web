@@ -1,0 +1,210 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+@use "../../styles/base/placeholders/index" as *;
+
+@mixin create-card {
+  .rooms {
+    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
+    margin-block-start: 5svb;
+  }
+
+  .card {
+    container-type: inline-size;
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: $color-transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &:focus-visible{
+      --card-btn_translate-y: 0;
+      --card-img_scale: 1.1;
+      --card-btn_opacity: 1;
+      z-index: 10;
+    }
+
+    @include mq-hover {
+      --card-btn_translate-y: 0;
+      --card-img_scale: 1.1;
+      --card-btn_opacity: 1;
+    }
+
+    &__content {
+      @include flex-set(flex, row, nowrap, 5cqi, flex-end, space-between, center);
+      border-image: linear-gradient($color-transparent 50%, hsl(from #{$color-black} h s l / 0.85)) fill 1;
+      transition: opacity $trans-time $trans-fnc;
+      z-index: 2;
+      position: absolute;
+      inset: 0;
+      padding: 5cqi;
+    }
+
+    > img {
+      position: absolute;
+      display: block;
+      min-inline-size: calc(100% + $gap-xs);
+      z-index: 1;
+      pointer-events: none;
+      scale: var(--card-img_scale, 1);
+      opacity: var(--card-img_opacity, 1);
+      transition:
+        filter $trans-time $trans-fnc,
+        scale $trans-time $trans-fnc,
+        opacity $trans-time $trans-fnc;
+    }
+
+    .btn {
+      opacity: var(--card-btn_opacity, 0);
+      transition:
+        opacity $trans-time $trans-fnc,
+        translate $trans-time $trans-fnc;
+      translate: 0 var(--card-btn_translate-y, 2.5cqb);
+    }
+
+    strong {
+      color: $color-white;
+      font-size: clamp($gap-l, 5cqb, $gap-xl);
+      text-wrap: pretty;
+      text-align: left;
+    }
+  }
+
+  .detail {
+    @include grid-rows(var(--detail_display, none), auto 1fr auto, 2svi, stretch, stretch);
+    opacity: var(--detail_opacity, 0);
+    translate: var(--detail_trans-x, 100%) 0;
+    inset: 0 0 0 auto;
+    inline-size: min($width-desktop-s, 100%);
+    block-size: 100svb;
+    max-height: 100dvb;
+    margin: 0;
+    padding-inline: 3svi;
+    padding-block: 3svi;
+    container-type: inline-size;
+    border: none;
+    transition-property: overlay display opacity;
+    transition-duration: $trans-time;
+    transition-timing-function: $trans-fnc;
+    transition-behavior: allow-discrete;
+
+    &[open] {
+      --detail_display: grid;
+      --detail_opacity: 1;
+      --detail_trans-x: 0%;
+
+      @starting-style {
+        --dialog_opacity: 0;
+        --detail_trans-x: 100%;
+      }
+    }
+
+    &__header {
+      @include flex-set(flex, row, nowrap, 0, flex-start, space-between, center);
+      h3 {
+        margin: 0;
+        line-height: 1;
+        font-weight: 900;
+      }
+    }
+
+    &__close {
+      @extend %close-button;
+    }
+
+    &__content {
+      h4 {
+        color: darkgrey;
+        font-size: clamp($gap-xl, 3svb, $gap-2xl);
+      }
+      > p {
+        margin: 0;
+      }
+
+      ul {
+        @include flex-set(flex, column, nowrap, $gap-xl, flex-start, flex-start);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-block-start: 2.5svb;
+
+        li {
+          @include flex-set(flex, row, nowrap, $gap-l, center);
+          font-size: $gap-xl;
+
+          > .icon{
+            --icon_size: #{$gap-2xl};
+            fill: $color-secondary;
+          }
+        }
+      }
+    }
+
+    &__footer {
+      @include flex-set(flex, row, nowrap, $gap-xl, flex-end, space-between, center);
+    }
+
+    &__price {
+      @include flex-set(inline-flex, column, nowrap, $gap-m, flex-start, flex-end);
+      line-height: 1;
+
+      > span {
+        color: grey;
+        font-size: clamp($gap-l, 2.5svb, $gap-xl);
+      }
+
+      > strong {
+        font-size: clamp($gap-3xl, 5svb, 4rem);
+        color: $color-black;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .gallery{
+    margin-block-start: 2.5svb;
+    margin-block-end: 5svb;
+
+    &__item{
+      display: inline-block;
+      position: relative;
+      border-radius: $radius-m;
+      overflow: hidden;
+
+      @include mq-hover{
+        --gallery-btn_scale: 1.15;
+      }
+
+      img{
+        display: block;
+        max-inline-size: px-to-rem(320px);
+      }
+    }
+
+    &__item-btn{
+      position: absolute;
+      inset: auto $gap-l $gap-l auto;
+      display: grid;
+      place-items: center;
+      inline-size: 4rem;
+      aspect-ratio: 1;
+      border-radius: $radius-circle;
+      background-color: hsl(from #{$color-black} h s l / 0.25);
+      backdrop-filter: blur($gap-xs);
+      z-index: 2;
+      color: $color-white;
+
+      
+
+      > .icon{
+        --icon_size: #{$gap-xl};
+        scale: var(--gallery-btn_scale, 1);
+        transition: scale $trans-time $trans-fnc;
+      }
+    }
+  }
+}

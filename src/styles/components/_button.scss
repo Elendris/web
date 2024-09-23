@@ -1,0 +1,108 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-button {
+  .btn {
+    --btn-icon_size: 1em;
+    @include flex-set(inline-flex, row, nowrap, var(--btn_gap, #{$gap-m}), center, center);
+    inline-size: auto;
+    min-inline-size: var(--btn_min-width, 12rem);
+    padding-block: var(--btn_pad-block, clamp(#{$gap-m}, 2.5svi, #{$gap-l}));
+    padding-inline: var(--btn_pad-inline, clamp(#{$gap-l}, 2.5svi, #{$gap-xl}));
+    background-color: var(--btn_bg, var(--color-primary));
+    border: var(--btn_border-width, var(--border-width-2)) solid var(--btn_border-color, var(--color-primary));
+    border-radius: var(--btn_border-radius, $gap-m);
+    font-family: var(--font-title);
+    font-size: var(--btn_font-size, clamp(#{$gap-s}, 5svb, #{$gap-l}));
+    font-weight: 500;
+    color: var(--btn_color, var(--color-white));
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    translate: 0 var(--btn_translate-y, 0);
+    transition: 
+      background-color var(--trans-time) var(--trans-fnc), 
+      border-color var(--trans-time) var(--trans-fnc), 
+      box-shadow var(--trans-time) var(--trans-fnc),
+      translate var(--trans-time) var(--trans-fnc);
+    cursor: var(--btn_cursor, pointer);
+    box-shadow: 0 .5em .5em .1em var(--btn_shadow-color, var(--color-transparent));
+
+    @include mq-hover {
+      --btn_bg: var(--color-primary--hover);
+      --btn_shadow-color: var(--color-shadow);
+      --btn_border-color: var(--color-primary--hover);
+      --btn_translate-y: -.25em;
+    }
+
+    &[disabled] {
+      --btn_cursor: not-allowed;
+    }
+
+    &--secondary {
+      --btn_color: var(--color-primary);
+      --btn_bg: var(--color-transparent);
+      --btn_border-color: var(--color-primary);
+      backdrop-filter: blur(0.5em);
+
+      @include mq-hover {
+        --btn_color: var(--color-primary--hover);
+        --btn_bg: var(--color-transparent);
+        --btn_border-color: var(--color-primary--hover);
+      }
+    }
+
+    &--light{
+      --btn_color: var(--color-primary);
+      --btn_bg: var(--color-white);
+      --btn_border-color: var(--color-white);
+
+      @include mq-hover {
+        --btn_color: var(--color-primary);
+        --btn_bg: var(--color-white);
+        --btn_border-color: var(--color-white);
+      }
+    }
+
+    &--delete{
+      --btn_min-width: 0;
+      --btn_pad-block: 0;
+      --btn_pad-inline: 0;
+      --btn_border-width: 0;
+      --btn_bg: var(--color-transparent);
+      --btn_color: #{$color-error};
+      --btn_translate-y: -.25em;
+      --btn_border-radius: #{$radius-circle};
+      --btn_icon-scale: 1.1;
+      --btn-icon_size: #{$gap-xl};
+      display: grid;
+      place-items: center;
+      block-size: $gap-3xl;
+
+      @include mq-hover {
+        --btn_bg: var(--color-transparent);
+        --btn_shadow-color: var(--color-transparent);
+        --btn-icon_scale: 1.1;
+      }
+    }
+
+    &--small{
+      --btn_pad-block: #{$gap-m};
+      --btn_pad-inline: #{$gap-l};
+      --btn_min-width: 0;
+      --btn-icon_size: .85em;
+      box-shadow: 0 .2em .25em .1em var(--btn_shadow-color, var(--color-transparent));
+
+      @include mq-hover {
+        --btn_translate-y: 0;
+      }
+    }
+
+    > .icon {
+      --icon_size: var(--btn-icon_size);
+      scale: var(--btn-icon_scale, 1);
+      transition: scale $trans-time $trans-fnc;
+      fill: currentColor;
+    }
+  }
+}

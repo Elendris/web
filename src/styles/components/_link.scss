@@ -1,0 +1,14 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-link {
+
+    .link{
+        @include flex-set(inline-flex, row, nowrap, $gap-m, center);
+        color: var(--link_color, #{$color-primary});
+
+        &--light{
+            --link_color: #{$color-white};
+        }
+    }
+}

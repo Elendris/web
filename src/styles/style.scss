@@ -1,0 +1,30 @@
+﻿@use "base/layers" as *;
+@use "base/reset" as *;
+@use "base/root" as *;
+@use "base/typography" as *;
+@use "components/index" as *;
+@use "modules/index" as *;
+@use "utilities/classes" as *;
+
+@at-root {
+    @include create-root;
+    @include create-layers;
+
+    @layer base {
+        @include reset;
+        @include create-typography;
+    }
+
+    @layer components {
+        @include create-components;
+    }
+
+    @layer modules {
+        @include create-modules;
+        @include create-modules;
+    }
+
+    @layer utilities {
+        @include create-utilities;
+    }
+}

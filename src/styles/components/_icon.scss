@@ -1,0 +1,13 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+
+@mixin create-icon {
+    .icon {
+        --icon_size: #{$gap-l};
+        display: block;
+        inline-size: min(var(--icon_size), var(--icon_size));
+        aspect-ratio: 1;
+        fill: currentColor;
+    }
+}

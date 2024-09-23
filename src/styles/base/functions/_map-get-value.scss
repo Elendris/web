@@ -1,0 +1,4 @@
+@function get-map-value($map, $key, $nth-value) {
+  $values: map-get($map, $key);
+  @return nth($values, $nth-value);
+}

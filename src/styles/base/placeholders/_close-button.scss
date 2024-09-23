@@ -1,0 +1,27 @@
+@use "../mixins/index" as *;
+@use "../variables/index" as *;
+
+%close-button{
+  position: absolute;
+  inset: $gap-2xl $gap-2xl auto auto;
+  display: grid;
+  place-items: center;
+  inline-size: $gap-3xl;
+  aspect-ratio: 1;
+  padding: 0;
+  background-color: $color-transparent;
+  border: none;
+  color: var(--close-btn_color, $color-primary);
+  cursor: pointer;
+
+  @include mq-hover {
+      --close-icon_scale: 1.15;
+      --close-btn_color: #{$color-primary--hover};
+  }
+
+  > .icon{
+      --icon_size: #{$gap-xl};
+      scale: var(--close-icon_scale, 1);
+      transition: fill $trans-time $trans-fnc, scale $trans-time $trans-fnc;
+  }
+}

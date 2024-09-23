@@ -1,0 +1,3 @@
+@function num-neg($num) {
+  @return calc(-1 * $num);
+}

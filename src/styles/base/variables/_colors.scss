@@ -1,0 +1,25 @@
+$color-white: hsl(0 0% 100%);
+$color-black:  hsl(0 0% 0%);
+$color-transparent: hsl(0 0% 0% / 0%);
+$color-primary: hsl(0 0% 12%);
+$color-primary--hover: $color-black;
+$color-secondary: hsl(29 37% 61%);
+$color-secondary--hover: hsl(from #{$color-secondary} h s 51%);
+$color-shadow: hsl(0 0% 0% / 15%);
+$color-text: hsl(0 0% 12%);
+$color-label: hsl(0 0% 50%);
+$color-border: hsl(0 0% 80%);
+$color-success: hsl(120 80% 35%);
+$color-warning: hsl(34 100% 60%);
+$color-error: hsl(0 78% 45%);
+
+@mixin generate-colors {
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-transparent: #{$color-transparent};
+  --color-primary: #{$color-primary};
+  --color-primary--hover: #{$color-primary--hover};
+  --color-secondary: #{$color-secondary};
+  --color-secondary--hover: #{$color-secondary--hover};
+  --color-shadow: #{$color-shadow};
+}

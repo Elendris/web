@@ -1,0 +1,87 @@
+---
+import Icon from "../icons/Icon.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  imgSrc: string;
+  price: number;
+}
+
+const { id, title, imgSrc, price } = Astro.props;
+---
+
+<button class="card" id={`card-${id}`}>
+  <img src={imgSrc} alt={title} />
+
+  <div class="card__content">
+    <strong>{title}</strong>
+    <div class="btn btn--small btn--light">Zobrazit detail</div>
+  </div>
+</button>
+
+<dialog class="detail" open={false} id={`dialog-${id}`}>
+  <div class="detail__header">
+    <h3>{title}</h3>
+    <button
+      class="detail__close"
+      aria-label="Zavřít detail pokoje"
+      title="Zavřít detail pokoje"
+    >
+      <Icon name="close" />
+    </button>
+  </div>
+  <div class="detail__content">
+    <slot name="room-description" />
+    <div class="gallery">
+      <a
+        href="/"
+        aria-label="Zobrazit fotogalerii"
+        title="Zobrazit fotogalerii"
+        rel="internal"
+        class="gallery__item"
+      >
+        <picture>
+          <img src={imgSrc} alt={title} />
+        </picture>
+        <span class="gallery__item-btn">
+          <Icon name="gallery" />
+        </span>
+      </a>
+    </div>
+    <h4>Vybavení pokoje</h4>
+    <ul>
+      <li>
+        <Icon name="wifi" />
+        Vysokorychlostní Wi-Fi
+      </li>
+      <li>
+        <Icon name="clima" />
+        Klimatizace
+      </li>
+      <li>
+        <Icon name="bath" />
+        Prostorná koupelna, základní hygienický set, fén na vlasy
+      </li>
+      <li>
+        <Icon name="drink" />
+        Pivo nebo voda po příchodu
+      </li>
+      <li>
+        <Icon name="food" />
+        Snídaně na pokoj
+      </li>
+      <li>
+        <Icon name="tv" />
+        Televize
+      </li>
+    </ul>
+  </div>
+  <div class="detail__footer">
+    <div class="detail__price">
+      <span>Cena od / noc</span>
+      <strong>{`${price.toString()} Kč`}</strong>
+    </div>
+    <button class="btn" data-reservation>Rezervovat</button>
+  </div>
+</dialog>

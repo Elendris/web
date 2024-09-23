@@ -1,0 +1,31 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+
+@mixin create-footer {
+  footer {
+    padding-block: 3svb;
+    background-color: $color-black;
+    color: $color-white;
+
+    span {
+      margin: 0;
+      font-size: small;
+      text-align: center;
+    }
+  }
+
+  .footer {
+    &__logo {
+      block-size: 4rem;
+
+      > img{
+        display: block;
+       block-size: 100%;
+      }
+    }
+
+    &__container {
+      @include grid-columns(grid, var(--footer_col-template, auto 1fr auto), $gap-xl, center);
+    }
+  }
+}

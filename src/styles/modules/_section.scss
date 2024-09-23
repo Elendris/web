@@ -1,0 +1,12 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-section {
+    section {
+        padding-block: var(--sec_padding, 5svb);
+
+        &:is(#contact){
+            --sec_padding: 0;
+        }
+    }
+}

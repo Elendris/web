@@ -1,0 +1,125 @@
+---
+import Room from "../../components/room/Room.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id}>
+  <div class="container">
+    <h2 class="title">Naše pokoje</h2>
+    <p class="desc">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+      veritatis nesciunt tempora impedit nam quibusdam mollitia excepturi
+      laudantium, nisi itaque?
+    </p>
+  </div>
+  <div class="rooms">
+    <Room
+      title="Jednolůžkový pokoj"
+      imgSrc="/images/rooms/rooms-1-1.webp"
+      price={990}
+      id="1"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+    <Room
+      title="Dvoulůžkový pokoj"
+      imgSrc="/images/rooms/rooms-1-2.webp"
+      price={1450}
+      id="2"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+    <Room
+      title="Třílůžkový pokoj"
+      imgSrc="/images/rooms/rooms-1-3.webp"
+      price={1900}
+      id="3"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+    <Room
+      title="Rodinný pokoj"
+      imgSrc="/images/rooms/rooms-1-4.webp"
+      price={2500}
+      id="4"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+    <Room
+      title="Rodinný pokoj s kuchyňským koutem"
+      imgSrc="/images/rooms/rooms-1-5.webp"
+      price={2500}
+      id="5"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+    <Room
+      title="Pokoj s vanou"
+      imgSrc="/images/rooms/rooms-1-6.webp"
+      price={1450}
+      id="6"
+    >
+      <p slot="room-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        perspiciatis obcaecati, tempore quis quod cupiditate?
+      </p>
+    </Room>
+  </div>
+  <div class="container">
+    <br><br>
+    <p class="center-text w-100">
+      Máte-li jakékoliv dotazy, neváhejte nás kontaktovat e-mailem <a href="mailto:info@elendris.cz" class="link" rel="noreferer">info@elendris.cz</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      const cardId = card.id;
+      const dialogId = cardId.replace("card", "dialog");
+      const dialog = document.getElementById(dialogId) as HTMLDialogElement;
+      const closeBtn = dialog.querySelector(
+        ".detail__close"
+      ) as HTMLButtonElement;
+
+      if (closeBtn) {
+        card.addEventListener("click", () => {
+          dialog.showModal();
+        });
+
+        closeBtn.addEventListener("click", () => {
+          dialog.close();
+        });
+
+        dialog.addEventListener("cancel", () => {
+          dialog.close();
+        });
+      } else {
+        console.error(`Close button not found for dialog ${dialogId}`);
+      }
+    });
+  });
+</script>

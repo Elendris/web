@@ -1,0 +1,6 @@
+@mixin create-rooms {
+    .rooms {
+      @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
+      margin-block-start: 5svb;
+    }
+}   

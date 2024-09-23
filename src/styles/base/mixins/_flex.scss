@@ -1,0 +1,18 @@
+@mixin flex-set(
+  $display: flex,
+  $direction: row,
+  $wrap: nowrap,
+  $gap: 0,
+  $align-items: stretch,
+  $justify-content: flex-start,
+  $align-content: normal
+) {
+  display: $display;
+  flex-flow: $direction $wrap;
+  @if $gap !=0 {
+    gap: $gap;
+  }
+  align-items: $align-items;
+  align-content: $align-content;
+  justify-content: $justify-content;
+}

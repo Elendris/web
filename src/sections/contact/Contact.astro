@@ -1,0 +1,13 @@
+---
+import Map from '../../components/map/Map.astro'
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id}>
+  <Map />
+</section>

@@ -1,0 +1,72 @@
+﻿@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-burger {
+
+    .burger {
+        position: relative;
+        display: none;
+        inline-size: 3.5rem;
+        block-size: 2.5rem;
+        background-color: $color-transparent;
+        border-color: $color-transparent;
+        cursor: pointer;
+
+        @include mq-responsive('desktop-s', max) {
+            display: block;
+        }
+
+        @include mq-responsive('tablet', max) {
+            margin-left: $gap-xl;
+        }
+
+        @include mq-responsive('mobile-l', max) {
+            margin-left: $gap-l;
+        }
+
+        >span {
+            position: absolute;
+            left: 50%;
+            display: block;
+            inline-size: 100%;
+            block-size: .3rem;
+            background: $color-white;
+
+            &:nth-child(1) {
+                top: 0;
+                transform: rotate(0deg) translate(-50%, 0);
+                transition: transform $trans-time ease-in-out;
+            }
+
+            &:nth-child(2) {
+                top: 50%;
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1, 1);
+                transition: transform $trans-time ease-in-out, opacity $trans-time ease-in-out;
+            }
+
+            &:nth-child(3) {
+                top: 100%;
+                transform: rotate(0deg) translate(-50%, -100%);
+                transition: transform $trans-time ease-in-out;
+            }
+        }
+
+        &--open {
+            >span {
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(-8%, 2rem);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0, 1);
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(-8%, -2rem);
+                }
+            }
+        }
+    }
+}

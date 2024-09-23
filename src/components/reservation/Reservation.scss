@@ -1,0 +1,146 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+@use "../../styles/base/placeholders/index" as *;
+
+@mixin create-reservation {
+    .reservation {
+        background-color: $color-white;
+        border-radius: 1em;
+        inline-size: $width-desktop-l;
+        top: 5svb;
+        max-block-size: 90svb;
+        left: 50%;
+        padding: 5svb 3svi;
+        margin: 0;
+        display: var(--dialog_display, none);
+        opacity: var(--dialog_opacity, 0);
+        translate: -50% var(--dialog_trans-y, 5svb);
+        transition-property: overlay display opacity;
+        transition-duration: 0.3s;
+        transition-behavior: allow-discrete;
+
+        &[open] {
+            --dialog_display: block;
+            --dialog_opacity: 1;
+            --dialog_trans-y: 0;
+
+            @starting-style {
+                --dialog_opacity: 0;
+                --dialog_trans-y: 5svb;
+            }
+        }
+
+        &:has(.reservation__room) {
+            --empty-message_display: none;
+            --breakfast-chck_opacity: 1;
+            --breakfast-chck_pointer-events: auto;
+        }
+
+        &__form {
+            @include grid-columns(
+                grid,
+                repeat(var(--form-col-count, 2), 1fr),
+                clamp($gap-l, 2.5svi, $gap-3xl),
+                stretch
+            );
+
+            fieldset {
+                @include grid-columns(
+                    grid,
+                    repeat(var(--form-col-count, 2), 1fr),
+                    $gap-xl,
+                    stretch
+                );
+                border: none;
+                border-block-start: $border-width solid $color-border;
+                row-gap: $gap-l;
+                padding-block: $gap-m;
+                padding-inline: clamp($gap-l, 2svi, $gap-xl);
+
+                &:has(select) {
+                    @include grid-columns(grid, 1fr, $gap-l, flex-end);
+                }
+
+                > legend {
+                    color: $color-label;
+                    font-size: clamp($gap-xl, 3svb, $gap-2xl);
+                    background-color: $color-white;
+                    padding-inline: $gap-s;
+                    translate: num-neg($gap-s) 0;
+                }
+
+                > p {
+                    @include grid-col-span(2);
+                    font-size: $gap-l;
+                    color: $color-text;
+                    margin-block-end: $gap-l;
+                }
+
+                + fieldset {
+                    margin-block-start: $gap-xl;
+                }
+            }
+
+            > h3,
+            > p {
+                @include grid-col-span(2);
+                margin: 0;
+                max-inline-size: unset;
+            }
+        }
+
+        &__close {
+           @extend %close-button;
+        }
+
+        &__empty-message {
+            display: var(--empty-message_display, block);
+            padding: $gap-l $gap-xl;
+            border-radius: $radius-m;
+            background-color: $color-warning;
+            margin-block-end: $gap-l;
+            font-size: $gap-l;
+            color: $color-text;
+        }
+
+        &__room {
+            @include grid-col-span(2);
+            @include grid-columns(grid, 1fr 120px auto, $gap-xl, flex-end);
+            row-gap: $gap-l;
+        }
+
+        &__room-list {
+            @include grid-columns(grid, 1fr, 0, flex-end);
+            max-block-size: 40svb;
+            padding-inline-end: $gap-m;
+            overflow: auto;
+            overscroll-behavior: contain;
+
+            &:empty{
+                display: none;
+            }
+
+            hr{
+                margin-block: $gap-xl;
+                color: $color-border;
+            }
+        }
+
+        &__footer{
+            @include grid-col-span(2);
+            padding-block-start: $gap-2xl;
+            text-align: right;
+        }
+
+        &__actions{
+            @include grid-col-span(2);
+            @include flex-set(flex, row, nowrap, $gap-l, center, space-between);
+
+            .check-box{
+                opacity: var(--breakfast-chck_opacity, 0);
+                pointer-events: var(--breakfast-chck_pointer-events, none);;
+            }
+        }
+    }
+}

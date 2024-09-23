@@ -1,0 +1,50 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+@use "../base/functions/index" as *;
+
+@mixin create-map {
+  div[role="dialog"]:has(.map__window) {
+    padding: 0 !important;
+
+    div:has(+ button[aria-label="Close"]){
+      display: none;
+
+      + button{
+        position: absolute !important;
+        inset: $gap-s $gap-s auto auto;
+        background-color: hsl(0 0% 0% / .5) !important;
+        backdrop-filter: blur($gap-s);
+        border-radius: $radius-circle;
+        transition: opacity $trans-time $trans-fnc;
+
+        > span{
+          background-color: $color-white !important;
+        }
+      }
+    }
+  }
+
+  .map {
+    block-size: 100svb;
+    &__window {
+      @include grid-columns(grid, 1fr);
+
+      > img {
+        display: block;
+        max-width: px-to-rem(280px) !important;
+        max-block-size: px-to-rem(120px);
+        object-fit: cover;
+      }
+
+      > div{
+        @include grid-columns(grid, 1fr, $gap-s);
+        padding: $gap-l;
+        text-align: left;
+      }
+
+      strong {
+        font-size: $gap-l;
+      }
+    }
+  }
+}

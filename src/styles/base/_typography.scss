@@ -1,0 +1,37 @@
+@use './variables/sizes' as *;
+
+
+@mixin create-typography {
+    address {
+        font-style: normal;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        font-weight: 700;
+        text-wrap: balance;
+    }
+
+    h2{
+        margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
+        font-size: clamp($gap-3xl, 8svb, 8rem);
+        font-weight: 900;
+    }
+
+    h3{
+        margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
+        font-size: clamp($gap-xl, 4svb, 4rem);
+    }
+
+    p{
+        max-inline-size: 65ch;
+        margin: 0;
+        font-size: clamp(18px, 2.5svb, 22px);
+        line-height: 1.7;
+        text-wrap: pretty;
+    }
+
+    :where(header, main, footer, section, article){
+        container-type: inline-size;
+    }
+}

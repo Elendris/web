@@ -1,0 +1,17 @@
+@mixin text-truncate($max-inline-size: none) {
+  display: block;
+  @if $max-inline-size != none {
+    max-inline-size: $max-inline-size;
+  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text-truncate-line($line: 3) {
+  display: -webkit-box;
+  white-space: pre-wrap;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}

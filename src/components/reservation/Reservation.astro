@@ -1,0 +1,161 @@
+---
+import FormItem from "../formItem/FormItem.astro";
+import Icon from "../icons/Icon.astro";
+---
+
+<dialog class="reservation">
+  <form action="post" class="reservation__form">
+    <h3>Rezervační formulář</h3>
+    <button
+      class="reservation__close"
+      type="button"
+      aria-label="Zavřít rezervační formulář"
+      title="Zavřít rezervační formulář"
+      id="reservationClose"
+    >
+      <Icon name="close" />
+    </button>
+    <p>
+      Vyplňte prosím následující formulář pro rezervaci pokoje v našem penzionu.
+      Ujistěte se, že všechny údaje jsou správné, abychom mohli vaši rezervaci
+      co nejdříve potvrdit.
+    </p>
+    <div>
+      <fieldset>
+        <legend>Termín</legend>
+        <p>Vyberte prosím datum příjezdu a odjezdu.</p>
+        <FormItem label="Od">
+          <input type="date" name="from" required />
+        </FormItem>
+        <FormItem label="Do">
+          <input type="date" name="to" required />
+        </FormItem>
+      </fieldset>
+      <fieldset>
+        <legend>Kontaktní údaje</legend>
+        <p>Zadejte své kontaktní údaje pro potvrzení rezervace.</p>
+        <FormItem label="Jméno">
+          <input type="text" placeholder="Jan" name="name" required />
+        </FormItem>
+        <FormItem label="Příjmení">
+          <input type="text" placeholder="Novák" name="surname" required />
+        </FormItem>
+        <FormItem label="E-mail">
+          <input
+            type="email"
+            placeholder="jan@novak.cz"
+            name="email"
+            required
+          />
+        </FormItem>
+        <FormItem label="Telefon">
+          <input type="tel" placeholder="+420123456789" name="phone" required />
+        </FormItem>
+      </fieldset>
+    </div>
+    <fieldset>
+      <legend>Pokoje</legend>
+      <p>Zvolte pokoje a počet hostů pro každý pokoj.</p>
+      <div class="col-span-2">
+        <p class="reservation__empty-message">Nemáte vybraný žádný pokoj!</p>
+        <div id="roomsList" class="reservation__room-list"></div>
+        <div class="reservation__actions">
+          <label class="check-box" title="Platí pro všehcny pokoje">
+            <input type="checkbox" value="" />
+            Se snídaní
+          </label>
+          <button
+            type="button"
+            id="addRoom"
+            class="btn btn--small btn--secondary"
+          >
+            Přidat pokoj
+            <Icon name="plus" />
+          </button>
+        </div>
+      </div>
+    </fieldset>
+    <div class="reservation__footer">
+      <button class="btn btn--primary" type="submit">Rezervovat</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reservationDialog = document.querySelector(
+      ".reservation"
+    ) as HTMLDialogElement;
+
+    const closeButton = document.getElementById("reservationClose");
+
+    closeButton &&
+      closeButton.addEventListener("click", () => {
+        reservationDialog.close();
+      });
+
+    const reservationButtons = document.querySelectorAll(
+      "button[data-reservation]"
+    );
+
+    reservationButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        reservationDialog.showModal();
+      });
+    });
+
+    const addRoomButton = document.getElementById("addRoom");
+    let roomCounter = 0; // Counter to keep track of the number of rooms added
+
+    if (addRoomButton) {
+      addRoomButton.addEventListener("click", function () {
+        const roomRow = document.getElementById("roomsList");
+        if (roomRow) {
+          roomCounter++; // Increment the counter for each new room
+          const newRoomContent = document.createElement("div");
+          newRoomContent.innerHTML = `
+                        <div class="reservation__room">
+                          <label class="form-item">
+                            Zvolte pokoj
+                            <select name="rooms${roomCounter}" required>
+                                <option value="">-- Vyberte jendu z možnstí --</option>
+                                <option value="room1">Jednolůžkový pokoj</option>
+                                <option value="room2">Dvoulůžkový pokoj</option>
+                                <option value="room3">Třílůžkový pokoj</option>
+                                <option value="room4">Rodinný pokoj</option>
+                                <option value="room5">Rodinný pokoj s kuchyňským koutem</option>
+                                <option value="room6">Pokoj s vanou</option>
+                            </select>
+                            <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
+                        </label>
+                        <label class="form-item">
+                            Počet hostů
+                            <input type="number" min="1" max="10" name="persons${roomCounter}" required />
+                        </label>
+                        <button type="button" class="deleteRoom btn btn--delete" aria-label="Odebrat pokoj" title="Odebrat pokoj">
+                          <svg class="icon icon-delete"><use xlink:href="#icon-delete"></use></svg>
+                        </button>
+                         <div class="col-span-3">
+                          <label class="check-box">
+                            <input type="checkbox" value="">
+                            Oddělené postele
+                          </label>
+                        </div>
+                      </div>
+                      <hr />
+                    `;
+          roomRow.appendChild(newRoomContent);
+
+          const newSelect = newRoomContent.querySelector("select");
+          newSelect && newSelect.focus();
+
+          const deleteButton = newRoomContent.querySelector(".deleteRoom");
+          deleteButton &&
+            deleteButton.addEventListener("mousedown", () => {
+              roomRow.removeChild(newRoomContent);
+            });
+        }
+      });
+    }
+  });
+</script>

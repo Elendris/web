@@ -1,0 +1,42 @@
+{
+  "name": "elendris.cz",
+  "description": "Updated on 1.7.2024",
+  "version": "0.0.1",
+  "private": true,
+  "license": "ISC",
+  "author": "Lukáš Chylík",
+  "type": "module",
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "scss": "sass src/styles/style.scss | postcss -o public/css/style.css",
+    "scss:watch": "node watch-scss.js",
+    "stylelint": "stylelint --fix src/styles/**/*.scss --custom-syntax postcss-scss",
+    "watch": "pnpm stylelint && pnpm scss:watch"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@fancyapps/ui": "^5.0.36",
+    "@googlemaps/js-api-loader": "^1.16.8",
+    "astro": "^4.11.3",
+    "astro-i18next": "^1.0.0-beta.21",
+    "chokidar": "^3.6.0",
+    "i18next": "^23.11.5",
+    "i18next-fs-backend": "^2.3.1",
+    "typescript": "^5.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "chokidar-cli": "^3.0.0",
+    "cssnano": "^7.0.3",
+    "postcss": "^8.4.39",
+    "postcss-cli": "^11.0.0",
+    "postcss-preset-env": "^9.5.15",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.77.6",
+    "stylelint": "^16.6.1",
+    "stylelint-order": "^6.0.4"
+  }
+}

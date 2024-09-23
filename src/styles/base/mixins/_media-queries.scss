@@ -1,0 +1,56 @@
+@use '../variables/sizes' as *;
+
+$breakpoints: (
+  'mobile-s': $width-mobile-s,
+  'mobile-m': $width-mobile-m,
+  'mobile-l': $width-mobile-l,
+  'mobile-xl': $width-mobile-xl,
+  'tablet': $width-tablet,
+  'desktop-s': $width-desktop-s,
+  'desktop-l': $width-desktop-l,
+  'desktop-hd': $width-desktop-hd,
+  'desktop-full-hd': $width-desktop-full-hd,
+  'desktop-2k': $width-desktop-2k,
+  'desktop-4k': $width-desktop-4k,
+  ) !default;
+
+@mixin mq-responsive($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width
+  );
+
+  @if $type ==min {
+    $width: calc($width + 1px);
+  }
+
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+}
+
+@mixin mq-hover($value: hover) {
+  @if $value ==hover {
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+  }
+
+  @else if $value ==none {
+    @media (hover: none) {
+      &:hover {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin mq-theme($theme-color) {
+  @if $theme-color ==dark or $theme-color ==light {
+    @media (prefers-color-scheme: $theme-color) {
+      @content;
+    }
+  }
+}

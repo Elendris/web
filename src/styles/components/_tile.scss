@@ -1,0 +1,47 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+@use "../base/functions/index" as *;
+
+@mixin create-tile {
+  .tiles {
+    @include grid-columns(grid, repeat(var(--tiles-count, 5), minmax($gap-3xl, 1fr)), $gap-3xl, stretch);
+    margin-block-start: 5svb;
+    margin-block-end: 8svb;
+  }
+
+  .tile {
+    @include flex-set(flex, column, nowrap, $gap-xl, center, flex-start);
+    padding-block: 3rem;
+    padding-inline: $gap-xl;
+    background-color: $color-white;
+    opacity: 0;
+    border-radius: $radius-l;
+    text-align: center;
+    animation: fadeIn linear forwards;
+    animation-timeline: view();
+    box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-range: calc(20svb + #{$i * 40}px) 50svb;
+      }
+    }
+
+    > .icon {
+      --icon_size: 100px;
+      fill: $color-secondary;
+    }
+
+    > strong {
+      font-size: large;
+      font-weight: 500;
+      text-wrap: pretty;
+    }
+  }
+
+  @keyframes fadeIn {
+    50%, 100% {
+      opacity: 1;
+    }
+  }
+}
