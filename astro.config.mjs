@@ -5,5 +5,5 @@ import astroI18next from "astro-i18next";
 export default defineConfig({
     allowImportingTsExtensions: true,
     integrations: [astroI18next()],
-    site: 'https://elendris.cz/',
+    site: 'https://elendris.github.io/web/',
 });
