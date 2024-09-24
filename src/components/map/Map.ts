@@ -16,10 +16,9 @@ const initMap = (): void => {
     center: center,
     zoom: 12,
     disableDefaultUI: true,
-    options: {
-      gestureHandling: "cooperative",
-    },
+    gestureHandling: "cooperative",
   });
+  
   const markersData = [
     {
       position: { lat: 49.17764, lng: 16.69207 },
@@ -77,14 +76,8 @@ const initMap = (): void => {
       infoWindow.setContent(`
         <div>
           <h3>${data.title}</h3>
-          <img src="${data.pic}" alt="${
-        data.title
-      }" style="width:100px;height:auto;">
-          ${
-            data.link
-              ? `<a href="${data.link}" target="_blank">More info</a>`
-              : ""
-          }
+          <img src="${data.pic}" alt="${data.title}" style="width:100px;height:auto;">
+          ${data.link && `<a href="${data.link}" target="_blank">More info</a>`}
         </div>
       `);
       infoWindow.open(map, marker);
@@ -97,7 +90,6 @@ const initMap = (): void => {
     }
   });
 };
-
 
 window.initMap = initMap;
 
@@ -118,3 +110,5 @@ export function loadGoogleMapsAPI() {
       console.error("Error loading Google Maps API:", error);
     });
 }
+
+
