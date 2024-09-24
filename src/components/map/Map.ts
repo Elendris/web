@@ -3,6 +3,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 declare global {
   interface Window {
     initMap: () => void;
+    google: any;
   }
 }
 
