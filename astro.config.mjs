@@ -6,4 +6,5 @@ export default defineConfig({
     allowImportingTsExtensions: true,
     integrations: [astroI18next()],
     site: 'https://elendris.github.io/web/',
+    base: '/web',
 });
