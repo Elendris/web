@@ -1,5 +1,6 @@
 ---
-import Map from '../../components/map/Map.astro'
+import Icon from "../../components/icons/Icon.astro";
+import Map from "../../components/map/Map.astro";
 
 interface Props {
   id: string;
@@ -10,4 +11,37 @@ const { id } = Astro.props;
 
 <section id={id}>
   <Map />
+  <div class="container">
+    <div class="contact">
+      <h3>Kde nas najdete?</h3>
+      <p>
+        Tu môžeme spomenúť, kde sa penzión nachadza a že na mape užívateľ nájde
+        zaujímavé miesta.
+      </p>
+
+      <div>
+        <h4>Adresa</h4>
+        <address>
+          <strong>Penzion elendris</strong>,<br />
+          Krejčího 550/2,<br />
+          Brno 627 00,<br />
+          Česká Republika
+        </address>
+        <span><b>IČ:</b>IČ: 68645881</span>
+      </div>
+      <div>
+        <h4>Kontakty</h4>
+        <div>
+          <a href="mailto:info@elendris.cz" rel="noreferer" class="link link--light">
+            <Icon name="mail" />
+            info@elendris.cz</a
+          >
+          <a href="tel:+420 758 695 456z" rel="noreferer" class="link link--light">
+            <Icon name="phone" />
+            +420 758 695 456</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

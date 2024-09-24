@@ -28,6 +28,7 @@
       align-items: center;
       font-size: clamp($gap-2xl, 8svb, 6.5rem);
       line-height: 1;
+      color: $color-primary;
 
       h1 {
         translate: num-neg($gap-l);
@@ -41,6 +42,7 @@
 
   .anim {
     position: relative;
+    translate: 0 5svb;
 
     &__pic {
       transform-origin: center;
@@ -54,7 +56,7 @@
 
       &[data-scroll-anim="true"] {
         scale: 1;
-        animation: var(--anim-pic_animation);
+        animation: var(--anim-pic_animation) linear forwards;
         animation-timeline: view();
         animation-range-start: 100svb;
         animation-range-end: cover;
@@ -64,8 +66,8 @@
         display: block;
         content: "";
         position: absolute;
-        clip-path: inherit;
         inset: 0;
+        clip-path: inherit;
         background-image: var(--anim-pic_bg-img);
         background-size: cover;
         background-position: var(--anim-pic_bg-position);
@@ -77,7 +79,7 @@
       &--large {
         --anim-pic_bg-img: url("/images/header/header-img-1.webp");
         --anim-pic_clip-path: polygon(64% 0, 100% 64%, 13% 100%, 0 33%);
-        --anim-pic_animation: animLargeImg linear;
+        --anim-pic_animation: animLargeImg;
         --anim-pic_trans-x: 5svi;
         --anim-pic-after_trans-x: #{num-neg($gap-xs)};
         --anim-pic-after_scale: 0.975;
@@ -90,7 +92,7 @@
       &--small {
         --anim-pic_bg-img: url("/images/header/header-img-2.webp");
         --anim-pic_clip-path: polygon(0 31%, 52% 0, 85% 94%, 11% 100%);
-        --anim-pic_animation: animSmallImg linear;
+        --anim-pic_animation: animSmallImg;
         --anim-pic_trans-x: 10svi;
         --anim-pic-after_trans-x: #{num-neg($gap-s)};
         --anim-pic-after_scale: 0.95;

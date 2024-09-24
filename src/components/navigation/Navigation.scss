@@ -1,6 +1,7 @@
 @use "../../styles/base/mixins/index" as *;
 @use "../../styles/base/functions/index" as *;
 @use "../../styles/base/variables/index" as *;
+@use "../../styles/base/placeholders/index" as *;
 
 @mixin create-nav {
     nav {
@@ -16,25 +17,34 @@
 
         hr {
             inline-size: 100%;
+            margin-block: clamp($gap-m, 2.5svb, $gap-xl);
+            border-block-start: $border-width solid $color-border !important;
+        }
+
+        .link{
+            font-weight: 500;
         }
     }
 
     .nav {
-        &__top,
+        &__top {
+            @include flex-set(flex, row, nowrap, $gap-m, flex-end, space-between);
+        }
+
         &__bottom {
-            @include flex-set(flex, row, nowrap, $gap-m, center, space-between);
+            @include flex-set(flex, row, nowrap, $gap-m, flex-start, space-between);
         }
 
         &__logo {
             > img {
                 display: block;
-                inline-size: px-to-rem(50px);
+                inline-size: px-to-rem(70px);
             }
         }
     }
 
     .menu {
-        @include flex-set(inline-flex, row, nowrap, $gap-xl, center);
+        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
         margin: 0;
         list-style: none;
         --nav_color: #{$color-black};
@@ -54,10 +64,11 @@
         }
 
         a {
+            @extend %subtitle;
             text-decoration: var(--nav-item_text-decor, none);
             line-height: 1.7;
             color: var(--nav_color);
-            font-size: 18px;
+            font-size: clamp($gap-l, 2svb, px-to-rem(22px));
 
             @include mq-hover {
                 --nav-item_text-decor: underline;

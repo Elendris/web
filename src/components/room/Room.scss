@@ -67,6 +67,7 @@
     }
 
     strong {
+      @extend %subtitle;
       color: $color-white;
       font-size: clamp($gap-l, 5cqb, $gap-xl);
       text-wrap: pretty;

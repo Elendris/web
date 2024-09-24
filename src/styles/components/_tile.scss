@@ -1,6 +1,7 @@
 @use "../base/mixins/index" as *;
 @use "../base/variables/index" as *;
 @use "../base/functions/index" as *;
+@use "../base/placeholders/index" as *;
 
 @mixin create-tile {
   .tiles {
@@ -10,22 +11,24 @@
   }
 
   .tile {
-    @include flex-set(flex, column, nowrap, $gap-xl, center, flex-start);
-    padding-block: 3rem;
-    padding-inline: $gap-xl;
+    @include flex-set(flex, column, nowrap, $gap-2xl, center, flex-start);
+    padding-block: 4rem;
+    padding-inline: $gap-l;
     background-color: $color-white;
-    opacity: 0;
-    border-radius: $radius-l;
+opacity: 1 !important;
+    // opacity: 0;
+    // border-radius: $radius-l;
+    border: $gap-m solid $color-black;
     text-align: center;
     animation: fadeIn linear forwards;
-    animation-timeline: view();
+    // animation-timeline: view();
     box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
 
-    @for $i from 1 through 5 {
-      &:nth-child(#{$i}) {
-        animation-range: calc(20svb + #{$i * 40}px) 50svb;
-      }
-    }
+    // @for $i from 1 through 5 {
+    //   &:nth-child(#{$i}) {
+    //     animation-range: calc(20svb + #{$i * 40}px) 50svb;
+    //   }
+    // }
 
     > .icon {
       --icon_size: 100px;
@@ -33,7 +36,8 @@
     }
 
     > strong {
-      font-size: large;
+      @extend %subtitle;
+      font-size: $gap-l;
       font-weight: 500;
       text-wrap: pretty;
     }

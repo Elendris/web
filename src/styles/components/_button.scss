@@ -11,7 +11,7 @@
     padding-inline: var(--btn_pad-inline, clamp(#{$gap-l}, 2.5svi, #{$gap-xl}));
     background-color: var(--btn_bg, var(--color-primary));
     border: var(--btn_border-width, var(--border-width-2)) solid var(--btn_border-color, var(--color-primary));
-    border-radius: var(--btn_border-radius, $gap-m);
+    // border-radius: var(--btn_border-radius, $gap-m);
     font-family: var(--font-title);
     font-size: var(--btn_font-size, clamp(#{$gap-s}, 5svb, #{$gap-l}));
     font-weight: 500;

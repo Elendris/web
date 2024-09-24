@@ -1,13 +1,13 @@
 @use "container" as *;
 @use "footer" as *;
-@use "map" as *;
 @use "section" as *;
 @use "../../../src/sections/header/Header" as *;
+@use "../../../src/sections/contact/Contact" as *;
 
 @mixin create-modules {
+    @include create-contact;
     @include create-container;
     @include create-footer;
     @include create-header;
-    @include create-map;
     @include create-section;
 }

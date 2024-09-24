@@ -7,6 +7,7 @@
 @use "tile" as *;
 @use "../../components/room/Room" as *;
 @use "../../components/navigation/Navigation" as *;
+@use "../../components/map/Map" as *;
 @use "../../components/reservation/Reservation" as *;
 
 @mixin create-components {
@@ -19,5 +20,6 @@
     @include create-link;
     @include create-tile;
     @include create-nav;
+    @include create-map;
     @include create-reservation;
 }

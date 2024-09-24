@@ -1,0 +1,32 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+@use "../../styles/base/placeholders/index" as *;
+
+@mixin create-contact {
+  section#contact {
+    min-block-size: 100svb;
+    position: relative;
+    padding-block: 8svb;
+
+    .container {
+      display: grid;
+      grid-template-columns: 5fr 8fr;
+      position: relative;
+      isolation: isolate;
+    }
+  }
+
+  .contact {
+    @include grid-columns(grid, 1fr, $gap-m);
+    padding-block: $gap-l;
+    padding-inline: $gap-m;
+    background-color: $color-primary;
+    color: $color-white;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: $gap-l;
+    font-weight: 500;
+    font-family: $font-title;
+  }
+}
