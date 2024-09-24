@@ -1,112 +1,17 @@
----
-import Icon from "../icons/Icon.astro"
----
 
 <div id="map" class="map"></div>
 
-<script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL2nvxZgXk8NXOQmhizNX4HgrH5WbJnYk"
-></script>
 <script>
-  // Declare the google object globally
-  declare global {
-    interface Window {
-      google: any;
-    }
-  }
-
-  function initMap() {
-    // Set the coordinates for the center of the map
-    var center = { lat: 49.19055, lng: 16.50246 };
-    // Create a new Google Maps object
-    var map = new google.maps.Map(document.getElementById("map"), {
-      center: center,
-      zoom: 12,
-      disableDefaultUI: true,
-      options: {
-        gestureHandling: "cooperative",
-      },
-    });
-
-    // Define an array of marker data
-    var markersData = [
-      {
-        position: { lat: 49.17764, lng: 16.69207 },
-        title: "Elendris",
-        pic: "https://elendris.cz/img/gril.webp",
-        icon: '/images/map/marker.svg', 
-      },
-      {
-        position: { lat:49.18160, lng: 16.668712 },
-        title: "BRuNO family park",
-        pic: 'https://elendris.cz/img/bruno.webp', 
-        link: "https://www.brunofamilypark.cz/",
-        icon: '/images/map/star.svg', 
-      },
-      {
-        position: { lat:49.15901, lng: 16.86439 },
-        title: "Mistrovské golfové hřiště Austerlitz",
-        pic: 'https://elendris.cz/img/austerlitz.webp', 
-        link: "https://www.agrt.cz/",
-        icon: '/images/map/star.svg', 
-      },
-      {
-        position: { lat:49.194828, lng: 16.60857 },
-        title: "Historickém centrum města Brna",
-        pic: 'https://elendris.cz/img/brno.webp', 
-        link: "https://www.gotobrno.cz/",
-        icon: '/images/map/star.svg', 
-      },
-      {
-        position: { lat:49.30782, lng: 16.69971},
-        title: "Krásy Moravského krasu",
-        pic: 'https://elendris.cz/img/moravskykras.webp', 
-        link: "https://www.moravskykras.net/",
-        icon: '/images/map/star.svg', 
-      },
-    ];
-
-    // Iterate over the markersData array to create markers and info windows
-    markersData.forEach((data) => {
-      var marker = new google.maps.Marker({
-        position: data.position,
-        map: map,
-        icon: data.icon, // Set the custom icon
-      });
-
-      var infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map__window">
-          <img src="${data.pic}" alt="${data.title}" width="370px" height="143px" loading="lazy"/>
-          <div>
-            <strong>${data.title}</strong>
-            <a href="${data.link}" target="_blank" rel="external" class="link">
-              Více informací
-            </a>
-          </div>
-        </div>`,
-      });
-
-      marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-      });
-    });
-  }
-
-  // Attach the initMap function to the window object to make it globally accessible
-  window.initMap = initMap;
-
-  // Add a listener to initialize the map when the window loads
-  google.maps.event.addDomListener(window, "load", initMap);
+  import { loadGoogleMapsAPI } from "./Map.ts";
 
   document.addEventListener("DOMContentLoaded", () => {
     let firstScrollLogged = false;
 
-    window.addEventListener("scroll", () => {
-      if (!firstScrollLogged) {
-        firstScrollLogged = true;
-      }
-    });
+    window.addEventListener('scroll', () => {
+        if (!firstScrollLogged) {
+            loadGoogleMapsAPI()
+            firstScrollLogged = true
+        }
+    })
   });
 </script>
