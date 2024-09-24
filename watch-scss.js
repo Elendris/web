@@ -2,7 +2,7 @@ import chokidar from 'chokidar';
 import { spawn } from 'child_process';
 
 // Watcher
-chokidar.watch('src/styles/**/*.scss').on('change', (event, path) => {
+chokidar.watch('src/**/*.scss').on('change', (event, path) => {
   console.log(`File ${event} has been changed. Compiling...`);
   const process = spawn('pnpm', ['scss'], { shell: true });
 
