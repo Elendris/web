@@ -199,8 +199,6 @@
       z-index: 2;
       color: $color-white;
 
-      
-
       > .icon{
         --icon_size: #{$gap-xl};
         scale: var(--gallery-btn_scale, 1);
