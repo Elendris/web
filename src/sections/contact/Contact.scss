@@ -25,7 +25,7 @@
     padding-inline: clamp($gap-2xl, 4svb, 5rem);
     background-color: $color-white--transparent;
     backdrop-filter: blur($gap-m);
-    border-radius: $radius-l;
+    border: $gap-m solid $color-primary;
     font-family: $font-title;
     color: $color-text;
     text-align: left;
@@ -34,7 +34,12 @@
     pointer-events: initial;
 
     &__footer{
-      margin-block-start: $gap-3xl;
+      margin-block-start: 8svb;
+
+      > div:has(.btn){
+        @include flex-set(flex, row, nowrap, $gap-l, center);
+        margin-block-start: $gap-2xl;
+      }
     }
 
     h4{
