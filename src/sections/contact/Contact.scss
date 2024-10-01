@@ -5,28 +5,58 @@
 
 @mixin create-contact {
   section#contact {
-    min-block-size: 100svb;
     position: relative;
+    min-block-size: 100svb;
     padding-block: 8svb;
 
     .container {
+      position: relative;
       display: grid;
       grid-template-columns: 5fr 8fr;
-      position: relative;
-      isolation: isolate;
+      pointer-events: none;
     }
   }
 
   .contact {
-    @include grid-columns(grid, 1fr, $gap-m);
-    padding-block: $gap-l;
-    padding-inline: $gap-m;
-    background-color: $color-primary;
-    color: $color-white;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: $gap-l;
-    font-weight: 500;
+    @include grid-columns(grid, 1fr, 0);
+    position: relative;
+    block-size: 84svb;
+    padding-block: clamp($gap-2xl, 4svb, 5rem);
+    padding-inline: clamp($gap-2xl, 4svb, 5rem);
+    background-color: $color-white--transparent;
+    backdrop-filter: blur($gap-m);
+    border-radius: $radius-l;
     font-family: $font-title;
+    color: $color-text;
+    text-align: left;
+    isolation: isolate;
+    z-index: 10;
+    pointer-events: initial;
+
+    &__footer{
+      margin-block-start: $gap-3xl;
+    }
+
+    h4{
+      margin-block-start: $gap-3xl;
+    }
+
+    p{
+      text-wrap: balance;
+    }
+
+    address {
+      margin-block-end: $gap-l;
+      font-size: larger;
+      line-height: 1.5;
+
+      + span {
+        font-size: larger;
+      }
+    }
+
+    div:has(> .link){
+      @include flex-set(flex, column, nowrap, $gap-l, flex-start);
+    }
   }
 }

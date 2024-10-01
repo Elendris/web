@@ -1,12 +1,15 @@
 $color-white: hsl(0 0% 100%);
+$color-white--transparent: hsl(0 0% 100% / .8);
 $color-black:  hsl(0 0% 0%);
 $color-transparent: hsl(0 0% 0% / 0%);
 $color-primary: hsl(0 0% 12%);
+$color-primary--transparent: hsl(0 0% 12% / .8);
 $color-primary--hover: $color-black;
 $color-secondary: hsl(29 37% 61%);
 $color-secondary--hover: hsl(from #{$color-secondary} h s 51%);
 $color-shadow: hsl(0 0% 0% / 15%);
-$color-text: hsl(0 0% 12%);
+$color-text: hsl(0 0% 24%);
+$color-title: hsl(0 0% 12%);
 $color-label: hsl(0 0% 50%);
 $color-border: hsl(0 0% 80%);
 $color-success: hsl(120 80% 35%);

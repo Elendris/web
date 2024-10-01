@@ -5,15 +5,15 @@
 
 @mixin create-nav {
     nav {
-        display: grid;
-        padding-inline: $gap-2xl;
-        padding-block: $gap-m;
         position: absolute;
-        z-index: 9999;
-        isolation: isolate;
         top: 0;
+        display: grid;
         inline-size: 100%;
+        padding-block: $gap-m;
+        padding-inline: $gap-2xl;
         isolation: isolate;
+        isolation: isolate;
+        z-index: 9999;
 
         hr {
             inline-size: 100%;
@@ -44,31 +44,31 @@
     }
 
     .menu {
-        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
+        --nav_color: #{$color-black};
         margin: 0;
         list-style: none;
-        --nav_color: #{$color-black};
+        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
 
         &[data-sticky="true"] {
             --nav_color: #{$color-black};
-            background-color: hsl(from var(--color-primary) h s l / 0.15);
-            backdrop-filter: blur($gap-m);
-            padding-block: calc($gap-l - $gap-s);
-            padding-inline: $gap-xl;
-            border-radius: 100vmax;
             position: fixed;
             top: 0;
             left: 50%;
-            translate: -50% -100%;
+            padding-block: calc($gap-l - $gap-s);
+            padding-inline: $gap-xl;
+            background-color: hsl(from var(--color-primary) h s l / 0.15);
+            backdrop-filter: blur($gap-m);
+            border-radius: 100vmax;
             animation: showNav 0.3s forwards;
+            translate: -50% -100%;
         }
 
         a {
             @extend %subtitle;
-            text-decoration: var(--nav-item_text-decor, none);
+            font-size: clamp($gap-l, 2svb, px-to-rem(22px));
             line-height: 1.7;
             color: var(--nav_color);
-            font-size: clamp($gap-l, 2svb, px-to-rem(22px));
+            text-decoration: var(--nav-item_text-decor, none);
 
             @include mq-hover {
                 --nav-item_text-decor: underline;

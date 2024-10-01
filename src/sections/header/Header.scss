@@ -4,9 +4,9 @@
 
 @mixin create-header {
   header {
-    min-block-size: 100svb;
     display: grid;
     grid-template-rows: 1fr;
+    min-block-size: 100svb;
   }
 
   .header {
@@ -24,8 +24,8 @@
 
     &__title {
       display: grid;
-      gap: $gap-m;
       align-items: center;
+      gap: $gap-m;
       font-size: clamp($gap-2xl, 8svb, 6.5rem);
       line-height: 1;
       color: $color-primary;
@@ -45,35 +45,35 @@
     translate: 0 5svb;
 
     &__pic {
-      transform-origin: center;
-      animation: showImg $trans-time forwards $trans-time;
-      scale: 0;
-      translate: var(--anim-pic_trans-x);
       block-size: var(--anim-pic_height);
-      clip-path: var(--anim-pic_clip-path);
       background-color: $color-primary;
+      animation: showImg $trans-time forwards $trans-time;
       animation: showImg $trans-time forwards var(--anim-pic_anim-delay);
+      translate: var(--anim-pic_trans-x);
+      scale: 0;
+      transform-origin: center;
+      clip-path: var(--anim-pic_clip-path);
 
       &[data-scroll-anim="true"] {
-        scale: 1;
         animation: var(--anim-pic_animation) linear forwards;
-        animation-timeline: view();
-        animation-range-start: 100svb;
+        scale: 1;
         animation-range-end: cover;
+        animation-range-start: 100svb;
+        animation-timeline: view();
       }
 
       &:after {
-        display: block;
-        content: "";
         position: absolute;
         inset: 0;
-        clip-path: inherit;
+        display: block;
+        content: "";
         background-image: var(--anim-pic_bg-img);
-        background-size: cover;
-        background-position: var(--anim-pic_bg-position);
         background-repeat: no-repeat;
+        background-position: var(--anim-pic_bg-position);
+        background-size: cover;
         translate: var(--anim-pic-after_trans-x);
         scale: var(--anim-pic-after_scale);
+        clip-path: inherit;
       }
 
       &--large {

@@ -13,7 +13,7 @@
     "astro": "astro",
     "scss": "sass src/styles/style.scss | postcss -o public/css/style.css",
     "scss:watch": "node watch-scss.js",
-    "stylelint": "stylelint --fix src/styles/**/*.scss --custom-syntax postcss-scss",
+    "stylelint": "stylelint --fix src/**/*.scss --custom-syntax postcss-scss",
     "watch": "pnpm stylelint && pnpm scss:watch"
   },
   "dependencies": {

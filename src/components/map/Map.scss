@@ -13,9 +13,9 @@
       + button{
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
-        border-radius: $radius-circle;
         background-color: hsl(0 0% 0% / .5) !important;
         backdrop-filter: blur($gap-s);
+        border-radius: $radius-circle;
         transition: opacity $trans-time $trans-fnc;
 
         > span{
@@ -33,10 +33,10 @@
       @include grid-columns(grid, 1fr);
 
       > img {
-        object-fit: cover;
+        display: block;
         max-width: px-to-rem(280px) !important;
         max-block-size: px-to-rem(120px);
-        display: block;
+        object-fit: cover;
       }
 
       > div{

@@ -5,19 +5,19 @@
 
 @mixin create-reservation {
     .reservation {
-        background-color: $color-white;
-        border-radius: 1em;
-        inline-size: $width-desktop-l;
         top: 5svb;
-        max-block-size: 90svb;
         left: 50%;
+        display: var(--dialog_display, none);
+        inline-size: $width-desktop-l;
+        max-block-size: 90svb;
         padding: 5svb 3svi;
         margin: 0;
-        display: var(--dialog_display, none);
+        background-color: $color-white;
         opacity: var(--dialog_opacity, 0);
+        border-radius: 1em;
         translate: -50% var(--dialog_trans-y, 5svb);
-        transition-property: overlay display opacity;
         transition-duration: 0.3s;
+        transition-property: overlay display opacity;
         transition-behavior: allow-discrete;
 
         &[open] {
@@ -52,29 +52,29 @@
                     $gap-xl,
                     stretch
                 );
-                border: none;
-                border-block-start: $border-width solid $color-border;
                 row-gap: $gap-l;
                 padding-block: $gap-m;
                 padding-inline: clamp($gap-l, 2svi, $gap-xl);
+                border: none;
+                border-block-start: $border-width solid $color-border;
 
                 &:has(select) {
                     @include grid-columns(grid, 1fr, $gap-l, flex-end);
                 }
 
                 > legend {
-                    color: $color-label;
-                    font-size: clamp($gap-xl, 3svb, $gap-2xl);
-                    background-color: $color-white;
                     padding-inline: $gap-s;
+                    background-color: $color-white;
+                    font-size: clamp($gap-xl, 3svb, $gap-2xl);
+                    color: $color-label;
                     translate: num-neg($gap-s) 0;
                 }
 
                 > p {
                     @include grid-col-span(2);
+                    margin-block-end: $gap-l;
                     font-size: $gap-l;
                     color: $color-text;
-                    margin-block-end: $gap-l;
                 }
 
                 + fieldset {
@@ -85,8 +85,8 @@
             > h3,
             > p {
                 @include grid-col-span(2);
-                margin: 0;
                 max-inline-size: unset;
+                margin: 0;
             }
         }
 
@@ -97,9 +97,9 @@
         &__empty-message {
             display: var(--empty-message_display, block);
             padding: $gap-l $gap-xl;
-            border-radius: $radius-m;
-            background-color: $color-warning;
             margin-block-end: $gap-l;
+            background-color: $color-warning;
+            border-radius: $radius-m;
             font-size: $gap-l;
             color: $color-text;
         }
