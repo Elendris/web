@@ -26,6 +26,7 @@
       box-shadow var(--trans-time) var(--trans-fnc),
       translate var(--trans-time) var(--trans-fnc);
     cursor: var(--btn_cursor, pointer);
+    white-space: nowrap;
     box-shadow: 0 .5em .5em .1em var(--btn_shadow-color, var(--color-transparent));
 
     @include mq-hover {

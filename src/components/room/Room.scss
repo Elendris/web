@@ -5,8 +5,9 @@
 
 @mixin create-card {
   .rooms {
-    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
+    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), $gap-2xl, stretch);
     margin-block-start: 5svb;
+    padding-inline: $gap-2xl;
   }
 
   .card {
@@ -20,6 +21,7 @@
     border: none;
     overflow: hidden;
     cursor: pointer;
+    border: $gap-m solid $color-primary;
 
     &:focus-visible{
       --card-btn_translate-y: 0;
@@ -39,7 +41,7 @@
       position: absolute;
       inset: 0;
       padding: 5cqi;
-      border-image: linear-gradient($color-transparent 50%, hsl(from #{$color-black} h s l / 0.85)) fill 1;
+      border-image: linear-gradient($color-transparent 33%, hsl(from #{$color-black} h s l / 0.9)) fill 1;
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
     }
@@ -71,7 +73,7 @@
       font-size: clamp($gap-l, 5cqb, $gap-xl);
       color: $color-white;
       text-align: left;
-      text-wrap: pretty;
+      text-wrap: balance;
     }
   }
 
