@@ -10,7 +10,7 @@ declare global {
 const initMap = (): void => {
   const mapElement = document.getElementById("map") as HTMLDivElement;
 
-  const center = { lat: 49.19055, lng: 16.50246 };
+  const center = { lat: 49.22055, lng: 16.53246 };
 
   const map = new google.maps.Map(mapElement, {
     center: center,

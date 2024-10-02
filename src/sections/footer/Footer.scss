@@ -1,5 +1,6 @@
-@use "../base/mixins/index" as *;
-@use "../base/variables/index" as *;
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
 
 @mixin create-footer {
   footer {
