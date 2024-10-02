@@ -15,6 +15,7 @@ $color-border: hsl(0 0% 80%);
 $color-success: hsl(120 80% 35%);
 $color-warning: hsl(34 100% 60%);
 $color-error: hsl(0 78% 45%);
+$dialog-backdrop-bg: hsl(from #{$color-black} h s l / 0.65);
 
 @mixin generate-colors {
   --color-white: #{$color-white};

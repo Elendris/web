@@ -94,32 +94,9 @@ const { id } = Astro.props;
 </section>
 
 <script>
+  import { initRooms } from "./Rooms.ts";
+  
   document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach((card) => {
-      const cardId = card.id;
-      const dialogId = cardId.replace("card", "dialog");
-      const dialog = document.getElementById(dialogId) as HTMLDialogElement;
-      const closeBtn = dialog.querySelector(
-        ".detail__close"
-      ) as HTMLButtonElement;
-
-      if (closeBtn) {
-        card.addEventListener("click", () => {
-          dialog.showModal();
-        });
-
-        closeBtn.addEventListener("click", () => {
-          dialog.close();
-        });
-
-        dialog.addEventListener("cancel", () => {
-          dialog.close();
-        });
-      } else {
-        console.error(`Close button not found for dialog ${dialogId}`);
-      }
-    });
+    initRooms()
   });
 </script>

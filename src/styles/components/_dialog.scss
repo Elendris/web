@@ -10,13 +10,11 @@
     dialog {
         position: fixed;
         border: none;
-        isolation: isolate;
-        z-index: 9999;
 
         &::backdrop {
             position: fixed;
             inset: 0;
-            background: hsl(from #{$color-black} h s l / 0.65);
+            background: $dialog-backdrop-bg;
             backdrop-filter: blur($gap-l);
         }
     }

@@ -35,8 +35,9 @@ const { id, title, imgSrc, price } = Astro.props;
     <slot name="room-description" />
     <div class="gallery">
       <a
-        href="/"
+        href={imgSrc}
         aria-label="Zobrazit fotogalerii"
+        data-fancybox={`room-${id}`}
         title="Zobrazit fotogalerii"
         rel="internal"
         class="gallery__item"

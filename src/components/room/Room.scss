@@ -208,4 +208,10 @@
       }
     }
   }
+
+  //Fancy box custom
+  // body > .fancybox__container{
+  //   --fancybox-bg: #{$dialog-backdrop-bg} !important;
+  //   backdrop-filter: blur($gap-l);
+  // }
 }
