@@ -6,8 +6,8 @@
     .icon {
         --icon_size: #{$gap-l};
         display: block;
-        inline-size: min(var(--icon_size), var(--icon_size));
-        aspect-ratio: 1;
+        inline-size: var(--icon_size);
+        block-size: var(--icon_size);
         fill: currentColor;
     }
 }

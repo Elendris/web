@@ -24,6 +24,7 @@ const initMap = (): void => {
       position: { lat: 49.17764, lng: 16.69207 },
       title: "Elendris",
       pic: "https://elendris.cz/img/gril.webp",
+      desc: "Útulné ubytování v rodinné atmosféře",
       icon: "./images/map/marker.svg",
     },
     {
@@ -74,10 +75,22 @@ const initMap = (): void => {
 
     marker.addListener("click", () => {
       infoWindow.setContent(`
-        <div>
-          <h3>${data.title}</h3>
-          <img src="${data.pic}" alt="${data.title}" style="width:100px;height:auto;">
-          ${data.link && `<a href="${data.link}" target="_blank">More info</a>`}
+        <div class="map__window">
+          <img src="${data.pic}" alt="${data.title}" width="260px" height="120px" loading="lazy" />
+          <div>
+            <strong>${data.title}</strong>
+            ${data.desc ? `<span>${data.desc}</span>` : ""}
+            ${data.link 
+              ? `<a href="${data.link}" class="link" target="_blank">
+                  Více informací
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" class="icon">
+                    <g id="icomoon-ignore">
+                    </g>
+                    <path d="M503.543 275.965c5.372-5.143 8.457-12.343 8.457-19.886s-3.085-14.629-8.457-19.886l-201.143-192c-10.971-10.514-28.343-10.057-38.743 0.914s-10.056 28.343 0.914 38.743l151.542 144.799h-388.686c-15.2 0-27.428 12.229-27.428 27.429s12.229 27.428 27.428 27.428h388.686l-151.658 144.685c-10.971 10.514-11.314 27.772-0.914 38.745 10.4 10.969 27.772 11.31 38.743 0.913l201.142-192.001 0.115 0.114z"></path>
+                  </svg>
+                </a>` 
+              : ""}
+          </div>
         </div>
       `);
       infoWindow.open(map, marker);

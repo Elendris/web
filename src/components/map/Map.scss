@@ -6,6 +6,7 @@
 @mixin create-map {
   div[role="dialog"]:has(.map__window) {
     padding: 0 !important;
+    max-width: 260px !important;
 
     div:has(+ button[aria-label="Close"]){
       display: none;
@@ -13,7 +14,7 @@
       + button{
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
-        background-color: hsl(0 0% 0% / .5) !important;
+        background-color: $color-primary--transparent !important;
         backdrop-filter: blur($gap-s);
         border-radius: $radius-circle;
         transition: opacity $trans-time $trans-fnc;
@@ -32,23 +33,29 @@
     &__window {
       @include grid-columns(grid, 1fr);
 
+
       > img {
         display: block;
-        max-width: px-to-rem(280px) !important;
+        max-width: px-to-rem(260px) !important;
         max-block-size: px-to-rem(120px);
         object-fit: cover;
       }
 
       > div{
-        @include grid-columns(grid, 1fr, $gap-s);
+        @include grid-columns(grid, 1fr, $gap-m);
         padding: $gap-l;
+        font-size: $gap-l;
         text-align: left;
       }
 
       strong {
-        font-size: $gap-l;
+        font-size: 1.2em;
         white-space: wrap;
         text-wrap: pretty;
+      }
+
+      span{
+        line-height: 1.7;
       }
     }
   }
