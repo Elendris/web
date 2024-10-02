@@ -5,16 +5,18 @@
 @use "icon" as *;
 @use "link" as *;
 @use "tile" as *;
-@use "../../components/room/Room" as *;
-@use "../../components/navigation/Navigation" as *;
+@use "../../components/dock/Dock" as *;
 @use "../../components/map/Map" as *;
+@use "../../components/navigation/Navigation" as *;
 @use "../../components/reservation/Reservation" as *;
+@use "../../components/room/Room" as *;
 
 @mixin create-components {
     @include create-burger;
     @include create-button;
     @include create-card;
     @include create-dialog;
+    @include create-dock;
     @include create-form-item;
     @include create-icon;
     @include create-link;

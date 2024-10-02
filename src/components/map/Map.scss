@@ -15,7 +15,7 @@
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
         background-color: $color-primary--transparent !important;
-        backdrop-filter: blur($gap-s);
+        backdrop-filter: blur($gap-m);
         border-radius: $radius-circle;
         transition: opacity $trans-time $trans-fnc;
 
