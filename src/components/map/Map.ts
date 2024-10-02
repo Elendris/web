@@ -13,7 +13,7 @@ const initMap = (): void => {
   const center = { lat: 49.22055, lng: 16.53246 };
 
   const map = new google.maps.Map(mapElement, {
-    mapId: '1406e53bf9ae68ff',
+    // mapId: '1406e53bf9ae68ff',
     center: center,
     zoom: 12,
     disableDefaultUI: true,
