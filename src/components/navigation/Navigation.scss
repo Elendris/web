@@ -12,7 +12,6 @@
         padding-block: $gap-m;
         padding-inline: $gap-2xl;
         isolation: isolate;
-        isolation: isolate;
         z-index: 9999;
 
         hr {
@@ -21,7 +20,7 @@
             border-block-start: $border-width solid $color-border !important;
         }
 
-        .link{
+        .link {
             font-weight: 500;
         }
     }
@@ -45,9 +44,9 @@
 
     .menu {
         --nav_color: #{$color-black};
+        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
         margin: 0;
         list-style: none;
-        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
 
         &[data-sticky="true"] {
             --nav_color: #{$color-black};
@@ -69,6 +68,7 @@
             line-height: 1.7;
             color: var(--nav_color);
             text-decoration: var(--nav-item_text-decor, none);
+            mix-blend-mode: difference;
 
             @include mq-hover {
                 --nav-item_text-decor: underline;
@@ -76,7 +76,6 @@
         }
     }
 }
-
 
 @keyframes showNav {
     to {
