@@ -20,7 +20,9 @@ const { id } = Astro.props;
   <div class="rooms">
     <Room
       title="Jednolůžkový pokoj"
-      imgSrc="./images/gallery/Elendris20.avif"
+      imgSrc="./images/rooms/room-1/room-1-1.avif"
+      imgCount={3}
+      galeryFolder="room-1"
       price={990}
       id="1"
     >
@@ -31,7 +33,9 @@ const { id } = Astro.props;
     </Room>
     <Room
       title="Dvoulůžkový pokoj"
-      imgSrc="./images/gallery/Elendris16.avif"
+           imgSrc="./images/rooms/room-2/room-2-1.avif"
+      imgCount={2}
+      galeryFolder="room-2"
       price={1450}
       id="2"
     >
@@ -43,6 +47,8 @@ const { id } = Astro.props;
     <Room
       title="Třílůžkový pokoj"
       imgSrc="./images/gallery/Elendris23.avif"
+      imgCount={2}
+      galeryFolder="room-1"
       price={1900}
       id="3"
     >
@@ -54,6 +60,8 @@ const { id } = Astro.props;
     <Room
       title="Rodinný pokoj"
       imgSrc="./images/gallery/Elendris18.avif"
+      imgCount={2}
+      galeryFolder="room-1"
       price={2500}
       id="4"
     >
@@ -65,6 +73,8 @@ const { id } = Astro.props;
     <Room
       title="Rodinný pokoj s kuchyňským koutem"
       imgSrc="./images/gallery/Elendris30.avif"
+      imgCount={2}
+      galeryFolder="room-1"
       price={2500}
       id="5"
     >
@@ -76,7 +86,9 @@ const { id } = Astro.props;
     <Room
       title="Pokoj s vanou"
       imgSrc="./images/gallery/Elendris25.avif"
+      imgCount={2}
       price={1450}
+      galeryFolder="room-1"
       id="6"
     >
       <p slot="room-description">

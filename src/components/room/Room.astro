@@ -5,10 +5,12 @@ interface Props {
   id: string;
   title: string;
   imgSrc: string;
+  imgCount: number;
+  galeryFolder: string;
   price: number;
 }
 
-const { id, title, imgSrc, price } = Astro.props;
+const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
 ---
 
 <button class="card" id={`card-${id}`}>
@@ -49,6 +51,16 @@ const { id, title, imgSrc, price } = Astro.props;
           <Icon name="gallery" />
         </span>
       </a>
+      <div class="detail__hidden-pics">
+        <div class="detail__hidden-pics">
+          {Array.from({ length: imgCount - 1 }).map((_, i) => {
+            const imgUrl = `images/rooms/${galeryFolder}/${galeryFolder}-${i + 2}.avif`;
+            return (
+              <a href={imgUrl} data-fancybox={`room-${id}`} rel="internal"></a>
+            );
+          })}
+        </div>
+      </div>
     </div>
     <h4>Vybavení pokoje</h4>
     <ul>
@@ -70,11 +82,7 @@ const { id, title, imgSrc, price } = Astro.props;
       </li>
       <li>
         <Icon name="food" />
-        Snídaně na pokoj
-      </li>
-      <li>
-        <Icon name="tv" />
-        Televize
+        Snídaně v ceně
       </li>
     </ul>
   </div>

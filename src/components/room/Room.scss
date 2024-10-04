@@ -157,14 +157,18 @@
 
       > span {
         font-size: clamp($gap-l, 2.5svb, $gap-xl);
-        color: grey;
+        color: $color-text;
       }
 
       > strong {
         font-size: clamp($gap-3xl, 5svb, 4rem);
         font-weight: 900;
-        color: $color-black;
+        color: $color-title;
       }
+    }
+
+    &__hidden-pics{
+      display: none;
     }
   }
 
