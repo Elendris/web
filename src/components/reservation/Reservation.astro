@@ -82,80 +82,9 @@ import Icon from "../icons/Icon.astro";
 </dialog>
 
 <script>
+  import { initReservation } from "./Reservation.ts";
+
   document.addEventListener("DOMContentLoaded", () => {
-    const reservationDialog = document.querySelector(
-      ".reservation"
-    ) as HTMLDialogElement;
-
-    const closeButton = document.getElementById("reservationClose");
-
-    closeButton &&
-      closeButton.addEventListener("click", () => {
-        reservationDialog.close();
-      });
-
-    const reservationButtons = document.querySelectorAll(
-      "button[data-reservation]"
-    );
-
-    reservationButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        reservationDialog.showModal();
-      });
-    });
-
-    const addRoomButton = document.getElementById("addRoom");
-    let roomCounter = 0; // Counter to keep track of the number of rooms added
-
-    if (addRoomButton) {
-      addRoomButton.addEventListener("click", function () {
-        const roomRow = document.getElementById("roomsList");
-        if (roomRow) {
-          roomCounter++; // Increment the counter for each new room
-          const newRoomContent = document.createElement("div");
-          newRoomContent.innerHTML = `
-                        <div class="reservation__room">
-                          <label class="form-item">
-                            Zvolte pokoj
-                            <select name="rooms${roomCounter}" required>
-                                <option value="">-- Vyberte jendu z možnstí --</option>
-                                <option value="room1">Jednolůžkový pokoj</option>
-                                <option value="room2">Dvoulůžkový pokoj</option>
-                                <option value="room3">Třílůžkový pokoj</option>
-                                <option value="room4">Rodinný pokoj</option>
-                                <option value="room5">Rodinný pokoj s kuchyňským koutem</option>
-                                <option value="room6">Pokoj s vanou</option>
-                            </select>
-                            <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
-                        </label>
-                        <label class="form-item">
-                            Počet hostů
-                            <input type="number" min="1" max="10" name="persons${roomCounter}" required />
-                        </label>
-                        <button type="button" class="deleteRoom btn btn--delete" aria-label="Odebrat pokoj" title="Odebrat pokoj">
-                          <svg class="icon icon-delete"><use xlink:href="#icon-delete"></use></svg>
-                        </button>
-                         <div class="col-span-3">
-                          <label class="check-box">
-                            <input type="checkbox" value="">
-                            Oddělené postele
-                          </label>
-                        </div>
-                      </div>
-                      <hr />
-                    `;
-          roomRow.appendChild(newRoomContent);
-
-          const newSelect = newRoomContent.querySelector("select");
-          newSelect && newSelect.focus();
-
-          const deleteButton = newRoomContent.querySelector(".deleteRoom");
-          deleteButton &&
-            deleteButton.addEventListener("mousedown", () => {
-              roomRow.removeChild(newRoomContent);
-            });
-        }
-      });
-    }
+    initReservation()
   });
 </script>
