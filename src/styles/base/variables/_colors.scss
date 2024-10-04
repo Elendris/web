@@ -15,6 +15,8 @@ $color-border: hsl(0 0% 80%);
 $color-success: hsl(120 80% 35%);
 $color-warning: hsl(34 100% 60%);
 $color-error: hsl(0 78% 45%);
+$color-disabled: hsl(0 0% 40%);;
+$color-disabled-bg: hsl(0 0% 70%);
 $dialog-backdrop-bg: hsl(from #{$color-black} h s l / 0.65);
 
 @mixin generate-colors {
@@ -26,4 +28,6 @@ $dialog-backdrop-bg: hsl(from #{$color-black} h s l / 0.65);
   --color-secondary: #{$color-secondary};
   --color-secondary--hover: #{$color-secondary--hover};
   --color-shadow: #{$color-shadow};
+  --color-disabled: #{$color-disabled};
+  --color-disabled-bg: #{$color-disabled-bg};
 }
