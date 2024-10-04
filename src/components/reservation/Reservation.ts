@@ -1,9 +1,16 @@
 import { createNewRoomContent, handleRoomSelectChange, handleDeleteRoom } from './Reservation.helpers';
 
-
 export const initReservation = () => {
   const reservationDialog = document.querySelector(".reservation") as HTMLDialogElement;
   const closeButton = document.getElementById("reservationClose");
+  const submitButton = document.getElementById("submitBtn") as HTMLButtonElement;
+  let roomCounter = 0;
+
+  const updateSubmitButtonState = () => {
+    if (submitButton) {
+      submitButton.disabled = roomCounter === 0;
+    }
+  };
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -19,7 +26,6 @@ export const initReservation = () => {
   });
 
   const addRoomButton = document.getElementById("addRoom");
-  let roomCounter = 0;
 
   if (addRoomButton) {
     addRoomButton.addEventListener("click", function () {
@@ -40,9 +46,17 @@ export const initReservation = () => {
 
         const deleteButton = newRoomContent.querySelector(".deleteRoom");
         if (deleteButton) {
-          deleteButton.addEventListener("click", () => handleDeleteRoom(roomRow, newRoomContent));
+          deleteButton.addEventListener("click", () => {
+            handleDeleteRoom(roomRow, newRoomContent);
+            roomCounter--;
+            updateSubmitButtonState();
+          });
         }
+
+        updateSubmitButtonState();
       }
     });
   }
-}
+
+  updateSubmitButtonState();
+};

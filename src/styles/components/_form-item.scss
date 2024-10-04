@@ -1,5 +1,6 @@
 @use '../base/mixins/index' as *;
 @use '../base/variables/index' as *;
+@use '../base/functions/index' as *;
 
 @mixin create-form-item {
 
@@ -15,17 +16,18 @@
     }
   }
 
-  input, select{
+  :where(input, select){
     display: block;
     min-width: 0;
-    min-block-size: 50px;
-    padding: $gap-l;
+    padding-inline: $gap-l;
+    padding-block: $gap-s;
     border: $border-width solid $color-primary;
     border-radius: $input-border-radius;
     font-family: $font-text;
     font-size: $gap-l;
     font-weight: initial;
-    line-height: 1;
+    line-height: 1.5;
+    block-size: px-to-rem(50px);
     color: $color-text;
     outline-offset: -2px;
 
@@ -66,7 +68,7 @@
     input[type="checkbox"]{
       display: block;
       inline-size: $gap-xl;
-      aspect-ratio: 1;
+      block-size: $gap-xl;
       border: $border-width solid $color-primary;
       border-radius: $input-border-radius;
       cursor: pointer;

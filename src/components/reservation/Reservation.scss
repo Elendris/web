@@ -14,11 +14,12 @@
         margin: 0;
         background-color: $color-white;
         opacity: var(--dialog_opacity, 0);
-        border-radius: 1em;
+        // border-radius: 1em;
         translate: -50% var(--dialog_trans-y, 5svb);
         transition-duration: 0.3s;
         transition-property: overlay display opacity;
         transition-behavior: allow-discrete;
+        border: $gap-m solid $color-primary;
 
         &[open] {
             --dialog_display: block;
@@ -108,6 +109,10 @@
             @include grid-col-span(2);
             @include grid-columns(grid, 1fr 120px auto, $gap-xl, flex-end);
             row-gap: $gap-l;
+
+            > div[id*="separateBedsContainer"]:empty{
+                display: none;
+            }
         }
 
         &__room-list {
