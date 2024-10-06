@@ -1,17 +1,19 @@
-
 <div id="map" class="map"></div>
 
 <script>
   import { loadGoogleMapsAPI } from "./Map.ts";
 
   document.addEventListener("DOMContentLoaded", () => {
-    let firstScrollLogged = false;
+    let mapLoaded = false;
 
-    window.addEventListener('scroll', () => {
-        if (!firstScrollLogged) {
-            loadGoogleMapsAPI()
-            firstScrollLogged = true
-        }
-    })
+    const onScroll = () => {
+      if (!mapLoaded) {
+        loadGoogleMapsAPI();
+        mapLoaded = true;
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
   });
 </script>
