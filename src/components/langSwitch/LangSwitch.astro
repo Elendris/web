@@ -1,0 +1,26 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
+<div class="lang-switch">
+  <button class="lang-switch__btn" 
+          type="button" 
+          aria-label="Změnit jazyk" 
+          title="Změnit jazyk">
+    <Icon name="globe" />
+    <span>Česky</span>
+    <Icon name="chevron-down" />
+  </button>
+  <div  class="lang-switch__popover" data-open="false">
+    <a href="/" hreflang="cs" rel="noreferer" class="link">Česky</a>
+    <a href="/" hreflang="en" rel="noreferer" class="link">Anglicky</a>
+  </div>
+</div>
+
+<script>
+import { initLangSwitch } from "./LangSwitch"
+
+   document.addEventListener('DOMContentLoaded', () => {
+    initLangSwitch()
+   })
+</script>

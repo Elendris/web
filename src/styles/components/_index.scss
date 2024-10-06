@@ -6,6 +6,7 @@
 @use "link" as *;
 @use "tile" as *;
 @use "../../components/dock/Dock" as *;
+@use "../../components/langSwitch/LangSwitch" as *;
 @use "../../components/map/Map" as *;
 @use "../../components/navigation/Navigation" as *;
 @use "../../components/reservation/Reservation" as *;
@@ -19,6 +20,7 @@
     @include create-dock;
     @include create-form-item;
     @include create-icon;
+    @include create-lang-switch;
     @include create-link;
     @include create-tile;
     @include create-nav;
