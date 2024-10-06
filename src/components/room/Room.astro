@@ -40,6 +40,7 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
         href={imgSrc}
         aria-label="Zobrazit fotogalerii"
         data-fancybox={`room-${id}`}
+        data-caption={`${title}`}
         title="Zobrazit fotogalerii"
         rel="internal"
         class="gallery__item"
@@ -56,7 +57,7 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
           {Array.from({ length: imgCount - 1 }).map((_, i) => {
             const imgUrl = `images/rooms/${galeryFolder}/${galeryFolder}-${i + 2}.avif`;
             return (
-              <a href={imgUrl} data-fancybox={`room-${id}`} rel="internal"></a>
+              <a href={imgUrl} data-fancybox={`room-${id}`} data-caption={`${title}`} rel="internal"></a>
             );
           })}
         </div>
