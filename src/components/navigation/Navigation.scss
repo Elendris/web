@@ -16,6 +16,10 @@
         // opacity: 0;
         // animation: showContent 1s forwards 1s;
 
+        @include cq(desktop-l, max) {
+           display: none;
+        }
+
         hr {
             inline-size: 100%;
             margin-block: clamp($gap-m, 2.5svb, $gap-xl);

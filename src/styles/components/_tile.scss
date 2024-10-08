@@ -8,8 +8,9 @@
     @include grid-columns(
       grid,
       repeat(var(--tiles-count, 5), minmax($gap-3xl, 1fr)),
-      var(--tiles_gap, clamp($gap-l, 4svi, $gap-3xl)),
-      stretch
+      var(--tiles_gap, clamp($gap-l, 2.5svi, $gap-3xl)),
+      stretch,
+      center
     );
     margin-block-start: 5svb;
     margin-block-end: 8svb;
@@ -38,7 +39,7 @@
         grid-column-start: 3;
       }
 
-      @include mq-responsive(mobile-l, max) {
+      @include mq-responsive(tablet, max) {
         grid-column-start: 1;
       }
     }
@@ -87,6 +88,10 @@
       @include grid-col-span(4);
     }
 
+    @include mq-responsive(tablet, max) {
+      @include grid-col-span(6);
+    }
+
     @include mq-responsive(mobile-l, max) {
       @include grid-col-span(12);
       --tile_pad-block: 6svi;
@@ -96,6 +101,12 @@
       padding-block: 0;
       box-shadow: none;
       border-radius: none;
+    }
+
+    &:nth-child(3) {
+      @include mq-responsive(tablet, max) {
+        grid-column-start: 4;
+      }
     }
 
     > .icon {
