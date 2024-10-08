@@ -4,25 +4,45 @@
 @mixin create-container {
     .container {
         --container_max-inline-size: #{$width-desktop-full-hd};
-        --container_padding-x: #{$gap-2xl};
+        --container_padding-x: 5svi;
         @include margin-set-x(auto);
         inline-size: min(var(--container_max-inline-size), calc(100% - var(--container_padding-x)));
 
-        @include mq-responsive('desktop-full-hd', max) {
+        @include mq-responsive(desktop-full-hd, max) {
+            --container_max-inline-size: #{$width-desktop-hd};
+        }
+
+        @include mq-responsive(desktop-hd, max) {
+            --container_max-inline-size: #{$width-desktop-l};
+        }
+
+        @include mq-responsive(desktop-l, max) {
+            --container_max-inline-size: #{$width-desktop-s};
+            --container_padding-x: #{$gap-2xl};
+        }
+
+        @include mq-responsive(tabet, max) {
+            --container_padding-x: 8svi;
+        }
+
+        @include mq-responsive(mobile-l, max) {
             --container_padding-x: #{$gap-xl};
         }
 
-
-        @include mq-responsive('tablet', max) {
-            --container_padding-x: #{$gap-xl};
-        }
-
-        @include mq-responsive('mobile-l', max) {
+        @include mq-responsive(mobile-m, max) {
             --container_padding-x: #{$gap-l};
         }
 
         &--small {
             --container_max-inline-size: #{$width-desktop-hd};
+
+            @include mq-responsive(desktop-hd, max) {
+                --container_max-inline-size: #{$width-desktop-s};
+            }
+
+            @include mq-responsive(desktop-l, max) {
+                --container_max-inline-size: #{$width-tablet};
+            }
         }
     }
 }

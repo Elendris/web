@@ -5,20 +5,65 @@
 
 @mixin create-tile {
   .tiles {
-    @include grid-columns(grid, repeat(var(--tiles-count, 5), minmax($gap-3xl, 1fr)), $gap-3xl, stretch);
+    @include grid-columns(
+      grid,
+      repeat(var(--tiles-count, 5), minmax($gap-3xl, 1fr)),
+      var(--tiles_gap, clamp($gap-l, 4svi, $gap-3xl)),
+      stretch
+    );
     margin-block-start: 5svb;
     margin-block-end: 8svb;
+
+    @include mq-responsive(desktop-l, max) {
+      --tiles-count: 12;
+    }
+
+    @include mq-responsive(mobile-l, max) {
+      --tiles_gap: #{$gap-xl};
+    }
+  }
+
+  div:not([class]):has(> .tile) {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: clamp($gap-l, 4svi, $gap-3xl);
+    @include grid-col-span(2);
+
+    @include mq-responsive(desktop-l, max) {
+      @include grid-col-span(12);
+    }
+
+    > .tile:first-child {
+      @include mq-responsive(desktop-l, max) {
+        grid-column-start: 3;
+      }
+
+      @include mq-responsive(mobile-l, max) {
+        grid-column-start: 1;
+      }
+    }
+
+    > .tile:last-child {
+      @include mq-responsive(desktop-l, max) {
+        grid-column-start: 7;
+      }
+
+      @include mq-responsive(mobile-l, max) {
+        grid-column-start: 1;
+      }
+    }
   }
 
   .tile {
-    @include flex-set(flex, column, nowrap, $gap-3xl, center, flex-start);
-    padding-block: 4rem;
-    padding-inline: $gap-xl;
+    @include flex-set(flex, var(--tile_flex-direction, column), nowrap, var(--tile_gap, $gap-3xl), center, flex-start);
+    padding-block: clamp($gap-xl, var(--tile_pad-block, 4svi), 4rem);
+    padding-inline: clamp($gap-l, 2.5svi, $gap-xl);
     background-color: $color-white;
-opacity: 1 !important;
+    container-type: inline-size;
+    opacity: 1 !important;
     // opacity: 0;
     // border-radius: $radius-l;
-    text-align: center;
+    text-align: var(--tile_text-align, center);
     border-radius: 1em;
     animation: fadeIn linear forwards;
     // animation-timeline: view();
@@ -30,21 +75,52 @@ opacity: 1 !important;
     //   }
     // }
 
+    // @include mq-responsive(desktop-l, max) {
+    //   padding-block: 3rem;
+    // }
+
+    @include mq-responsive(desktop-hd, max) {
+      --tile_pad-block: 3svi;
+    }
+
+    @include mq-responsive(desktop-l, max) {
+      @include grid-col-span(4);
+    }
+
+    @include mq-responsive(mobile-l, max) {
+      @include grid-col-span(12);
+      --tile_pad-block: 6svi;
+      --tile_flex-direction: row;
+      --tile_text-align: left;
+      --tile_gap: #{$gap-xl};
+      padding-block: 0;
+      box-shadow: none;
+      border-radius: none;
+    }
+
     > .icon {
-      --icon_size: #{px-to-rem(85px)};
+      --icon_size: clamp(#{px-to-rem(40px)}, 50cqi, #{px-to-rem(85px)});
       fill: $color-secondary;
+
+      @include mq-responsive(mobile-l, max) {
+        --icon_size: 4rem;
+      }
     }
 
     > strong {
       @extend %subtitle;
       font-size: $gap-l;
-      font-weight: 900;
-      text-wrap: pretty;
+      text-wrap: balance;
+
+      @include mq-responsive(mobile-l, max) {
+        max-inline-size: $width-mobile-s;
+      }
     }
   }
 
   @keyframes fadeIn {
-    50%, 100% {
+    50%,
+    100% {
       opacity: 1;
     }
   }
