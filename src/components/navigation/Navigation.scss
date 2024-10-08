@@ -5,14 +5,16 @@
 
 @mixin create-nav {
     nav {
+        @include grid-columns(grid, var(--nav_col-temp, px-to-rem(200px) 1fr px-to-rem(200px)), $gap-l, center);
         position: absolute;
         top: 0;
-        display: grid;
         inline-size: 100%;
-        padding-block: $gap-m;
+        padding-block: $gap-xl;
         padding-inline: $gap-2xl;
         isolation: isolate;
         z-index: 999;
+        opacity: 0;
+        animation: showContent 1s forwards 1s;
 
         hr {
             inline-size: 100%;
@@ -26,13 +28,6 @@
     }
 
     .nav {
-        &__top {
-            @include flex-set(flex, row, nowrap, $gap-m, flex-end, space-between);
-        }
-
-        &__bottom {
-            @include flex-set(flex, row, nowrap, $gap-m, flex-start, space-between);
-        }
 
         &__logo {
             > img {
@@ -40,11 +35,15 @@
                 inline-size: px-to-rem(70px);
             }
         }
+
+        &__right{
+            @include flex-set(inline-flex, column, nowrap, $gap-l, flex-end, center);
+        }
     }
 
     .menu {
         --nav_color: #{$color-black};
-        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center);
+        @include flex-set(inline-flex, row, nowrap, clamp($gap-xl, 3svi, $gap-3xl), center, center);
         margin: 0;
         list-style: none;
 
@@ -59,13 +58,14 @@
             border-radius: 1em;
             animation: showNav var(--trans-time) forwards;
             translate: -50% -100%;
+            color: var(--nav_color);
         }
 
-        a {
+        li a {
             @extend %subtitle;
             font-size: clamp($gap-l, 2svb, px-to-rem(22px));
             line-height: 1.7;
-            color: var(--nav_color);
+            color: inherit;
             text-decoration: var(--nav-item_text-decor, none);
             mix-blend-mode: difference;
 

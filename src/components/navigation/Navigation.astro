@@ -4,36 +4,31 @@ import LangSwitch from "../langSwitch/LangSwitch.astro";
 ---
 
 <nav>
-    <div class="nav__top">
+    <a href="/" class="nav__logo">
+        <img src="./images/logos/elendris-logo.svg" alt="Elendris logo" />
+    </a>
+    <ul class="menu" data-sticky="false">
+        <li>
+            <a href="#home">Elendris</a>
+        </li>
+        <li>
+            <a href="#about">O nás</a>
+        </li>
+        <li>
+            <a href="#rooms">Pokoje</a>
+        </li>
+        <li>
+            <a href="#contact">Kontakt</a>
+        </li>
+        <LangSwitch />
+    </ul>
+    <div class="nav__right">
         <a href="tel: +420758695456" class="link" rel="noopener">
             <Icon name="phone" />
             +420 758 695 456
         </a>
-       <LangSwitch />
-    </div>
-    <hr />
-    <div class="nav__bottom">
-        <a href="" class="nav__logo">
-            <img src="./images/logos/elendris-logo.svg" alt="Elendris logo" />
-        </a>
-        <ul class="menu" data-sticky="false">
-            <li>
-                <a href="#home">Elendris</a>
-            </li>
-            <li>
-                <a href="#about">O nás</a>
-            </li>
-            <li>
-                <a href="#rooms">Pokoje</a>
-            </li>
-            <li>
-                <a href="#contact">Kontakt</a>
-            </li>
-        </ul>
-        <div class="d-flex gap-s">
-            <button class="btn btn--small" data-reservation>Rezervovat</button>
-            <button id="menuBtn" class="burger"> </button>
-        </div>
+        <button class="btn btn--small" data-reservation>Rezervovat</button>
+        <!-- <button id="menuBtn" class="burger"> </button> -->
     </div>
 </nav>
 

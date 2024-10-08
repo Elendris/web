@@ -7,6 +7,8 @@
   .lang-switch {
     position: relative;
     z-index: 9999;
+    color: inherit;
+
 
     &__btn {
       @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
@@ -15,13 +17,15 @@
       padding: 0;
       border-color: $color-transparent;
       cursor: pointer;
-    
+      color: inherit;
+      font-weight: 500;
 
       @include mq-hover{
         text-decoration: underline;
       }
       > .icon:first-child {
        translate: 0 num-neg($border-width);
+       --icon_size: 20px;
       }
 
       > .icon:last-child {

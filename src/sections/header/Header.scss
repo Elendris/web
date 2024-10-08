@@ -31,11 +31,22 @@
       color: $color-primary;
 
       h1 {
-        translate: num-neg($gap-l);
+        animation: showTitle 1s forwards;
+        opacity: 0;
+        translate: num-neg($gap-l) 30%;
       }
 
       small {
-        font-size: 0.3em;
+        font-size: .3em;
+        opacity: 0;
+        translate: 0 2svb;
+        animation: showContent 1s forwards .5s;
+      }
+
+      + div{
+        translate: 0 2svb;
+        opacity: 0;
+        animation: showContent 1s forwards 1s;
       }
     }
   }
@@ -58,8 +69,7 @@
       }
 
       &:after {
-        animation: showImg $trans-time forwards $trans-time;
-        animation: showImg $trans-time forwards var(--anim-pic_anim-delay);
+        animation: showImg .5s forwards var(--anim-pic_anim-delay);
         transform-origin: center;
         clip-path: var(--anim-pic_clip-path);
         position: absolute;
@@ -83,7 +93,7 @@
         --anim-pic-after_trans-x: #{num-neg($gap-xs)};
         --anim-pic_bg-position: center;
         --anim-pic_height: 85svb;
-        --anim-pic_anim-delay: #{$trans-time};
+        --anim-pic_anim-delay: 1.25s;
         aspect-ratio: 1;
       }
 
@@ -95,7 +105,7 @@
         --anim-pic-after_trans-x: #{num-neg($gap-s)};
         --anim-pic_bg-position: center center;
         --anim-pic_height: 40svb;
-        --anim-pic_anim-delay: #{calc($trans-time * 2)};
+        --anim-pic_anim-delay: 1.5s;
         position: absolute;
         inset: 0 0 auto auto;
         inline-size: 50svb;
@@ -119,5 +129,20 @@
 @keyframes animSmallImg {
   to {
     clip-path:  polygon( 0.421% 43.667%,0.421% 43.667%,0.289% 43.823%,0.182% 43.991%,0.102% 44.167%,0.048% 44.351%,0.021% 44.538%,0.02% 44.728%,0.047% 44.916%,0.101% 45.101%,0.182% 45.28%,0.29% 45.451%,40.314% 99.638%,40.314% 99.638%,40.483% 99.83%,40.678% 99.989%,40.896% 100.115%,41.13% 100.207%,41.376% 100.264%,41.628% 100.286%,41.883% 100.271%,42.134% 100.219%,42.377% 100.129%,42.607% 100%,99.73% 61.713%,99.73% 61.713%,99.936% 61.549%,100.104% 61.361%,100.234% 61.154%,100.324% 60.934%,100.373% 60.704%,100.382% 60.47%,100.35% 60.237%,100.276% 60.009%,100.16% 59.791%,100% 59.589%,44.769% 0.644%,44.769% 0.644%,44.564% 0.46%,44.335% 0.317%,44.086% 0.214%,43.826% 0.152%,43.558% 0.129%,43.291% 0.147%,43.029% 0.205%,42.778% 0.304%,42.546% 0.443%,42.337% 0.622%,0.421% 43.667% );
+  }
+}
+
+
+@keyframes showTitle{
+  to{
+    opacity: 1;
+    translate: num-neg($gap-l) 0;
+  }
+}
+
+@keyframes showContent{
+  to{
+    opacity: 1;
+    translate: 0 0;
   }
 }
