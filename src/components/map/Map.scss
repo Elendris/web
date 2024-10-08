@@ -12,7 +12,7 @@
       display: none;
 
       + button{
-        @extend %blur-bg;
+        @extend %glass;
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
         border-radius: $radius-circle;

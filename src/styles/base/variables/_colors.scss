@@ -18,7 +18,7 @@ $color-error: hsl(0 78% 45%);
 $color-disabled: hsl(0 0% 40%);;
 $color-disabled-bg: hsl(0 0% 70%);
 $dialog-backdrop-bg: hsl(from $color-black h s l / .65);
-$blur-bg: hsl(from $color-primary h s l / .5);
+$glass-bg: hsl(from $color-primary h s l / .5);
 
 @mixin generate-colors {
   --color-white: #{$color-white};

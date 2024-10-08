@@ -9,7 +9,6 @@
     z-index: 9999;
     color: inherit;
 
-
     &__btn {
       @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
       font-size: $gap-l;
@@ -18,14 +17,12 @@
       border-color: $color-transparent;
       cursor: pointer;
       color: inherit;
-      font-weight: 500;
 
       @include mq-hover{
         text-decoration: underline;
       }
       > .icon:first-child {
-       translate: 0 num-neg($border-width);
-       --icon_size: 20px;
+       --icon_size: #{$gap-xl};
       }
 
       > .icon:last-child {
@@ -33,17 +30,16 @@
       }
 
       > span{
+        font-family: $font-title;
         line-height: 1.5;
         font-weight: 500;
       }
     }
 
     &__popover {
-      @extend %blur-bg;
+      @extend %glass;
       @include flex-set(var(--lang-switch-popover_display, none), column, nowrap, $gap-m);
-      background-color: $color-white;
       border-radius: 1em;
-      backdrop-filter: blur($gap-m);
       text-align: left;
       position: absolute;
       inset: calc(100% + $gap-s) auto auto 50%;

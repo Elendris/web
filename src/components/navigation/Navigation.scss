@@ -13,8 +13,8 @@
         padding-inline: $gap-2xl;
         isolation: isolate;
         z-index: 999;
-        opacity: 0;
-        animation: showContent 1s forwards 1s;
+        // opacity: 0;
+        // animation: showContent 1s forwards 1s;
 
         hr {
             inline-size: 100%;
@@ -48,7 +48,7 @@
         list-style: none;
 
         &[data-sticky="true"] {
-            @extend %blur-bg;
+            @extend %glass;
             --nav_color: #{$color-white};
             position: fixed;
             top: 0;
@@ -66,6 +66,7 @@
             font-size: clamp($gap-l, 2svb, px-to-rem(22px));
             line-height: 1.7;
             color: inherit;
+            font-family: $font-title;
             text-decoration: var(--nav-item_text-decor, none);
             mix-blend-mode: difference;
 

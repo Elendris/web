@@ -43,7 +43,7 @@
       inset: auto 0 0 0;
       padding-inline: 2.5cqi;
       padding-block: 1.5cqi;
-      @extend %blur-bg;
+      @extend %glass;
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
     }
@@ -199,7 +199,7 @@
     }
 
     &__item-btn{
-      @extend %blur-bg;
+      @extend %glass;
       position: absolute;
       inset: auto $gap-l $gap-l auto;
       display: grid;
