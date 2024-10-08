@@ -11,15 +11,15 @@
   }
 
   .tile {
-    @include flex-set(flex, column, nowrap, $gap-2xl, center, flex-start);
+    @include flex-set(flex, column, nowrap, $gap-3xl, center, flex-start);
     padding-block: 4rem;
-    padding-inline: $gap-l;
+    padding-inline: $gap-xl;
     background-color: $color-white;
 opacity: 1 !important;
     // opacity: 0;
     // border-radius: $radius-l;
-    border: $gap-m solid $color-black;
     text-align: center;
+    border-radius: 1em;
     animation: fadeIn linear forwards;
     // animation-timeline: view();
     box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
@@ -31,14 +31,14 @@ opacity: 1 !important;
     // }
 
     > .icon {
-      --icon_size: 100px;
+      --icon_size: #{px-to-rem(85px)};
       fill: $color-secondary;
     }
 
     > strong {
       @extend %subtitle;
       font-size: $gap-l;
-      font-weight: 500;
+      font-weight: 900;
       text-wrap: pretty;
     }
   }

@@ -13,10 +13,11 @@
 
     body {
         min-block-size: 100svb;
+        max-inline-size: 100svi;
+        overflow-x: clip;
         margin: 0;
         font-family: system-ui;
         accent-color:  $color-primary;
-        overflow-x: hidden;
     }
 
     textarea {

@@ -12,7 +12,7 @@
         padding-block: $gap-m;
         padding-inline: $gap-2xl;
         isolation: isolate;
-        z-index: 9999;
+        z-index: 999;
 
         hr {
             inline-size: 100%;
@@ -49,16 +49,15 @@
         list-style: none;
 
         &[data-sticky="true"] {
-            --nav_color: #{$color-black};
+            @extend %blur-bg;
+            --nav_color: #{$color-white};
             position: fixed;
             top: 0;
             left: 50%;
             padding-block: calc($gap-l - $gap-s);
-            padding-inline: $gap-xl;
-            background-color: $nav-bg;
-            backdrop-filter: blur($gap-m);
-            border-radius: 100vmax;
-            animation: showNav 0.3s forwards;
+            padding-inline: $gap-3xl;
+            border-radius: 1em;
+            animation: showNav var(--trans-time) forwards;
             translate: -50% -100%;
         }
 

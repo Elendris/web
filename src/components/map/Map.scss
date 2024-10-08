@@ -12,12 +12,11 @@
       display: none;
 
       + button{
+        @extend %blur-bg;
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
-        background-color: $color-primary--transparent !important;
-        backdrop-filter: blur($gap-m);
         border-radius: $radius-circle;
-        transition: opacity $trans-time $trans-fnc;
+        opacity: 1 !important;
 
         > span{
           background-color: $color-white !important;

@@ -23,15 +23,16 @@
     block-size: 84svb;
     padding-block: clamp($gap-2xl, 4svb, 5rem);
     padding-inline: clamp($gap-2xl, 4svb, 5rem);
+    border-radius: 1em;
     background-color: $color-white--transparent;
     backdrop-filter: blur($gap-m);
-    border: $gap-m solid $color-primary;
     font-family: $font-title;
     color: $color-text;
     text-align: left;
     isolation: isolate;
     z-index: 10;
     pointer-events: initial;
+    box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
 
     &__footer{
       margin-block-start: 8svb;

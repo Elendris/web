@@ -27,7 +27,7 @@ export const createNewRoomContent = (roomCounter: number): HTMLElement => {
 }
 
 export const handleRoomSelectChange = (newSelect: HTMLSelectElement, guestCountContainer: HTMLElement, separateBedsContainer: HTMLElement, roomCounter: number) => {
-  if (newSelect.value === "room4" || newSelect.value === "room5") {
+  if (newSelect.value === "room4" || newSelect.value === "room5" || newSelect.value === "room6")  {
     guestCountContainer.innerHTML = `
       <label class="form-item">
         Počet hostů

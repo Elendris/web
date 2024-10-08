@@ -1,0 +1,7 @@
+@use "../mixins/index" as *;
+@use "../variables/index" as *;
+
+%blur-bg {
+  background-color: $blur-bg !important;
+  backdrop-filter: blur($gap-m);
+}

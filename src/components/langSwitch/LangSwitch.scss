@@ -35,15 +35,17 @@
     }
 
     &__popover {
+      @extend %blur-bg;
       @include flex-set(var(--lang-switch-popover_display, none), column, nowrap, $gap-m);
       background-color: $color-white;
-      border: $gap-s solid $color-primary;
+      border-radius: 1em;
       backdrop-filter: blur($gap-m);
       text-align: left;
       position: absolute;
       inset: calc(100% + $gap-s) auto auto 50%;
       translate: -50% 0;
       padding: $gap-l;
+      box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
 
       &[data-open="true"] {
         --lang-switch-popover_display: flex;

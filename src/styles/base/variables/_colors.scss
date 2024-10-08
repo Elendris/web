@@ -1,13 +1,13 @@
 $color-white: hsl(0 0% 100%);
-$color-white--transparent: hsl(0 0% 100% / .8);
+$color-white--transparent: hsl(0 0% 100% / .75);
 $color-black:  hsl(0 0% 0%);
 $color-transparent: hsl(0 0% 0% / 0%);
 $color-primary: hsl(0 0% 12%);
 $color-primary--transparent: hsl(0 0% 12% / .8);
 $color-primary--hover: $color-black;
-$color-secondary: hsl(29 37% 61%);
+$color-secondary: hsl(3 59% 69%);
 $color-secondary--hover: hsl(from #{$color-secondary} h s 51%);
-$color-shadow: hsl(0 0% 0% / 15%);
+$color-shadow: hsl(0 0% 0% / 30%);
 $color-text: hsl(0 0% 24%);
 $color-title: hsl(0 0% 12%);
 $color-label: hsl(0 0% 50%);
@@ -17,8 +17,8 @@ $color-warning: hsl(34 100% 60%);
 $color-error: hsl(0 78% 45%);
 $color-disabled: hsl(0 0% 40%);;
 $color-disabled-bg: hsl(0 0% 70%);
-$dialog-backdrop-bg: hsl(from #{$color-black} h s l / 0.65);
-$nav-bg: hsl(from $color-primary h s l / 0.15);
+$dialog-backdrop-bg: hsl(from $color-black h s l / .65);
+$blur-bg: hsl(from $color-primary h s l / .5);
 
 @mixin generate-colors {
   --color-white: #{$color-white};

@@ -5,9 +5,9 @@
 
 @mixin create-card {
   .rooms {
-    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), $gap-2xl, stretch);
+    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), $gap-3xl, stretch);
     margin-block-start: 5svb;
-    padding-inline: $gap-2xl;
+    padding-inline: $gap-3xl;
   }
 
   .card {
@@ -15,13 +15,14 @@
     position: relative;
     display: grid;
     place-items: center;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     padding: 0;
+    border-radius: 1em;
     background-color: $color-transparent;
     border: none;
-    overflow: hidden;
+    overflow: clip;
     cursor: pointer;
-    border: $gap-m solid $color-primary;
+    box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
 
     &:focus-visible{
       --card-btn_translate-y: 0;
@@ -37,11 +38,12 @@
     }
 
     &__content {
-      @include flex-set(flex, row, nowrap, 5cqi, flex-end, space-between, center);
+      @include flex-set(flex, row, nowrap, 5cqi, center, space-between, center);
       position: absolute;
-      inset: 0;
-      padding: 5cqi;
-      border-image: linear-gradient($color-transparent 33%, hsl(from #{$color-black} h s l / 0.9)) fill 1;
+      inset: auto 0 0 0;
+      padding-inline: 2.5cqi;
+      padding-block: 1.5cqi;
+      @extend %blur-bg;
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
     }
@@ -54,7 +56,7 @@
       scale: var(--card-img_scale, 1);
       transition:
         filter $trans-time $trans-fnc,
-        scale $trans-time $trans-fnc,
+        scale calc($trans-time * 5) ease-out,
         opacity $trans-time $trans-fnc;
       z-index: 1;
       pointer-events: none;
@@ -70,10 +72,13 @@
 
     strong {
       @extend %subtitle;
-      font-size: clamp($gap-l, 5cqb, $gap-xl);
+      font-size: clamp($gap-l, 2svb, px-to-rem(22px));
       color: $color-white;
       text-align: left;
       text-wrap: balance;
+      border-radius: 1em;
+      padding-block: $gap-l;
+      padding-inline: $gap-xl;
     }
   }
 
@@ -175,11 +180,12 @@
   .gallery{
     margin-block-start: 2.5svb;
     margin-block-end: 5svb;
-
+    
     &__item{
       position: relative;
       display: inline-block;
-      border-radius: $radius-m;
+      border-radius: 1em;
+      box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
       overflow: hidden;
 
       @include mq-hover{
@@ -193,14 +199,13 @@
     }
 
     &__item-btn{
+      @extend %blur-bg;
       position: absolute;
       inset: auto $gap-l $gap-l auto;
       display: grid;
       place-items: center;
       inline-size: 4rem;
       aspect-ratio: 1;
-      background-color: hsl(from #{$color-black} h s l / 0.25);
-      backdrop-filter: blur($gap-xs);
       border-radius: $radius-circle;
       color: $color-white;
       z-index: 2;

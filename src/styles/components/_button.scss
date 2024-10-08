@@ -11,7 +11,7 @@
     padding-inline: var(--btn_pad-inline, clamp(#{$gap-l}, 2.5svi, #{$gap-xl}));
     background-color: var(--btn_bg, var(--color-primary));
     border: var(--btn_border-width, var(--border-width-2)) solid var(--btn_border-color, var(--color-primary));
-    // border-radius: var(--btn_border-radius, $gap-m);
+    border-radius: var(--btn_border-radius, .5em);
     font-family: var(--font-title);
     font-size: var(--btn_font-size, clamp(#{$gap-s}, 5svb, #{$gap-l}));
     font-weight: 500;
@@ -27,7 +27,7 @@
       translate var(--trans-time) var(--trans-fnc);
     cursor: var(--btn_cursor, pointer);
     white-space: nowrap;
-    box-shadow: 0 .5em .5em .1em var(--btn_shadow-color, var(--color-transparent));
+    box-shadow: 0 $gap-s $gap-m 0 var(--btn_shadow-color, var(--color-transparent));
 
     @include mq-hover {
       &:not([disabled]){
@@ -65,10 +65,13 @@
       --btn_bg: var(--color-white);
       --btn_border-color: var(--color-white);
 
+
       @include mq-hover {
-        --btn_color: var(--color-primary);
-        --btn_bg: var(--color-white);
-        --btn_border-color: var(--color-white);
+        &:not([disabled]){
+          --btn_color: var(--color-primary);
+          --btn_bg: var(--color-white);
+          --btn_border-color: var(--color-white);
+        }
       }
     }
 
