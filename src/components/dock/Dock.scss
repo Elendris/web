@@ -5,13 +5,13 @@
 
 @mixin create-dock {
   .dock {
-    display: var(--dock_display, none);
     position: fixed;
     inset: auto $gap-m 15svb auto;
+    display: var(--dock_display, none);
     flex-flow: column nowrap;
     gap: $gap-m;
-    z-index: 9999;
     isolation: isolate;
+    z-index: 9999;
 
     @include mq-responsive(tablet, max) {
       --dock_display: flex;
@@ -19,13 +19,13 @@
 
     &__link {
       display: block;
-      aspect-ratio: 1;
-      inline-size: $gap-2xl;
       display: grid;
       place-items: center;
+      inline-size: $gap-2xl;
+      aspect-ratio: 1;
       background-color: $color-secondary;
-      color: $color-primary;
       border-radius: $radius-circle;
+      color: $color-primary;
     }
   }
 }

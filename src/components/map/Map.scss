@@ -5,8 +5,8 @@
 
 @mixin create-map {
   div[role="dialog"]:has(.map__window) {
-    padding: 0 !important;
     max-width: 260px !important;
+    padding: 0 !important;
 
     div:has(+ button[aria-label="Close"]){
       display: none;
@@ -15,8 +15,8 @@
         @extend %glass;
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
-        border-radius: $radius-circle;
         opacity: 1 !important;
+        border-radius: $radius-circle;
 
         > span{
           background-color: $color-white !important;

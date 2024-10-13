@@ -19,15 +19,15 @@
   :where(input, select){
     display: block;
     min-width: 0;
-    padding-inline: $gap-l;
+    block-size: px-to-rem(50px);
     padding-block: $gap-s;
+    padding-inline: $gap-l;
     border: $border-width solid $color-primary;
     border-radius: $input-border-radius;
     font-family: $font-text;
     font-size: $gap-l;
     font-weight: initial;
     line-height: 1.5;
-    block-size: px-to-rem(50px);
     color: $color-text;
     outline-offset: -2px;
 

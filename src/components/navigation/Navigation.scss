@@ -57,19 +57,19 @@
             padding-block: calc($gap-l - $gap-s);
             padding-inline: $gap-3xl;
             border-radius: 1em;
+            color: var(--nav_color);
             animation: showNav var(--trans-time) forwards;
             translate: -50% -100%;
-            color: var(--nav_color);
         }
 
         li a {
             @extend %subtitle;
+            font-family: $font-title;
             font-size: clamp($gap-l, 2svb, px-to-rem(22px));
             line-height: 1.7;
             color: inherit;
-            white-space: nowrap;
-            font-family: $font-title;
             text-decoration: var(--nav-item_text-decor, none);
+            white-space: nowrap;
             mix-blend-mode: difference;
 
             @include mq-hover {

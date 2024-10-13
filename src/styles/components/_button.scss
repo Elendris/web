@@ -19,6 +19,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
     translate: 0 var(--btn_translate-y, 0);
     transition: 
       background-color var(--trans-time) var(--trans-fnc), 
@@ -26,7 +27,6 @@
       box-shadow var(--trans-time) var(--trans-fnc),
       translate var(--trans-time) var(--trans-fnc);
     cursor: var(--btn_cursor, pointer);
-    white-space: nowrap;
     box-shadow: 0 $gap-s $gap-m 0 var(--btn_shadow-color, var(--color-transparent));
 
     @include mq-hover {

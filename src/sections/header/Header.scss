@@ -38,22 +38,22 @@
       color: $color-primary;
 
       h1 {
-        animation: showTitle 1s forwards;
         opacity: 0;
+        animation: showTitle 1s forwards;
         translate: num-neg($gap-l) 30%;
       }
 
       small {
-        font-size: 0.3em;
         opacity: 0;
-        translate: 0 2svb;
+        font-size: 0.3em;
         animation: showContent 1s forwards 0.5s;
+        translate: 0 2svb;
       }
 
       + div {
-        translate: 0 2svb;
         opacity: 0;
         animation: showContent 1s forwards 1s;
+        translate: 0 2svb;
       }
     }
   }
@@ -68,8 +68,8 @@
 
     &__pic {
       block-size: var(--anim-pic_height);
-      translate: var(--anim-pic_trans-x);
       filter: drop-shadow(0 $gap-m $gap-xl $color-shadow);
+      translate: var(--anim-pic_trans-x);
 
       &[data-scroll-anim="true"]:after {
         animation: var(--anim-pic_animation) linear forwards;
@@ -80,19 +80,19 @@
       }
 
       &:after {
-        animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
-        transform-origin: center;
-        clip-path: var(--anim-pic_clip-path);
         position: absolute;
         inset: 0;
-        scale: 0;
         display: block;
         content: "";
         background-image: var(--anim-pic_bg-img);
         background-repeat: no-repeat;
         background-position: var(--anim-pic_bg-position);
         background-size: cover;
+        animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
         translate: var(--anim-pic-after_trans-x);
+        scale: 0;
+        transform-origin: center;
+        clip-path: var(--anim-pic_clip-path);
         clip-path: var(--anim-pic_clip-path);
       }
 

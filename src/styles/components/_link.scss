@@ -5,8 +5,8 @@
 
     .link{
         @include flex-set(inline-flex, row, nowrap, $gap-m, center);
-        color: var(--link_color, #{$color-primary});
         font-size: 1em;
+        color: var(--link_color, #{$color-primary});
 
         @include mq-hover{
             --link-icon_scale: 1.1;

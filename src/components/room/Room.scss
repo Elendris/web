@@ -6,8 +6,8 @@
 @mixin create-card {
   .rooms {
     @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), $gap-3xl, stretch);
-    margin-block-start: 5svb;
     padding-inline: $gap-3xl;
+    margin-block-start: 5svb;
   }
 
   .card {
@@ -17,9 +17,9 @@
     place-items: center;
     aspect-ratio: 16 / 10;
     padding: 0;
-    border-radius: 1em;
     background-color: $color-transparent;
     border: none;
+    border-radius: 1em;
     overflow: clip;
     cursor: pointer;
     box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
@@ -41,11 +41,11 @@
       @include flex-set(flex, row, nowrap, 5cqi, center, space-between, center);
       position: absolute;
       inset: auto 0 0 0;
-      padding-inline: 2.5cqi;
       padding-block: 1.5cqi;
-      @extend %glass;
+      padding-inline: 2.5cqi;
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
+      @extend %glass;
     }
 
     > img {
@@ -72,13 +72,13 @@
 
     strong {
       @extend %subtitle;
+      padding-block: $gap-l;
+      padding-inline: $gap-xl;
+      border-radius: 1em;
       font-size: clamp($gap-l, 2svb, px-to-rem(22px));
       color: $color-white;
       text-align: left;
       text-wrap: balance;
-      border-radius: 1em;
-      padding-block: $gap-l;
-      padding-inline: $gap-xl;
     }
   }
 
@@ -185,8 +185,8 @@
       position: relative;
       display: inline-block;
       border-radius: 1em;
-      box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
       overflow: hidden;
+      box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
 
       @include mq-hover{
         --gallery-btn_scale: 1.15;
