@@ -33,6 +33,17 @@ $displayTypes: (
 );
 
 @mixin create-utilities {
+  @for $i from 1 through 9 {
+    $weight: $i * 100;
+    .open-sans-#{$weight} {
+      font-family: "Open Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: #{$weight};
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+  }
+
   .d {
     @each $type, $value in $displayTypes {
       &-#{$type} {

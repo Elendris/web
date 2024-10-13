@@ -3,6 +3,8 @@
 @use "../../styles/base/variables/index" as *;
 
 @mixin create-header {
+@proper
+
   header {
     display: grid;
     grid-template-rows: 1fr;
@@ -33,19 +35,33 @@
       display: grid;
       align-items: center;
       gap: $gap-m;
-      font-size: clamp($gap-2xl, 8svb, 6.5rem);
+      font-size: clamp($gap-2xl, var(--header-title_font-size, 8svb), 6.5rem);
       line-height: 1;
       color: $color-primary;
 
+      @include mq-responsive(desktop-hd, max) {
+        --header-title_font-size: 6svb;
+      }
+
+      @include mq-responsive(desktop-l, max) {
+        --header-title_font-size: 4svb;
+      }
+
       h1 {
+        @extend .open-sans-700;
         opacity: 0;
         animation: showTitle 1s forwards;
-        translate: num-neg($gap-l) 30%;
+        translate: var(--header-title_trans-x, #{num-neg($gap-l)}) 30%;
+
+        @include mq-responsive(desktop-hd, max) {
+          animation: showTitleResponsive 1s forwards;
+          translate: 0 30%;
+        }
       }
 
       small {
         opacity: 0;
-        font-size: 0.3em;
+        font-size: clamp($gap-l, .3em, $gap-2xl);
         animation: showContent 1s forwards 0.5s;
         translate: 0 2svb;
       }
@@ -347,6 +363,14 @@
   to {
     opacity: 1;
     translate: num-neg($gap-l) 0;
+
+  }
+}
+
+@keyframes showTitleResponsive {
+  to {
+    opacity: 1;
+    translate: 0 0;
   }
 }
 
