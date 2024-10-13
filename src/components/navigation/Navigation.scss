@@ -16,9 +16,6 @@
         // opacity: 0;
         // animation: showContent 1s forwards 1s;
 
-        @include cq(desktop-l, max) {
-           display: none;
-        }
 
         hr {
             inline-size: 100%;
