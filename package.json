@@ -7,14 +7,13 @@
   "author": "Lukáš Chylík",
   "type": "module",
   "scripts": {
-    "start": "astro dev",
+    "start": "concurrently \"astro dev\" \"pnpm run scss:watch\" \"pnpm run stylelint\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "scss": "sass src/styles/style.scss | postcss -o public/css/style.css",
-    "scss:watch": "node watch-scss.js",
-    "stylelint": "stylelint --fix src/**/*.scss --custom-syntax postcss-scss",
-    "watch": "pnpm stylelint && pnpm scss:watch"
+    "scss:build": "sass src/styles/style.scss | postcss -o public/css/style.css",
+    "scss:watch": "nodemon -e scss -x pnpm run scss:build",
+    "stylelint": "stylelint --fix src/**/*.scss --custom-syntax postcss-scss"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -30,8 +29,10 @@
     "@types/google.maps": "^3.58.1",
     "autoprefixer": "^10.4.20",
     "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.0.1",
     "cssnano": "^7.0.6",
     "i18next-fs-backend": "^2.3.2",
+    "nodemon": "^3.1.7",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
     "postcss-preset-env": "^10.0.7",

@@ -15,12 +15,12 @@
         background-color: $color-white;
         opacity: var(--dialog_opacity, 0);
         border-radius: 1em;
+        color: red;
         translate: -50% var(--dialog_trans-y, 5svb);
         transition-duration: 0.3s;
         transition-property: overlay display opacity;
         box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
         transition-behavior: allow-discrete;
-        color: red;
 
         &[open] {
             --dialog_display: block;
