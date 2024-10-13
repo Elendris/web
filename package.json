@@ -1,7 +1,7 @@
 {
   "name": "elendris.cz",
-  "description": "Updated on 23.9.2024",
-  "version": "0.0.1",
+  "description": "Updated on 13.10.2024",
+  "version": "1.0.0",
   "private": true,
   "license": "ISC",
   "author": "Lukáš Chylík",
@@ -21,14 +21,12 @@
     "@googlemaps/js-api-loader": "^1.16.8",
     "astro": "^4.16.2",
     "astro-i18next": "1.0.0-beta.21",
-    "chokidar": "^4.0.1",
     "i18next": "^23.16.0",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/google.maps": "^3.58.1",
     "autoprefixer": "^10.4.20",
-    "chokidar-cli": "^3.0.0",
     "concurrently": "^9.0.1",
     "cssnano": "^7.0.6",
     "i18next-fs-backend": "^2.3.2",

@@ -16,6 +16,9 @@
         // opacity: 0;
         // animation: showContent 1s forwards 1s;
 
+        @include mq-responsive(desktop-l, max) {
+           display: none;
+        }
 
         hr {
             inline-size: 100%;
