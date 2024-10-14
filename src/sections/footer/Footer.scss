@@ -19,6 +19,10 @@
     &__logo {
       block-size: 4rem;
 
+      @include mq-responsive(tablet, max) {
+        margin-inline: auto;
+      }
+
       > img{
         display: block;
        block-size: 100%;
@@ -27,6 +31,11 @@
 
     &__container {
       @include grid-columns(grid, var(--footer_col-template, auto 1fr auto), $gap-xl, center);
+
+      @include mq-responsive(tablet, max) {
+        --footer_col-template: 1fr;
+        text-align: center;
+      }
     }
   }
 }
