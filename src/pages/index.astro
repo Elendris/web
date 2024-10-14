@@ -10,6 +10,7 @@ import Icon from "../components/icons/Icon.astro";
 import Contact from "../sections/contact/Contact.astro";
 import Footer from "../sections/footer/Footer.astro";
 import Dock from "../components/dock/Dock.astro";
+import About from "../sections/about/About.astro";
 ---
 
 <html lang={i18next.language}>
@@ -24,47 +25,7 @@ import Dock from "../components/dock/Dock.astro";
     <Dock />
     <Header />
     <main>
-      <section id="about">
-        <div class="container container--small">
-          <h2 class="center-text">Vítejte</h2>
-          <p class="center-text w-100">
-            na stránkách ubytování v soukromí Elendris
-          </p>
-          <div class="tiles">
-            <div class="tile">
-              <Icon name="parking" />
-              <strong>Parkování<br />uvnitř areálu</strong>
-            </div>
-            <div class="tile">
-              <Icon name="grill" />
-              <strong>Venkovní posezení s grilem</strong>
-            </div>
-            <div class="tile">
-              <Icon name="coffee" />
-              <strong>Káva a čaj volně k dispozici</strong>
-            </div>
-            <div>
-              <div class="tile">
-                <Icon name="kitchen" />
-                <strong>Sdílená kuchyň<br />pro hosty</strong>
-              </div>
-              <div class="tile">
-                <Icon name="bus" />
-                <strong>Zastávka MHD 30 metrů (trolejbus 31)</strong>
-              </div>
-            </div>
-          </div>
-          <p class="center-text w-100">
-            Příjezd je možný <strong>od 15:00 do 21:00 hodin</strong>, abyste
-            měli dostatek času na pohodlné ubytování.<br />Odjezd je <strong
-              >do 10:00 hodin</strong
-            >, což vám umožní si ráno v klidu sbalit a připravit se na cestu.
-          </p>
-          <div class="center-text m-y-3xl">
-            <a href="#rooms" class="btn"> Vybrat pokoj </a>
-          </div>
-        </div>
-      </section>
+      <About id="about" />
       <Rooms id="rooms" />
       <Contact id="contact" />
       <Footer />

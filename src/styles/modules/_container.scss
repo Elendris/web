@@ -6,7 +6,7 @@
         --container_max-inline-size: #{$width-desktop-full-hd};
         --container_padding-x: 5svi;
         @include margin-set-x(auto);
-        inline-size: min(var(--container_max-inline-size), calc(100% - var(--container_padding-x)));
+        inline-size: min(var(--container_max-inline-size), calc(100% - calc(var(--container_padding-x) * 2)));
 
         @include mq-responsive(desktop-full-hd, max) {
             --container_max-inline-size: #{$width-desktop-hd};

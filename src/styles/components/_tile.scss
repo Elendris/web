@@ -15,8 +15,12 @@
     margin-block-start: 5svb;
     margin-block-end: 8svb;
 
-    @include mq-responsive(desktop-l, max) {
+    @include mq-responsive(desktop-hd, max) {
       --tiles-count: 12;
+    }
+
+    @include mq-responsive(tablet, max) {
+      --tiles-count: 1;
     }
 
     @include mq-responsive(mobile-l, max) {
@@ -30,14 +34,19 @@
     gap: clamp($gap-l, 4svi, $gap-3xl);
     @include grid-col-span(2);
 
-    @include mq-responsive(desktop-l, max) {
+    @include mq-responsive(desktop-hd, max) {
       @include grid-col-span(12);
     }
 
+    @include mq-responsive(tablet, max) {
+      @include grid-col-span(1);
+    }
+
     > .tile:first-child {
-      @include mq-responsive(desktop-l, max) {
+      @include mq-responsive(desktop-hd, max) {
         grid-column-start: 3;
       }
+
 
       @include mq-responsive(tablet, max) {
         grid-column-start: 1;
@@ -45,30 +54,30 @@
     }
 
     > .tile:last-child {
-      @include mq-responsive(desktop-l, max) {
+      @include mq-responsive(desktop-hd, max) {
         grid-column-start: 7;
       }
 
-      @include mq-responsive(mobile-l, max) {
+      @include mq-responsive(tablet, max) {
         grid-column-start: 1;
       }
     }
   }
 
   .tile {
-    @include flex-set(flex, var(--tile_flex-direction, column), nowrap, var(--tile_gap, $gap-3xl), center, flex-start);
-    container-type: inline-size;
+    @include grid-columns(grid, var(--tile_col-temp, 1fr), var(--tile_gap, $gap-3xl));
     padding-block: clamp($gap-xl, var(--tile_pad-block, 4svi), 4rem);
+    grid-template-rows: var(--tile_row-temp, auto 1fr);
     padding-inline: clamp($gap-l, 2.5svi, $gap-xl);
     background-color: $color-white;
     opacity: 1 !important;
-    border-radius: 1em;
+    border-radius: var(--tile_border-radius, 1em);
     // opacity: 0;
     // border-radius: $radius-l;
     text-align: var(--tile_text-align, center);
     animation: fadeIn linear forwards;
     // animation-timeline: view();
-    box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
+    box-shadow: var(--tile_box-shadow, 0 $gap-m $gap-l 0 $color-shadow);
 
     // @for $i from 1 through 5 {
     //   &:nth-child(#{$i}) {
@@ -82,36 +91,29 @@
 
     @include mq-responsive(desktop-hd, max) {
       --tile_pad-block: 3svi;
-    }
-
-    @include mq-responsive(desktop-l, max) {
       @include grid-col-span(4);
     }
 
-    @include mq-responsive(tablet, max) {
-      @include grid-col-span(6);
-    }
 
-    @include mq-responsive(mobile-l, max) {
-      @include grid-col-span(12);
-      --tile_pad-block: 6svi;
-      --tile_flex-direction: row;
+    @include mq-responsive(tablet, max) {
+      @include grid-col-span(1);
+      --tile_col-temp: auto 1fr;
+      --tile_row-temp: 1fr;
+      --tile_pad-block: 0;
       --tile_text-align: left;
       --tile_gap: #{$gap-xl};
-      padding-block: 0;
-      border-radius: none;
-      box-shadow: none;
-    }
-
-    &:nth-child(3) {
-      @include mq-responsive(tablet, max) {
-        grid-column-start: 4;
-      }
+      --tile_border-radius: 0;
+      --tile_box-shadow: none;
     }
 
     > .icon {
-      --icon_size: clamp(#{px-to-rem(40px)}, 50cqi, #{px-to-rem(85px)});
+      --icon_size: #{px-to-rem(85px)};
       fill: $color-secondary;
+      margin-inline: var(--tile-icon_margin-inline, auto);
+
+      @include mq-responsive(tablet, max) {
+        --tile-icon_margin-inline: 0;
+      }
 
       @include mq-responsive(mobile-l, max) {
         --icon_size: 4rem;
