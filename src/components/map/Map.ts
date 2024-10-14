@@ -9,16 +9,45 @@ declare global {
 
 const initMap = (): void => {
   const mapElement = document.getElementById("map") as HTMLDivElement;
+  
+  let center = { lat: 49.229709, lng: 16.54870 };
+  let zoom = 11;
 
-  const center = { lat: 49.22055, lng: 16.53246 };
+  const setCenterAndZoom = () => {
+   
+    if (window.innerWidth < 1024){
+      center = { lat: 49.44918, lng: 16.66541 };
+    }
+    else if (window.innerWidth < 1366) {
+      center = { lat: 49.20818, lng: 16.46286 };
+      zoom = 11;
+    }
+    else {
+      center = { lat: 49.229709, lng: 16.54870 };
+      zoom = 12;
+    }
+
+    map.setCenter(center);
+    map.setZoom(zoom);
+
+    console.log("Current center:", center);
+    console.log("Current zoom:", zoom);
+  };
 
   const map = new google.maps.Map(mapElement, {
     // mapId: '1406e53bf9ae68ff',
-    center: center,
-    zoom: 12,
+    center: center, // Initial center
+    zoom: zoom, 
     disableDefaultUI: true,
     gestureHandling: "cooperative",
   });
+
+  // Set initial center and zoom level
+  setCenterAndZoom();
+
+  // Adjust center and zoom level on window resize
+  window.addEventListener('resize', setCenterAndZoom);
+
   
   const markersData = [
     {

@@ -8,10 +8,10 @@
 
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
+        font-family: $font-title;
         font-weight: 700;
         color: $color-title;
         text-wrap: balance;
-        font-family: $font-title;
     }
 
     h2{

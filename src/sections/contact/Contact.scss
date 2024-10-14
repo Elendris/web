@@ -12,15 +12,24 @@
     .container {
       position: relative;
       display: grid;
-      grid-template-columns: 5fr 8fr;
+      grid-template-columns: var(--contact_col-temp, 5fr 8fr);
       pointer-events: none;
+
+      @include mq-responsive(desktop-hd, max) {
+        --contact_col-temp: repeat(2, 1fr);
+      }
+
+      @include mq-responsive(desktop-s, max) {
+        --contact_col-temp: 1fr;
+        padding-bottom: 50svb;
+      }
     }
   }
 
   .contact {
     @include grid-columns(grid, 1fr, 0);
     position: relative;
-    block-size: 84svb;
+    min-block-size: 84svb;
     padding-block: clamp($gap-2xl, 4svb, 5rem);
     padding-inline: clamp($gap-2xl, 4svb, 5rem);
     background-color: $color-white--transparent;
