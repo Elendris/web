@@ -44,5 +44,11 @@
                 --container_max-inline-size: #{$width-tablet};
             }
         }
+
+        &:has(> .contact){
+            @include mq-responsive(desktop-l, max) {
+                --container_max-inline-size: 100%;
+            }
+        }
     }
 }

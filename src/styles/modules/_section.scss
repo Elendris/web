@@ -3,10 +3,16 @@
 
 @mixin create-section {
     section {
+        position: relative;
+        min-block-size: 100svb;
         padding-block: var(--sec_padding, 5svb);
 
         &:is(#contact){
-            --sec_padding: 0;
+            --sec_padding: 8svb;
+
+            @include mq-responsive(tablet, max) {
+                --sec_padding: 5svb;
+            }
         }
     }
 }
