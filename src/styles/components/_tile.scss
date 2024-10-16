@@ -23,7 +23,7 @@
       --tiles-count: 1;
     }
 
-    @include mq-responsive(mobile-l, max) {
+    @include mq-responsive(mobile-xl, max) {
       --tiles_gap: #{$gap-xl};
     }
   }
@@ -115,7 +115,7 @@
         --tile-icon_margin-inline: 0;
       }
 
-      @include mq-responsive(mobile-l, max) {
+      @include mq-responsive(mobile-xl, max) {
         --icon_size: 4rem;
       }
     }
@@ -125,7 +125,7 @@
       font-size: $gap-l;
       text-wrap: balance;
 
-      @include mq-responsive(mobile-l, max) {
+      @include mq-responsive(mobile-xl, max) {
         max-inline-size: $width-mobile-s;
       }
     }

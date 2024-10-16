@@ -21,7 +21,7 @@
       --rooms-count: 1;
     }
 
-    @include mq-responsive(mobile-l, max) {
+    @include mq-responsive(mobile-xl, max) {
       --rooms_padding-inline: #{$gap-xl};
     }
 

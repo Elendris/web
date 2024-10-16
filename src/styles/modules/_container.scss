@@ -2,9 +2,12 @@
 @use '../base/variables/index' as *;
 
 @mixin create-container {
+    :root{
+        --container_padding-x: 5svi;
+    }
+    
     .container {
         --container_max-inline-size: #{$width-desktop-full-hd};
-        --container_padding-x: 5svi;
         @include margin-set-x(auto);
         inline-size: min(var(--container_max-inline-size), calc(100% - calc(var(--container_padding-x) * 2)));
 
@@ -25,11 +28,11 @@
             --container_padding-x: 8svi;
         }
 
-        @include mq-responsive(mobile-l, max) {
+        @include mq-responsive(mobile-xl, max) {
             --container_padding-x: #{$gap-xl};
         }
 
-        @include mq-responsive(mobile-m, max) {
+        @include mq-responsive(mobile-l, max) {
             --container_padding-x: #{$gap-l};
         }
 

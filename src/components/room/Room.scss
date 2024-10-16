@@ -87,8 +87,6 @@
     inline-size: var(--detail_inline-ize, min($width-desktop-s, 100%));
     block-size: 100svb;
     max-block-size: 100dvb;
-    padding-block: 3svi;
-    padding-inline: 3svi;
     margin: 0;
     opacity: var(--detail_opacity, 0);
     border: none;
@@ -102,7 +100,7 @@
       --detail_inline-ize: min(#{px-to-rem(600px)}, 100%); 
     }
 
-    @include mq-responsive(mobile-l, max) {
+    @include mq-responsive(mobile-xl, max) {
       --detail_inline-ize: 100%;
       min-inline-size: 100%;
     }
@@ -120,9 +118,9 @@
 
     &__header {
       @include flex-set(flex, row, nowrap, 0, flex-start, space-between, center);
+
       h3 {
         margin: 0;
-        font-weight: 900;
         line-height: 1;
       }
     }
@@ -137,7 +135,7 @@
       }
 
       ul {
-        @include flex-set(flex, column, nowrap, $gap-xl, flex-start, flex-start);
+        @include flex-set(flex, column, nowrap, clamp($gap-l, 2svb, $gap-xl), flex-start, flex-start);
         padding: 0;
         margin: 0;
         margin-block-start: 2.5svb;
@@ -170,16 +168,22 @@
     &__price {
       @include flex-set(inline-flex, column, nowrap, $gap-m, flex-start, flex-end);
       line-height: 1;
+      font-size: var(--price_fs, clamp($gap-3xl, 5svb, 4rem));
+
+      @include mq-responsive(mobile-xl, max) {
+        --price_fs: clamp(#{$gap-2xl}, 2.5svb, #{$gap-3xl});
+      }
 
       > span {
-        font-size: clamp($gap-l, 2.5svb, $gap-xl);
+        font-size: clamp($gap-l, .5em, $gap-xl);
         color: $color-text;
       }
 
       > strong {
-        font-size: clamp($gap-3xl, 5svb, 4rem);
         font-weight: 900;
         color: $color-title;
+        font-size: 1em;
+        
       }
     }
 
@@ -208,7 +212,7 @@
         max-inline-size: var(--gallery-img_max-width, px-to-rem(320px));
 
         @include mq-responsive(tablet, max) {
-          --gallery-img_max-width: #{px-to-rem(220px)};
+          --gallery-img_max-width: #{px-to-rem(260px)};
         }
       }
     }
@@ -232,10 +236,4 @@
       }
     }
   }
-
-  //Fancy box custom
-  // body > .fancybox__container{
-  //   --fancybox-bg: #{$dialog-backdrop-bg} !important;
-  //   backdrop-filter: blur($gap-l);
-  // }
 }

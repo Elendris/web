@@ -3,16 +3,20 @@
 
 %close-button{
   position: absolute;
-  inset: $gap-2xl $gap-2xl auto auto;
+  inset: var(--dialog_pad-block) var(--dialog_pad-inline) auto auto;
   display: grid;
   place-items: center;
-  inline-size: $gap-3xl;
+  inline-size: var(--close-btn_size, $gap-3xl);
   aspect-ratio: 1;
   padding: 0;
   background-color: $color-transparent;
   border: none;
   color: var(--close-btn_color, $color-primary);
   cursor: pointer;
+
+  @include mq-responsive(mobile-xl, max) {
+    --close-btn_size: #{$gap-2xl};
+  }
 
   @include mq-hover {
       --close-icon_scale: 1.15;
