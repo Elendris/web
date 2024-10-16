@@ -16,6 +16,6 @@ export default defineConfig({
             },
         }),
     ],
-    site: 'https://elendris.github.io/web/',
+    site: 'https://elendris.cz/',
     base: isProduction ? '/web' : '/',
 });
