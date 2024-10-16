@@ -4,25 +4,19 @@
 @use "../../styles/base/placeholders/index" as *;
 
 @mixin create-contact {
-  section#contact {
+  section#contact .container {
     position: relative;
-    min-block-size: 100svb;
-    padding-block: 8svb;
+    display: grid;
+    grid-template-columns: var(--contact_col-temp, 5fr 8fr);
+    pointer-events: none;
 
-    .container {
-      position: relative;
-      display: grid;
-      grid-template-columns: var(--contact_col-temp, 5fr 8fr);
-      pointer-events: none;
+    @include mq-responsive(desktop-hd, max) {
+      --contact_col-temp: repeat(2, 1fr);
+    }
 
-      @include mq-responsive(desktop-hd, max) {
-        --contact_col-temp: repeat(2, 1fr);
-      }
-
-      @include mq-responsive(desktop-s, max) {
-        --contact_col-temp: 1fr;
-        padding-bottom: 50svb;
-      }
+    @include mq-responsive(desktop-s, max) {
+      --contact_col-temp: 1fr;
+      padding-bottom: 50svb;
     }
   }
 
@@ -43,34 +37,34 @@
     box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
     pointer-events: initial;
 
-    &__footer{
-      margin-block-start: 8svb;
+    &__footer {
+      margin-block-start: clamp($gap-3xl, 8svb, 5rem);
 
-      > div:has(.btn){
+      > div:has(.btn) {
         @include flex-set(flex, row, nowrap, $gap-l, center);
         margin-block-start: $gap-2xl;
       }
     }
 
-    h4{
-      margin-block-start: $gap-3xl;
-    }
-
-    p{
+    p {
       text-wrap: balance;
     }
 
     address {
       margin-block-end: $gap-l;
-      font-size: larger;
+      font-size: var(--contact-address_fs, larger);
       line-height: 1.5;
+
+      @include mq-responsive(mobile-xl, max) {
+        --contact-address_fs: #{$gap-l};
+      }
 
       + span {
         font-size: larger;
       }
     }
 
-    div:has(> .link){
+    div:has(> .link) {
       @include flex-set(flex, column, nowrap, $gap-l, flex-start);
     }
   }
