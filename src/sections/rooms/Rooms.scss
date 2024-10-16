@@ -5,7 +5,7 @@
 @mixin create-rooms {
   .rooms {
     @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), clamp($gap-xl, 2.5svi, $gap-3xl), stretch);
-    padding-inline: var(--rooms_padding-inline, 5svi);
+    padding-inline: var(--rooms_padding-inline, clamp(#{$gap-xl}, 2.5svi, #{$gap-3xl}));
     margin-block-start: 5svb;
 
     @include mq-responsive(desktop-hd, max) {
