@@ -66,8 +66,8 @@
 
   .tile {
     @include grid-columns(grid, var(--tile_col-temp, 1fr), var(--tile_gap, $gap-3xl));
-    padding-block: clamp($gap-xl, var(--tile_pad-block, 4svi), 4rem);
     grid-template-rows: var(--tile_row-temp, auto 1fr);
+    padding-block: clamp($gap-xl, var(--tile_pad-block, 4svi), 4rem);
     padding-inline: clamp($gap-l, 2.5svi, $gap-xl);
     background-color: $color-white;
     opacity: 1 !important;
@@ -108,8 +108,8 @@
 
     > .icon {
       --icon_size: #{px-to-rem(85px)};
-      fill: $color-secondary;
       margin-inline: var(--tile-icon_margin-inline, auto);
+      fill: $color-secondary;
 
       @include mq-responsive(tablet, max) {
         --tile-icon_margin-inline: 0;

@@ -1,6 +1,32 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+
 @mixin create-rooms {
-    .rooms {
-      @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
-      margin-block-start: 5svb;
+  .rooms {
+    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), clamp($gap-xl, 2.5svi, $gap-3xl), stretch);
+    padding-inline: var(--rooms_padding-inline, 5svi);
+    margin-block-start: 5svb;
+
+    @include mq-responsive(desktop-hd, max) {
+      --rooms-count: 2;
     }
+
+    @include mq-responsive(desktop-l, max) {
+      --rooms_padding-inline: #{$gap-2xl};
+    }
+
+    @include mq-responsive(tablet, max) {
+      --rooms_padding-inline: #{$gap-2xl};
+      --rooms-count: 1;
+    }
+
+    @include mq-responsive(mobile-l, max) {
+      --rooms_padding-inline: #{$gap-xl};
+    }
+
+    @include mq-responsive(mobile-m, max) {
+      --rooms_padding-inline: #{$gap-l};
+    }
+  }
 }   

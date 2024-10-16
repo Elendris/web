@@ -4,33 +4,6 @@
 @use "../../styles/base/placeholders/index" as *;
 
 @mixin create-card {
-  .rooms {
-    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), clamp($gap-xl, 2.5svi, $gap-3xl), stretch);
-    padding-inline: var(--rooms_padding-inline, 5svi);
-    margin-block-start: 5svb;
-
-    @include mq-responsive(desktop-hd, max) {
-      --rooms-count: 2;
-    }
-
-    @include mq-responsive(desktop-l, max) {
-      --rooms_padding-inline: #{$gap-2xl};
-    }
-
-    @include mq-responsive(tablet, max) {
-      --rooms_padding-inline: 8svi;
-      --rooms-count: 1;
-    }
-
-    @include mq-responsive(mobile-l, max) {
-      --rooms_padding-inline: #{$gap-xl};
-    }
-
-    @include mq-responsive(mobile-m, max) {
-      --rooms_padding-inline: #{$gap-l};
-    }
-  }
-
   .card {
     container-type: inline-size;
     position: relative;
@@ -45,7 +18,7 @@
     cursor: pointer;
     box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
 
-    &:focus-visible{
+    &:focus-visible {
       --card-btn_translate-y: 0;
       --card-img_scale: 1.1;
       --card-btn_opacity: 1;
@@ -59,14 +32,14 @@
     }
 
     &__content {
+      @extend %glass;
       @include flex-set(flex, row, nowrap, 5cqi, center, space-between, center);
       position: absolute;
       inset: auto 0 0 0;
-      padding-block: 1.5cqi;
-      padding-inline: 2.5cqi;
+      padding-block: var(--card-content_padding-block, clamp($gap-s, 2.5svb, $gap-l));
+      padding-inline: var(--card-content_padding-inline, clamp($gap-l, 2.5svi, $gap-xl));
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
-      @extend %glass;
     }
 
     > img {
@@ -89,12 +62,16 @@
       transition:
         opacity $trans-time $trans-fnc,
         translate $trans-time $trans-fnc;
+
+      @include mq-responsive(tablet, max) {
+        --card-btn_translate-y: 0;
+        --card-btn_opacity: 1;
+        --btn_min-width: #{px-to-rem(112px)};
+      }
     }
 
     strong {
       @extend %subtitle;
-      padding-block: clamp($gap-s, 2.5svb, $gap-l);
-      padding-inline: clamp($gap-m, 2.5svi, $gap-xl);
       border-radius: 1em;
       font-size: clamp($gap-l, 2.5svi, px-to-rem(22px));
       color: $color-white;
@@ -104,10 +81,10 @@
   }
 
   .detail {
-    @include grid-rows(var(--detail_display, none), auto 1fr auto, 2svi, stretch, stretch);
+    @include grid-rows(var(--detail_display, none), auto 1fr auto, clamp($gap-xl, 2.5svb, 4rem), stretch, stretch);
     container-type: inline-size;
     inset: 0 0 0 auto;
-    inline-size: min($width-desktop-s, 100%);
+    inline-size: var(--detail_inline-ize, min($width-desktop-s, 100%));
     block-size: 100svb;
     max-block-size: 100dvb;
     padding-block: 3svi;
@@ -120,6 +97,15 @@
     transition-property: overlay display opacity;
     transition-timing-function: $trans-fnc;
     transition-behavior: allow-discrete;
+
+    @include mq-responsive(tablet, max) {
+      --detail_inline-ize: min(#{px-to-rem(600px)}, 100%); 
+    }
+
+    @include mq-responsive(mobile-l, max) {
+      --detail_inline-ize: 100%;
+      min-inline-size: 100%;
+    }
 
     &[open] {
       --detail_display: grid;
@@ -146,10 +132,6 @@
     }
 
     &__content {
-      h4 {
-        font-size: clamp($gap-xl, 3svb, $gap-2xl);
-        color: darkgrey;
-      }
       > p {
         margin: 0;
       }
@@ -163,11 +145,19 @@
 
         li {
           @include flex-set(flex, row, nowrap, $gap-l, center);
-          font-size: $gap-xl;
+          font-size: var(--detail-li_font-size, clamp(18px,2.5svb,22px));
 
-          > .icon{
+          @include mq-responsive(mobile-xl, max) {
+            --detail-li_font-size: #{$gap-l};
+          }
+
+          > .icon {
             --icon_size: #{$gap-2xl};
             fill: $color-secondary;
+
+            @include mq-responsive(mobile-xl, max) {
+              --icon_size: #{$gap-xl};
+            }
           }
         }
       }
@@ -193,33 +183,37 @@
       }
     }
 
-    &__hidden-pics{
+    &__hidden-pics {
       display: none;
     }
   }
 
-  .gallery{
+  .gallery {
     margin-block-start: 2.5svb;
     margin-block-end: 5svb;
-    
-    &__item{
+
+    &__item {
       position: relative;
       display: inline-block;
       border-radius: 1em;
       overflow: hidden;
       box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
 
-      @include mq-hover{
+      @include mq-hover {
         --gallery-btn_scale: 1.15;
       }
 
-      img{
+      img {
         display: block;
-        max-inline-size: px-to-rem(320px);
+        max-inline-size: var(--gallery-img_max-width, px-to-rem(320px));
+
+        @include mq-responsive(tablet, max) {
+          --gallery-img_max-width: #{px-to-rem(220px)};
+        }
       }
     }
 
-    &__item-btn{
+    &__item-btn {
       @extend %glass;
       position: absolute;
       inset: auto $gap-l $gap-l auto;
@@ -231,7 +225,7 @@
       color: $color-white;
       z-index: 2;
 
-      > .icon{
+      > .icon {
         --icon_size: #{$gap-xl};
         scale: var(--gallery-btn_scale, 1);
         transition: scale $trans-time $trans-fnc;

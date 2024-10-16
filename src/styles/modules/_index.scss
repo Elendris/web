@@ -3,11 +3,13 @@
 @use "../../../src/sections/contact/Contact" as *;
 @use "../../../src/sections/footer/Footer" as *;
 @use "../../../src/sections/header/Header" as *;
+@use "../../../src/sections/rooms/Rooms" as *;
 
 @mixin create-modules {
     @include create-contact;
     @include create-container;
     @include create-footer;
     @include create-header;
+    @include create-rooms;
     @include create-section;
 }
