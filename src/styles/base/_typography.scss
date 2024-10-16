@@ -1,12 +1,17 @@
-@use './variables/index' as *;
-
+@use "./variables/index" as *;
+@use "./mixins/index" as *;
 
 @mixin create-typography {
     address {
         font-style: normal;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin: 0;
         font-family: $font-title;
         font-weight: 700;
@@ -14,28 +19,47 @@
         text-wrap: balance;
     }
 
-    h2{
+    h2 {
         margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
-        font-size: clamp($gap-3xl, 8svb, 8rem);
+        font-size: clamp($gap-3xl, var(--h2_dynamic-fs, 8svb), 8rem);
         font-weight: 900;
+
+        @include mq-responsive(mobile-xl, max) {
+            --h2_dynamic-fs: 5svb;
+        }
     }
 
-    h3{
-        margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
-        font-size: clamp($gap-xl, 4svb, 4rem);
+    h3 {
+        margin-block-end: clamp($gap-l, 3svb, $gap-3xl);
+        font-size: clamp($gap-xl, var(--h3_dynamic-fs, 4svb), 4rem);
+
+        @include mq-responsive(mobile-xl, max) {
+            --h3_dynamic-fs: 3.5svb;
+        }
     }
 
-    h4{
+    h4 {
+        margin-block-start: clamp($gap-l, 2.5svb, $gap-3xl);
         margin-block-end: $gap-l;
-        font-size: clamp($gap-l, 3svb, $gap-2xl);
+        font-size: clamp($gap-xl, var(--h4_dynamic-fs, 3svb), $gap-2xl);
+
+        @include mq-responsive(mobile-xl, max) {
+            --h4_dynamic-fs: 2svb;
+        }
     }
 
-    p{
-        max-inline-size: 65ch;
+    p {
+        max-inline-size: var(--p_max-width, 65ch);
         margin: 0;
-        font-size: clamp(18px, 2.5svb, 22px);
+        font-size: var(--p_fs, clamp(18px, 2.5svb, 22px));
         line-height: 1.7;
         color: $color-text;
+        text-wrap: balance;
         text-wrap: pretty;
+
+        @include mq-responsive(mobile-xl, max) {
+            --p_fs: #{$gap-l};
+            --p_max-width: 100%;
+        }
     }
 }
