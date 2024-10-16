@@ -107,6 +107,12 @@
       @include mq-hover {
         --btn_translate-y: 0;
       }
+
+      @include mq-responsive(mobile-xl, max) {
+        --btn_pad-block: #{$gap-s};
+        --btn_pad-inline: #{$gap-m};
+        --btn_font-size: smaller;
+      }
     }
 
     > .icon {
