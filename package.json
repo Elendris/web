@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/sitemap": "^3.2.1",
     "@fancyapps/ui": "^5.0.36",
     "@googlemaps/js-api-loader": "^1.16.8",
     "astro": "^4.16.2",
@@ -29,6 +31,7 @@
     "autoprefixer": "^10.4.20",
     "concurrently": "^9.0.1",
     "cssnano": "^7.0.6",
+    
     "i18next-fs-backend": "^2.3.2",
     "nodemon": "^3.1.7",
     "postcss": "^8.4.47",

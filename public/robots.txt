@@ -1,6 +1,0 @@
-user-agent: *
-
-allow: *.js
-allow: *.css
-
-Sitemap: https://elendris.cz/sitemap.xml
