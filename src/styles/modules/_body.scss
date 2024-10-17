@@ -1,0 +1,33 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-body {
+
+body {
+  max-inline-size: 100svi;
+  min-block-size: 100svb;
+  margin: 0;
+  font-family: system-ui;
+  accent-color: $color-primary;
+  overflow-x: hidden;
+
+  &:has(dialog[open]) {
+    padding-inline-end: $gap-l;
+    overflow: hidden;
+
+    > :where(main, header, footer) {
+      filter: blur($gap-m);
+    }
+  }
+
+  &:has(.menu[data-open="true"]) {
+    @include mq-responsive(tablet, max) {
+      overflow: hidden;
+
+      > :where(main, header, footer) {
+        filter: blur($gap-m);
+      }
+    }
+  }
+}
+}

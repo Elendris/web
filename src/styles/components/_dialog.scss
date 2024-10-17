@@ -1,33 +1,27 @@
 @use "../base/mixins/index" as *;
 @use "../base/variables/index" as *;
 
-@mixin create-dialog{
-    body:has(dialog[open]) {
-        padding-inline-end: $gap-l;
-        overflow: hidden;
-      }
-    
-    dialog {
-        --dialog_pad-block: 5svb;
-        --dialog_pad-inline: 3svi;
-        position: fixed;
-        padding-block: var(--dialog_pad-block);
-        padding-inline: var(--dialog_pad-inline);
-        border: none;
+@mixin create-dialog {
+  dialog {
+    --dialog_pad-block: 5svb;
+    --dialog_pad-inline: 3svi;
+    position: fixed;
+    padding-block: var(--dialog_pad-block);
+    padding-inline: var(--dialog_pad-inline);
+    border: none;
 
-        @include mq-responsive(desktop-hd, max) {
-            --dialog_pad-inline: var(--container_padding-x);
-        }
-
-        @include mq-responsive(tablet, max) {
-            --dialog_pad-block: clamp(#{$gap-xl}, 2.5svb, #{$gap-3xl});
-        }
-
-        &::backdrop {
-            position: fixed;
-            inset: 0;
-            background: $dialog-backdrop-bg;
-            backdrop-filter: blur($gap-l);
-        }
+    @include mq-responsive(desktop-hd, max) {
+      --dialog_pad-inline: var(--container_padding-x);
     }
+
+    @include mq-responsive(tablet, max) {
+      --dialog_pad-block: clamp(#{$gap-xl}, 2.5svb, #{$gap-3xl});
+    }
+
+    &::backdrop {
+      position: fixed;
+      inset: 0;
+      background: $dialog-backdrop-bg;
+    }
+  }
 }

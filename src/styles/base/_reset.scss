@@ -1,36 +1,27 @@
-@use '../base/variables/colors' as *;
+@use "../base/variables/index" as *;
+@use "../base/mixins/index" as *;
 
 @mixin reset {
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-    html {
-        scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-        max-inline-size: 100svi;
-        min-block-size: 100svb;
-        margin: 0;
-        font-family: system-ui;
-        accent-color:  $color-primary;
-        overflow-x: clip;
-    }
+  textarea {
+    font-family: inherit;
+    resize: vertical;
+  }
 
-    textarea {
-        font-family: inherit;
-        resize: vertical;
-    }
+  dialog {
+    overscroll-behavior: contain;
+  }
 
-    dialog {
-        overscroll-behavior: contain;
-    }
-
-    
-    :where(header, main, footer, section, article){
-        container-type: inline-size;
-    }
+  :where(header, main, footer, section, article) {
+    container-type: inline-size;
+  }
 }

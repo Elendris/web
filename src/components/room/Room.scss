@@ -32,8 +32,8 @@
     }
 
     &__content {
-      @extend %glass;
-      @include flex-set(flex, row, nowrap, 5cqi, center, space-between, center);
+      @extend %glass-dark;
+      @include grid-columns(grid, 1fr auto, 3cqi, center, space-between, center);
       position: absolute;
       inset: auto 0 0 0;
       padding-block: var(--card-content_padding-block, clamp($gap-s, 2.5svb, $gap-l));
@@ -61,7 +61,8 @@
       translate: 0 var(--card-btn_translate-y, 2.5cqb);
       transition:
         opacity $trans-time $trans-fnc,
-        translate $trans-time $trans-fnc;
+        translate $trans-time $trans-fnc,
+        box-shadow $trans-time $trans-fnc;
 
       @include mq-responsive(tablet, max) {
         --card-btn_translate-y: 0;
@@ -73,10 +74,15 @@
     strong {
       @extend %subtitle;
       border-radius: 1em;
-      font-size: clamp($gap-l, 2.5svi, px-to-rem(22px));
+      font-size: var(--card_fs, clamp($gap-l, 2.5svb, px-to-rem(20px)));
       color: $color-white;
       text-align: left;
       text-wrap: balance;
+      text-wrap: pretty;
+
+      @include mq-responsive(desktop-s, max){
+        --card_fs: #{$gap-l};
+      }
     }
   }
 
@@ -218,7 +224,7 @@
     }
 
     &__item-btn {
-      @extend %glass;
+      @extend %glass-dark;
       position: absolute;
       inset: auto $gap-l $gap-l auto;
       display: grid;

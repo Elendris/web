@@ -1,70 +1,66 @@
 ﻿@use '../base/mixins/index' as *;
 @use '../base/variables/index' as *;
+@use '../base/functions/index' as *;
 
 @mixin create-burger {
 
     .burger {
         position: relative;
-        display: none;
-        inline-size: 3.5rem;
-        block-size: 2.5rem;
+        display: var(--burger_display, none);
+        inline-size: $gap-3xl;
+        block-size: $gap-2xl;
         background-color: $color-transparent;
         border-color: $color-transparent;
         cursor: pointer;
+        padding: 0;
 
-        @include mq-responsive('desktop-s', max) {
-            display: block;
-        }
-
-        @include mq-responsive('tablet', max) {
-            margin-left: $gap-xl;
-        }
-
-        @include mq-responsive('mobile-l', max) {
-            margin-left: $gap-l;
+        @include mq-responsive(tablet, max) {
+            --burger_display: block;
         }
 
         >span {
             position: absolute;
-            left: 50%;
+            inset: 50% auto auto 50%;
             display: block;
             inline-size: 100%;
-            block-size: .3rem;
-            background: $color-white;
+            block-size: $gap-s;
+            transition-property: translate, rotate, scale;
+            transition-timing-function: $trans-fnc;
+            transition-duration: $trans-time;
+            background-color: $color-primary;
+            border-radius: $radius-full;
+            rotate: 0deg;
+            opacity: 1;
+            scale: 1;
 
             &:nth-child(1) {
-                top: 0;
-                transform: rotate(0deg) translate(-50%, 0);
-                transition: transform $trans-time ease-in-out;
+                translate: -50% calc(num-neg(calc($gap-m * 1.5)) - 50%);
             }
 
             &:nth-child(2) {
-                top: 50%;
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1, 1);
-                transition: transform $trans-time ease-in-out, opacity $trans-time ease-in-out;
+                translate: -50% -50%;
             }
 
             &:nth-child(3) {
-                top: 100%;
-                transform: rotate(0deg) translate(-50%, -100%);
-                transition: transform $trans-time ease-in-out;
+                translate: -50% calc(calc($gap-m * 1.5) - 50%);
             }
         }
 
-        &--open {
+        &[data-open="true"] {
             >span {
                 &:nth-child(1) {
-                    transform: rotate(45deg) translate(-8%, 2rem);
+                    translate: -50% -50%;
+                    rotate: -45deg;
                 }
 
                 &:nth-child(2) {
                     opacity: 0;
-                    transform: translate(-50%, -50%) scale(0, 1);
+                    scale: 0;
                 }
 
                 &:nth-child(3) {
-                    transform: rotate(-45deg) translate(-8%, -2rem);
+                    translate: -50% -50%;
+                    rotate: 45deg;
                 }
             }
         }

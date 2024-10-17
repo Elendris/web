@@ -1,0 +1,12 @@
+@use "../mixins/index" as *;
+@use "../variables/index" as *;
+
+%glass-dark {
+  background-color: $color-glass--dark;
+  backdrop-filter: blur($gap-m);
+}
+
+%glass-light {
+  background-color: $color-glass--light;
+  backdrop-filter: blur($gap-m);
+}

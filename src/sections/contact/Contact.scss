@@ -21,13 +21,12 @@
   }
 
   .contact {
+    @extend %glass-light;
     @include grid-columns(grid, 1fr, 0);
     position: relative;
     min-block-size: 84svb;
     padding-block: clamp($gap-2xl, 4svb, 5rem);
     padding-inline: clamp($gap-2xl, 4svb, 5rem);
-    background-color: $color-white--transparent;
-    backdrop-filter: blur($gap-m);
     border-radius: 1em;
     font-family: $font-title;
     color: $color-text;

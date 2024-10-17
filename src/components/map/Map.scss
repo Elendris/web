@@ -12,7 +12,7 @@
       display: none;
 
       + button{
-        @extend %glass;
+        @extend %glass-dark;
         position: absolute !important;
         inset: $gap-s $gap-s auto auto;
         opacity: 1 !important;

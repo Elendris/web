@@ -8,12 +8,12 @@
     padding-inline: var(--rooms_padding-inline, clamp(#{$gap-xl}, 2.5svi, #{$gap-3xl}));
     margin-block-start: 5svb;
 
-    @include mq-responsive(desktop-hd, max) {
-      --rooms-count: 2;
-    }
-
     @include mq-responsive(desktop-l, max) {
       --rooms_padding-inline: #{$gap-2xl};
+    }
+
+    @include mq-responsive(desktop-s, max) {
+      --rooms-count: 2;
     }
 
     @include mq-responsive(tablet, max) {
