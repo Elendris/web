@@ -141,8 +141,8 @@
         &__footer{
             @include grid-col-span(2);
             padding-block-start: $gap-2xl;
-            text-align: right;
             background-color: $color-white;
+            text-align: right;
 
             @include mq-responsive(tablet, max) {
                 @include grid-col-span(1);

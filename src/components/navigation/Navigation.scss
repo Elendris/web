@@ -15,6 +15,20 @@
   }
 
   nav {
+    // opacity: 0;
+    // animation: showContent 1s forwards 1s; @include mq-responsive(tablet, max) {
+      --rooms_padding-inline: #{$gap-2xl};
+      --rooms-count: 1;
+    position: var(--nav_position, absolute);
+    inset: 0 0 auto 0;
+    inline-size: 100%;
+    max-inline-size: 100svi;
+    block-size: var(--nav_block-size, auto);
+    padding-block: var(--nav_pad-block, $gap-xl);
+    padding-inline: var(--nav_pad-inline, $gap-2xl);
+    background-color: var(--nav_bg-color, $color-transparent);
+    isolation: isolate;
+    z-index: 9999;
     @include grid-columns(
       grid,
       var(--nav_col-temp, px-to-rem(160px) 1fr px-to-rem(160px)),
@@ -23,20 +37,6 @@
       var(--nav_jc, flex-start),
       center
     );
-    position: var(--nav_position, absolute);
-    inset: 0 0 auto 0;
-    inline-size: 100%;
-    max-inline-size: 100svi;
-    padding-block: var(--nav_pad-block, $gap-xl);
-    padding-inline: var(--nav_pad-inline, $gap-2xl);
-    isolation: isolate;
-    block-size: var(--nav_block-size, auto);
-    background-color: var(--nav_bg-color, $color-transparent);
-    z-index: 9999;
-    // opacity: 0;
-    // animation: showContent 1s forwards 1s; @include mq-responsive(tablet, max) {
-      --rooms_padding-inline: #{$gap-2xl};
-      --rooms-count: 1;
 
     @include mq-responsive(tablet, max) {
       --nav_position: fixed;
@@ -105,26 +105,26 @@
       center,
       var(--menu_jc, center),
     );
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
     color: var(--menu_color, $color-primary);
 
     @include mq-responsive(tablet, max) {
       --menu_flex-direction: column;
       --menu_jc: start;
-      padding-block-start: 16svb;
       position: absolute;
       inset: 100% 0 auto auto;
+      inline-size: 100svi;
+      block-size: calc(100svb - var(--nav_block-size));
+      padding-block-start: 16svb;
       translate: var(--menu_trans-x, 100%) 0;
       transition: translate $trans-time $trans-fnc;
-      block-size: calc(100svb - var(--nav_block-size));
-      inline-size: 100svi;
 
       &:after{
-        content: "";
         position: absolute;
         inset: 0;
+        content: "";
         background-color: $color-glass--light;
         filter: blur($gap-m);
         z-index: -1;

@@ -1,4 +1,4 @@
-﻿@use '../base/mixins/index' as *;
+@use '../base/mixins/index' as *;
 @use '../base/variables/index' as *;
 @use '../base/functions/index' as *;
 
@@ -9,10 +9,10 @@
         display: var(--burger_display, none);
         inline-size: $gap-3xl;
         block-size: $gap-2xl;
+        padding: 0;
         background-color: $color-transparent;
         border-color: $color-transparent;
         cursor: pointer;
-        padding: 0;
 
         @include mq-responsive(tablet, max) {
             --burger_display: block;
@@ -24,14 +24,14 @@
             display: block;
             inline-size: 100%;
             block-size: $gap-s;
+            background-color: $color-primary;
+            opacity: 1;
+            border-radius: $radius-full;
+            scale: 1;
+            rotate: 0deg;
+            transition-duration: $trans-time;
             transition-property: translate, rotate, scale;
             transition-timing-function: $trans-fnc;
-            transition-duration: $trans-time;
-            background-color: $color-primary;
-            border-radius: $radius-full;
-            rotate: 0deg;
-            opacity: 1;
-            scale: 1;
 
             &:nth-child(1) {
                 translate: -50% calc(num-neg(calc($gap-m * 1.5)) - 50%);

@@ -173,8 +173,8 @@
 
     &__price {
       @include flex-set(inline-flex, column, nowrap, $gap-m, flex-start, flex-end);
-      line-height: 1;
       font-size: var(--price_fs, clamp($gap-3xl, 5svb, 4rem));
+      line-height: 1;
 
       @include mq-responsive(mobile-xl, max) {
         --price_fs: clamp(#{$gap-2xl}, 2.5svb, #{$gap-3xl});
@@ -186,9 +186,9 @@
       }
 
       > strong {
+        font-size: 1em;
         font-weight: 900;
         color: $color-title;
-        font-size: 1em;
         
       }
     }
