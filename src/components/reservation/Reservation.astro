@@ -5,6 +5,7 @@ import Icon from "../icons/Icon.astro";
 
 <dialog class="reservation">
   <form action="post" class="reservation__form">
+   <div class="reservation__header">
     <h3>Rezervační formulář</h3>
     <button
       class="reservation__close"
@@ -15,6 +16,7 @@ import Icon from "../icons/Icon.astro";
     >
       <Icon name="close" />
     </button>
+   </div>
     <p>
       Vyplňte prosím následující formulář pro rezervaci pokoje v našem penzionu.
       Ujistěte se, že všechny údaje jsou správné, abychom mohli vaši rezervaci
@@ -76,6 +78,7 @@ import Icon from "../icons/Icon.astro";
       </div>
     </fieldset>
     <div class="reservation__footer">
+      <button class="btn btn--secondary" type="button" id="cancelBtn">Zrušit</button>
       <button class="btn btn--primary" type="submit" id="submitBtn">Rezervovat</button>
     </div>
   </form>

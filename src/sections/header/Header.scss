@@ -34,7 +34,7 @@
       display: grid;
       align-items: center;
       gap: $gap-m;
-      font-size: clamp($gap-2xl, var(--header-title_font-size, 8svb), 6.5rem);
+      font-size: clamp($gap-3xl, var(--header-title_font-size, 8svb), 6.5rem);
       line-height: 1;
       color: $color-primary;
 
@@ -42,19 +42,22 @@
         --header-title_font-size: 6svb;
       }
 
-      @include mq-responsive(desktop-l, max) {
+      @include mq-responsive(tablet, max) {
+        --header-title_font-size: 5svb;
+      }
+
+      @include mq-responsive(mobile-xl, max) {
         --header-title_font-size: 4svb;
       }
 
       h1 {
-        @extend .open-sans-700;
+        @extend .open-sans-900;
         opacity: 0;
         animation: showTitle 1s forwards;
         translate: var(--header-title_trans-x, #{num-neg($gap-l)}) 30%;
 
         @include mq-responsive(desktop-hd, max) {
-          animation: showTitleResponsive 1s forwards;
-          translate: 0 30%;
+          --header-title_trans-x: #{num-neg($gap-m)};
         }
       }
 
@@ -361,15 +364,7 @@
 @keyframes showTitle {
   to {
     opacity: 1;
-    translate: num-neg($gap-l) 0;
-
-  }
-}
-
-@keyframes showTitleResponsive {
-  to {
-    opacity: 1;
-    translate: 0 0;
+    translate: var(--header-title_trans-x) 0;
   }
 }
 

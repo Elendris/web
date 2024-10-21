@@ -1,0 +1,14 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+@use "../../styles/base/placeholders/index" as *;
+
+@mixin create-about {
+  section#about h2 {
+    --h2_mg-bottom: #{$gap-l};
+    
+    @include mq-responsive(tablet, max) {
+      --h2_mg-bottom: #{$gap-m};
+    }
+  }
+}

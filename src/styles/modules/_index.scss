@@ -1,12 +1,14 @@
 @use "body" as *;
 @use "container" as *;
 @use "section" as *;
+@use "../../../src/sections/about/About" as *;
 @use "../../../src/sections/contact/Contact" as *;
 @use "../../../src/sections/footer/Footer" as *;
 @use "../../../src/sections/header/Header" as *;
 @use "../../../src/sections/rooms/Rooms" as *;
 
 @mixin create-modules {
+    @include create-about;
     @include create-body;
     @include create-contact;
     @include create-container;

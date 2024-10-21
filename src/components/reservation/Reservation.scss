@@ -4,162 +4,215 @@
 @use "../../styles/base/placeholders/index" as *;
 
 @mixin create-reservation {
-    .reservation {
-        top: 5svb;
-        left: 50%;
-        display: var(--dialog_display, none);
-        inline-size: $width-desktop-l;
-        max-block-size: 90svb;
-        margin: 0;
-        background-color: $color-white;
-        opacity: var(--dialog_opacity, 0);
-        border-radius: 1em;
-        translate: -50% var(--dialog_trans-y, 5svb);
-        transition-duration: 0.3s;
-        transition-property: overlay display opacity;
-        box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
-        transition-behavior: allow-discrete;
+	.reservation {
+		top: var(--resservation_top, 5svb);
+		left: 50%;
+		display: var(--dialog_display, none);
+		inline-size: $width-desktop-l;
+		max-block-size: 90svb;
+		margin: 0;
+		background-color: $color-white;
+		opacity: var(--dialog_opacity, 0);
+		border-radius: 1em;
+		translate: -50% var(--dialog_trans-y, 5svb);
+		transition-duration: 0.3s;
+		transition-property: overlay display opacity;
+		box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
+		transition-behavior: allow-discrete;
 
-        &[open] {
-            --dialog_display: block;
-            --dialog_opacity: 1;
-            --dialog_trans-y: 0;
+		@include mq-responsive(tablet, max) {
+			--resservation_top: #{$gap-l};
+			padding-block: 0;
+			max-block-size: calc(100svb - $gap-2xl);
+		}
 
-            @starting-style {
-                --dialog_opacity: 0;
-                --dialog_trans-y: 5svb;
-            }
-        }
+		&[open] {
+			--dialog_display: block;
+			--dialog_opacity: 1;
+			--dialog_trans-y: 0;
 
-        &:has(.reservation__room) {
-            --empty-message_display: none;
-            --breakfast-chck_opacity: 1;
-            --breakfast-chck_pointer-events: auto;
-        }
+			@starting-style {
+				--dialog_opacity: 0;
+				--dialog_trans-y: 5svb;
+			}
+		}
 
-        &__form {
-            @include grid-columns(
-                grid,
-                repeat(var(--form_col-count, 2), 1fr),
-                clamp($gap-l, 2.5svi, $gap-3xl),
-                stretch
-            );
+		&:has(.reservation__room) {
+			--empty-message_display: none;
+			--breakfast-chck_opacity: 1;
+			--breakfast-chck_pointer-events: auto;
+		}
 
-            @include mq-responsive(tablet, max) {
-                --form_col-count: 1;
-            }
+		&__form {
+			@include grid-columns(grid, repeat(var(--form_col-count, 2), 1fr), clamp($gap-l, 2.5svi, $gap-3xl), stretch);
 
-            fieldset {
-                @include grid-columns(
-                    grid,
-                    repeat(var(--fieldet_col-count, 2), 1fr),
-                    $gap-xl,
-                    stretch
-                );
-                row-gap: $gap-l;
-                padding-block: $gap-m;
-                padding-inline: clamp($gap-l, 2svi, $gap-xl);
-                border: none;
-                border-block-start: $border-width solid $color-border;
+			@include mq-responsive(tablet, max) {
+				--form_col-count: 1;
+			}
 
-                &:has(select) {
-                    @include grid-columns(grid, 1fr, $gap-l, flex-end);
-                }
+			fieldset {
+				@include grid-columns(grid, repeat(var(--fieldet_col-count, 2), 1fr), $gap-xl, stretch);
+				row-gap: $gap-l;
+				padding-block: $gap-m;
+				padding-inline: var(--fieldet_pad-inline, clamp($gap-l, 2svi, $gap-xl));
+				border: none;
+				margin: 0;
+				border-block-start: var(--fieldet_border-width, $border-width) solid $color-border;
 
-                > legend {
-                    padding-inline: $gap-s;
-                    background-color: $color-white;
-                    font-size: clamp($gap-xl, 3svb, $gap-2xl);
-                    color: $color-label;
-                    translate: num-neg($gap-s) 0;
-                }
+				@include mq-responsive(mobile-xl, max) {
+					--fieldet_pad-inline: 0;
+					--fieldet_border-width: 0;
+				}
 
-                > p {
-                    @include grid-col-span(2);
-                    margin-block-end: $gap-l;
-                    font-size: $gap-l;
-                    color: $color-text;
-                }
+				&:has(select) {
+					@include grid-columns(grid, 1fr, $gap-l, flex-end);
+				}
 
-                + fieldset {
-                    margin-block-start: $gap-xl;
-                }
-            }
+				> legend {
+					padding-inline: var(--fieldset-legend_pad-inline, $gap-s);
+					background-color: $color-white;
+					font-size: clamp($gap-xl, 3svb, $gap-2xl);
+					color: $color-label;
+					translate: num-neg($gap-s) 0;
 
-            > :where(h3, p){
-                @include grid-col-span(2);
-                max-inline-size: unset;
-                margin: 0;
+					@include mq-responsive(mobile-xl, max) {
+						--fieldset-legend_pad-inline: 0;
+					}
+				}
 
-                @include mq-responsive(tablet, max) {
-                    @include grid-col-span(1);
-                }
-            }
-        }
+				> p {
+					@include grid-col-span(2);
+					margin-block-end: var(--fieldset-p_mg-bottom, $gap-l);
+					font-size: $gap-l;
+					color: $color-text;
 
-        &__close {
-           @extend %close-button;
-        }
+					@include mq-responsive(mobile-xl, max) {
+						--fieldset-p_mg-bottom: #{$gap-m};
+					}
+				}
 
-        &__empty-message {
-            display: var(--empty-message_display, block);
-            padding: $gap-l $gap-xl;
-            margin-block-end: $gap-l;
-            background-color: $color-warning;
-            border-radius: $radius-m;
-            font-size: $gap-l;
-            color: $color-text;
-        }
+				+ fieldset {
+					margin-block-start: $gap-xl;
+				}
+			}
 
-        &__room {
-            @include grid-col-span(2);
-            @include grid-columns(grid, 1fr 120px auto, $gap-xl, flex-end);
-            row-gap: $gap-l;
+			> :where(p) {
+				@include grid-col-span(2);
+				max-inline-size: unset;
+				margin: 0;
 
-            > div[id*="separateBedsContainer"]:empty{
-                display: none;
-            }
-        }
+				@include mq-responsive(tablet, max) {
+					@include grid-col-span(1);
+				}
+			}
+		}
 
-        &__room-list {
-            @include grid-columns(grid, 1fr, 0, flex-end);
-            max-block-size: 40svb;
-            padding-inline-end: $gap-m;
-            overflow: auto;
-            overscroll-behavior: contain;
+		&__header {
+			@include grid-columns(grid, 1fr auto, $gap-l, start);
+			@include grid-col-span(2);
+			background-color: $color-white;
 
-            &:empty{
-                display: none;
-            }
+			@include mq-responsive(tablet, max) {
+				@include grid-col-span(1);
+				position: sticky;
+				inset: 0 0 auto 0;
+				padding-block: var(--dialog_pad-block);
+				z-index: 10;
+			}
 
-            hr{
-                margin-block: $gap-xl;
-                color: $color-border;
-            }
-        }
+			@include mq-responsive(mobile-xl, max) {
+				padding-block-end: $gap-m;
+				padding-inline: var(--container_padding-x);
+				margin-inline: num-neg(var(--container_padding-x));
+			}
 
-        &__footer{
-            @include grid-col-span(2);
-            padding-block-start: $gap-2xl;
-            background-color: $color-white;
-            text-align: right;
+			> h3 {
+				margin-block-end: 0;
+			}
+		}
 
-            @include mq-responsive(tablet, max) {
-                @include grid-col-span(1);
-                position: sticky;
-                inset: auto 0 0 0;
-                padding-block: $gap-xl;
-            }
-        }
+		&__close {
+			@extend %close-button;
+			inset: initial !important;
+			position: relative !important;
+		}
 
-        &__actions{
-            @include grid-col-span(2);
-            @include flex-set(flex, row, nowrap, $gap-l, center, space-between);
+		&__empty-message {
+			display: var(--empty-message_display, block);
+			padding: $gap-l $gap-xl;
+			margin-block-end: $gap-l;
+			background-color: $color-warning;
+			border-radius: $radius-m;
+			font-size: $gap-l;
+			color: $color-text;
+		}
 
-            .check-box{
-                opacity: var(--breakfast-chck_opacity, 0);
-                pointer-events: var(--breakfast-chck_pointer-events, none);;
-            }
-        }
-    }
+		&__room {
+			@include grid-col-span(2);
+			@include grid-columns(grid, 1fr 120px auto, $gap-xl, flex-end);
+			row-gap: $gap-l;
+
+			> div[id*="separateBedsContainer"]:empty {
+				display: none;
+			}
+
+			> div:has(.check-box) {
+				@include grid-col-span(2);
+			}
+		}
+
+		&__room-list {
+			@include grid-columns(grid, 1fr, 0, flex-end);
+			padding-inline-end: $gap-m;
+
+			@include mq-responsive(tablet, min) {
+				max-block-size: var(40svb);
+				overflow: auto;
+				overscroll-behavior: contain;
+			}
+
+			&:empty {
+				display: none;
+			}
+
+			hr {
+				margin-block: $gap-xl;
+				color: $color-border;
+				border-color: $color-border;
+				background-color: $color-border;
+			}
+		}
+
+		&__footer {
+			@include flex-set(flex, row, nowrap, $gap-l, center, var(--form-footer_jc, flex-end));
+			@include grid-col-span(2);
+			padding-block-start: var(--dialog_pad-block);
+			background-color: $color-white;
+			text-align: right;
+
+			@include mq-responsive(tablet, max) {
+				@include grid-col-span(1);
+				position: sticky;
+				inset: auto 0 0 0;
+				padding-block: var(--dialog_pad-block);
+				z-index: 10;
+			}
+
+			@include mq-responsive(mobile-xl, max) {
+				--form-footer_jc: space-between;
+				padding-inline: var(--container_padding-x);
+				margin-inline: num-neg(var(--container_padding-x));
+			}
+		}
+
+		&__actions {
+			@include grid-col-span(2);
+			@include flex-set(flex, row, nowrap, $gap-l, center, space-between);
+
+			.check-box {
+				opacity: var(--breakfast-chck_opacity, 0);
+				pointer-events: var(--breakfast-chck_pointer-events, none);
+			}
+		}
+	}
 }
