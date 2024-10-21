@@ -44,8 +44,7 @@ Více informací naleznete na [oficiálních stránkách pnpm](https://pnpm.io/i
   imgCount={3}
   galeryFolder="new-room"
   price={2000}
-  id="7"
->
+  id="7">
   <p slot="room-description">
     Popis nové místnosti.
   </p>
