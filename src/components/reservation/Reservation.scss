@@ -22,8 +22,8 @@
 
 		@include mq-responsive(tablet, max) {
 			--resservation_top: #{$gap-l};
-			padding-block: 0;
 			max-block-size: calc(100svb - $gap-2xl);
+			padding-block: 0;
 		}
 
 		&[open] {
@@ -55,8 +55,8 @@
 				row-gap: $gap-l;
 				padding-block: $gap-m;
 				padding-inline: var(--fieldet_pad-inline, clamp($gap-l, 2svi, $gap-xl));
-				border: none;
 				margin: 0;
+				border: none;
 				border-block-start: var(--fieldet_border-width, $border-width) solid $color-border;
 
 				@include mq-responsive(mobile-xl, max) {
@@ -133,8 +133,8 @@
 
 		&__close {
 			@extend %close-button;
-			inset: initial !important;
 			position: relative !important;
+			inset: initial !important;
 		}
 
 		&__empty-message {
@@ -177,9 +177,9 @@
 
 			hr {
 				margin-block: $gap-xl;
-				color: $color-border;
-				border-color: $color-border;
 				background-color: $color-border;
+				border-color: $color-border;
+				color: $color-border;
 			}
 		}
 

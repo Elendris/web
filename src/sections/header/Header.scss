@@ -3,8 +3,8 @@
 @use "../../styles/base/variables/index" as *;
 
 @mixin create-header {
-
   header {
+    position: relative;
     display: grid;
     grid-template-rows: 1fr;
     min-block-size: 100svb;
@@ -12,7 +12,15 @@
 
   .header {
     &__container {
-      @include grid-columns(grid, var(--header-cont_col-temp, minmax($gap-2xl, 5fr) minmax($gap-2xl, 8fr)), 0, var(--header-cont_ai, stretch), var(--header-cont_jc, flex-start),  var(--header-cont_ac, stretch));
+      @include grid-columns(
+        grid,
+        repeat(12, minmax($gap-l, 1fr)),
+        0,
+        var(--header-cont_ai, stretch),
+        var(--header-cont_jc, flex-start),
+        var(--header-cont_ac, stretch)
+      );
+      grid-template-rows: repeat(12, minmax($gap-l, 1fr));
 
       @include mq-responsive(desktop-full-hd, max) {
         --header-cont_col-temp: minmax(#{$gap-3xl}, 1fr);
@@ -22,73 +30,87 @@
       }
     }
 
-    &__content,
-    &__anim {
+    &__content{
       display: grid;
-      align-items: center;
-      align-content: center;
-      row-gap: 5svb;
-    }
+      align-items: flex-start;
+      grid-column: 1 / 9;
+      grid-row: 5 / 9;
 
-    &__title {
-      display: grid;
-      align-items: center;
-      gap: $gap-m;
-      font-size: clamp($gap-3xl, var(--header-title_font-size, 8svb), 6.5rem);
-      line-height: 1;
-      color: $color-primary;
-
-      @include mq-responsive(desktop-hd, max) {
-        --header-title_font-size: 6svb;
-      }
-
-      @include mq-responsive(tablet, max) {
-        --header-title_font-size: 5svb;
-      }
-
-      @include mq-responsive(mobile-xl, max) {
-        --header-title_font-size: 4svb;
-      }
-
-      h1 {
+      > :is(h1, span) {
+        --header-title_trans-x: #{num-neg(calc($gap-l + $gap-s))};
         @extend .open-sans-900;
+        position: relative;
         opacity: 0;
+        font-size: clamp($gap-3xl, var(--header-title_font-size, 20svb), 18rem) !important;
+        line-height: 1;
+        text-transform: uppercase;
         animation: showTitle 1s forwards;
-        translate: var(--header-title_trans-x, #{num-neg($gap-l)}) 30%;
+        translate: var(--header-title_trans-x) 30%;
+        z-index: 1;
+        grid-column-start: 1;
+        grid-row-start: 1;
 
         @include mq-responsive(desktop-hd, max) {
-          --header-title_trans-x: #{num-neg($gap-m)};
+          --header-title_trans-x: #{num-neg(calc($gap-m + $gap-xs))};
+          --header-title_font-size: 6svb;
+        }
+  
+        @include mq-responsive(tablet, max) {
+          --header-title_font-size: 5svb;
+        }
+  
+        @include mq-responsive(mobile-xl, max) {
+          --header-title_font-size: 4svb;
         }
       }
 
-      small {
-        opacity: 0;
-        font-size: clamp($gap-l, .3em, $gap-2xl);
-        animation: showContent 1s forwards 0.5s;
-        translate: 0 2svb;
+      > h1{
+        color: $color-primary;
+        z-index: -1;
       }
 
-      + div {
+      // Visual hack
+      > span{
+        color: hsl(from $color-primary h s l / .1);
+        z-index: 1;
+        -webkit-text-stroke: $border-width-3 $color-white;
+      }
+
+      > small {
         opacity: 0;
-        animation: showContent 1s forwards 1s;
+        font-size: clamp($gap-l, 2.5svb, $gap-2xl);
+        animation: showContent 1s forwards 0.5s;
         translate: 0 2svb;
+
+        //buttons
+        + div {
+          opacity: 0;
+          animation: showContent 1s forwards 1s;
+          margin-block-start: 5svb;
+          translate: 0 2svb;
+        }
       }
     }
   }
 
   .anim {
     position: relative;
-    translate: 0 5svb;
-
-    @include mq-responsive(desktop-full-hd, max) {
-      display: none;
-    }
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    z-index: 0;
+    grid-column: 5 / 13;
+    grid-row: 1 / 13;
+    filter: drop-shadow(0 $gap-m $gap-xl $color-shadow);
 
     &__pic {
-      block-size: var(--anim-pic_height);
-      filter: drop-shadow(0 $gap-m $gap-xl $color-shadow);
-      translate: var(--anim-pic_trans-x);
+      position: relative;
+      clip-path: var(--anim-pic_clip-path);
+      background-color: var(--anim-pic_bg-color, $color-transparent);
+      animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
+      scale: 0;
 
+      &[data-scroll-anim="true"], 
       &[data-scroll-anim="true"]:after {
         animation: var(--anim-pic_animation) linear forwards;
         scale: 1;
@@ -99,22 +121,21 @@
 
       &:after {
         position: absolute;
-        inset: 0;
+        inset: $border-width-3;
         display: block;
         content: "";
         background-image: var(--anim-pic_bg-img);
         background-repeat: no-repeat;
         background-position: var(--anim-pic_bg-position);
         background-size: cover;
-        animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
-        translate: var(--anim-pic-after_trans-x);
-        scale: 0;
         transform-origin: center;
-        clip-path: var(--anim-pic_clip-path);
         clip-path: var(--anim-pic_clip-path);
       }
 
       &--large {
+        --anim-pic_animation: animLargeImg;
+        --anim-pic_bg-position: center;
+        --anim-pic_anim-delay: 1.25s;
         --anim-pic_bg-img: url("../images/header/header-img-1.webp");
         --anim-pic_clip-path: polygon(
           45.348% 0.345%,
@@ -167,17 +188,17 @@
           0.424% 39.475%,
           45.348% 0.345%
         );
-        --anim-pic_animation: animLargeImg;
-        --anim-pic_trans-x: 5svi;
-        --anim-pic-after_trans-x: #{num-neg($gap-xs)};
-        --anim-pic_bg-position: center;
-        --anim-pic_height: 85svb;
-        --anim-pic_anim-delay: 1.25s;
-        aspect-ratio: 1;
+        translate: 3svi 0;
+        grid-column: 1 / 9;
+        grid-row: 2 / 13;
       }
 
       &--small {
-        --anim-pic_bg-img: url("../images/header/header-img-2.webp");
+        --anim-pic_animation: animSmallImg;
+        --anim-pic_bg-position: center center;
+        --anim-pic_anim-delay: 1.5s;
+        --anim-pic_bg-img: url("../images/gallery/Elendris08.avif");
+        --anim-pic_bg-color: #{$color-white};
         --anim-pic_clip-path: polygon(
           0.683% 39.679%,
           0.683% 39.679%,
@@ -229,15 +250,9 @@
           58.557% 0.388%,
           0.683% 39.679%
         );
-        --anim-pic_animation: animSmallImg;
-        --anim-pic_trans-x: 10svi;
-        --anim-pic-after_trans-x: #{num-neg($gap-s)};
-        --anim-pic_bg-position: center center;
-        --anim-pic_height: 40svb;
-        --anim-pic_anim-delay: 1.5s;
-        position: absolute;
-        inset: 0 0 auto auto;
-        inline-size: 50svb;
+        translate: 6svi -3svb;
+        grid-column: 5 / 9;
+        grid-row: 3 / 8;
       }
     }
   }

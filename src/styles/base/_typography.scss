@@ -32,9 +32,9 @@
     }
 
     h3 {
-        font-weight: 900;
         margin-block-end: clamp($gap-l, 3svb, $gap-3xl);
         font-size: clamp($gap-xl, var(--h3_dynamic-fs, 4svb), 4rem);
+        font-weight: 900;
 
         @include mq-responsive(mobile-xl, max) {
             --h3_dynamic-fs: 3.5svb;
