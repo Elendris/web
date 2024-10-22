@@ -15,11 +15,11 @@ const initMap = (): void => {
 
   const setCenterAndZoom = () => {
    
-    if (window.innerWidth < 1024){
+    if (window.innerWidth <= 1024){
       center = { lat: 49.60918, lng: 16.66541 };
       zoom = 10;
     }
-    else if (window.innerWidth < 1366) {
+    else if (window.innerWidth <= 1366) {
       center = { lat: 49.20818, lng: 16.46286 };
       zoom = 11;
     }

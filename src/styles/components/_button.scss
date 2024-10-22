@@ -38,8 +38,11 @@
       }
     }
 
-    @include mq-responsive(tablet, max) {
-      --btn_min-width: 10rem;
+    @include mq-responsive(desktop-s, max) {
+      --btn_pad-block: #{$gap-m};
+      --btn_pad-inline: #{$gap-l};
+      --btn_font-size: smaller;
+      --btn_min-width: 8rem;
     }
 
     &[disabled] {
@@ -51,14 +54,13 @@
 
     &--secondary {
       --btn_color: var(--color-primary);
-      --btn_bg: var(--color-transparent);
+      --btn_bg: var(--color-white);
       --btn_border-color: var(--color-primary);
-      backdrop-filter: blur(0.5em);
 
       @include mq-hover {
         &:not([disabled]) {
           --btn_color: var(--color-primary--hover);
-          --btn_bg: var(--color-transparent);
+          --btn_bg: var(--color-white);
           --btn_border-color: var(--color-primary--hover);
         }
       }

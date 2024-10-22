@@ -8,6 +8,8 @@
     display: grid;
     grid-template-rows: 1fr;
     min-block-size: 100svb;
+    max-inline-size: 100svi;
+    overflow-x: clip
   }
 
   .header {
@@ -30,18 +32,23 @@
       }
     }
 
-    &__content{
+    &__content {
       display: grid;
       align-items: flex-start;
       grid-column: 1 / 9;
       grid-row: 5 / 9;
 
+      @include mq-responsive(mobile-xl, max) {
+        grid-column: 1 / 13;
+        // grid-row: 4 / 8;
+      }
+
       > :is(h1, span) {
-        --header-title_trans-x: #{num-neg(calc($gap-l + $gap-s))};
+        --header-title_trans-x: -0.8svi;
         @extend .open-sans-900;
         position: relative;
         opacity: 0;
-        font-size: clamp($gap-3xl, var(--header-title_font-size, 20svb), 18rem) !important;
+        font-size: var(--header-title_font-size, clamp($gap-3xl, 20svb, 18rem));
         line-height: 1;
         text-transform: uppercase;
         animation: showTitle 1s forwards;
@@ -51,43 +58,59 @@
         grid-row-start: 1;
 
         @include mq-responsive(desktop-hd, max) {
-          --header-title_trans-x: #{num-neg(calc($gap-m + $gap-xs))};
-          --header-title_font-size: 6svb;
+          --header-title_font-size: clamp(#{$gap-3xl}, 17vb, 14rem);
         }
-  
+
         @include mq-responsive(tablet, max) {
-          --header-title_font-size: 5svb;
+          --header-title_font-size: clamp(#{$gap-3xl}, 10svb, 10rem);
         }
-  
+
         @include mq-responsive(mobile-xl, max) {
-          --header-title_font-size: 4svb;
+          --header-title_font-size: clamp(#{$gap-3xl}, 8svb, 8rem);
         }
       }
 
-      > h1{
+      > h1 {
         color: $color-primary;
         z-index: -1;
       }
 
       // Visual hack
-      > span{
-        color: hsl(from $color-primary h s l / .1);
+      > span {
+        color: hsl(from $color-primary h s l / 0.1);
         z-index: 1;
-        -webkit-text-stroke: $border-width-3 $color-white;
+        -webkit-text-stroke: var(--header-title_text-stroke, $border-width-3) $color-white;
+
+        @include mq-responsive(desktop-s, max) {
+          --header-title_text-stroke: #{$border-width-2};
+        }
       }
 
       > small {
+        position: relative;
         opacity: 0;
         font-size: clamp($gap-l, 2.5svb, $gap-2xl);
         animation: showContent 1s forwards 0.5s;
         translate: 0 2svb;
+        z-index: 1;
+
+        @include mq-responsive(tablet, max) {
+          font-size: clamp($gap-l, 2svb, $gap-xl);
+          filter: drop-shadow(0 0 $border-width-3 $color-white);
+        }
 
         //buttons
         + div {
+          position: relative;
+          margin-block-start: clamp($gap-2xl, 5svb, 4rem);
           opacity: 0;
           animation: showContent 1s forwards 1s;
-          margin-block-start: 5svb;
           translate: 0 2svb;
+          z-index: 1;
+
+          @include mq-responsive(mobile-xl, max) {
+            margin-block-start: clamp($gap-xl, 3.5svb, $gap-3xl);
+          }
         }
       }
     }
@@ -98,19 +121,30 @@
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
+    filter: drop-shadow(0 $gap-m $gap-xl $color-shadow);
     z-index: 0;
     grid-column: 5 / 13;
     grid-row: 1 / 13;
-    filter: drop-shadow(0 $gap-m $gap-xl $color-shadow);
+
+    @include mq-responsive(tablet, max) {
+      opacity: 0.9;
+      grid-column: 1 / 13;
+      grid-row: 1 / 13;
+    }
+
+    @include mq-responsive(mobile-xl, max) {
+      opacity: 1;
+    }
 
     &__pic {
       position: relative;
-      clip-path: var(--anim-pic_clip-path);
       background-color: var(--anim-pic_bg-color, $color-transparent);
       animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
       scale: 0;
+      clip-path: var(--anim-pic_clip-path);
+      translate: var(--anim-pic_trans-x, 0) var(--anim-pic_trans-y, 0);
 
-      &[data-scroll-anim="true"], 
+      &[data-scroll-anim="true"],
       &[data-scroll-anim="true"]:after {
         animation: var(--anim-pic_animation) linear forwards;
         scale: 1;
@@ -136,6 +170,7 @@
         --anim-pic_animation: animLargeImg;
         --anim-pic_bg-position: center;
         --anim-pic_anim-delay: 1.25s;
+        --anim-pic_trans-x: 3svi;
         --anim-pic_bg-img: url("../images/header/header-img-1.webp");
         --anim-pic_clip-path: polygon(
           45.348% 0.345%,
@@ -188,9 +223,24 @@
           0.424% 39.475%,
           45.348% 0.345%
         );
-        translate: 3svi 0;
         grid-column: 1 / 9;
         grid-row: 2 / 13;
+
+        @include mq-responsive(tablet, max) {
+          --anim-pic_trans-x: 25svi;
+          grid-column: 1 / 13;
+          grid-row: 2 / 12;
+        }
+
+        @include mq-responsive(mobile-xl, max) {
+          --anim-pic_trans-x: -10svi;
+          --anim-pic_trans-y: -3svb;
+          --anim-pic_bg-color: #{$color-white};
+          --anim-pic_bg-img: url("../images/gallery/Elendris02.avif");
+          --anim-pic_bg-position: center left;
+          grid-column: 1 / 13;
+          grid-row: 9 / 13;
+        }
       }
 
       &--small {
@@ -199,6 +249,8 @@
         --anim-pic_anim-delay: 1.5s;
         --anim-pic_bg-img: url("../images/gallery/Elendris08.avif");
         --anim-pic_bg-color: #{$color-white};
+        --anim-pic_trans-x: 6svi;
+        --anim-pic_trans-y: -3svb;
         --anim-pic_clip-path: polygon(
           0.683% 39.679%,
           0.683% 39.679%,
@@ -250,9 +302,20 @@
           58.557% 0.388%,
           0.683% 39.679%
         );
-        translate: 6svi -3svb;
-        grid-column: 5 / 9;
+        grid-column: 8 / 13;
         grid-row: 3 / 8;
+
+        @include mq-responsive(tablet, max) {
+          grid-column: 3 / 9;
+          grid-row: 2 / 6;
+        }
+
+        @include mq-responsive(mobile-xl, max) {
+          --anim-pic_trans-x: 10svi;
+          --anim-pic_trans-y: -5svb;
+          grid-column: 3 / 13;
+          grid-row: 2 / 6;
+        }
       }
     }
   }
