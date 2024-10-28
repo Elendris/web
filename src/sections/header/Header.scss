@@ -7,8 +7,8 @@
     position: relative;
     display: grid;
     grid-template-rows: 1fr;
-    min-block-size: 100svb;
     max-inline-size: 100svi;
+    min-block-size: 100svb;
     overflow-x: clip
   }
 
@@ -95,8 +95,8 @@
         z-index: 1;
 
         @include mq-responsive(tablet, max) {
-          font-size: clamp($gap-l, 2svb, $gap-xl);
           filter: drop-shadow(0 0 $border-width-3 $color-white);
+          font-size: clamp($gap-l, 2svb, $gap-xl);
         }
 
         //buttons
@@ -140,9 +140,9 @@
       position: relative;
       background-color: var(--anim-pic_bg-color, $color-transparent);
       animation: showImg 0.5s forwards var(--anim-pic_anim-delay);
+      translate: var(--anim-pic_trans-x, 0) var(--anim-pic_trans-y, 0);
       scale: 0;
       clip-path: var(--anim-pic_clip-path);
-      translate: var(--anim-pic_trans-x, 0) var(--anim-pic_trans-y, 0);
 
       &[data-scroll-anim="true"],
       &[data-scroll-anim="true"]:after {
