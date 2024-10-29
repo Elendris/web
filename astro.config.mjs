@@ -7,8 +7,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
     allowImportingTsExtensions: true,
+    i18n: {
+        defaultLocale: "cs",
+        locales: ["en", "cs"],
+      },
     integrations: [
-        astroI18next(),
         sitemap(),
         partytown({
             config: {

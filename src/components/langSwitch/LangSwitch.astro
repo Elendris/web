@@ -1,5 +1,9 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const csUrl = getRelativeLocaleUrl("cs"); 
+const enUrl = getRelativeLocaleUrl("en"); 
 ---
 
 <div class="lang-switch">
@@ -12,8 +16,8 @@ import Icon from "../icons/Icon.astro";
     <Icon name="chevron-down" />
   </button>
   <div  class="lang-switch__popover" data-open="false">
-    <a href="/" hreflang="cs" rel="noreferer" class="link link--light">Česky</a>
-    <a href="/" hreflang="en" rel="noreferer" class="link link--light">Anglicky</a>
+    <a href={csUrl} hreflang="cs" rel="noreferer" class="link link--light">Česky</a>
+    <a href={enUrl} hreflang="en" rel="noreferer" class="link link--light">Anglicky</a>
   </div>
 </div>
 
