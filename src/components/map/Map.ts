@@ -30,9 +30,6 @@ const initMap = (): void => {
 
     map.setCenter(center);
     map.setZoom(zoom);
-
-    console.log("Current center:", center);
-    console.log("Current zoom:", zoom);
   };
 
   const map = new google.maps.Map(mapElement, {
@@ -41,6 +38,7 @@ const initMap = (): void => {
     zoom: zoom, 
     disableDefaultUI: true,
     gestureHandling: "cooperative",
+    mapId: "1406e53bf9ae68ff",
   });
 
   // Set initial center and zoom level
@@ -97,13 +95,18 @@ const initMap = (): void => {
 
   // Iterate over the markersData array to create markers and info windows
   markersData.forEach((data) => {
-    const marker = new google.maps.Marker({
+    const markerElement = document.createElement('img');
+    markerElement.src = data.icon;
+    markerElement.style.width = '32px';
+    markerElement.style.height = '32px';
+  
+    const marker = new google.maps.marker.AdvancedMarkerElement({
       position: data.position,
       map: map,
       title: data.title,
-      icon: data.icon,
+      content: markerElement,
     });
-
+  
     marker.addListener("click", () => {
       infoWindow.setContent(`
         <div class="map__window">
@@ -141,7 +144,7 @@ export function loadGoogleMapsAPI() {
   const loader = new Loader({
     apiKey: "AIzaSyDL2nvxZgXk8NXOQmhizNX4HgrH5WbJnYk",
     version: "weekly",
-    libraries: ["places"], // Add additional libraries if needed
+    libraries: ["places", "marker"], // Add additional libraries if needed
   });
 
   loader

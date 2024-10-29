@@ -8,6 +8,10 @@
     max-width: 260px !important;
     padding: 0 !important;
 
+    .gm-style-iw-d{
+      overflow: hidden !important;
+    }
+
     div:has(+ button[aria-label="Close"]){
       display: none;
 
