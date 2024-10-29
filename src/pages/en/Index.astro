@@ -9,15 +9,9 @@ import Contact from "../../sections/contact/Contact.astro";
 import Footer from "../../sections/footer/Footer.astro";
 import Dock from "../../components/dock/Dock.astro";
 import About from "../../sections/about/About.astro";
-
-import { getLangFromUrl } from "../../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-
-return Astro.redirect('/en/');
 ---
 
-<html lang={lang}>
+<html lang="en">
   <Helmet
     title="Elendris | Accommodation near the church"
     description="Cosy accommodation in a family atmosphere"

@@ -2,9 +2,9 @@
 interface Props {
     title: string;
     description: string;
+    metaResourcesPath?: string;
 }
-const { title } = Astro.props;
-const { description } = Astro.props;
+const { title, description} = Astro.props;
 ---
 
 <head>
@@ -20,33 +20,34 @@ const { description } = Astro.props;
     </script>
 
     <title>{title}</title>
+    <slot name="meta-refresh-tag" />
     <meta name="description" content={description} />
     <meta name="author" content="Lukáš Chylík" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="keywords" content={description} />
     
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png" />
-    <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Schema.org markup for Google -->
     <meta itemprop="name" content={title} />
     <meta itemprop="description" content={description} />
-    <meta itemprop="image" content="./meta/meta-google.webp" />
+    <meta itemprop="image" content="/meta/meta-google.webp" />
 
     <!-- Open Graph data -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://elendris.cz/" />
-    <meta property="og:image" content="./meta/meta-fb.webp" />
+    <meta property="og:image" content="/meta/meta-fb.webp" />
 
     <!-- Twitter Card data -->
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="./meta/meta-twitter.webp" />
+    <meta name="twitter:image" content="/meta/meta-twitter.webp" />
 
     <link rel="alternate" hreflang="en" href="https://elendris.cz/en/" />
     <link rel="alternate" hreflang="cs" href="https://elendris.cz/cs/" />
@@ -55,7 +56,7 @@ const { description } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     <link rel="sitemap" href="/sitemap.xml" />
 
