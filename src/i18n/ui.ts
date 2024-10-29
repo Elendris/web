@@ -13,6 +13,8 @@ export const ui = {
     'nav.contact': 'Kontakt',
     'nav.openMenu': 'Otevřít menu',
     'nav.reservation': 'Rezervovat',
+    'nav.lang.cs': 'Čeština',
+    'nav.lang.en': 'Anglicky',
   },
   en: {
     'nav.home': 'Elendris',
@@ -21,5 +23,7 @@ export const ui = {
     'nav.contact': 'Contact',
     'nav.openMenu': 'Open menu',
     'nav.reservation': 'Reservation',
+    'nav.lang.cs': 'Czech',
+    'nav.lang.en': 'English',
   },
 } as const;
