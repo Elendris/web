@@ -59,7 +59,7 @@ const t = useTranslations(lang);
       <div class="detail__hidden-pics">
         <div class="detail__hidden-pics">
           {Array.from({ length: imgCount - 1 }).map((_, i) => {
-            const imgUrl = `images/rooms/${galeryFolder}/${galeryFolder}-${i + 2}.avif`;
+            const imgUrl = `/images/rooms/${galeryFolder}/${galeryFolder}-${i + 2}.avif`;
             return (
               <a href={imgUrl} data-fancybox={`room-${id}`} data-caption={`${title}`} rel="internal"></a>
             );
