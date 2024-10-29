@@ -1,6 +1,11 @@
 ---
 import Icon from "../icons/Icon.astro";
 import LangSwitch from "../langSwitch/LangSwitch.astro";
+
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <nav>
@@ -9,16 +14,16 @@ import LangSwitch from "../langSwitch/LangSwitch.astro";
   </a>
   <ul class="menu" data-sticky="false" data-open="false">
     <li>
-      <a href="#home">Elendris</a>
+      <a href={`/${lang}/#home`}>{t('nav.home')}</a>
     </li>
     <li>
-      <a href="#about">O nás</a>
+      <a href={`/${lang}/#about`}>{t('nav.about')}</a>
     </li>
     <li>
-      <a href="#rooms">Pokoje</a>
+      <a href={`/${lang}/#rooms`}>{t('nav.rooms')}</a>
     </li>
     <li>
-      <a href="#contact">Kontakt</a>
+      <a href={`/${lang}/#contact`}>{t('nav.contact')}</a>
     </li>
     <LangSwitch />
   </ul>
