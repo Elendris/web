@@ -1,13 +1,10 @@
 ---
 import Icon from "../icons/Icon.astro";
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl } from '../../i18n/utils';
+import { languages } from '../../i18n/ui';
+
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-const csUrl = getRelativeLocaleUrl("cs"); 
-const enUrl = getRelativeLocaleUrl("en"); 
 ---
 
 <div class="lang-switch">
@@ -19,9 +16,12 @@ const enUrl = getRelativeLocaleUrl("en");
     <span>{lang.toLocaleUpperCase()}</span>
     <Icon name="chevron-down" />
   </button>
-  <div  class="lang-switch__popover" data-open="false">
-    <a href={csUrl} hreflang="cs" rel="noreferer" class="link link--light">{t('nav.lang.cs')}</a>
-    <a href={enUrl} hreflang="en" rel="noreferer" class="link link--light">{t('nav.lang.en')}</a>
+  <ul class="lang-switch__popover" data-open="false">
+    {Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a href={`/${lang}/`} class="link link--light" rel="noreferer">{label}</a>
+      </li>
+    ))}
   </div>
 </div>
 
