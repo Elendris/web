@@ -9,13 +9,16 @@ import Contact from "../sections/contact/Contact.astro";
 import Footer from "../sections/footer/Footer.astro";
 import Dock from "../components/dock/Dock.astro";
 import About from "../sections/about/About.astro";
+
+import { defaultLang } from '../i18n/ui';
+
 ---
 
-<html lang="cs">
+<html lang={defaultLang}>
   <Helmet
     title="Elendris | Ubytování u kostela"
     description="Útulné ubytování v rodinné atmosféře">
-    <meta http-equiv="refresh" content="0;url=/cs/" slot="meta-refresh-tag"/>
+    <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`} slot="meta-refresh-tag"/>
   </Helmet>
   <body>
     <IconSet />

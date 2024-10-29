@@ -9,7 +9,7 @@ export default defineConfig({
     allowImportingTsExtensions: true,
     i18n: {
         defaultLocale: "cs",
-        locales: ["cs", "en"],
+        locales: ["en", "cs"],
       },
     integrations: [
         sitemap(),
