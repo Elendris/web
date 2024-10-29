@@ -2,7 +2,6 @@
 import Helmet from "../components/helmet/Helmet.astro";
 import Header from "../sections/header/Header.astro";
 import Navigation from "../components/navigation/Navigation.astro";
-import i18next from "i18next";
 import Rooms from "../sections/rooms/Rooms.astro";
 import Reservation from "../components/reservation/Reservation.astro";
 import IconSet from "../components/icons/IconSet.astro";
@@ -10,9 +9,14 @@ import Contact from "../sections/contact/Contact.astro";
 import Footer from "../sections/footer/Footer.astro";
 import Dock from "../components/dock/Dock.astro";
 import About from "../sections/about/About.astro";
+import { getLangFromUrl } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+return Astro.redirect('/cs/');
 ---
 
-<html lang={i18next.language}>
+<html lang={lang}>
   <Helmet
     title="Elendris | Ubytování u kostela"
     description="Útulné ubytování v rodinné atmosféře"
