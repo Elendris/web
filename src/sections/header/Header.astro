@@ -1,12 +1,18 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
 <header id="home">
   <div class="container header__container">
     <div class="header__content">
-      <h1>Elendris</h1>
-      <span>Elendris</span>
-      <small>Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety</small>
+      <h1>{t('header.title')}</h1>
+      <span>{t('header.title')}</span>
+      <small>{t('header.desc')}</small>
       <div class="d-flex ai-c gap-l">
-        <button class="btn" data-reservation>Rezervovat</button>
-        <a class="btn btn--secondary" href="#rooms">Více informací</a>
+        <button class="btn" data-reservation>{t('header.button.reservation')}</button>
+        <a class="btn btn--secondary" href="#rooms">{t('header.button.moreInfo')}</a>
       </div>
     </div>
     <div class="anim">
