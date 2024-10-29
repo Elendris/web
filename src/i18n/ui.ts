@@ -31,5 +31,7 @@ export const ui = {
     'header.desc': 'Ideal for both business travelers and families',
     'header.button.reservation': 'Reservation',
     'header.button.moreInfo': 'Show more',
+    'about.title': 'Welcome',
+
   },
 } as const;

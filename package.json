@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/markdown-component": "^1.0.5",
+    "@astrojs/markdown-remark": "^5.3.0",
     "@astrojs/partytown": "^2.1.2",
     "@astrojs/sitemap": "^3.2.1",
     "@fancyapps/ui": "^5.0.36",

@@ -47,10 +47,10 @@
       inset: calc(100% + $gap-s) auto auto 50%;
       padding: $gap-l;
       border-radius: 1em;
+      list-style: none;
       text-align: left;
       translate: -50% 0;
       box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
-      list-style: none;
 
       &[data-open="true"] {
         --lang-switch-popover_display: flex;

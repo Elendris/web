@@ -1,5 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 import Icon from "../../components/icons/Icon.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const aboutCollection = await getCollection('about');
+const aboutContent = aboutCollection.find(entry => entry.slug === lang);
+
+if (!aboutContent) {
+  throw new Error(`Content for language ${lang} not found`);
+}
+
+const { data, body } = aboutContent;
+const { title } = data;
+
+const [part1, part2] = body.split('<!-- split -->');
 
 interface Props {
   id: string;
@@ -10,11 +25,8 @@ const { id } = Astro.props;
 
 <section id={id}>
   <div class="container container--small">
-    <h2 class="center-text">Vítejte</h2>
-    <p class="center-text w-100">
-      Hledáte klidné a komfortní místo k odpočinku během pracovního týdne či víkendu v Brně?<br /><br />
-      Ubytování <strong>Elendris</strong> – Ubytování u kostela je ideální volbou jak pro pracovní pobyty, tak pro rodinné výlety. Nacházíme se v klidné části Brno-Slatina, <strong>jen pár minut</strong> od letiště a dálnice D1.
-    </p>
+    <h2 class="center-text">{title}</h2>
+    <p class="center-text w-100" set:html={part1} />
     <div class="tiles">
       <div class="tile">
         <Icon name="parking" />
@@ -39,11 +51,7 @@ const { id } = Astro.props;
         </div>
       </div>
     </div>
-    <p class="center-text w-100">
-      Příjezd je možný <strong>od 15:00 do 2:00 hodin</strong>.
-      Nabízíme možnost <strong>online check-in</strong>  . Pokud zaplatíte předem, pošleme Vám přístupový kód a můžete přijet kdykoliv později i během noci.
-      Odjezd je <strong>do 10:00 hodin</strong>, což vám umožní si ráno v klidu sbalit a připravit se na cestu.
-    </p>
+    <p class="center-text w-100" set:html={part2} />
     <div class="center-text m-y-3xl">
       <a href="#rooms" class="btn"> Vybrat pokoj </a>
     </div>

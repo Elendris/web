@@ -8,6 +8,12 @@ dependencies:
   '@astrojs/check':
     specifier: ^0.9.4
     version: 0.9.4(typescript@5.6.3)
+  '@astrojs/markdown-component':
+    specifier: ^1.0.5
+    version: 1.0.5
+  '@astrojs/markdown-remark':
+    specifier: ^5.3.0
+    version: 5.3.0
   '@astrojs/partytown':
     specifier: ^2.1.2
     version: 2.1.2
@@ -140,6 +146,10 @@ packages:
       vscode-uri: 3.0.8
     transitivePeerDependencies:
       - typescript
+    dev: false
+
+  /@astrojs/markdown-component@1.0.5:
+    resolution: {integrity: sha512-e7pzVfEZmjyZMmKGwLbfds36idAt9Yi8c0N0VQw2cVEgK8QdQecZLc07JvUSugoZxINtoVA0Afpm8EcIP52Ncw==}
     dev: false
 
   /@astrojs/markdown-remark@5.3.0:
