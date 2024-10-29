@@ -32,14 +32,13 @@ const t = useTranslations(lang);
       <Icon name="phone" />
       +420 758 695 456
     </a>
-    <button class="btn btn--small" data-reservation>Rezervovat</button>
+    <button class="btn btn--small" data-reservation>{t('nav.reservation')}</button>
     <button
       id="menuBtn"
       data-open="false"
       class="burger"
       type="button"
-      aria-label="Otevřít menu"
-    >
+      aria-label={t('nav.openMenu')}>
       <span></span>
       <span></span>
       <span></span>
