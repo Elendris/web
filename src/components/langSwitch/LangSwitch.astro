@@ -3,15 +3,14 @@ import Icon from "../icons/Icon.astro";
 import { getLangFromUrl } from '../../i18n/utils';
 import { languages } from '../../i18n/ui';
 
-
 const lang = getLangFromUrl(Astro.url);
 ---
 
 <div class="lang-switch">
   <button class="lang-switch__btn" 
           type="button" 
-          aria-label="Změnit jazyk" 
-          title="Změnit jazyk">
+          aria-label="Change language" 
+          title="Change language">
     <Icon name="lang" />
     <span>{lang.toLocaleUpperCase()}</span>
     <Icon name="chevron-down" />
@@ -22,7 +21,7 @@ const lang = getLangFromUrl(Astro.url);
         <a href={`/${lang}/`} class="link link--light" rel="noreferer">{label}</a>
       </li>
     ))}
-  </div>
+  </ul>
 </div>
 
 <script>

@@ -33,12 +33,11 @@ const initMap = (): void => {
   };
 
   const map = new google.maps.Map(mapElement, {
-    // mapId: '1406e53bf9ae68ff',
+    mapId: '1406e53bf9ae68ff',
     center: center, // Initial center
     zoom: zoom, 
     disableDefaultUI: true,
     gestureHandling: "cooperative",
-    mapId: "1406e53bf9ae68ff",
   });
 
   // Set initial center and zoom level
