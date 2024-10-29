@@ -32,7 +32,7 @@ const t = useTranslations(lang);
   </div>
   <div class="rooms">
     <Room
-      title="Jednolůžkový pokoj"
+      title={t('rooms.room1.title')}
       imgSrc="/images/rooms/room-1/room-1-1.avif"
       imgCount={3}
       galeryFolder="room-1"
@@ -45,7 +45,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title="Dvoulůžkový pokoj"
+      title={t('rooms.room2.title')}
       imgSrc="/images/rooms/room-2/room-2-1.avif"
       imgCount={2}
       galeryFolder="room-2"
@@ -58,7 +58,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title="Třílůžkový pokoj"
+      title={t('rooms.room3.title')}
       imgSrc="/images/rooms/room-3/room-3-1.avif"
       imgCount={3}
       galeryFolder="room-3"
@@ -71,7 +71,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title="Rodinný pokoj"
+      title={t('rooms.room4.title')}
       imgSrc="/images/rooms/room-4/room-4-1.avif"
       imgCount={2}
       galeryFolder="room-4"
@@ -84,7 +84,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title="Rodinný pokoj s kuchyňským koutem"
+      title={t('rooms.room5.title')}
       imgSrc="/images/rooms/room-5/room-5-1.avif"
       imgCount={2}
       galeryFolder="room-5"
@@ -97,7 +97,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title="Pokoj s vanou"
+      title={t('rooms.room6.title')}
       imgSrc="/images/rooms/room-6/room-6-1.avif"
       imgCount={3}
       price={1450}
@@ -113,7 +113,9 @@ const t = useTranslations(lang);
   <div class="container">
     <br><br>
     <p class="center-text w-100">
-      Máte-li jakékoliv dotazy, neváhejte nás kontaktovat e-mailem <a href="mailto:info@elendris.cz" class="link" rel="noreferer">info@elendris.cz</a>
+      <p class="center-text w-100">
+        {t('rooms.desc.under')} <a href="mailto:info@elendris.cz" class="link" rel="noopener">info@elendris.cz</a>
+      </p>
     </p>
   </div>
 </section>

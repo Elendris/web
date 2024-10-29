@@ -1,9 +1,14 @@
 ---
 import Icon from "../icons/Icon.astro";
+
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="dock">
-  <a href="tel: +420758695456" class="dock__link" title="Kontaktovat pomocí telefonu" rel="noopener">
+  <a href="tel: +420758695456" class="dock__link" title={t('dock.link.phone')} rel="noopener">
     <Icon name="phone" />
   </a>
 </div>

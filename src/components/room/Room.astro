@@ -1,5 +1,6 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 interface Props {
   id: string;
@@ -11,6 +12,9 @@ interface Props {
 }
 
 const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <button class="card" id={`card-${id}`}>
@@ -18,7 +22,7 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
 
   <div class="card__content">
     <strong>{title}</strong>
-    <div class="btn btn--small btn--light">Detail</div>
+    <div class="btn btn--small btn--light">{t('rooms.btn.showRoom')}</div>
   </div>
 </button>
 
@@ -27,8 +31,8 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
     <h3>{title}</h3>
     <button
       class="detail__close"
-      aria-label="Zavřít detail pokoje"
-      title="Zavřít detail pokoje"
+      aria-label={t('room.label.closeDetail')}
+      title={t('room.label.closeDetail')}
     >
       <Icon name="close" />
     </button>
@@ -38,10 +42,10 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
     <div class="gallery">
       <a
         href={imgSrc}
-        aria-label="Zobrazit fotogalerii"
+        aria-label={t('room.label.showGallery')}
+        title={t('room.label.showGallery')}
         data-fancybox={`room-${id}`}
         data-caption={`${title}`}
-        title="Zobrazit fotogalerii"
         rel="internal"
         class="gallery__item"
       >
@@ -63,35 +67,35 @@ const { id, title, imgSrc, price, imgCount, galeryFolder } = Astro.props;
         </div>
       </div>
     </div>
-    <h4>Vybavení pokoje</h4>
+    <h4>{t('room.subtitle')}</h4>
     <ul>
       <li>
         <Icon name="wifi" />
-        Vysokorychlostní Wi-Fi
+        {t('room.equipment.wifi')}
       </li>
       <li>
         <Icon name="clima" />
-        Klimatizace
+        {t('room.equipment.airCondition')}
       </li>
       <li>
         <Icon name="bath" />
-        Prostorná koupelna, základní hygienický set, fén na vlasy
+        {t('room.equipment.bathroom')}
       </li>
       <li>
         <Icon name="drink" />
-        Pivo nebo voda po příchodu
+        {t('room.equipment.drink')}
       </li>
       <li>
         <Icon name="food" />
-        Snídaně v ceně
+        {t('room.equipment.breakfast')}
       </li>
     </ul>
   </div>
   <div class="detail__footer">
     <div class="detail__price">
-      <span>Cena od / noc</span>
+      <span>{t('room.label.price')}</span>
       <strong>{`${price.toString()} Kč`}</strong>
     </div>
-    <button class="btn" data-reservation>Rezervovat</button>
+    <button class="btn" data-reservation>{t('room.btn.reservation')}</button>
   </div>
 </dialog>
