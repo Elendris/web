@@ -1,34 +1,18 @@
 ---
-import Icon from "../../components/icons/Icon.astro";
-import { getLangFromUrl } from "../../i18n/utils";
 import { getCollection } from 'astro:content';
-
-interface AboutEntry {
-  id: string;
-  slug: string;
-  body: string;
-  collection: string;
-  data: {
-    title: string;
-    tileParking: string;
-    tileGrill: string;
-    tileCoffee: string;
-    tileKitchen: string;
-    tileBus: string;
-  };
-  render: () => Promise<{ html: string }>;
-}
+import Icon from "../../components/icons/Icon.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const aboutCollection = await getCollection('about') as unknown as AboutEntry[];
-const aboutContent = aboutCollection.find((entry: AboutEntry) => entry.slug === lang);
+const aboutCollection = await getCollection('about');
+const aboutContent = aboutCollection.find(entry => entry.slug === lang);
 
 if (!aboutContent) {
   throw new Error(`Content for language ${lang} not found`);
 }
 
 const { data, body } = aboutContent;
-const { title, tileParking, tileGrill, tileCoffee, tileKitchen, tileBus } = data;
+const { title } = data;
 
 const [part1, part2] = body.split('<!-- split -->');
 
@@ -37,39 +21,41 @@ interface Props {
 }
 
 const { id } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
 <section id={id}>
   <div class="container container--small">
     <h2 class="center-text">{title}</h2>
-    <p class="center-text w-100" set:html={part1}></p>
+    <p class="center-text w-100" set:html={part1} />
     <div class="tiles">
       <div class="tile">
         <Icon name="parking" />
-        <strong>{tileParking}</strong>
+        <strong>{t('about.tile.parking')}</strong>
       </div>
       <div class="tile">
         <Icon name="grill" />
-        <strong>{tileGrill}</strong>
+        <strong>{t('about.title.grill')}</strong>
       </div>
       <div class="tile">
         <Icon name="coffee" />
-        <strong>{tileCoffee}</strong>
+        <strong>{t('about.tile.coffee')}</strong>
       </div>
       <div>
         <div class="tile">
           <Icon name="kitchen" />
-          <strong>{tileKitchen}</strong>
+          <strong>{t('about.tile.kitchen')}</strong>
         </div>
         <div class="tile">
           <Icon name="bus" />
-          <strong>{tileBus}</strong>
+          <strong>{t('about.tile.bus')}</strong>
         </div>
       </div>
     </div>
-    <p class="center-text w-100" set:html={part2}></p>
+    <p class="center-text w-100" set:html={part2} />
     <div class="center-text m-y-3xl">
-      <a href="#rooms" class="btn">Vybrat pokoj</a>
+      <a href="#rooms" class="btn"> Vybrat pokoj </a>
     </div>
   </div>
 </section>

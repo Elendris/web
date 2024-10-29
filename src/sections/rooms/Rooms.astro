@@ -1,20 +1,33 @@
 ---
 import Room from "../../components/room/Room.astro";
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const aboutCollection = await getCollection('rooms');
+const aboutContent = aboutCollection.find(entry => entry.slug === lang);
+
+if (!aboutContent) {
+  throw new Error(`Content for language ${lang} not found`);
+}
+
+const { data, body } = aboutContent;
+const { title } = data;
 
 interface Props {
   id: string;
 }
 
 const { id } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
 <section id={id}>
   <div class="container">
-    <h2 class="title">Naše pokoje</h2>
+    <h2 class="title">{title}</h2>
     <p class="desc">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-      veritatis nesciunt tempora impedit nam quibusdam mollitia excepturi
-      laudantium, nisi itaque?
+      {body}
     </p>
   </div>
   <div class="rooms">

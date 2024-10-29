@@ -1,10 +1,5 @@
 ---
 title: Welcome
-tileParking: On-site parging
-tileGrill: Outdoor seeting and kids’ trampoline
-tileCoffee: Complimentary coffee and tea
-tileKitchen: Shared kitchen for guests
-tileBus: Public Transport Stop 30 Meters Away (trolleybus 31)
 ---
 
 Are you looking for a quiet and comfortable place to rest during your business trip or weekend stay in Brno?<br><br>

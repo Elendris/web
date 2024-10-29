@@ -18,6 +18,13 @@ export const ui = {
     'header.desc': 'Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety',
     'header.button.reservation': 'Rezervovat',
     'header.button.moreInfo': 'Více informací',
+    'about.tile.parking': 'Parkováníuvnitř areálu',
+    'about.title.grill': 'Venkovní posezení a trampolínapro děti',
+    'about.tile.coffee': 'Káva a čaj k dispozici během pobytu',
+    'about.tile.kitchen': 'Sdílená kuchyň pro hosty',
+    'about.tile.bus': 'Zastávka MHD 30 metrů (trolejbus 31)',
+    'about.button.chooseRoom': 'Vybrat pokoj',
+    
   },
   en: {
     'nav.home': 'Elendris',
@@ -31,5 +38,11 @@ export const ui = {
     'header.desc': 'Ideal for both business travelers and families',
     'header.button.reservation': 'Reservation',
     'header.button.moreInfo': 'Show more',
+    'about.tile.parking': 'On-site parging',
+    'about.title.grill': 'Outdoor seeting and kids trampoline',
+    'about.tile.coffee': 'Complimentary coffee and tea',
+    'about.tile.kitchen': 'Shared kitchen for guests',
+    'about.tile.bus': 'Public Transport Stop 30 Meters Away (trolleybus 31)',
+    'about.button.chooseRoom': 'Choose a room',
   },
 } as const;

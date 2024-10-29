@@ -1,10 +1,5 @@
 ---
-title: Vítejte
-tileParking: Parkování uvnitř areálu
-tileGrill: Venkovní posezení a trampolína pro děti
-tileCoffee: Káva a čaj k dispozici během pobytu
-tileKitchen: Sdílená kuchyň pro hosty
-tileBus: Zastávka MHD 30 metrů (trolejbus 31)
+title: Naše pokoje
 ---
 
 Hledáte klidné a komfortní místo k odpočinku během pracovního týdne či víkendu v Brně?<br><br>
