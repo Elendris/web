@@ -15,10 +15,10 @@ export const ui = {
     'nav.reservation': 'Rezervovat',
     'nav.lang.cs': 'Čeština',
     'nav.lang.en': 'Anglicky',
+    'nav.logo.alt': 'Elendris logo',
   },
   en: {
-    'nav.home': 'Elendris',
-    'nav.about': 'About u',
+    'nav.about': 'About us',
     'nav.rooms': 'Rooms',
     'nav.contact': 'Contact',
     'nav.openMenu': 'Open menu',
