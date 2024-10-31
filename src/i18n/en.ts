@@ -49,4 +49,6 @@ export const en = {
   'contact.subtitle2': 'How to get to us?',
   'contact.btn.waze': 'Waze',
   'contact.btn.googleMaps': 'Google Maps',
+  'footer.info': "Natural person registered in the Trade Register at the Brno City Hall since 31.8.2016",
+  'footer.createdBy': 'Created by',
 } as const;

@@ -49,4 +49,6 @@ export const cs = {
   'contact.subtitle2': 'Jak se k nám dostanete?',
   'contact.btn.waze': 'Waze',
   'contact.btn.googleMaps': 'Google Maps',
+  'footer.info': "Fyzická osoba zapsaná v Živnostenském rejstříku v Magistrát města Brna od 31.8.2016",
+  'footer.createdBy': 'Vytvořil',
 } as const;
