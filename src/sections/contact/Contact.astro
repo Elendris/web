@@ -1,51 +1,68 @@
 ---
 import Icon from "../../components/icons/Icon.astro";
 import Map from "../../components/map/Map.astro";
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const aboutCollection = await getCollection('contact');
+const aboutContent = aboutCollection.find(entry => entry.slug === lang);
+
+if (!aboutContent) {
+  throw new Error(`Content for language ${lang} not found`);
+}
+
+const { data, body } = aboutContent;
+const { title } = data;
+
+const [part1, part2] = body.split('<!-- split -->');
 
 interface Props {
   id: string;
 }
 
 const { id } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
 <section id={id}>
   <Map />
   <div class="container">
     <div class="contact">
-      <h3>Kde nas najdete?</h3>
-      <p>
-        Tu môžeme spomenúť, kde sa penzión nachadza a že na mape užívateľ nájde
-        zaujímavé miesta.
-      </p>
-
-      <h4>Adresa</h4>
+      <h3>{title}</h3>
+      <p set:html={part1} />
+      <h4>{t('contact.title.address')}</h4>
       <address>
-        <strong>Penzion Elendris</strong><br />
+        <strong>{t('contact.address.pension')}</strong><br />
         Krejčího 550/2<br />
         Brno 627 00<br />
-        Česká Republika
+        {t('contact.address.country')}
       </address>
-      <span><b>IČ: </b>68645881</span>
-      <h4>Kontakt</h4>
+      <span><b>{t('contact.address.vat')}</b>68645881</span>
+      <h4>{t('contact.subtitle')}</h4>
       <div>
-        <a href="mailto:info@elendris.cz" rel="noreferer" class="link">
+        <a href="mailto:info@elendris.cz" rel="noopener" class="link">
           <Icon name="envelope" />
           info@elendris.cz
         </a>
-        <a href="tel:+420 758 695 456z" rel="noreferer" class="link">
+        <a href="tel:+420 758 695 456" rel="noopener" class="link">
           <Icon name="phone" />
           +420 758 695 456
         </a>
       </div>
 
       <div class="contact__footer">
-        <h4>Jak se k nám dostanete?</h4>
-        <p>Tu môžu byť tlačítka pro <strong>navigaci</strong> google maps / waze.</p>
+        <h4>{t('contact.subtitle2')}</h4>
+        <p set:html={part2} />
 
         <div>
-          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" class="btn btn--small">Waze</a>
-          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" class="btn btn--secondary btn--small">Google Maps</a>
+          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" class="btn btn--small">
+            {t('contact.btn.waze')}
+          </a>
+          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" class="btn btn--secondary btn--small">
+            {t('contact.btn.googleMaps')}
+          </a>
         </div>
       </div>
     </div>
