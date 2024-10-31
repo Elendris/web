@@ -1,85 +1,103 @@
 ---
 import FormItem from "../formItem/FormItem.astro";
 import Icon from "../icons/Icon.astro";
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const reservationCollection = await getCollection('reservation');
+const reservationContent = reservationCollection.find(entry => entry.slug === lang);
+
+if (!reservationContent) {
+  throw new Error(`Content for language ${lang} not found`);
+}
+
+const { data, body } = reservationContent;
+const { title } = data;
+
+const t = useTranslations(lang);
 ---
+
 
 <dialog class="reservation">
   <form action="post" class="reservation__form">
    <div class="reservation__header">
-    <h3>Rezervační formulář</h3>
+    <h3>{title}</h3>
     <button
       class="reservation__close"
       type="button"
-      aria-label="Zavřít rezervační formulář"
-      title="Zavřít rezervační formulář"
+      aria-label={t('reservation.btn.close')}
+      title={t('reservation.btn.close')}
       id="reservationClose"
     >
       <Icon name="close" />
     </button>
    </div>
     <p>
-      Vyplňte prosím následující formulář pro rezervaci pokoje v našem penzionu.
-      Ujistěte se, že všechny údaje jsou správné, abychom mohli vaši rezervaci
-      co nejdříve potvrdit.
+      {body}
     </p>
     <div>
       <fieldset>
-        <legend>Termín</legend>
-        <p>Vyberte prosím datum příjezdu a odjezdu.</p>
-        <FormItem label="Od">
+        <legend>{t('reservation.subtitle.term')}</legend>
+        <p>{t('reservation.desc.term')}</p>
+        <FormItem label={t('reservation.formLabel.from')}>
           <input type="date" name="from" required />
         </FormItem>
-        <FormItem label="Do">
+        <FormItem label={t('reservation.formLabel.to')}>
           <input type="date" name="to" required />
         </FormItem>
       </fieldset>
       <fieldset>
-        <legend>Kontaktní údaje</legend>
-        <p>Zadejte své kontaktní údaje pro potvrzení rezervace.</p>
-        <FormItem label="Jméno">
-          <input type="text" placeholder="Jan" name="name" required />
+        <legend>{t('reservation.subtitle.contactInfo')}</legend>
+        <p>{t('reservation.subtitle.contactInfo')}</p>
+        <FormItem label={t('reservation.formLabel.firstName')}>
+          <input type="text" name="name" required />
         </FormItem>
-        <FormItem label="Příjmení">
-          <input type="text" placeholder="Novák" name="surname" required />
+        <FormItem label={t('reservation.formLabel.lastName')}>
+          <input type="text" name="surname" required />
         </FormItem>
-        <FormItem label="E-mail">
+        <FormItem label={t('reservation.formLabel.email')}>
           <input
             type="email"
-            placeholder="jan@novak.cz"
+            placeholder="john@doe.com"
             name="email"
             required
           />
         </FormItem>
-        <FormItem label="Telefon">
+        <FormItem label={t('reservation.formLabel.phone')}>
           <input type="tel" placeholder="+420123456789" name="phone" required />
         </FormItem>
       </fieldset>
     </div>
     <fieldset>
-      <legend>Pokoje</legend>
-      <p>Zvolte pokoje a počet hostů pro každý pokoj.</p>
+      <legend>{t('reservation.subtitle.rooms')}</legend>
+      <p>{t('reservation.desc.rooms')}</p>
       <div class="col-span-2">
-        <p class="reservation__empty-message">Nemáte vybraný žádný pokoj!</p>
+        <p class="reservation__empty-message">{t('reservation.message.emptyRooms')}</p>
         <div id="roomsList" class="reservation__room-list"></div>
         <div class="reservation__actions">
-          <label class="check-box" title="Platí pro všehcny pokoje">
+          <label class="check-box" title={t('reservation.formLabel.breakfast.title')}>
             <input type="checkbox" value="" />
-            Se snídaní
+            {t('reservation.formLabel.breakfast')}
           </label>
           <button
             type="button"
             id="addRoom"
             class="btn btn--small btn--secondary"
           >
-            Přidat pokoj
+          {t('reservation.btn.addRoom')}
             <Icon name="plus" />
           </button>
         </div>
       </div>
     </fieldset>
     <div class="reservation__footer">
-      <button class="btn btn--secondary" type="button" id="cancelBtn">Zrušit</button>
-      <button class="btn btn--primary" type="submit" id="submitBtn">Rezervovat</button>
+      <button class="btn btn--secondary" type="button" id="cancelBtn">
+        {t('reservation.btn.cancel')}
+      </button>
+      <button class="btn btn--primary" type="submit" id="submitBtn">
+        {t('reservation.btn.submit')}
+      </button>
     </div>
   </form>
 </dialog>
