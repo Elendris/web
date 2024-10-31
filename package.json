@@ -1,6 +1,6 @@
 {
   "name": "elendris.cz",
-  "description": "Updated on 13.10.2024",
+  "description": "Updated on 31.10.2024",
   "version": "1.0.0",
   "private": true,
   "license": "ISC",
@@ -23,10 +23,9 @@
     "@astrojs/sitemap": "^3.2.1",
     "@fancyapps/ui": "^5.0.36",
     "@googlemaps/js-api-loader": "^1.16.8",
-    "astro": "^4.16.7",
+    "astro": "^4.16.8",
     "astro-i18next": "1.0.0-beta.21",
-    "i18next": "^23.16.0",
-    "marked": "^14.1.3",
+    "i18next": "^23.16.4",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
@@ -34,13 +33,12 @@
     "autoprefixer": "^10.4.20",
     "concurrently": "^9.0.1",
     "cssnano": "^7.0.6",
-    "i18next-fs-backend": "^2.3.2",
     "nodemon": "^3.1.7",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
-    "postcss-preset-env": "^10.0.7",
+    "postcss-preset-env": "^10.0.8",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.79.5",
+    "sass": "^1.80.5",
     "stylelint": "^16.10.0",
     "stylelint-order": "^6.0.4"
   }
