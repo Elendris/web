@@ -1,4 +1,5 @@
 import { Loader } from "@googlemaps/js-api-loader";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 declare global {
   interface Window {
@@ -8,6 +9,8 @@ declare global {
 }
 
 const initMap = (): void => {
+  const lang = getLangFromUrl(new URL(window.location.href));
+  const t = useTranslations(lang);
   const mapElement = document.getElementById("map") as HTMLDivElement;
   
   let center = { lat: 49.229709, lng: 16.54870 };
@@ -50,35 +53,35 @@ const initMap = (): void => {
   const markersData = [
     {
       position: { lat: 49.17764, lng: 16.69207 },
-      title: "Elendris",
+      title: `${t('contact.map.window.elendris')}`,
       pic: "/images/map/elendris.avif",
       desc: "Útulné ubytování v rodinné atmosféře",
       icon: "/images/map/marker.svg",
     },
     {
       position: { lat: 49.1816, lng: 16.668712 },
-      title: "BRuNO family park",
+      title: `${t('contact.map.window.bruno')}`,
       pic: "/images/map/bruno.avif",
       link: "https://www.brunofamilypark.cz/",
       icon: "/images/map/star.svg",
     },
     {
       position: { lat: 49.15901, lng: 16.86439 },
-      title: "Mistrovské golfové hřiště Austerlitz",
+      title: `${t('contact.map.window.golf')}`,
       pic: "/images/map/austerlitz.avif",
       link: "https://www.agrt.cz/",
       icon: "/images/map/star.svg",
     },
     {
       position: { lat: 49.194828, lng: 16.60857 },
-      title: "Historickém centrum města Brna",
+      title: `${t('contact.map.window.historicalCenter')}`,
       pic: "/images/map/brno.avif",
       link: "https://www.gotobrno.cz/",
       icon: "/images/map/star.svg",
     },
     {
       position: { lat: 49.30782, lng: 16.69971 },
-      title: "Krásy Moravského krasu",
+      title: `${t('contact.map.window.moravianKarst')}`,
       pic: "/images/map/moravskykras.avif",
       link: "https://www.moravskykras.net/",
       icon: "/images/map/star.svg",
@@ -115,7 +118,7 @@ const initMap = (): void => {
             ${data.desc ? `<span>${data.desc}</span>` : ""}
             ${data.link 
               ? `<a href="${data.link}" class="link" target="_blank">
-                  Více informací
+                  ${t('contact.map.window.moreInfo')}
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" class="icon">
                     <g id="icomoon-ignore">
                     </g>

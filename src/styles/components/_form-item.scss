@@ -67,6 +67,7 @@
     
     input[type="checkbox"]{
       display: block;
+      margin: 0;
       inline-size: $gap-xl;
       block-size: $gap-xl;
       border: $border-width solid $color-primary;

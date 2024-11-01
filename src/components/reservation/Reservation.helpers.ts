@@ -1,22 +1,28 @@
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
 export const createNewRoomContent = (roomCounter: number): HTMLElement => {
+
+  const lang = getLangFromUrl(new URL(window.location.href));
+
+  const t = useTranslations(lang);
   const newRoomContent = document.createElement("div");
   newRoomContent.innerHTML = `
     <div class="reservation__room">
       <label class="form-item">
-        Zvolte pokoj
+        ${t('reservation.formLabel.selectRoom')}
         <select name="rooms${roomCounter}" required>
-          <option value="">-- Vyberte jendu z možnstí --</option>
-          <option value="room1">Jednolůžkový pokoj</option>
-          <option value="room2">Dvoulůžkový pokoj</option>
-          <option value="room3">Třílůžkový pokoj</option>
-          <option value="room4">Rodinný pokoj</option>
-          <option value="room5">Rodinný pokoj s kuchyňským koutem</option>
-          <option value="room6">Pokoj s vanou</option>
+          <option value="">-- ${t('reservation.select.placeholder')} --</option>
+          <option value="room1">${t('reservation.select.room1')}</option>
+          <option value="room2">${t('reservation.select.room2')}</option>
+          <option value="room3">${t('reservation.select.room3')}</option>
+          <option value="room4">${t('reservation.select.room4')}</option>
+          <option value="room5">${t('reservation.select.room5')}</option>
+          <option value="room6">${t('reservation.select.room6')}</option>
         </select>
         <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
       </label>
       <div id="guestCountContainer${roomCounter}"></div>
-      <button type="button" class="deleteRoom btn btn--delete" aria-label="Odebrat pokoj" title="Odebrat pokoj">
+      <button type="button" class="deleteRoom btn btn--delete" aria-label="${t('reservation.btn.removeRoom')}" title="${t('reservation.btn.removeRoom')}">
         <svg class="icon icon-delete"><use xlink:href="#icon-delete"></use></svg>
       </button>
       <div id="separateBedsContainer${roomCounter}"></div>
@@ -26,29 +32,44 @@ export const createNewRoomContent = (roomCounter: number): HTMLElement => {
   return newRoomContent;
 }
 
-export const handleRoomSelectChange = (newSelect: HTMLSelectElement, guestCountContainer: HTMLElement, separateBedsContainer: HTMLElement, roomCounter: number) => {
-  if (newSelect.value === "room4" || newSelect.value === "room5" || newSelect.value === "room6")  {
-    guestCountContainer.innerHTML = `
-      <label class="form-item">
-        Počet hostů
-        <input type="number" min="1" max="10" name="persons${roomCounter}" required />
-      </label>
-    `;
-  } else {
-    guestCountContainer.innerHTML = '';
-  }
+export const handleRoomSelectChange = (
+  newSelect: HTMLSelectElement, 
+  guestCountContainer: HTMLElement, 
+  separateBedsContainer: HTMLElement, 
+  roomCounter: number
+) => {
+  const lang = getLangFromUrl(new URL(window.location.href));
+  const t = useTranslations(lang);
+
+  console.log('Selected value:', newSelect.value);
 
   if (newSelect.value !== "room1") {
     separateBedsContainer.innerHTML = `
       <label class="check-box">
         <input type="checkbox" value="">
-        Oddělené postele
+        ${t('reservation.formLabel.separateBeds')}
       </label>
     `;
+    console.log('Rendered separate beds checkbox');
   } else {
     separateBedsContainer.innerHTML = '';
+    console.log('Cleared separate beds container');
   }
-}
+
+  if (newSelect.value !== "room4" && newSelect.value !== "room5" && newSelect.value !== "room6") {
+    guestCountContainer.innerHTML = `
+      <label class="form-item">
+        ${t('reservation.formLabel.guestCount')}
+        <input type="number" min="1" max="10" name="persons${roomCounter}" required />
+      </label>
+    `;
+    console.log('Rendered guest count input');
+  } else {
+    guestCountContainer.innerHTML = '';
+    console.log('Cleared guest count container');
+  }
+};
+
 
 export const handleDeleteRoom = (roomRow: HTMLElement, newRoomContent: HTMLElement) => {
   roomRow.removeChild(newRoomContent);

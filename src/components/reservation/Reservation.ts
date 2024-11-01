@@ -1,5 +1,6 @@
 import { createNewRoomContent, handleRoomSelectChange, handleDeleteRoom } from './Reservation.helpers';
 
+
 export const initReservation = () => {
   const reservationDialog = document.querySelector(".reservation") as HTMLDialogElement;
   const closeButton = document.getElementById("reservationClose") as HTMLButtonElement;
@@ -25,7 +26,6 @@ export const initReservation = () => {
     });
   }
 
-
   const reservationButtons = document.querySelectorAll("button[data-reservation]");
   reservationButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -36,7 +36,7 @@ export const initReservation = () => {
   const addRoomButton = document.getElementById("addRoom");
 
   if (addRoomButton) {
-    addRoomButton.addEventListener("click", function () {
+    addRoomButton.addEventListener("click", () => {
       const roomRow = document.getElementById("roomsList");
       if (roomRow) {
         roomCounter++;
