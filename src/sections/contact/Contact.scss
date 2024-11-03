@@ -43,6 +43,16 @@
         @include flex-set(flex, row, nowrap, $gap-l, center);
         margin-block-start: $gap-2xl;
       }
+
+      @include mq-responsive(tablet, min) {
+        .btn{
+          --btn_gap: #{$gap-l};
+          
+           > .icon {
+            --icon_size: #{$gap-xl};
+           }
+        }
+      }
     }
 
     p {

@@ -57,10 +57,12 @@ const t = useTranslations(lang);
         <p set:html={part2} />
 
         <div>
-          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" title= {t('contact.btn.waze')} class="btn btn--small">
+          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" title= {t('contact.btn.waze')} class="btn">
+            <Icon name="waze" />
             {t('contact.btn.waze')}
           </a>
-          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" title= {t('contact.btn.googleMaps')} class="btn btn--secondary btn--small">
+          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" title= {t('contact.btn.googleMaps')} class="btn btn--secondary">
+            <Icon name="map" />
             {t('contact.btn.googleMaps')}
           </a>
         </div>
