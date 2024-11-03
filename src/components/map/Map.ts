@@ -63,28 +63,28 @@ const initMap = (): void => {
       title: `${t('contact.map.window.bruno')}`,
       pic: "/images/map/bruno.avif",
       link: "https://www.brunofamilypark.cz/",
-      icon: "/images/map/star.svg",
+      icon: "/images/map/interest.svg",
     },
     {
       position: { lat: 49.15901, lng: 16.86439 },
       title: `${t('contact.map.window.golf')}`,
       pic: "/images/map/austerlitz.avif",
       link: "https://www.agrt.cz/",
-      icon: "/images/map/star.svg",
+      icon: "/images/map/interest.svg",
     },
     {
       position: { lat: 49.194828, lng: 16.60857 },
       title: `${t('contact.map.window.historicalCenter')}`,
       pic: "/images/map/brno.avif",
       link: "https://www.gotobrno.cz/",
-      icon: "/images/map/star.svg",
+      icon: "/images/map/interest.svg",
     },
     {
       position: { lat: 49.30782, lng: 16.69971 },
       title: `${t('contact.map.window.moravianKarst')}`,
       pic: "/images/map/moravskykras.avif",
       link: "https://www.moravskykras.net/",
-      icon: "/images/map/star.svg",
+      icon: "/images/map/interest.svg",
     },
   ];
 
