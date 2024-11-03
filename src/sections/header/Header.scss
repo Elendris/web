@@ -145,15 +145,6 @@
       scale: 0;
       clip-path: var(--anim-pic_clip-path);
 
-      &[data-scroll-anim="true"],
-      &[data-scroll-anim="true"]:after {
-        animation: var(--anim-pic_animation) linear forwards;
-        scale: 1;
-        animation-range-end: cover;
-        animation-range-start: 100svb;
-        animation-timeline: view();
-      }
-
       &:after {
         position: absolute;
         inset: $border-width-3;
@@ -169,10 +160,10 @@
 
       &--large {
         --anim-pic_animation: animLargeImg;
-        --anim-pic_bg-position: center;
+        --anim-pic_bg-position: right center;
         --anim-pic_anim-delay: 1.25s;
         --anim-pic_trans-x: 3svi;
-        --anim-pic_bg-img: url("../images/header/header-img-1.webp");
+        --anim-pic_bg-img: url("../images/gallery/Elendris05.avif");
         --anim-pic_clip-path: polygon(
           45.348% 0.345%,
           45.348% 0.345%,
@@ -227,6 +218,17 @@
         grid-column: 1 / 9;
         grid-row: 2 / 13;
 
+        &[data-scroll-anim="true"],
+        &[data-scroll-anim="true"]:after {
+          @supports (animation-range-end: cover) {
+            animation: var(--anim-pic_animation) linear forwards;
+            scale: 1;
+            animation-range-end: cover;
+            animation-range-start: 100svb;
+            animation-timeline: view();
+          }
+        }
+
         @include mq-responsive(desktop-l, max) {
           --anim-pic_trans-x: 10svi;
         }
@@ -241,8 +243,6 @@
           --anim-pic_trans-x: -10svi;
           --anim-pic_trans-y: -3svb;
           --anim-pic_bg-color: #{$color-white};
-          --anim-pic_bg-img: url("../images/gallery/Elendris02.avif");
-          --anim-pic_bg-position: center left;
           grid-column: 1 / 13;
           grid-row: 9 / 13;
         }
