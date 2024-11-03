@@ -1,4 +1,7 @@
 export const cs = {
+  'meta.title': 'Penzion Elendris',
+  'meta.description': 'Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety', 
+  'meta.keywords': 'ubytování Brno, hotel, pokoje, rezervace, rodinný, obchodní, cestování',
   'nav.home': 'Elendris',
   'nav.about': 'O nás',
   'nav.rooms': 'Pokoje',
@@ -11,8 +14,8 @@ export const cs = {
   'header.desc': 'Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety',
   'header.button.reservation': 'Rezervovat',
   'header.button.moreInfo': 'Více informací',
-  'reservation.subtitle.term': 'Termín',
-  'reservation.desc.term': 'Vyberte prosím datum příjezdu a odjezdu.',
+  'reservation.subtitle.date': 'Datum rezervace',
+  'reservation.desc.date': 'Vyberte prosím datum příjezdu a odjezdu.',
   'reservation.subtitle.contactInfo': 'Kontaktní údaje',
   'reservation.desc.contactInfo': 'Zadejte své kontaktní údaje pro potvrzení rezervace.',
   'reservation.subtitle.rooms': 'Pokoje',

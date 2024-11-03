@@ -31,7 +31,7 @@
         }
     }
 
-    h3 {
+    h3, .extends-h3 {
         margin-block-end: clamp($gap-l, 3svb, $gap-3xl);
         font-size: clamp($gap-xl, var(--h3_dynamic-fs, 4svb), 4rem);
         font-weight: 900;

@@ -45,6 +45,10 @@
       --btn_min-width: 8rem;
     }
 
+    &:focus-visible{
+      
+    }
+
     &[disabled] {
       --btn_cursor: not-allowed;
       --btn_bg: var(--color-disabled-bg) !important;

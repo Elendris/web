@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 ---
 
 <button class="card" id={`card-${id}`}>
-  <img src={imgSrc} alt={title} />
+  <img src={imgSrc} alt={title}  title={title}/>
 
   <div class="card__content">
     <strong>{title}</strong>
@@ -49,9 +49,7 @@ const t = useTranslations(lang);
         rel="internal"
         class="gallery__item"
       >
-        <picture>
-          <img src={imgSrc} alt={title} />
-        </picture>
+        <img src={imgSrc} alt={title} title={title}/>
         <span class="gallery__item-btn">
           <Icon name="gallery" />
         </span>
@@ -61,7 +59,7 @@ const t = useTranslations(lang);
           {Array.from({ length: imgCount - 1 }).map((_, i) => {
             const imgUrl = `/images/rooms/${galeryFolder}/${galeryFolder}-${i + 2}.avif`;
             return (
-              <a href={imgUrl} data-fancybox={`room-${id}`} data-caption={`${title}`} rel="internal"></a>
+              <a href={imgUrl} data-fancybox={`room-${id}`} data-caption={`${title}`} title={`${title}`} rel="internal"></a>
             );
           })}
         </div>

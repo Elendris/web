@@ -31,15 +31,22 @@
     color: $color-text;
     outline-offset: -2px;
 
+    @include mq-responsive(mobile-xl, max) {
+      block-size: px-to-rem(37px);
+    }
+
     &:not([type="checkbox"]){
-      &:not(:placeholder-shown):invalid{
-        outline: $border-width-2 solid $color-error;
-      }
+      // &:not(:placeholder-shown):invalid{
+      //   outline: $border-width-2 solid $color-error;
+      // }
       
-  
-      &:user-valid{
-        outline: $border-width-2 solid $color-success;
-      }
+      // &:user-invalid{
+      //   outline: $border-width-2 solid $color-error;
+      // }
+
+      // &:user-valid{
+      //   outline: $border-width-2 solid $color-success;
+      // }
   
       &:focus{
         outline: $border-width-2 solid $color-primary;
@@ -67,9 +74,9 @@
     
     input[type="checkbox"]{
       display: block;
-      margin: 0;
       inline-size: $gap-xl;
       block-size: $gap-xl;
+      margin: 0;
       border: $border-width solid $color-primary;
       border-radius: $input-border-radius;
       cursor: pointer;

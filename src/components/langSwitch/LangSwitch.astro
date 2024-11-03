@@ -18,7 +18,7 @@ const lang = getLangFromUrl(Astro.url);
   <ul class="lang-switch__popover" data-open="false">
     {Object.entries(languages).map(([lang, label]) => (
       <li>
-        <a href={`/${lang}/`} class="link link--light" rel="noreferer">{label}</a>
+        <a href={`/${lang}/`} class="link link--light" rel="noreferer" title={label}>{label}</a>
       </li>
     ))}
   </ul>

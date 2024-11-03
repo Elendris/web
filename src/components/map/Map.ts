@@ -99,6 +99,8 @@ const initMap = (): void => {
   markersData.forEach((data) => {
     const markerElement = document.createElement('img');
     markerElement.src = data.icon;
+    markerElement.alt = data.title;
+    markerElement.title = data.title;
     markerElement.style.width = '32px';
     markerElement.style.height = '32px';
   
@@ -112,7 +114,7 @@ const initMap = (): void => {
     marker.addListener("click", () => {
       infoWindow.setContent(`
         <div class="map__window">
-          <img src="${data.pic}" alt="${data.title}" width="260px" height="120px" loading="lazy" />
+          <img src="${data.pic}" alt="${data.title}" title="${data.title}" width="260px" height="120px" loading="lazy" />
           <div>
             <strong>${data.title}</strong>
             ${data.desc ? `<span>${data.desc}</span>` : ""}

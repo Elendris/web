@@ -1,4 +1,7 @@
 export const en = {
+  'meta.title': 'Pension Elendris',
+  'meta.description': 'Ideal for both business travelers and families',
+  'meta.keywords': 'accommodation Brno, hotel, rooms, reservation, family, business, travel',
   'nav.home': 'Elendris',
   'nav.about': 'About us',
   'nav.rooms': 'Rooms',
@@ -11,8 +14,8 @@ export const en = {
   'header.desc': 'Ideal for both business travelers and families',
   'header.button.reservation': 'Reservation',
   'header.button.moreInfo': 'Show more',
-  'reservation.subtitle.term': 'Term',
-  'reservation.desc.term': 'Please select the arrival and departure date.',
+  'reservation.subtitle.date': 'Reservation date',
+  'reservation.desc.date': 'Please select the arrival and departure date.',
   'reservation.subtitle.contactInfo': 'Contact information',
   'reservation.desc.contactInfo': 'Enter your contact information for reservation confirmation.',
   'reservation.subtitle.rooms': 'Rooms',

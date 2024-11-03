@@ -30,7 +30,7 @@ const t = useTranslations(lang);
   <Map />
   <div class="container">
     <div class="contact">
-      <h3>{title}</h3>
+      <h2 class="extends-h3">{title}</h2>
       <p set:html={part1} />
       <h4>{t('contact.title.address')}</h4>
       <address>
@@ -42,11 +42,11 @@ const t = useTranslations(lang);
       <span><b>{t('contact.address.vat')}</b>68645881</span>
       <h4>{t('contact.subtitle')}</h4>
       <div>
-        <a href="mailto:info@elendris.cz" rel="noopener" class="link">
+        <a href="mailto:info@elendris.cz" rel="noopener" title=`${t('reservation.formLabel.email')}: info@elendris.cz` class="link">
           <Icon name="envelope" />
           info@elendris.cz
         </a>
-        <a href="tel:+420 758 695 456" rel="noopener" class="link">
+        <a href="tel:+420 758 695 456" rel="noopener" title=`${t('reservation.formLabel.phone')}: +420 758 695 456` class="link">
           <Icon name="phone" />
           +420 758 695 456
         </a>
@@ -57,10 +57,10 @@ const t = useTranslations(lang);
         <p set:html={part2} />
 
         <div>
-          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" class="btn btn--small">
+          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external" title= {t('contact.btn.waze')} class="btn btn--small">
             {t('contact.btn.waze')}
           </a>
-          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" class="btn btn--secondary btn--small">
+          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external" title= {t('contact.btn.googleMaps')} class="btn btn--secondary btn--small">
             {t('contact.btn.googleMaps')}
           </a>
         </div>

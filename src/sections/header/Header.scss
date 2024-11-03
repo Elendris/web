@@ -92,10 +92,11 @@
         font-size: clamp($gap-l, 2.5svb, $gap-2xl);
         animation: showContent 1s forwards 0.5s;
         translate: 0 2svb;
+        filter: drop-shadow(0 0 $border-width-3 $color-white);
         z-index: 1;
 
         @include mq-responsive(tablet, max) {
-          filter: drop-shadow(0 0 $border-width-3 $color-white);
+         
           font-size: clamp($gap-l, 2svb, $gap-xl);
         }
 
@@ -226,6 +227,10 @@
         grid-column: 1 / 9;
         grid-row: 2 / 13;
 
+        @include mq-responsive(desktop-l, max) {
+          --anim-pic_trans-x: 10svi;
+        }
+
         @include mq-responsive(tablet, max) {
           --anim-pic_trans-x: 25svi;
           grid-column: 1 / 13;
@@ -305,16 +310,21 @@
         grid-column: 5 / 13;
         grid-row: 3 / 8;
 
+        @include mq-responsive(desktop-l, max) {
+          --anim-pic_trans-x: 10svi;
+        }
+
         @include mq-responsive(tablet, max) {
-          grid-column: 3 / 9;
+          --anim-pic_trans-y: -8svb;
+          grid-column: 6 / 13;
           grid-row: 2 / 6;
         }
 
         @include mq-responsive(mobile-xl, max) {
-          --anim-pic_trans-x: 10svi;
-          --anim-pic_trans-y: -5svb;
-          grid-column: 3 / 13;
-          grid-row: 2 / 6;
+          --anim-pic_trans-x: 22svi;
+          --anim-pic_trans-y: -7vb;
+          grid-column: 1 / 13;
+          grid-row: 1 / 6;
         }
       }
     }

@@ -40,6 +40,10 @@
       padding-inline: var(--card-content_padding-inline, clamp($gap-l, 2.5svi, $gap-xl));
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
+
+      @include mq-responsive(mobile-xl, max) {
+        --card-content_padding-block: #{$gap-m};
+      }
     }
 
     > img {
@@ -83,6 +87,10 @@
       @include mq-responsive(desktop-s, max){
         --card_fs: #{$gap-l};
       }
+
+      @include mq-responsive(mobile-xl, max) {
+        --card_fs: smaller;
+      }
     }
   }
 
@@ -91,8 +99,7 @@
     container-type: inline-size;
     inset: 0 0 0 auto;
     inline-size: var(--detail_inline-ize, min($width-desktop-s, 100%));
-    block-size: 100svb;
-    max-block-size: 100dvb;
+    block-size: 100vh;
     margin: 0;
     opacity: var(--detail_opacity, 0);
     border: none;

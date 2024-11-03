@@ -1,11 +1,11 @@
 ---
 import Room from "../../components/room/Room.astro";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const aboutCollection = await getCollection('rooms');
-const aboutContent = aboutCollection.find(entry => entry.slug === lang);
+const aboutCollection = await getCollection("rooms");
+const aboutContent = aboutCollection.find((entry) => entry.slug === lang);
 
 if (!aboutContent) {
   throw new Error(`Content for language ${lang} not found`);
@@ -32,7 +32,7 @@ const t = useTranslations(lang);
   </div>
   <div class="rooms">
     <Room
-      title={t('rooms.room1.title')}
+      title={t("rooms.room1.title")}
       imgSrc="/images/rooms/room-1/room-1-1.avif"
       imgCount={3}
       galeryFolder="room-1"
@@ -45,7 +45,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title={t('rooms.room2.title')}
+      title={t("rooms.room2.title")}
       imgSrc="/images/rooms/room-2/room-2-1.avif"
       imgCount={2}
       galeryFolder="room-2"
@@ -58,7 +58,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title={t('rooms.room3.title')}
+      title={t("rooms.room3.title")}
       imgSrc="/images/rooms/room-3/room-3-1.avif"
       imgCount={3}
       galeryFolder="room-3"
@@ -71,7 +71,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title={t('rooms.room4.title')}
+      title={t("rooms.room4.title")}
       imgSrc="/images/rooms/room-4/room-4-1.avif"
       imgCount={2}
       galeryFolder="room-4"
@@ -84,7 +84,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title={t('rooms.room5.title')}
+      title={t("rooms.room5.title")}
       imgSrc="/images/rooms/room-5/room-5-1.avif"
       imgCount={2}
       galeryFolder="room-5"
@@ -97,7 +97,7 @@ const t = useTranslations(lang);
       </p>
     </Room>
     <Room
-      title={t('rooms.room6.title')}
+      title={t("rooms.room6.title")}
       imgSrc="/images/rooms/room-6/room-6-1.avif"
       imgCount={3}
       price={1450}
@@ -111,10 +111,17 @@ const t = useTranslations(lang);
     </Room>
   </div>
   <div class="container">
-    <br><br>
+    <br /><br />
     <p class="center-text w-100">
       <p class="center-text w-100">
-        {t('rooms.desc.under')} <a href="mailto:info@elendris.cz" class="link" rel="noopener">info@elendris.cz</a>
+        {t("rooms.desc.under")}
+        <a
+          href="mailto:info@elendris.cz"
+          class="link"
+          rel="noopener"
+          title=`${t('reservation.formLabel.email')}: info@elendris.cz`>
+          info@elendris.cz
+        </a>
       </p>
     </p>
   </div>
@@ -122,8 +129,8 @@ const t = useTranslations(lang);
 
 <script>
   import { initRooms } from "./Rooms.ts";
-  
+
   document.addEventListener("DOMContentLoaded", () => {
-    initRooms()
+    initRooms();
   });
 </script>

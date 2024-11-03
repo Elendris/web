@@ -9,26 +9,26 @@ const t = useTranslations(lang);
 ---
 
 <nav>
-  <a href="/" class="nav__logo">
-    <img src="/images/logos/elendris-logo.svg" alt={t('nav.logo.alt')}/>
+  <a href="/" class="nav__logo" rel="internal" title={t('nav.home')}>
+    <img src="/images/logos/elendris-logo.svg" alt={t('nav.logo.alt')} title={t('nav.logo.alt')}/>
   </a>
   <ul class="menu" data-sticky="false" data-open="false">
     <li>
-      <a href={`/${lang}/#home`}>{t('nav.home')}</a>
+      <a href={`/${lang}/#home`} title={t('nav.home')} rel="internal">{t('nav.home')}</a>
     </li>
     <li>
-      <a href={`/${lang}/#about`}>{t('nav.about')}</a>
+      <a href={`/${lang}/#about`} title={t('nav.about')} rel="internal">{t('nav.about')}</a>
     </li>
     <li>
-      <a href={`/${lang}/#rooms`}>{t('nav.rooms')}</a>
+      <a href={`/${lang}/#rooms`} title={t('nav.rooms')} rel="internal">{t('nav.rooms')}</a>
     </li>
     <li>
-      <a href={`/${lang}/#contact`}>{t('nav.contact')}</a>
+      <a href={`/${lang}/#contact`} title={t('nav.contact')} rel="internal">{t('nav.contact')}</a>
     </li>
     <LangSwitch />
   </ul>
   <div class="nav__right">
-    <a href="tel: +420758695456" class="link" rel="noopener">
+    <a href="tel: +420758695456" class="link" rel="noopener"  title=`${t('reservation.formLabel.phone')}: +420 758 695 456`>
       <Icon name="phone" />
       +420 758 695 456
     </a>

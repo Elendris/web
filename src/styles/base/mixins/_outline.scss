@@ -1,0 +1,6 @@
+@use "../variables/index" as *;
+
+@mixin outline {
+  outline: -webkit-focus-ring-color auto $border-width-2;
+  outline-offset: $border-width-2;
+}

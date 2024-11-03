@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 <footer>
   <div class="container footer__container">
     <a href="/" class="footer__logo" rel="noreferer">
-      <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" />
+      <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" title={t('nav.logo.alt')}/>
     </a>
     <span>{t('footer.info')}<br />
       © 2016 - {currentYear} Elendris s.r.o.</span>
@@ -20,6 +20,7 @@ const t = useTranslations(lang);
           href="https://lukaschylik.sk/"
           target="_blank"
           rel="external"
+          title=`${t('footer.createdBy')} Lukáš Chylík`
           class="link link--light">Lukáš Chylík</a
         >
       </span>

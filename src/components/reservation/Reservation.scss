@@ -51,16 +51,18 @@
 			}
 
 			fieldset {
-				@include grid-columns(grid, repeat(var(--fieldet_col-count, 2), 1fr), $gap-xl, stretch);
+				@include grid-columns(grid, repeat(var(--fieldet_col-count, 2), 1fr), var(--fieldset_gap, $gap-xl), stretch);
 				row-gap: $gap-l;
-				padding-block: $gap-m;
+				padding-block: var(--fieldet_pad-block,  $gap-m);
 				padding-inline: var(--fieldet_pad-inline, clamp($gap-l, 2svi, $gap-xl));
 				margin: 0;
 				border: none;
 				border-block-start: var(--fieldet_border-width, $border-width) solid $color-border;
 
 				@include mq-responsive(mobile-xl, max) {
+					--fieldset_gap: #{$gap-l};
 					--fieldet_pad-inline: 0;
+					--fieldet_pad-block: 0l
 					--fieldet_border-width: 0;
 				}
 
@@ -71,12 +73,15 @@
 				> legend {
 					padding-inline: var(--fieldset-legend_pad-inline, $gap-s);
 					background-color: $color-white;
-					font-size: clamp($gap-xl, 3svb, $gap-2xl);
-					color: $color-label;
+					font-size: var(--legend_fs, clamp($gap-xl, 3svb, $gap-2xl));
+					color: $color-primary;
+					font-family: $font-title;
 					translate: num-neg($gap-s) 0;
 
 					@include mq-responsive(mobile-xl, max) {
 						--fieldset-legend_pad-inline: 0;
+						--legend_fs: x-large;
+						translate: 0;
 					}
 				}
 
