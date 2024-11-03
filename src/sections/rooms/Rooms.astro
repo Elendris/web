@@ -14,6 +14,16 @@ if (!aboutContent) {
 const { data, body } = aboutContent;
 const { title } = data;
 
+const [
+  description,
+  room1Desc,
+  room2Desc,
+  room3Desc,
+  room4Desc,
+  room5Desc,
+  room6Desc,
+] = body.split("<!-- split -->");
+
 interface Props {
   id: string;
 }
@@ -26,9 +36,7 @@ const t = useTranslations(lang);
 <section id={id}>
   <div class="container">
     <h2 class="title">{title}</h2>
-    <p class="desc">
-      {body}
-    </p>
+    <p class="desc" set:html={description} />
   </div>
   <div class="rooms">
     <Room
@@ -37,12 +45,8 @@ const t = useTranslations(lang);
       imgCount={3}
       galeryFolder="room-1"
       price={990}
-      id="1"
-    >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      id="1">
+      <p slot="room-description" set:html={room1Desc} />
     </Room>
     <Room
       title={t("rooms.room2.title")}
@@ -50,12 +54,8 @@ const t = useTranslations(lang);
       imgCount={2}
       galeryFolder="room-2"
       price={1450}
-      id="2"
-    >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      id="2">
+      <p slot="room-description" set:html={room2Desc} />
     </Room>
     <Room
       title={t("rooms.room3.title")}
@@ -63,12 +63,8 @@ const t = useTranslations(lang);
       imgCount={3}
       galeryFolder="room-3"
       price={1900}
-      id="3"
-    >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      id="3">
+      <p slot="room-description" set:html={room3Desc} />
     </Room>
     <Room
       title={t("rooms.room4.title")}
@@ -78,10 +74,7 @@ const t = useTranslations(lang);
       price={2500}
       id="4"
     >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      <p slot="room-description" set:html={room4Desc} />
     </Room>
     <Room
       title={t("rooms.room5.title")}
@@ -89,12 +82,8 @@ const t = useTranslations(lang);
       imgCount={2}
       galeryFolder="room-5"
       price={2500}
-      id="5"
-    >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      id="5">
+      <p slot="room-description" set:html={room5Desc} />
     </Room>
     <Room
       title={t("rooms.room6.title")}
@@ -102,12 +91,8 @@ const t = useTranslations(lang);
       imgCount={3}
       price={1450}
       galeryFolder="room-6"
-      id="6"
-    >
-      <p slot="room-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-        perspiciatis obcaecati, tempore quis quod cupiditate?
-      </p>
+      id="6">
+      <p slot="room-description" set:html={room6Desc} />
     </Room>
   </div>
   <div class="container">
