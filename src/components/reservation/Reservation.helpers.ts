@@ -1,36 +1,34 @@
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 export const createNewRoomContent = (roomCounter: number): HTMLElement => {
-
   const lang = getLangFromUrl(new URL(window.location.href));
-
   const t = useTranslations(lang);
+
   const newRoomContent = document.createElement("div");
+  newRoomContent.classList.add("reservation__room");
   newRoomContent.innerHTML = `
-    <div class="reservation__room">
-      <label class="form-item">
-        ${t('reservation.formLabel.selectRoom')}
-        <select name="rooms${roomCounter}" required>
-          <option value="">-- ${t('reservation.select.placeholder')} --</option>
-          <option value="room1">${t('reservation.select.room1')}</option>
-          <option value="room2">${t('reservation.select.room2')}</option>
-          <option value="room3">${t('reservation.select.room3')}</option>
-          <option value="room4">${t('reservation.select.room4')}</option>
-          <option value="room5">${t('reservation.select.room5')}</option>
-          <option value="room6">${t('reservation.select.room6')}</option>
-        </select>
-        <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
-      </label>
-      <div id="guestCountContainer${roomCounter}"></div>
-      <button type="button" class="deleteRoom btn btn--delete" aria-label="${t('reservation.btn.removeRoom')}" title="${t('reservation.btn.removeRoom')}">
-        <svg class="icon icon-delete"><use xlink:href="#icon-delete"></use></svg>
-      </button>
-      <div id="separateBedsContainer${roomCounter}"></div>
-    </div>
+    <label class="form-item">
+      ${t('reservation.formLabel.selectRoom')}
+      <select name="rooms${roomCounter}" required>
+        <option value="">-- ${t('reservation.select.placeholder')} --</option>
+        <option value="1">${t('reservation.select.room1')}</option>
+        <option value="2">${t('reservation.select.room2')}</option>
+        <option value="3">${t('reservation.select.room3')}</option>
+        <option value="4">${t('reservation.select.room4')}</option>
+        <option value="5">${t('reservation.select.room5')}</option>
+        <option value="6">${t('reservation.select.room6')}</option>
+      </select>
+      <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
+    </label>
+    <div id="guestCountContainer${roomCounter}"></div>
+    <button type="button" class="deleteRoom btn btn--delete" aria-label="${t('reservation.btn.removeRoom')}" title="${t('reservation.btn.removeRoom')}">
+      <svg class="icon icon-delete"><use xlink:href="#icon-delete"></use></svg>
+    </button>
+    <div id="separateBedsContainer${roomCounter}"></div>
     <hr />
   `;
   return newRoomContent;
-}
+};
 
 export const handleRoomSelectChange = (
   newSelect: HTMLSelectElement, 

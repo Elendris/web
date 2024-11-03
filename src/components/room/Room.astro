@@ -94,6 +94,6 @@ const t = useTranslations(lang);
       <span>{t('room.label.price')}</span>
       <strong>{`${price.toString()} Kč`}</strong>
     </div>
-    <button class="btn" data-reservation>{t('room.btn.reservation')}</button>
+    <button class="btn" data-reservation data-room-id={id}>{t('room.btn.reservation')}</button>
   </div>
 </dialog>
