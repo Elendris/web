@@ -1,5 +1,10 @@
 import { createNewRoomContent, handleRoomSelectChange, handleDeleteRoom } from './Reservation.helpers';
 
+/**
+ * Initializes the reservation functionality.
+ * Sets up event listeners for opening the reservation dialog, adding rooms to the reservation,
+ * and handling form interactions.
+ */
 export const initReservation = () => {
   const reservationDialog = document.querySelector(".reservation") as HTMLDialogElement;
   const closeButton = document.getElementById("reservationClose") as HTMLButtonElement;
@@ -7,6 +12,9 @@ export const initReservation = () => {
   const submitButton = document.getElementById("submitBtn") as HTMLButtonElement;
   let roomCounter = 0;
 
+  /**
+   * Updates the state of the submit button based on the number of rooms added.
+   */
   const updateSubmitButtonState = () => {
     if (submitButton) {
       submitButton.disabled = roomCounter === 0;
@@ -44,6 +52,10 @@ export const initReservation = () => {
     });
   }
 
+  /**
+   * Adds a room to the reservation form.
+   * @param {string} [roomId] - The ID of the room to pre-select in the reservation form.
+   */
   const addRoomToReservation = (roomId?: string) => {
     const roomRow = document.getElementById("roomsList");
     if (roomRow) {

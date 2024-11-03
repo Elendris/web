@@ -171,7 +171,7 @@
 			padding-inline-end: $gap-m;
 
 			@include mq-responsive(tablet, min) {
-				max-block-size: var(40svb);
+				max-block-size: 40svb;
 				overflow: auto;
 				overscroll-behavior: contain;
 			}
@@ -181,10 +181,13 @@
 			}
 
 			hr {
-				margin-block: $gap-xl;
-				background-color: $color-border;
-				border-color: $color-border;
+				margin-block: $gap-l;
+				border-top: $border-width solid $color-border;
+				height: $border-width;
 				color: $color-border;
+				grid-column: 1 / 4;
+				inline-size: 100%;
+				translate: 0 -100%;
 			}
 		}
 

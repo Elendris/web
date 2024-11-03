@@ -1,5 +1,7 @@
-
-
+/**
+ * Initializes the room functionality.
+ * Sets up event listeners for opening room dialogs, initializing Fancybox, and handling dialog interactions.
+ */
 export const initRooms = () => {
   const cards = document.querySelectorAll(".card");
   let isFancyboxInitialized = false;
@@ -14,7 +16,7 @@ export const initRooms = () => {
     if (closeBtn) {
       card.addEventListener("click", () => {
         if (!isFancyboxInitialized) {
-          import ("@fancyapps/ui/dist/fancybox/fancybox.css");
+          import("@fancyapps/ui/dist/fancybox/fancybox.css");
           import("@fancyapps/ui").then(({ Fancybox }) => {
             Fancybox.bind("[data-fancybox]", {});
             console.log("Fancybox initialized");
@@ -39,4 +41,4 @@ export const initRooms = () => {
       console.error(`Close button not found for dialog ${dialogId}`);
     }
   });
-}
+};

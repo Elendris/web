@@ -55,14 +55,6 @@
       &[data-open="true"] {
         --lang-switch-popover_display: flex;
       }
-
-      .link{
-        text-decoration: var(--lang-switch_text-decor, none);
-
-        @include mq-hover{
-          --lang-switch_text-decor: underline;
-        }
-      }
     }
   }
 }

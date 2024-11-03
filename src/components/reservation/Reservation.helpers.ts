@@ -1,5 +1,10 @@
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
+/**
+ * Creates a new room content element for the reservation form.
+ * @param {number} roomCounter - The counter for the room being added.
+ * @returns {HTMLElement} - The new room content element.
+ */
 export const createNewRoomContent = (roomCounter: number): HTMLElement => {
   const lang = getLangFromUrl(new URL(window.location.href));
   const t = useTranslations(lang);
@@ -30,6 +35,14 @@ export const createNewRoomContent = (roomCounter: number): HTMLElement => {
   return newRoomContent;
 };
 
+/**
+ * Handles the change event for the room select element.
+ * Updates the guest count and separate beds containers based on the selected room.
+ * @param {HTMLSelectElement} newSelect - The select element for the room.
+ * @param {HTMLElement} guestCountContainer - The container for the guest count input.
+ * @param {HTMLElement} separateBedsContainer - The container for the separate beds checkbox.
+ * @param {number} roomCounter - The counter for the room being added.
+ */
 export const handleRoomSelectChange = (
   newSelect: HTMLSelectElement, 
   guestCountContainer: HTMLElement, 
@@ -68,7 +81,11 @@ export const handleRoomSelectChange = (
   }
 };
 
-
+/**
+ * Handles the deletion of a room from the reservation form.
+ * @param {HTMLElement} roomRow - The container element for the rooms.
+ * @param {HTMLElement} newRoomContent - The room content element to be removed.
+ */
 export const handleDeleteRoom = (roomRow: HTMLElement, newRoomContent: HTMLElement) => {
   roomRow.removeChild(newRoomContent);
-}
+};

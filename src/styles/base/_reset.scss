@@ -24,4 +24,8 @@
   :where(header, main, footer, section, article) {
     container-type: inline-size;
   }
+
+  ::selection {
+    background: $color-secondary;
+  }
 }

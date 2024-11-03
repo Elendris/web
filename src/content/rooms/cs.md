@@ -2,7 +2,9 @@
 title: Naše pokoje
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate veritatis nesciunt tempora impedit nam quibusdam mollitia excepturi laudantium, nisi itaque?
+Všechny naše pokoje jsou klimatizované a mají vlastní koupelnu. Rodinné pokoje jsou vybaveny vanou. Abychom vám zajistili maximální pohodlí, snídani vám přineseme přímo na pokoj v čase, který vám vyhovuje.<br/><br/>
+
+V celém objektu je k dispozici zabezpečená <strong>vysokorychlostní Wi-Fi</strong>. Můžete využít kuchyňku s lednicí a mrazákem. Po celý den je zdarma k dispozici káva a čaj. Celý objekt je nekuřácký, kouření je povoleno jen mimo budovu.
 
 <!-- split -->
 

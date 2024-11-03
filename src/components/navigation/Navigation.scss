@@ -158,6 +158,7 @@
       color: currentColor;
       text-decoration: var(--nav-item_text-decor, none);
       white-space: nowrap;
+      text-underline-offset: $gap-m;
 
       @include mq-hover {
         --nav-item_text-decor: underline;

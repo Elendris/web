@@ -7,11 +7,13 @@
         @include flex-set(inline-flex, row, nowrap, $gap-m, center);
         font-size: 1em;
         color: var(--link_color, #{$color-primary});
+        text-decoration: var(--link_text-decor, none);
 
         @include mq-hover{
             --link-icon_scale: 1.1;
             --link-icon_color: #{$color-secondary};
             --link-icon_color: #{$color-secondary--hover};
+            --link_text-decor: underline;
         }
 
         &--light{
@@ -22,6 +24,10 @@
             scale: var(--link-icon_scale, 1);
             transition: scale $trans-time $trans-fnc, fill $trans-time $trans-fnc;
             fill: var(--link-icon_color, #{$color-secondary});
+        }
+
+        &--underline{
+            --link_text-decor: underline;
         }
     }
 }

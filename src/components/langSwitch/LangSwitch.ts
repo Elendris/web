@@ -1,3 +1,7 @@
+/**
+ * Initializes the language switch functionality.
+ * Sets up event listeners for toggling the language switch popover and closing it when clicking outside.
+ */
 export const initLangSwitch = () => {
   const langSwitchBtn = document.querySelector('.lang-switch__btn');
   const langSwitchPopover = document.querySelector('.lang-switch__popover');
@@ -14,4 +18,4 @@ export const initLangSwitch = () => {
       }
     });
   }
-}
+};
