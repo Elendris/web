@@ -28,7 +28,7 @@
     padding-inline: var(--nav_pad-inline, $gap-2xl);
     background-color: var(--nav_bg-color, $color-transparent);
     isolation: isolate;
-    z-index: 9999;
+    z-index: 999;
     @include grid-columns(
       grid,
       var(--nav_col-temp, px-to-rem(160px) 1fr px-to-rem(160px)),

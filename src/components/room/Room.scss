@@ -108,6 +108,7 @@
     transition-property: overlay display opacity;
     transition-timing-function: $trans-fnc;
     transition-behavior: allow-discrete;
+    max-block-size: none;
 
     @include mq-responsive(tablet, max) {
       --detail_inline-ize: min(#{px-to-rem(600px)}, 100%); 
