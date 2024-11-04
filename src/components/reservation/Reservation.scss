@@ -51,7 +51,8 @@
 			}
 
 			fieldset {
-				@include grid-columns(grid, repeat(var(--fieldet_col-count, 2), 1fr), var(--fieldset_gap, $gap-xl), stretch);
+				--fieldset_gap: #{$gap-xl};
+				@include grid-columns(grid, repeat(var(--fieldet_col-count, 2), 1fr), var(--fieldset_gap), stretch);
 				row-gap: $gap-l;
 				padding-block: var(--fieldet_pad-block,  $gap-m);
 				padding-inline: var(--fieldet_pad-inline, clamp($gap-l, 2svi, $gap-xl));
@@ -62,7 +63,7 @@
 				@include mq-responsive(mobile-xl, max) {
 					--fieldset_gap: #{$gap-l};
 					--fieldet_pad-inline: 0;
-					--fieldet_pad-block: 0l
+					--fieldet_pad-block: 0;
 					--fieldet_border-width: 0;
 				}
 
@@ -150,12 +151,20 @@
 			border-radius: $radius-m;
 			font-size: $gap-l;
 			color: $color-text;
+
+			@include mq-responsive(mobile-xl, max) {
+				padding: $gap-m $gap-l;
+			}
 		}
 
 		&__room {
 			@include grid-col-span(2);
-			@include grid-columns(grid, 1fr 120px auto, $gap-xl, flex-end);
+			@include grid-columns(grid, 1fr 120px auto, var(--fieldset_gap), flex-end);
 			row-gap: $gap-l;
+
+			@include mq-responsive(mobile-xl, max) {
+        grid-template-columns: 1fr 80px auto;
+      }
 
 			> div[id*="separateBedsContainer"]:empty {
 				display: none;
