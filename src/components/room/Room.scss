@@ -100,6 +100,7 @@
     inset: 0 0 0 auto;
     inline-size: var(--detail_inline-ize, min($width-desktop-s, 100%));
     block-size: 100vh;
+    max-block-size: none;
     margin: 0;
     opacity: var(--detail_opacity, 0);
     border: none;
@@ -108,7 +109,6 @@
     transition-property: overlay display opacity;
     transition-timing-function: $trans-fnc;
     transition-behavior: allow-discrete;
-    max-block-size: none;
 
     @include mq-responsive(tablet, max) {
       --detail_inline-ize: min(#{px-to-rem(600px)}, 100%); 

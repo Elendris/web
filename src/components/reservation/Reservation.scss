@@ -73,9 +73,9 @@
 				> legend {
 					padding-inline: var(--fieldset-legend_pad-inline, $gap-s);
 					background-color: $color-white;
+					font-family: $font-title;
 					font-size: var(--legend_fs, clamp($gap-xl, 3svb, $gap-2xl));
 					color: $color-primary;
-					font-family: $font-title;
 					translate: num-neg($gap-s) 0;
 
 					@include mq-responsive(mobile-xl, max) {
@@ -181,13 +181,13 @@
 			}
 
 			hr {
+				inline-size: 100%;
+				height: $border-width;
 				margin-block: $gap-l;
 				border-top: $border-width solid $color-border;
-				height: $border-width;
 				color: $color-border;
-				grid-column: 1 / 4;
-				inline-size: 100%;
 				translate: 0 -100%;
+				grid-column: 1 / 4;
 			}
 		}
 
