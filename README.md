@@ -193,6 +193,4 @@ Lokalizace na webu elendris.cz je řešena následujícím způsobem:
       </nav>
      ```
 
-Tímto způsobem je zajištěna flexibilita a snadná údržba lokalizovaných textů na webu Elendris.cz.\* `galeryFolder`: Název složky, kde jsou uloženy obrázky místnosti.
-
-Galerie funguje tak, že se dynamicky načítají obrázky z určené složky (`galeryFolder`). Hlavní obrázek (`imgSrc`) je zobrazen jako první a další obrázky jsou načítány podle počtu (`imgCount`). Cesta k adresáři (`galeryFolder`) je důležitá pro správné načtení všech obrázků místnosti.
+Tímto způsobem je zajištěna flexibilita a snadná údržba lokalizovaných textů na webu elendris.cz.
