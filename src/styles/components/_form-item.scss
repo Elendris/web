@@ -19,9 +19,13 @@
     &:focus-within{
       z-index: 999;
     }
+
+    &:has(textarea){
+      grid-column-end: span 2;
+    }
   }
 
-  :where(input, select){
+  :where(input, select, textarea){
     display: block;
     min-width: 0;
     block-size: px-to-rem(50px);
@@ -37,8 +41,8 @@
     outline-offset: -2px;
 
     @include mq-responsive(mobile-xl, max) {
-      block-size: px-to-rem(37px);
       --input_pad-inline: #{$gap-m};
+      block-size: px-to-rem(37px);
     }
 
     &:not([type="checkbox"]){
@@ -75,6 +79,11 @@
         inset: auto $gap-m .85rem auto;
       }
     }
+  }
+
+  textarea{
+    font-family: $font-text;
+    max-block-size: px-to-rem(200px);
   }
 
   .check-box{

@@ -54,30 +54,26 @@ export const handleRoomSelectChange = (
 
   console.log('Selected value:', newSelect.value);
 
-  if (newSelect.value !== "room1") {
+  if (newSelect.value !== "1") {
     separateBedsContainer.innerHTML = `
       <label class="check-box">
         <input type="checkbox" value="">
         ${t('reservation.formLabel.separateBeds')}
       </label>
     `;
-    console.log('Rendered separate beds checkbox');
   } else {
     separateBedsContainer.innerHTML = '';
-    console.log('Cleared separate beds container');
   }
 
-  if (newSelect.value !== "room4" && newSelect.value !== "room5" && newSelect.value !== "room6") {
+  if (newSelect.value !== "1" && newSelect.value !== "2" && newSelect.value !== "3") {
     guestCountContainer.innerHTML = `
       <label class="form-item">
         ${t('reservation.formLabel.guestCount')}
         <input type="number" min="1" max="10" name="persons${roomCounter}" required />
       </label>
     `;
-    console.log('Rendered guest count input');
   } else {
     guestCountContainer.innerHTML = '';
-    console.log('Cleared guest count container');
   }
 };
 
