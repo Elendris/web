@@ -224,9 +224,11 @@
       img {
         display: block;
         max-inline-size: var(--gallery-img_max-width, px-to-rem(320px));
+        max-block-size:  var(--gallery-img_max-height, px-to-rem(214px));
 
         @include mq-responsive(tablet, max) {
           --gallery-img_max-width: #{px-to-rem(260px)};
+          --gallery-img_max-height: #{px-to-rem(180)};
         }
       }
     }

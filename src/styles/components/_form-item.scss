@@ -11,17 +11,26 @@
     color: $color-label; 
     text-transform: uppercase;
     isolation: isolate;
+
+    @include mq-responsive(mobile-xl, max) {
+     font-size: 12px;
+    }
+
     &:focus-within{
       z-index: 999;
     }
+
+    &:has(textarea){
+      grid-column-end: span 2;
+    }
   }
 
-  :where(input, select){
+  :where(input, select, textarea){
     display: block;
     min-width: 0;
     block-size: px-to-rem(50px);
     padding-block: $gap-s;
-    padding-inline: $gap-l;
+    padding-inline: var(--input_pad-inline, $gap-l);
     border: $border-width solid $color-primary;
     border-radius: $input-border-radius;
     font-family: $font-text;
@@ -32,6 +41,7 @@
     outline-offset: -2px;
 
     @include mq-responsive(mobile-xl, max) {
+      --input_pad-inline: #{$gap-m};
       block-size: px-to-rem(37px);
     }
 
@@ -63,7 +73,17 @@
       color: $color-primary;
       z-index: 2;
       pointer-events: none;
+
+      @include mq-responsive(mobile-xl, max) {
+        --icon_size: #{$gap-m};
+        inset: auto $gap-m .85rem auto;
+      }
     }
+  }
+
+  textarea{
+    font-family: $font-text;
+    max-block-size: px-to-rem(200px);
   }
 
   .check-box{

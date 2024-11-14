@@ -49,7 +49,7 @@ const t = useTranslations(lang);
         rel="internal"
         class="gallery__item"
       >
-        <img src={imgSrc} alt={title} title={title}/>
+        <img src={imgSrc} alt={title} title={title} width="320px" height="214px"/>
         <span class="gallery__item-btn">
           <Icon name="gallery" />
         </span>
@@ -92,7 +92,7 @@ const t = useTranslations(lang);
   <div class="detail__footer">
     <div class="detail__price">
       <span>{t('room.label.price')}</span>
-      <strong>{`${price.toString()} Kč`}</strong>
+      <strong>{`${price.toString()} ${t('room.label.currency')}`}</strong>
     </div>
     <button class="btn" data-reservation data-room-id={id}>{t('room.btn.reservation')}</button>
   </div>

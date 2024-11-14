@@ -12,7 +12,7 @@
       overflow: hidden !important;
     }
 
-    div:has(+ button[aria-label="Close"]){
+    div:has(+ button.gm-ui-hover-effect){
       display: none;
 
       + button{
