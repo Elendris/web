@@ -14,7 +14,7 @@ export const createNewRoomContent = (roomCounter: number): HTMLElement => {
   newRoomContent.innerHTML = `
     <label class="form-item">
       ${t('reservation.formLabel.selectRoom')}
-      <select name="rooms${roomCounter}" required>
+      <select name="rooms[]" required>
         <option value="">-- ${t('reservation.select.placeholder')} --</option>
         <option value="1">${t('reservation.select.room1')}</option>
         <option value="2">${t('reservation.select.room2')}</option>
@@ -57,7 +57,7 @@ export const handleRoomSelectChange = (
   if (newSelect.value !== "1") {
     separateBedsContainer.innerHTML = `
       <label class="check-box">
-        <input type="checkbox" value="">
+        <input type="checkbox" name="separateBeds${roomCounter}" value="1">
         ${t('reservation.formLabel.separateBeds')}
       </label>
     `;
@@ -69,7 +69,7 @@ export const handleRoomSelectChange = (
     guestCountContainer.innerHTML = `
       <label class="form-item">
         ${t('reservation.formLabel.guestCount')}
-        <input type="number" min="1" max="10" name="persons${roomCounter}" required />
+        <input type="number" min="1" max="10" name="guestCount${roomCounter}" required />
       </label>
     `;
   } else {

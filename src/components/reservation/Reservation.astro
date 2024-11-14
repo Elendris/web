@@ -18,21 +18,20 @@ const { title } = data;
 const t = useTranslations(lang);
 ---
 
-
 <dialog class="reservation">
-  <form action="post" class="reservation__form">
-   <div class="reservation__header">
-    <h3>{title}</h3>
-    <button
-      class="reservation__close"
-      type="button"
-      aria-label={t('reservation.btn.close')}
-      title={t('reservation.btn.close')}
-      id="reservationClose"
-    >
-      <Icon name="close" />
-    </button>
-   </div>
+  <form action="http://localhost/send-email.php" method="post" class="reservation__form">
+    <div class="reservation__header">
+      <h3>{title}</h3>
+      <button
+        class="reservation__close"
+        type="button"
+        aria-label={t('reservation.btn.close')}
+        title={t('reservation.btn.close')}
+        id="reservationClose"
+      >
+        <Icon name="close" />
+      </button>
+    </div>
     <p>
       {body}
     </p>
@@ -51,10 +50,10 @@ const t = useTranslations(lang);
         <legend>{t('reservation.subtitle.contactInfo')}</legend>
         <p>{t('reservation.desc.contactInfo')}</p>
         <FormItem label={t('reservation.formLabel.firstName')}>
-          <input type="text" name="name" required />
+          <input type="text" name="fname" required />
         </FormItem>
         <FormItem label={t('reservation.formLabel.lastName')}>
-          <input type="text" name="surname" required />
+          <input type="text" name="lname" required />
         </FormItem>
         <FormItem label={t('reservation.formLabel.email')}>
           <input
@@ -80,7 +79,7 @@ const t = useTranslations(lang);
         <div id="roomsList" class="reservation__room-list"></div>
         <div class="reservation__actions">
           <label class="check-box" title={t('reservation.formLabel.breakfast.title')}>
-            <input type="checkbox" value="" />
+            <input type="checkbox" name="breakfast" value="1" />
             {t('reservation.formLabel.breakfast')}
           </label>
           <button
