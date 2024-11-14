@@ -89,10 +89,10 @@
       > small {
         position: relative;
         opacity: 0;
+        filter: drop-shadow(0 0 $border-width-3 $color-white);
         font-size: clamp($gap-l, 2.5svb, $gap-2xl);
         animation: showContent 1s forwards 0.5s;
         translate: 0 2svb;
-        filter: drop-shadow(0 0 $border-width-3 $color-white);
         z-index: 1;
 
         @include mq-responsive(tablet, max) {
