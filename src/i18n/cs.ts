@@ -45,6 +45,7 @@ export const cs = {
   'reservation.select.room4': 'Rodinný pokoj',
   'reservation.select.room5': 'Rodinný pokoj s kuchyňským koutem',
   'reservation.select.room6': 'Pokoj s vanou',
+  'reservation.message.success': 'Vaše rezervace byla úspěšně odeslána.',
   'about.tile.parking': 'Parkováníuvnitř areálu',
   'about.title.grill': 'Venkovní posezení a trampolínapro děti',
   'about.tile.coffee': 'Káva a čaj k dispozici během pobytu',

@@ -15,7 +15,7 @@
 		opacity: var(--dialog_opacity, 0);
 		border-radius: 1em;
 		translate: -50% var(--dialog_trans-y, 5svb);
-		transition-duration: 0.3s;
+		transition-duration: var(--trans-time);
 		transition-property: overlay display opacity;
 		box-shadow: 0 $gap-s $gap-xl 0 $color-shadow;
 		transition-behavior: allow-discrete;
@@ -230,6 +230,45 @@
 				opacity: var(--breakfast-chck_opacity, 0);
 				pointer-events: var(--breakfast-chck_pointer-events, none);
 			}
+		}
+	}
+
+	.success-message{
+		position: fixed;
+		inline-size: min($width-mobile-xl, calc(100svi - $gap-l));
+		background-color: hsl(from #{$color-success} h s l / .7);
+		backdrop-filter: blur($gap-m);
+		inset: auto $gap-xl $gap-xl auto;
+		padding-inline: $gap-l;
+		padding-block: var(--success-message_pad-block, $gap-l);
+		z-index: 9999;
+		border-radius: $radius-m;
+		overflow: hidden;
+		opacity: 1;
+
+		@include mq-responsive(mobile-xl, max) {
+			--success-message_pad-block: #{$gap-m};
+			inset: $gap-m $gap-m auto $gap-m;
+		}
+
+		&:after{
+			position: absolute;
+			z-index: -1;
+			background-color: $color-success;
+			content: "";
+			inset: 0;
+			translate: -100% 0;
+			animation: messageProgress var(--success-message_anim-time, 3s) linear forwards;
+		}
+	}
+	
+	@keyframes messageProgress {
+		0% {
+			translate: -100% 0;
+		}
+
+		100% {
+			translate: 0 0;
 		}
 	}
 }

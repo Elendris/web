@@ -50,11 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              'X-Mailer: PHP/' . phpversion();
 
   if (mail($toEmail, $subject, $message, $headers)) {
+    http_response_code(200);
     echo 'Email sent successfully';
   } else {
+    http_response_code(500);
     echo 'Failed to send email';
   }
 } else {
+  http_response_code(405);
   echo 'Invalid request method';
 }
 ?>

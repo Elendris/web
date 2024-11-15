@@ -45,6 +45,7 @@ export const en = {
   'reservation.select.room4': 'Family Room',
   'reservation.select.room5': 'Family Room with Kitchenette',
   'reservation.select.room6': 'Room with Bathtub',
+  'reservation.message.success': 'Your reservation has been successfully submitted.',
   'about.tile.parking': 'On-site parging',
   'about.title.grill': 'Outdoor seeting and kids trampoline',
   'about.tile.coffee': 'Complimentary coffee and tea',

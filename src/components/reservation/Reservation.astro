@@ -16,10 +16,12 @@ const { data, body } = reservationContent;
 const { title } = data;
 
 const t = useTranslations(lang);
+
+const today = new Date().toISOString().split('T')[0];
 ---
 
 <dialog class="reservation">
-  <form action="http://localhost/send-email.php" method="post" class="reservation__form">
+  <form id="reservationForm" class="reservation__form" action="?reservated=true" method="post">
     <div class="reservation__header">
       <h3>{title}</h3>
       <button
@@ -40,10 +42,10 @@ const t = useTranslations(lang);
         <legend>{t('reservation.subtitle.date')}</legend>
         <p>{t('reservation.desc.date')}</p>
         <FormItem label={t('reservation.formLabel.from')}>
-          <input type="date" name="from" required />
+          <input type="date" name="from" required min={today} />
         </FormItem>
         <FormItem label={t('reservation.formLabel.to')}>
-          <input type="date" name="to" required />
+          <input type="date" name="to" required min={today} />
         </FormItem>
       </fieldset>
       <fieldset>
@@ -104,10 +106,47 @@ const t = useTranslations(lang);
   </form>
 </dialog>
 
+<div id="successMessage" class="success-message" style="display: none;">
+  {t('reservation.message.success')}
+</div>
+
 <script>
   import { initReservation } from "./Reservation.ts";
 
   document.addEventListener("DOMContentLoaded", () => {
-    initReservation()
+    initReservation();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = document.getElementById('successMessage') as HTMLDivElement;
+    const hideTime = 5000 as number;
+
+    if (urlParams.has('reservated') && urlParams.get('reservated') === 'true') {
+    if (successMessage) {
+      successMessage.style.display = 'block';
+      successMessage.style.setProperty('--success-message_anim-time', `${hideTime / 1000}s`);
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, hideTime);
+    }
+  }
+
+    const form = document.getElementById('reservationForm') as HTMLFormElement;
+
+    if (form) {
+      form.addEventListener('submit', async () => {
+
+        const formData = new FormData(form);
+        const response = await fetch('http://localhost/send-email.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          window.location.href = window.location.pathname + '?reservated=true';
+        } else {
+          alert('Failed to send email');
+        }
+      });
+    }
   });
 </script>
