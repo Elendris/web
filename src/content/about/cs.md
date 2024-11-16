@@ -1,5 +1,5 @@
 ---
-title: Výtejte
+title: Vítejte
 ---
 
 Hledáte klidné a komfortní místo k odpočinku během pracovního týdne či víkendu v Brně?<br><br>

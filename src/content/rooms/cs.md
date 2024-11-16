@@ -8,24 +8,24 @@ V celém objektu je k dispozici zabezpečená <strong>vysokorychlostní Wi-Fi</s
 
 <!-- split -->
 
-1 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Útulný jednolůžkový pokoj ideální pro krátkodobé i dlouhodobé pobyty. Nabízí pohodlnou postel, vlastní koupelnu, klimatizaci a vysokorychlostní Wi-Fi zdarma. Perfektní volba pro jednotlivce hledající komfort a klid.
 
 <!-- split -->
 
-2 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Elegantní dvoulůžkový pokoj s možností oddělených postelí nebo manželské postele. Nabízí moderní vybavení, klimatizaci, vlastní koupelnu a Wi-Fi zdarma. Ideální pro páry nebo kolegy na služební cestě.
 
 <!-- split -->
 
-3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Prostorný třílůžkový pokoj s dostatkem místa pro pohodlný pobyt. Součástí pokoje je vlastní koupelna, klimatizace a Wi-Fi zdarma. Ideální volba pro malé skupiny nebo rodiny.
 
 <!-- split -->
 
-4 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Praktický a pohodlný pokoj až pro čtyři osoby. Nabízí manželskou postel a rozkládací pohovku, vlastní koupelnu a klimatizaci. Perfektní ubytování pro rodiny s dětmi.
 
 <!-- split -->
 
-5 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Rodinný pokoj vybavený kuchyňským koutem. K dispozici je manželská postel (případně oddělené postele), rozkládací pohovka a jedno extra lůžko, vlastní koupelna a klimatizace. Ideální pro delší pobyty a hosty s dětmi.
 
 <!-- split -->
 
-6 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure perspiciatis obcaecati, tempore quis quod cupiditate?
+Stylový pokoj, prostorná koupelna vybavena vanou. Perfektní pro relaxaci po náročném dni. Nabízí pohodlnou postel, klimatizaci a Wi-Fi zdarma.
