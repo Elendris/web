@@ -19,6 +19,6 @@ export default defineConfig({
       },
     }),
   ],
-  site: "https://elendris.github.io/web/",
+  site: "https://elendris.github.io/",
   base: isProduction ? "/web" : "/",
 });
