@@ -235,16 +235,16 @@
 
 	.success-message{
 		position: fixed;
-		inline-size: min($width-mobile-xl, calc(100svi - $gap-l));
-		background-color: hsl(from #{$color-success} h s l / .7);
-		backdrop-filter: blur($gap-m);
 		inset: auto $gap-xl $gap-xl auto;
-		padding-inline: $gap-l;
+		inline-size: min($width-mobile-xl, calc(100svi - $gap-l));
 		padding-block: var(--success-message_pad-block, $gap-l);
-		z-index: 9999;
+		padding-inline: $gap-l;
+		background-color: hsl(from #{$color-success} h s l / .7);
+		opacity: 1;
+		backdrop-filter: blur($gap-m);
 		border-radius: $radius-m;
 		overflow: hidden;
-		opacity: 1;
+		z-index: 9999;
 
 		@include mq-responsive(mobile-xl, max) {
 			--success-message_pad-block: #{$gap-m};
@@ -253,12 +253,12 @@
 
 		&:after{
 			position: absolute;
-			z-index: -1;
-			background-color: $color-success;
-			content: "";
 			inset: 0;
-			translate: -100% 0;
+			content: "";
+			background-color: $color-success;
 			animation: messageProgress var(--success-message_anim-time, 3s) linear forwards;
+			translate: -100% 0;
+			z-index: -1;
 		}
 	}
 	
