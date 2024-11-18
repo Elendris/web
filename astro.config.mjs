@@ -3,8 +3,6 @@ import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import astroI18next from "astro-i18next";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export default defineConfig({
   i18n: {
     defaultLocale: "cs",
@@ -19,6 +17,6 @@ export default defineConfig({
       },
     }),
   ],
-  site: "https://elendris.github.io/",
-  base: isProduction ? "/web" : "/",
+  site: "https://elendris.cz",
+  base: "/",
 });
