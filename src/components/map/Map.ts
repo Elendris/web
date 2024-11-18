@@ -146,7 +146,7 @@ window.initMap = initMap;
 
 export function loadGoogleMapsAPI() {
   const loader = new Loader({
-    apiKey: "AIzaSyCxLnuRF4MRFg7MErCYXcdroyHYeLYUUfo",
+    apiKey: "AIzaSyDL2nvxZgXk8NXOQmhizNX4HgrH5WbJnYk",
     version: "weekly",
     libraries: ["places", "marker"], // Add additional libraries if needed
   });
