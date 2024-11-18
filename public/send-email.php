@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $rooms = isset($_POST['rooms']) ? $_POST['rooms'] : [];
   $breakfast = isset($_POST['breakfast']) ? 'Ano' : 'Ne';
 
-  // Mapping of room numbers to room names
   $roomNames = [
     '1' => 'Jednolůžkový pokoj',
     '2' => 'Dvoulůžkový pokoj',
@@ -47,7 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $subject = 'Nová rezervace z webu elendris.cz';
   $headers = 'From: ' . $email . "\r\n" .
              'Reply-To: ' . $email . "\r\n" .
-             'X-Mailer: PHP/' . phpversion();
+             'X-Mailer: PHP/' . phpversion() . "\r\n" .
+             'MIME-Version: 1.0' . "\r\n" .
+             'Content-Type: text/plain; charset=UTF-8';
 
   if (mail($toEmail, $subject, $message, $headers)) {
     http_response_code(200);
