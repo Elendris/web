@@ -36,7 +36,7 @@ const initMap = (): void => {
   };
 
   const map = new google.maps.Map(mapElement, {
-    mapId: '1406e53bf9ae68ff',
+    mapId: '1fe75d9e7f76ee36',
     center: center, // Initial center
     zoom: zoom, 
     disableDefaultUI: true,
