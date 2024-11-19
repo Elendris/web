@@ -2,5 +2,5 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "types": ["google.maps"]
-  }
+  },
 }

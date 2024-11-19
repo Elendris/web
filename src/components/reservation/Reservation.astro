@@ -21,7 +21,7 @@ const today = new Date().toISOString().split('T')[0];
 ---
 
 <dialog class="reservation">
-  <form id="reservationForm" class="reservation__form" action="?reservated=true" method="post">
+  <form id="reservationForm" class="reservation__form" method="post">
     <div class="reservation__header">
       <h3>{title}</h3>
       <button
@@ -111,37 +111,37 @@ const today = new Date().toISOString().split('T')[0];
 </div>
 
 <script>
-  import { initReservation } from "./Reservation.ts";
+   import { initReservation } from "./Reservation.ts";
+  import { sendEmail } from "./sendEmail.ts";
 
   document.addEventListener("DOMContentLoaded", () => {
     initReservation();
 
     const urlParams = new URLSearchParams(window.location.search);
     const successMessage = document.getElementById('successMessage') as HTMLDivElement;
-    const hideTime = 5000 as number;
+    const hideTime = 5000;
 
     if (urlParams.has('reservated') && urlParams.get('reservated') === 'true') {
-    if (successMessage) {
-      successMessage.style.display = 'block';
-      successMessage.style.setProperty('--success-message_anim-time', `${hideTime / 1000}s`);
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, hideTime);
+      if (successMessage) {
+        successMessage.style.display = 'block';
+        successMessage.style.setProperty('--success-message_anim-time', `${hideTime / 1000}s`);
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, hideTime);
+      }
     }
-  }
 
     const form = document.getElementById('reservationForm') as HTMLFormElement;
 
     if (form) {
-      form.addEventListener('submit', async () => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
         const formData = new FormData(form);
-        const response = await fetch('http://localhost/send-email.php', {
-          method: 'POST',
-          body: formData
-        });
 
-        if (response.ok) {
+        const emailSent = await sendEmail(formData);
+
+        if (emailSent) {
           window.location.href = window.location.pathname + '?reservated=true';
         } else {
           alert('Failed to send email');

@@ -25,7 +25,7 @@
     }
   }
 
-  :where(input, select, textarea){
+  :where(input:not([type="checkbox"]), select, textarea){
     display: block;
     min-width: 0;
     block-size: px-to-rem(50px);
@@ -36,11 +36,14 @@
     font-family: $font-text;
     font-size: $gap-l;
     font-weight: initial;
-    line-height: 1.5;
+    line-height: px-to-rem(50px);
     color: $color-text;
-    outline-offset: -2px;
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
+    outline-offset: num-neg($border-width-2);
+    max-width: unset !important;
+    width: initial !important;
+    background-color: $color-white;
 
     @include mq-responsive(mobile-xl, max) {
       --input_pad-inline: #{$gap-m};
@@ -67,8 +70,8 @@
   }
 
   select{
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
 
     + .icon{
       position: absolute;
@@ -85,9 +88,9 @@
   }
 
   textarea{
-    min-block-size: px-to-rem(150px);
-    max-block-size: px-to-rem(400px);
     block-size: unset;
+    min-block-size: px-to-rem(100px);
+    max-block-size: px-to-rem(300px);
     font-family: $font-text;
   }
 
