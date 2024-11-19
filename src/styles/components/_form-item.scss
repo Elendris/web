@@ -27,10 +27,13 @@
 
   :where(input:not([type="checkbox"]), select, textarea){
     display: block;
+    width: initial !important;
     min-width: 0;
+    max-width: unset !important;
     block-size: px-to-rem(50px);
     padding-block: $gap-s;
     padding-inline: var(--input_pad-inline, $gap-l);
+    background-color: $color-white;
     border: $border-width solid $color-primary;
     border-radius: $input-border-radius;
     font-family: $font-text;
@@ -41,9 +44,6 @@
     -webkit-appearance: none;
     appearance: none;
     outline-offset: num-neg($border-width-2);
-    max-width: unset !important;
-    width: initial !important;
-    background-color: $color-white;
 
     @include mq-responsive(mobile-xl, max) {
       --input_pad-inline: #{$gap-m};
@@ -89,7 +89,7 @@
 
   textarea{
     block-size: unset;
-    min-block-size: px-to-rem(100px);
+    min-block-size: px-to-rem(80px);
     max-block-size: px-to-rem(300px);
     font-family: $font-text;
   }

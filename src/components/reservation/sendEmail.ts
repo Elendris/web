@@ -25,7 +25,7 @@ export const sendEmail = async (formData: FormData): Promise<boolean> => {
   `;
 
   const emailData = {
-    personalizations: [{ to: [{ email: "chylik.lukas@gmail.com" }] }],
+    personalizations: [{ to: [{ email: "info@elendris.cz" }] }],
     from: { email: data.email as string },
     subject: 'Nová rezervace z webu elendris.cz',
     content: [{ type: 'text/plain', value: message }]
