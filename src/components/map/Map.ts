@@ -17,16 +17,13 @@ const initMap = (): void => {
   let zoom = 11;
 
   const setCenterAndZoom = () => {
-   
-    if (window.innerWidth <= 1024){
+    if (window.innerWidth <= 1024) {
       center = { lat: 49.60918, lng: 16.66541 };
       zoom = 10;
-    }
-    else if (window.innerWidth <= 1366) {
+    } else if (window.innerWidth <= 1366) {
       center = { lat: 49.20818, lng: 16.46286 };
       zoom = 11;
-    }
-    else {
+    } else {
       center = { lat: 49.229709, lng: 16.54870 };
       zoom = 12;
     }
@@ -49,7 +46,6 @@ const initMap = (): void => {
   // Adjust center and zoom level on window resize
   window.addEventListener('resize', setCenterAndZoom);
 
-  
   const markersData = [
     {
       position: { lat: 49.17764, lng: 16.69207 },
@@ -146,7 +142,7 @@ window.initMap = initMap;
 
 export function loadGoogleMapsAPI() {
   const loader = new Loader({
-    apiKey: "AIzaSyDL2nvxZgXk8NXOQmhizNX4HgrH5WbJnYk",
+    apiKey: "AIzaSyCxLnuRF4MRFg7MErCYXcdroyHYeLYUUfo", // Replace with your actual API key
     version: "weekly",
     libraries: ["places", "marker"], // Add additional libraries if needed
   });
@@ -161,5 +157,3 @@ export function loadGoogleMapsAPI() {
       console.error("Error loading Google Maps API:", error);
     });
 }
-
-
