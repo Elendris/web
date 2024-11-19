@@ -1,4 +1,25 @@
-export const sendEmail = async (formData: FormData): Promise<boolean> => {
+import { Resend } from 'resend';
+import type { APIRoute } from 'astro';
+
+const resend = new Resend("re_2YyVouwz_9LKPhKTAZS9tWbG5e8AeUsxt");
+
+export const sendEmail = async (emailData: {
+  from: string;
+  to: string;
+  subject: string;
+  html: string;
+}): Promise<boolean> => {
+  try {
+    await resend.emails.send(emailData);
+    return true;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return false;
+  }
+};
+
+export const post: APIRoute = async ({ request }) => {
+  const formData = await request.formData();
   const data: { [key: string]: FormDataEntryValue } = Object.fromEntries(formData.entries());
 
   // Collect rooms data
@@ -25,20 +46,17 @@ export const sendEmail = async (formData: FormData): Promise<boolean> => {
   `;
 
   const emailData = {
-    personalizations: [{ to: [{ email: "info@elendris.cz" }] }],
-    from: { email: data.email as string },
+    from: `${data.email}`,
+    to: 'chylik.lukas@gmail.com',
     subject: 'Nová rezervace z webu elendris.cz',
-    content: [{ type: 'text/plain', value: message }]
+    html: message,
   };
 
-  const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer TODO',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(emailData)
-  });
+  const success = await sendEmail(emailData);
 
-  return response.ok;
+  if (success) {
+    return new Response(null, { status: 200 });
+  } else {
+    return new Response(null, { status: 500 });
+  }
 };
