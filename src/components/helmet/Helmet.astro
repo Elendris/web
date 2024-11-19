@@ -79,8 +79,7 @@ const { title, description, keywords } = Astro.props;
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="/meta/meta-twitter.webp" />
 
-  <link rel="alternate" hreflang="en" href="https://elendris.cz/en/" />
-  <link rel="alternate" hreflang="cs" href="https://elendris.cz/cs/" />
+  <slot name="alternate-link" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

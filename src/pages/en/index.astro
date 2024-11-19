@@ -18,6 +18,7 @@ const lang = getLangFromUrl(Astro.url);
     title="Pension Elendris"
     description="Ideal for both business travelers and families"
     keywords="accommodation Brno, hotel, rooms, reservation, family, business, travel">
+    <link rel="alternate" hreflang="cs" href="https://elendris.cz/cs/" slot="alternate-link"/>
     <script type="application/ld+json" slot="structured-data">
       {
       "@context": "https://schema.org",
@@ -88,11 +89,5 @@ const lang = getLangFromUrl(Astro.url);
     </main>
     <Footer />
   </body>
-  <script type="text/javascript" async>
-    (function (d, s) {
-        var e = d.createElement(s); e.type = 'text/javascript'; e.async = true;
-        e.src = '//www.hotel.cz/hotelcz/scripts/external/certificate-2.0.min.js';
-        var t = d.getElementsByTagName(s)[0]; t.parentNode.insertBefore(e, t);
-    }(document, 'script'));
 </script>
 </html>

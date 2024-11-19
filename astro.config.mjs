@@ -9,6 +9,8 @@ export default defineConfig({
     locales: ["en", "cs"],
   },
   allowImportingTsExtensions: true,
+  site: "https://elendris.cz",
+  base: "/",
   integrations: [
     sitemap(),
     partytown({
@@ -17,6 +19,4 @@ export default defineConfig({
       },
     }),
   ],
-  site: "https://elendris.cz",
-  base: "/",
 });
