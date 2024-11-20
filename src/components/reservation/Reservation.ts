@@ -11,13 +11,14 @@ export const initReservation = () => {
   const cancelButton = document.getElementById("cancelBtn") as HTMLButtonElement;
   const submitButton = document.getElementById("submitBtn") as HTMLButtonElement;
   let roomCounter = 0;
+  let roomSelected = false;
 
   /**
-   * Updates the state of the submit button based on the number of rooms added.
+   * Updates the state of the submit button based on the number of rooms added and selected.
    */
   const updateSubmitButtonState = () => {
     if (submitButton) {
-      submitButton.disabled = roomCounter === 0;
+      submitButton.disabled = !roomSelected;
     }
   };
 
@@ -71,8 +72,14 @@ export const initReservation = () => {
         if (roomId) {
           newSelect.value = roomId;
           handleRoomSelectChange(newSelect, guestCountContainer, separateBedsContainer, roomCounter);
+          roomSelected = true;
+          updateSubmitButtonState();
         }
-        newSelect.addEventListener("change", () => handleRoomSelectChange(newSelect, guestCountContainer, separateBedsContainer, roomCounter));
+        newSelect.addEventListener("change", () => {
+          handleRoomSelectChange(newSelect, guestCountContainer, separateBedsContainer, roomCounter);
+          roomSelected = newSelect.value !== "";
+          updateSubmitButtonState();
+        });
         newSelect.focus();
       }
 
@@ -81,6 +88,7 @@ export const initReservation = () => {
         deleteButton.addEventListener("click", () => {
           handleDeleteRoom(roomRow, newRoomContent);
           roomCounter--;
+          roomSelected = roomCounter > 0 && Array.from(roomRow.querySelectorAll("select")).some(select => select.value !== "");
           updateSubmitButtonState();
         });
       }
