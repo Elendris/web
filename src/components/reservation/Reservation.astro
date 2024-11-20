@@ -1,12 +1,14 @@
 ---
 import FormItem from "../formItem/FormItem.astro";
 import Icon from "../icons/Icon.astro";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const reservationCollection = await getCollection('reservation');
-const reservationContent = reservationCollection.find(entry => entry.slug === lang);
+const reservationCollection = await getCollection("reservation");
+const reservationContent = reservationCollection.find(
+  (entry) => entry.slug === lang
+);
 
 if (!reservationContent) {
   throw new Error(`Content for language ${lang} not found`);
@@ -17,11 +19,11 @@ const { title } = data;
 
 const t = useTranslations(lang);
 
-const today = new Date().toISOString().split('T')[0];
+const today = new Date().toISOString().split("T")[0];
 ---
 
 <dialog class="reservation">
-  <form id="reservationForm" class="reservation__form" method="post">
+  <form id="reservationForm" class="reservation__form" method="post" action="/send-email.php">
     <div class="reservation__header">
       <h3>{title}</h3>
       <button
@@ -107,7 +109,7 @@ const today = new Date().toISOString().split('T')[0];
 </dialog>
 
 <div id="successMessage" class="success-message" style="display: none;">
-  {t('reservation.message.success')}
+  {t("reservation.message.success")}
 </div>
 
 <script>
@@ -117,41 +119,47 @@ const today = new Date().toISOString().split('T')[0];
     initReservation();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const successMessage = document.getElementById('successMessage') as HTMLDivElement;
+    const successMessage = document.getElementById("successMessage");
     const hideTime = 5000;
 
-    if (urlParams.has('reservated') && urlParams.get('reservated') === 'true') {
+    if (urlParams.has("reservated") && urlParams.get("reservated") === "true") {
       if (successMessage) {
-        successMessage.style.display = 'block';
-        successMessage.style.setProperty('--success-message_anim-time', `${hideTime / 1000}s`);
+        successMessage.style.display = "block";
+        successMessage.style.setProperty(
+          "--success-message_anim-time",
+          `${hideTime / 1000}s`
+        );
         setTimeout(() => {
-          successMessage.style.display = 'none';
+          successMessage.style.display = "none";
         }, hideTime);
       }
     }
 
-    const form = document.getElementById('reservationForm') as HTMLFormElement;
+    const form = document.getElementById("reservationForm") as HTMLFormElement;
 
     if (form) {
-      form.addEventListener('submit', async (event) => {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(form);
 
         try {
-          const response = await fetch('/api/sendEmail', { 
-            method: 'POST',
-            body: formData
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
           });
 
           if (response.ok) {
-            window.location.href = window.location.pathname + '?reservated=true';
+            window.location.href =
+              window.location.pathname + "?reservated=true";
           } else {
-            alert('Failed to send email');
+            const errorText = await response.text();
+            console.error("Failed to send email:", errorText);
+            alert("Failed to send email");
           }
         } catch (error) {
-          console.error('Error:', error);
-          alert('An error occurred while sending the email');
+          console.error("Error:", error);
+          alert("An error occurred while sending the email");
         }
       });
     }
