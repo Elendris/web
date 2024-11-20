@@ -43,11 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $message .= "Snídaně: $breakfast\n";
 
   $toEmail = 'info@elendris.cz';
-  $ccEmail = 'chylik.lukas@gmail.com'; // Add CC email
   $subject = 'Nová rezervace z webu elendris.cz';
   $headers = 'From: ' . $email . "\r\n" .
              'Reply-To: ' . $email . "\r\n" .
-             'Cc: ' . $ccEmail . "\r\n" . // Add CC header
              'X-Mailer: PHP/' . phpversion() . "\r\n" .
              'MIME-Version: 1.0' . "\r\n" .
              'Content-Type: text/plain; charset=UTF-8';
