@@ -89,7 +89,7 @@
       }
 
       @include mq-responsive(mobile-xl, max) {
-        --card_fs: smaller;
+        --card_fs: 12px;
       }
     }
   }

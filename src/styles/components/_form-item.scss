@@ -26,7 +26,7 @@
   }
 
   :where(input:not([type="checkbox"]), select, textarea){
-    display: block;
+    display: grid;
     width: initial !important;
     min-width: 0;
     max-width: unset !important;
@@ -43,6 +43,8 @@
     -webkit-appearance: none;
     appearance: none;
     outline-offset: num-neg($border-width-2);
+    align-items: center;
+    text-align: left;
 
     @include mq-responsive(mobile-xl, max) {
       --input_pad-inline: #{$gap-m};
