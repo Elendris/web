@@ -69,7 +69,7 @@ export const handleRoomSelectChange = (
     guestCountContainer.innerHTML = `
       <label class="form-item">
         ${t('reservation.formLabel.guestCount')}
-        <input type="number" min="1" max="4" name="guestCount${roomCounter}" required />
+        <input type="number" min="1" max="4" name="guestCount${roomCounter}" inputmode="numeric" required />
       </label>
     `;
   } else {
