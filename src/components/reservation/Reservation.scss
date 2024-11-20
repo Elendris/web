@@ -233,42 +233,14 @@
 		}
 	}
 
-	.success-message{
-		position: fixed;
-		inset: auto $gap-xl $gap-xl auto;
-		inline-size: min($width-mobile-xl, calc(100svi - $gap-l));
-		padding-block: var(--success-message_pad-block, $gap-l);
-		padding-inline: $gap-l;
-		background-color: hsl(from #{$color-success} h s l / .7);
-		opacity: 1;
-		backdrop-filter: blur($gap-m);
-		border-radius: $radius-m;
-		overflow: hidden;
-		z-index: 9999;
+	dialog.success-dialog{
+		background-color: $color-white;
+		border-radius: $radius-l;
+		padding-block: $gap-xl;
+		padding-inline: $gap-3xl;
 
-		@include mq-responsive(mobile-xl, max) {
-			--success-message_pad-block: #{$gap-m};
-			inset: $gap-m $gap-m auto $gap-m;
-		}
-
-		&:after{
-			position: absolute;
-			inset: 0;
-			content: "";
-			background-color: $color-success;
-			animation: messageProgress var(--success-message_anim-time, 3s) linear forwards;
-			translate: -100% 0;
-			z-index: -1;
-		}
-	}
-	
-	@keyframes messageProgress {
-		0% {
-			translate: -100% 0;
-		}
-
-		100% {
-			translate: 0 0;
+		h4{
+			margin: 0;
 		}
 	}
 }

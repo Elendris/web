@@ -58,7 +58,7 @@ $displayTypes: (
       flex-direction: row;
     }
 
-    &-ccolumn {
+    &-column {
       flex-direction: column;
     }
   }
@@ -78,7 +78,7 @@ $displayTypes: (
 
       &-y {
         &-#{$type} {
-          padding-bloxk: #{$value};
+          padding-block: #{$value};
         }
       }
     }

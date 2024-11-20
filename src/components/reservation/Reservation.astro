@@ -23,14 +23,19 @@ const today = new Date().toISOString().split("T")[0];
 ---
 
 <dialog class="reservation">
-  <form id="reservationForm" class="reservation__form" method="post" action="/send-email.php">
+  <form
+    id="reservationForm"
+    class="reservation__form"
+    method="post"
+    action="/send-email.php"
+  >
     <div class="reservation__header">
       <h3>{title}</h3>
       <button
         class="reservation__close"
         type="button"
-        aria-label={t('reservation.btn.close')}
-        title={t('reservation.btn.close')}
+        aria-label={t("reservation.btn.close")}
+        title={t("reservation.btn.close")}
         id="reservationClose"
       >
         <Icon name="close" />
@@ -41,25 +46,25 @@ const today = new Date().toISOString().split("T")[0];
     </p>
     <div>
       <fieldset>
-        <legend>{t('reservation.subtitle.date')}</legend>
-        <p>{t('reservation.desc.date')}</p>
-        <FormItem label={t('reservation.formLabel.from')}>
+        <legend>{t("reservation.subtitle.date")}</legend>
+        <p>{t("reservation.desc.date")}</p>
+        <FormItem label={t("reservation.formLabel.from")}>
           <input type="date" name="from" required min={today} />
         </FormItem>
-        <FormItem label={t('reservation.formLabel.to')}>
+        <FormItem label={t("reservation.formLabel.to")}>
           <input type="date" name="to" required min={today} />
         </FormItem>
       </fieldset>
       <fieldset>
-        <legend>{t('reservation.subtitle.contactInfo')}</legend>
-        <p>{t('reservation.desc.contactInfo')}</p>
-        <FormItem label={t('reservation.formLabel.firstName')}>
+        <legend>{t("reservation.subtitle.contactInfo")}</legend>
+        <p>{t("reservation.desc.contactInfo")}</p>
+        <FormItem label={t("reservation.formLabel.firstName")}>
           <input type="text" name="fname" required />
         </FormItem>
-        <FormItem label={t('reservation.formLabel.lastName')}>
+        <FormItem label={t("reservation.formLabel.lastName")}>
           <input type="text" name="lname" required />
         </FormItem>
-        <FormItem label={t('reservation.formLabel.email')}>
+        <FormItem label={t("reservation.formLabel.email")}>
           <input
             type="email"
             placeholder="john@doe.com"
@@ -67,31 +72,36 @@ const today = new Date().toISOString().split("T")[0];
             required
           />
         </FormItem>
-        <FormItem label={t('reservation.formLabel.phone')}>
+        <FormItem label={t("reservation.formLabel.phone")}>
           <input type="tel" placeholder="+420123456789" name="phone" required />
         </FormItem>
-        <FormItem label={t('reservation.formLabel.note')}>
-          <textarea name="note" />
+        <FormItem label={t("reservation.formLabel.note")}>
+          <textarea name="note"></textarea>
         </FormItem>
       </fieldset>
     </div>
     <fieldset>
-      <legend>{t('reservation.subtitle.rooms')}</legend>
-      <p>{t('reservation.desc.rooms')}</p>
+      <legend>{t("reservation.subtitle.rooms")}</legend>
+      <p>{t("reservation.desc.rooms")}</p>
       <div class="col-span-2">
-        <p class="reservation__empty-message">{t('reservation.message.emptyRooms')}</p>
+        <p class="reservation__empty-message">
+          {t("reservation.message.emptyRooms")}
+        </p>
         <div id="roomsList" class="reservation__room-list"></div>
         <div class="reservation__actions">
-          <label class="check-box" title={t('reservation.formLabel.breakfast.title')}>
+          <label
+            class="check-box"
+            title={t("reservation.formLabel.breakfast.title")}
+          >
             <input type="checkbox" name="breakfast" value="1" />
-            {t('reservation.formLabel.breakfast')}
+            {t("reservation.formLabel.breakfast")}
           </label>
           <button
             type="button"
             id="addRoom"
             class="btn btn--small btn--secondary"
           >
-          {t('reservation.btn.addRoom')}
+            {t("reservation.btn.addRoom")}
             <Icon name="plus" />
           </button>
         </div>
@@ -99,18 +109,32 @@ const today = new Date().toISOString().split("T")[0];
     </fieldset>
     <div class="reservation__footer">
       <button class="btn btn--secondary" type="button" id="cancelBtn">
-        {t('reservation.btn.cancel')}
+        {t("reservation.btn.cancel")}
       </button>
       <button class="btn btn--primary" type="submit" id="submitBtn">
-        {t('reservation.btn.submit')}
+        {t("reservation.btn.submit")}
       </button>
     </div>
   </form>
 </dialog>
 
-<div id="successMessage" class="success-message" style="display: none;">
-  {t("reservation.message.success")}
-</div>
+<dialog id="successDialog" class="success-dialog">
+  <div class="d-grid gap-l">
+    <div class="reservation__header">
+      <h4>{t("reservation.message.title")}</h4>
+      <button
+        class="reservation__close"
+        type="button"
+        id="closeSuccessDialog"
+        aria-label={t("btn.close")}
+        title={t("btn.close")}
+      >
+        <Icon name="close" />
+      </button>
+    </div>
+    <p>{t("reservation.message.thankyou")}</p>
+  </div>
+</dialog>
 
 <script>
   import { initReservation } from "./Reservation.ts";
@@ -119,20 +143,23 @@ const today = new Date().toISOString().split("T")[0];
     initReservation();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const successMessage = document.getElementById("successMessage");
-    const hideTime = 5000;
+    const successDialog = document.getElementById(
+      "successDialog"
+    ) as HTMLDialogElement;
+    const closeSuccessDialogButton = document.getElementById(
+      "closeSuccessDialog"
+    ) as HTMLButtonElement;
 
     if (urlParams.has("reservated") && urlParams.get("reservated") === "true") {
-      if (successMessage) {
-        successMessage.style.display = "block";
-        successMessage.style.setProperty(
-          "--success-message_anim-time",
-          `${hideTime / 1000}s`
-        );
-        setTimeout(() => {
-          successMessage.style.display = "none";
-        }, hideTime);
+      if (successDialog) {
+        successDialog.showModal();
       }
+    }
+
+    if (closeSuccessDialogButton) {
+      closeSuccessDialogButton.addEventListener("click", () => {
+        successDialog.close();
+      });
     }
 
     const form = document.getElementById("reservationForm") as HTMLFormElement;
