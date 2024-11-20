@@ -17,17 +17,26 @@ const initMap = (): void => {
   let zoom = 11;
 
   const setCenterAndZoom = () => {
-    if (window.innerWidth <= 1024) {
-      center = { lat: 49.60918, lng: 16.66541 };
-      zoom = 10;
-    } else if (window.innerWidth <= 1366) {
-      center = { lat: 49.20818, lng: 16.46286 };
-      zoom = 11;
-    } else {
-      center = { lat: 49.229709, lng: 16.54870 };
-      zoom = 12;
+    let center;
+    let zoom;
+    switch (true) {
+      case window.innerWidth <= 1024:
+        center = { lat: 49.60918, lng: 16.66541 };
+        zoom = 10;
+        break;
+      case window.innerWidth <= 1366:
+        center = { lat: 49.20818, lng: 16.46286 };
+        zoom = 11;
+        break;
+      case window.innerWidth <= 1920:
+        center = { lat: 49.20818, lng: 16.35286 };
+        zoom = 11;
+        break;
+      default:
+        center = { lat: 49.229709, lng: 16.54870 };
+        zoom = 12;
+        break;
     }
-
     map.setCenter(center);
     map.setZoom(zoom);
   };

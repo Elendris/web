@@ -10,7 +10,7 @@
     grid-template-columns: var(--contact_col-temp, 5fr 8fr);
     pointer-events: none;
 
-    @include mq-responsive(desktop-hd, max) {
+    @include mq-responsive(desktop-full-hd, max) {
       --contact_col-temp: repeat(2, 1fr);
     }
 
