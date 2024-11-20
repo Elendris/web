@@ -50,17 +50,13 @@
     }
 
     &:not([type="checkbox"]){
-      // &:not(:placeholder-shown):invalid{
-      //   outline: $border-width-2 solid $color-error;
-      // }
-      
-      // &:user-invalid{
-      //   outline: $border-width-2 solid $color-error;
-      // }
+      &:user-invalid, &:invalid{
+        outline: $border-width-2 solid $color-error;
+      }
 
-      // &:user-valid{
-      //   outline: $border-width-2 solid $color-success;
-      // }
+      &:user-valid, &:valid{
+        outline: $border-width-2 solid $color-success;
+      }
   
       &:focus{
         outline: $border-width-2 solid $color-primary;
