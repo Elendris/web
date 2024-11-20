@@ -89,6 +89,10 @@
         @include mq-responsive(desktop-s, max) {
           --header-title_text-stroke: #{$border-width-2};
         }
+
+        @include mq-responsive(tablet, max) {
+          display: none !important;
+        }
       }
 
       > div:has(> small) {
