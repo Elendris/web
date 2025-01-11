@@ -234,10 +234,10 @@
 	}
 
 	dialog.success-dialog{
-		background-color: $color-white;
-		border-radius: $radius-l;
 		padding-block: $gap-xl;
 		padding-inline: $gap-3xl;
+		background-color: $color-white;
+		border-radius: $radius-l;
 
 		h4{
 			margin: 0;

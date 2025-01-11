@@ -85,3 +85,24 @@ export const handleRoomSelectChange = (
 export const handleDeleteRoom = (roomRow: HTMLElement, newRoomContent: HTMLElement) => {
   roomRow.removeChild(newRoomContent);
 };
+
+/**
+ * Validates date inputs to ensure no past dates are entered.
+ * Adds an event listener to each date input to check the entered date.
+ * If the date is in the past, it sets a custom validity message.
+ */
+export const validateDateInputs = () => {
+  const today: string = new Date().toISOString().split("T")[0] as string;
+  const dateInputs = document.querySelectorAll('input[type="date"]');
+
+  dateInputs.forEach((input) => {
+    const dateInput = input as HTMLInputElement;
+    dateInput.addEventListener("input", () => {
+      if (dateInput.value < today) {
+        dateInput.setCustomValidity("Please enter a date in the future.");
+      } else {
+        dateInput.setCustomValidity("");
+      }
+    });
+  });
+};

@@ -73,7 +73,16 @@ const today = new Date().toISOString().split("T")[0];
           />
         </FormItem>
         <FormItem label={t("reservation.formLabel.phone")}>
-          <input type="tel" placeholder="+420123456789" name="phone" required />
+          <input 
+            type="tel" 
+            placeholder="+420123456789" 
+            name="phone" 
+            pattern="^\+\d{2,3}\d{9}$" 
+            inputmode="tel" 
+            autocomplete="tel" 
+            aria-label="Phone number" 
+            required 
+          />
         </FormItem>
         <FormItem label={t("reservation.formLabel.note")}>
           <textarea name="note"></textarea>
