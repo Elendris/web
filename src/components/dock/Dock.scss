@@ -6,7 +6,7 @@
 @mixin create-dock {
   .dock {
     position: fixed;
-    inset: auto $gap-m $gap-m auto;
+    inset: auto $gap-m $gap-l auto;
     display: var(--dock_display, none);
     flex-flow: column nowrap;
     gap: $gap-m;
