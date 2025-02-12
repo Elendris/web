@@ -1,5 +1,7 @@
 ---
+id: cs
 title: Naše pokoje
+slug: cs
 ---
 
 Všechny naše pokoje jsou klimatizované a mají vlastní koupelnu. Rodinné pokoje jsou vybaveny vanou. Abychom vám zajistili maximální pohodlí, snídani vám přineseme přímo na pokoj v čase, který vám vyhovuje.<br/><br/>

@@ -6,16 +6,16 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const aboutCollection = await getCollection('contact');
-const aboutContent = aboutCollection.find(entry => entry.slug === lang);
+const aboutContent = aboutCollection.find(entry => entry.data.slug === lang);
 
 if (!aboutContent) {
-  throw new Error(`Content for language ${lang} not found`);
+  throw new Error(`contactContent - Content for language ${lang} not found`);
 }
 
 const { data, body } = aboutContent;
 const { title } = data;
 
-const [part1, part2] = body.split('<!-- split -->');
+const [part1, part2] = body?.split('<!-- split -->') ?? ["", ""];
 
 interface Props {
   id: string;

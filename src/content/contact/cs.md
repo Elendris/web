@@ -1,5 +1,7 @@
 ---
+id: cs
 title: Kde nas najdete?
+slug: cs
 ---
 
 Najdete nás v městské části Brno - Slatina, pár minut autem od dálnice D1 (Exit E203 ve směru na Prahu, Exit 201 ve směru Olomouc) 
