@@ -70,7 +70,7 @@ export const en = {
   'room.equipment.drink': 'Beer or water upon arrival',
   'room.equipment.breakfast': 'Breakfast included',
   'room.label.price': 'Price from / night',
-  'room.label.currency': 'EUR',
+  'room.label.currency': 'CZK',
   'room.btn.reservation': 'Reservation',
   'contact.title.address': 'Address',
   'contact.address.pension': 'Elendris - Ubytování u kostela',

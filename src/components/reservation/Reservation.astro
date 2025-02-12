@@ -7,11 +7,11 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const reservationCollection = await getCollection("reservation");
 const reservationContent = reservationCollection.find(
-  (entry) => entry.slug === lang
+  (entry) => entry.data.slug === lang
 );
 
 if (!reservationContent) {
-  throw new Error(`Content for language ${lang} not found`);
+  throw new Error(`reservationContent - Content for language ${lang} not found`);
 }
 
 const { data, body } = reservationContent;

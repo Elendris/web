@@ -1,5 +1,7 @@
 ---
+id: en
 title: Welcome
+slug: en
 ---
 
 Are you looking for a quiet and comfortable place to rest during your business trip or weekend stay in Brno?<br><br>

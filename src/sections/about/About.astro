@@ -8,7 +8,7 @@ const aboutCollection = await getCollection('about');
 const aboutContent = aboutCollection.find(entry => entry.slug === lang);
 
 if (!aboutContent) {
-  throw new Error(`Content for language ${lang} not found`);
+  throw new Error(`aboutContent - Content for language ${lang} not found`);
 }
 
 const { data, body } = aboutContent;

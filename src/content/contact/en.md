@@ -1,5 +1,7 @@
 ---
+id: en
 title: Where you find us?
+slug: en
 ---
 
 You can find us in the Brno-Slatina district, just a few minutes by car from the D1 highway 

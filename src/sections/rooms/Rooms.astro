@@ -5,10 +5,12 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const aboutCollection = await getCollection("rooms");
-const aboutContent = aboutCollection.find((entry) => entry.slug === lang);
+
+//const aboutContent = aboutCollection.find((entry) => entry.slug === lang);
+const aboutContent = aboutCollection.find((entry) => entry.data.slug === lang);
 
 if (!aboutContent) {
-  throw new Error(`Content for language ${lang} not found`);
+  throw new Error(`roomContent - Content for language ${lang} not found`);
 }
 
 const { data, body } = aboutContent;
@@ -22,7 +24,7 @@ const [
   room4Desc,
   room5Desc,
   room6Desc,
-] = body.split("<!-- split -->");
+] = body?.split("<!-- split -->") ?? ["", ""];
 
 interface Props {
   id: string;
@@ -44,7 +46,7 @@ const t = useTranslations(lang);
       imgSrc="/images/rooms/room-1/room-1-1.avif"
       imgCount={3}
       galeryFolder="room-1"
-      price={990}
+      price={1200}
       id="1">
       <p slot="room-description" set:html={room1Desc} />
     </Room>
@@ -53,7 +55,7 @@ const t = useTranslations(lang);
       imgSrc="/images/rooms/room-2/room-2-1.avif"
       imgCount={2}
       galeryFolder="room-2"
-      price={1450}
+      price={1600}
       id="2">
       <p slot="room-description" set:html={room2Desc} />
     </Room>
@@ -62,7 +64,7 @@ const t = useTranslations(lang);
       imgSrc="/images/rooms/room-3/room-3-1.avif"
       imgCount={3}
       galeryFolder="room-3"
-      price={1900}
+      price={2100}
       id="3">
       <p slot="room-description" set:html={room3Desc} />
     </Room>
@@ -89,7 +91,7 @@ const t = useTranslations(lang);
       title={t("rooms.room6.title")}
       imgSrc="/images/rooms/room-6/room-6-1.avif"
       imgCount={3}
-      price={1450}
+      price={1600}
       galeryFolder="room-6"
       id="6">
       <p slot="room-description" set:html={room6Desc} />

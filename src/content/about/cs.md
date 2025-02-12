@@ -1,5 +1,7 @@
 ---
+id: cs
 title: Vítejte
+slug: cs
 ---
 
 Hledáte klidné a komfortní místo k odpočinku během pracovního týdne či víkendu v Brně?<br><br>

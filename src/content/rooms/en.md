@@ -1,5 +1,7 @@
 ---
+id: en
 title: Our rooms
+slug: en
 ---
 
 All our rooms are air-conditioned and have private bathrooms. Family rooms feature a bathtub. To ensure maximum comfort, breakfast will be delivered directly to your room at a time that suits you.<br/><br/>

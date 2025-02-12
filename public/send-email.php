@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $message .= "Snídaně: $breakfast\n";
 
   $toEmail = 'info@elendris.cz';
-  $subject = 'Nová rezervace z webu elendris.cz';
+  $subject = 'Elendris - Ubytování u kostela';
   $headers = 'From: ' . $email . "\r\n" .
              'Reply-To: ' . $email . "\r\n" .
              'X-Mailer: PHP/' . phpversion() . "\r\n" .
