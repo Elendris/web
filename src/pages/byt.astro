@@ -1,0 +1,731 @@
+---
+import Helmet from "../components/helmet/Helmet.astro";
+import Navigation from "../components/navigation/Navigation.astro";
+import IconSet from "../components/icons/IconSet.astro";
+import Footer from "../sections/footer/Footer.astro";
+import Dock from "../components/dock/Dock.astro";
+import FlatContactForm from "../components/flatContactForm/FlatContactForm.astro";
+---
+
+<html lang="cs">
+  <Helmet
+    title="Pronájem vybaveného bytu Brno-Slatina | Krátkodobý pronájem"
+    description="Hledáte krátkodobé ubytování v Brně? Nabízíme moderní, plně vybavený byt 3+1 k pronájmu v Brně-Slatině. Ideální pro firmy, kolegy nebo rodiny na pracovní cestě. Minimální délka 4 noci."
+    keywords="krátkodobý pronájem bytu Brno, vybavený byt Brno Slatina, ubytování pro firmy Brno, pronájem bytu na měsíc, firemní ubytování, byt pro pracovníky Brno">
+    <script type="application/ld+json" slot="structured-data" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Apartment",
+        "name": "Plně vybavený byt 3+1 pro krátkodobý pronájem - Brno Slatina",
+        "description": "Moderní, kompletně zařízený byt 3+1 (80 m²) k pronájmu v Brně-Slatině. Vhodné pro krátkodobé pronájmy, firemní klientelu, jednotlivce i rodiny. Kapacita až 4 osoby.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brno",
+          "addressRegion": "Slatina",
+          "addressCountry": "CZ"
+        },
+        "numberOfRooms": "4",
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "value": "4",
+          "unitCode": "C62"
+        },
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": "80",
+          "unitCode": "MTK"
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Vysokorychlostní Wi-Fi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Plně vybavená kuchyň",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Pračka",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Parkování",
+            "value": true
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "description": "Minimální délka pronájmu jsou 4 noci. Cena dohodou."
+          }
+        }
+      }
+    </script>
+  </Helmet>
+  <body>
+    <IconSet />
+    <Navigation isFlatPage={true} />
+    <Dock />
+    
+    <main class="flat-rental">
+      <section class="flat-hero">
+        <div class="flat-hero__bg" style="background-image: url('/images/byt/avif/obyvak1a.avif')"></div>
+        <div class="flat-hero__overlay"></div>
+        <div class="flat-hero__content">
+          <h1>Pronájem bytu 3+1 v Brně</h1>
+          <p class="flat-hero__subtitle">Moderní, plně vybavený byt v klidné lokalitě pro krátkodobé pronájmy firmám i jednotlivcům.</p>
+          <div class="flat-hero__features">
+            <span>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              80 m²
+            </span>
+            <span class="separator">•</span>
+            <span>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Až 4 osoby
+            </span>
+            <span class="separator">•</span>
+            <span>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Min. 4 noci
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <div class="flat-container">
+        <div class="flat-content">
+          <section class="flat-specs">
+            <div class="spec-card">
+              <div class="spec-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+              </div>
+              <div class="spec-details">
+                <strong>Dispozice</strong>
+                <span>3+1 (80 m²)</span>
+              </div>
+            </div>
+            
+            <div class="spec-card">
+              <div class="spec-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="spec-details">
+                <strong>Typ</strong>
+                <span>Cihlový dům</span>
+              </div>
+            </div>
+            
+            <div class="spec-card">
+              <div class="spec-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="spec-details">
+                <strong>Lokalita</strong>
+                <span>Brno - Slatina</span>
+              </div>
+            </div>
+            
+            <div class="spec-card">
+              <div class="spec-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="spec-details">
+                <strong>Dostupnost</strong>
+                <span>Ihned</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="flat-description">
+            <div class="text-block">
+              <h2>O ubytování</h2>
+              <p class="lead">
+                Nabízíme k pronájmu prostorný byt 3+1 o celkové ploše cca 80 m² v klidné části Brna. 
+                Byt je plně vybavený a připravený k okamžitému nastěhování. Ideální pro pracovní týmy nebo rodiny.
+              </p>
+            </div>
+
+            <div class="features-grid">
+              <div class="feature-column">
+                <h3>Dispozice</h3>
+                <ul class="check-list">
+                  <li><strong>Obývací pokoj</strong> - prostorný a světlý s jídelním koutem</li>
+                  <li><strong>Ložnice 1</strong> - hlavní ložnice s dostatkem úložného prostoru</li>
+                  <li><strong>Ložnice 2</strong> - druhá ložnice ideální pro děti nebo hosty</li>
+                  <li><strong>Kuchyň</strong> - plně vybavená kuchyňská linka se spotřebiči</li>
+                  <li><strong>Koupelna</strong> - moderní koupelna s vanou</li>
+                  <li><strong>WC</strong> - samostatné WC</li>
+                  <li><strong>Předsíň a chodba</strong> - vstupní prostory se šatnou</li>
+                </ul>
+              </div>
+
+              <div class="feature-column">
+                <h3>Vybavení & Výhody</h3>
+                <ul class="check-list">
+                  <li>Plně vybavená kuchyň (sporák, lednice, varná konvice)</li>
+                  <li>Pračka k dispozici</li>
+                  <li>Kompletní nábytek v pokojích</li>
+                  <li>Vysokorychlostní internet</li>
+                  <li>Klidná lokalita s občanskou vybaveností</li>
+                  <li>Výborná dostupnost MHD a dálnice D1</li>
+                  <li>Parkování na ulici před domem</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="flat-gallery">
+            <h2>Fotogalerie</h2>
+            <div class="gallery-grid">
+              <div class="gallery-item large">
+                <img src="/images/byt/avif/obyvak1a.avif" alt="Obývací pokoj" loading="lazy" />
+                <span class="gallery-label">Obývací pokoj</span>
+              </div>
+              <div class="gallery-item">
+                <img src="/images/byt/avif/kuchynsky_kout.avif" alt="Kuchyňský kout" loading="lazy" />
+                <span class="gallery-label">Kuchyně</span>
+              </div>
+              <div class="gallery-item">
+                <img src="/images/byt/avif/loznice1a.avif" alt="Ložnice 1" loading="lazy" />
+                <span class="gallery-label">Hlavní ložnice</span>
+              </div>
+              <div class="gallery-item">
+                <img src="/images/byt/avif/loznice2.avif" alt="Ložnice 2" loading="lazy" />
+                <span class="gallery-label">Druhá ložnice</span>
+              </div>
+              <div class="gallery-item">
+                <img src="/images/byt/avif/koupelna1a.avif" alt="Koupelna" loading="lazy" />
+                <span class="gallery-label">Koupelna</span>
+              </div>
+              <div class="gallery-item">
+                <img src="/images/byt/avif/jidelini_kout1a.avif" alt="Jídelní kout" loading="lazy" />
+                <span class="gallery-label">Jídelní kout</span>
+              </div>
+            </div>
+            <div class="gallery-more">
+              <button class="btn-outline" onclick="document.querySelector('.gallery-hidden').style.display = 'grid'; this.style.display = 'none';">Zobrazit více fotek</button>
+            </div>
+            <div class="gallery-grid gallery-hidden" style="display: none; margin-top: 1.5rem;">
+              <div class="gallery-item"><img src="/images/byt/avif/obyvak1b.avif" alt="Obývací pokoj" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/obyvak1c.avif" alt="Obývací pokoj" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/obyvak1d.avif" alt="Obývací pokoj" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/jidelni_kout1b.avif" alt="Jídelní kout" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/loznice1b.avif" alt="Ložnice" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/koupelna1b.avif" alt="Koupelna" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/zachod.avif" alt="WC" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/predsin.avif" alt="Předsíň" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/chodba.avif" alt="Chodba" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/satna1a.avif" alt="Šatna" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/satna1b.avif" alt="Šatna" loading="lazy" /></div>
+              <div class="gallery-item"><img src="/images/byt/avif/lodzie.avif" alt="Lodžie" loading="lazy" /></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="flat-sidebar">
+          <div class="sticky-card">
+            <h3>Cena a rezervace</h3>
+            <div class="price-display">
+              <span class="price-value">Dohodou</span>
+              <span class="price-period">/ měsíc</span>
+            </div>
+            
+            <div class="info-rows">
+              <div class="info-row">
+                <span>Kauce</span>
+                <strong>2 nájmy</strong>
+              </div>
+              <div class="info-row">
+                <span>Energie</span>
+                <strong>Dle spotřeby</strong>
+              </div>
+              <div class="info-row">
+                <span>Min. délka</span>
+                <strong>4 noci</strong>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <button class="btn-primary" data-flat-contact-open>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Napsat email
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    
+    <Footer />
+    <FlatContactForm />
+
+    <style>
+      :root {
+        --color-primary: #667eea;
+        --color-secondary: #764ba2;
+        --color-text: #1f2937;
+        --color-text-light: #6b7280;
+        --color-bg: #f9fafb;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --radius: 1rem;
+      }
+
+      .flat-rental {
+        background-color: var(--color-bg);
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      /* Hero Section */
+      .flat-hero {
+        position: relative;
+        height: 80vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+      }
+
+      .flat-hero__bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.05); /* Slight zoom for effect */
+        z-index: 0;
+      }
+
+      .flat-hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+        z-index: 1;
+      }
+
+      .flat-hero__content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 2rem;
+        animation: fadeIn Up 1s ease-out;
+      }
+
+      .flat-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 4px 16px rgba(0,0,0,0.6);
+        color: white;
+      }
+
+      .flat-hero__subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      }
+
+      .flat-hero__features {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+        padding: 0.75rem 1.5rem;
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+
+      .flat-hero__features span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      }
+
+      .flat-hero__features .separator {
+        opacity: 0.5;
+      }
+
+      /* Layout */
+      .flat-container {
+        max-width: 1400px;
+        margin: -4rem auto 0;
+        padding: 0 2rem 4rem;
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 3rem;
+      }
+
+      /* Specs Grid */
+      .flat-specs {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .spec-card {
+        background: white;
+        padding: 1.25rem 1.5rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .spec-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+
+      .spec-icon {
+        color: var(--color-primary);
+        padding: 0.75rem;
+        background: var(--color-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .spec-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .spec-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .spec-details strong {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-light);
+        margin-bottom: 0.2rem;
+      }
+
+      .spec-details span {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      /* Description Section */
+      .flat-description {
+        background: white;
+        padding: 3rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 3rem;
+      }
+
+      .flat-description h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+      }
+
+      .flat-description .lead {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--color-text-light);
+        margin-bottom: 3rem;
+      }
+
+      .flat-description h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .check-list li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        color: var(--color-text);
+        line-height: 1.6;
+      }
+
+      .check-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      /* Gallery Section */
+      .flat-gallery {
+        margin-bottom: 3rem;
+      }
+      
+      .flat-gallery h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        box-shadow: var(--shadow-sm);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-lg);
+        z-index: 10;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        font-weight: 500;
+        font-size: 0.9rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gallery-more {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        padding: 0.75rem 2rem;
+        border-radius: 100px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-outline:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      /* Sidebar */
+      .sticky-card {
+        position: sticky;
+        top: 2rem;
+        background: white;
+        padding: 2rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .sticky-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+      }
+
+      .price-display {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--color-bg);
+      }
+
+      .price-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 1;
+      }
+
+      .price-period {
+        color: var(--color-text-light);
+        font-size: 1rem;
+      }
+
+      .info-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .info-row span {
+        color: var(--color-text-light);
+      }
+
+      .info-row strong {
+        color: var(--color-text);
+      }
+
+      .contact-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn-primary, .btn-secondary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        color: white;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--color-text);
+        border: 1px solid rgba(0,0,0,0.1);
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-bg);
+        border-color: rgba(0,0,0,0.2);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .flat-container {
+          grid-template-columns: 1fr;
+          margin-top: 0;
+          padding-top: 2rem;
+        }
+
+        .flat-hero {
+          height: auto;
+          padding: 6rem 1.5rem 3rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .gallery-item.large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+
+        .flat-description {
+          padding: 1.5rem;
+        }
+
+        .flat-hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>

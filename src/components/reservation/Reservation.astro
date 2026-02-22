@@ -44,6 +44,13 @@ const today = new Date().toISOString().split("T")[0];
     <p>
       {body}
     </p>
+    
+    <!-- Honeypot anti-spam field (hidden from users) -->
+    <div style="display: none !important;" aria-hidden="true">
+      <label for="reservation-website">Website</label>
+      <input type="text" id="reservation-website" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+
     <div>
       <fieldset>
         <legend>{t("reservation.subtitle.date")}</legend>
@@ -178,6 +185,14 @@ const today = new Date().toISOString().split("T")[0];
         event.preventDefault();
 
         const formData = new FormData(form);
+
+        // Anti-spam honeypot check
+        const honeypot = (document.getElementById('reservation-website') as HTMLInputElement)?.value;
+        if (honeypot) {
+          // Silently fake success for bots
+          window.location.href = window.location.pathname + "?reservated=true";
+          return;
+        }
 
         try {
           const response = await fetch(form.action, {

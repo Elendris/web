@@ -9,22 +9,23 @@ import Contact from "../../sections/contact/Contact.astro";
 import Footer from "../../sections/footer/Footer.astro";
 import Dock from "../../components/dock/Dock.astro";
 import About from "../../sections/about/About.astro";
+import FlatPromo from "../../sections/flatPromo/FlatPromo.astro";
 import { getLangFromUrl } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 ---
 <html lang={lang}>
   <Helmet
-    title="Penzion Elendris"
-    description="Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety"
-    keywords="ubytování Brno, hotel, pokoje, rezervace, rodinný, obchodní, cestování" >
+    title="Ubytování Elendris Brno-Slatina | Penzion a B&B u letiště"
+    description="Komfortní ubytování typu Bed & Breakfast v klidné části Brno-Slatina. Skvělá dostupnost na letiště Tuřany a dálnici D1. Ideální pro rodiny i firemní pobyty. Parkování a Wi-Fi zdarma."
+    keywords="ubytování Brno, penzion Brno Slatina, bed and breakfast Brno, hotel u letiště Tuřany, ubytování s parkováním, rodinné ubytování, firemní pobyty Brno" >
     <link rel="alternate" hreflang="en" href="https://elendris.cz/en/" slot="alternate-link"/>
-    <script type="application/ld+json" slot="structured-data">
+    <script type="application/ld+json" slot="structured-data" is:inline>
       {
         "@context": "https://schema.org",
-        "@type": "LodgingBusiness",
-        "name": "Penzion Elendris",
-        "description": "Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety",
+        "@type": "BedAndBreakfast",
+        "name": "Ubytování Elendris - Penzion Brno",
+        "description": "Klidné a komfortní ubytování typu Bed and Breakfast v lokalitě Brno-Slatina, ideální pro firemní klientelu i rodinné výlety s výbornou dostupností na dálnici D1 a letiště.",
         "url": "https://elendris.cz/",
         "telephone": "+420603999579",
         "email": "info@elendris.cz",
@@ -83,6 +84,7 @@ const lang = getLangFromUrl(Astro.url);
     <Header />
     <main>
       <About id="about" />
+      <FlatPromo />
       <Rooms id="rooms" />
       <Contact id="contact" />
       <Reservation />

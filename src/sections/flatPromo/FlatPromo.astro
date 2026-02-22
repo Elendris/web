@@ -1,0 +1,132 @@
+---
+interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="flat-promo">
+  <div class="container container--small">
+    <div class="flat-promo__content">
+      <div class="flat-promo__icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="flat-promo__text">
+        <h3>Potřebujete delší pobyt nebo ubytování každý týden od pondělí do pátku?</h3>
+        <p>Máme pro vás nabídku celého bytu jen pro vás.</p>
+      </div>
+      <div class="flat-promo__action">
+        <a href="/byt" class="btn btn--primary" title="Zobrazit nabídku bytu">Zobrazit nabídku</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .flat-promo {
+    padding: 4rem 0;
+    background-color: var(--color-white);
+  }
+
+  .flat-promo__content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px var(--color-shadow);
+  }
+
+  .flat-promo__icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    color: var(--color-secondary);
+  }
+
+  .flat-promo__icon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .flat-promo__text {
+    flex: 1;
+  }
+
+  .flat-promo__text h3 {
+    color: var(--color-title);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .flat-promo__text p {
+    color: var(--color-text);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin: 0;
+  }
+
+  .flat-promo__action {
+    flex-shrink: 0;
+  }
+
+  .btn--primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-secondary--hover);
+  }
+
+  @media (max-width: 768px) {
+    .flat-promo {
+      padding: 3rem 0;
+    }
+
+    .flat-promo__content {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .flat-promo__icon {
+      width: 64px;
+      height: 64px;
+    }
+
+    .flat-promo__icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .flat-promo__action {
+      width: 100%;
+    }
+
+    .btn--primary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

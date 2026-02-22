@@ -1,0 +1,334 @@
+---
+---
+
+<div id="flatContactModal" class="flat-modal" aria-hidden="true">
+  <div class="flat-modal__overlay" data-flat-contact-close></div>
+  <div class="flat-modal__content">
+    <button class="flat-modal__close" data-flat-contact-close aria-label="Zavřít">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    
+    <h2>Napište nám</h2>
+    <p class="flat-modal__subtitle">Máte zájem o pronájem bytu? Vyplňte formulář níže a my se vám co nejdříve ozveme zpět s detaily a dostupností.</p>
+    
+    <form id="flatContactForm" class="flat-form" action="/api/flat-contact" method="POST">
+      <!-- Honeypot anti-spam field (hidden from users) -->
+      <div class="flat-form__group flat-form__group--hidden" aria-hidden="true">
+        <label for="flat-website">Website</label>
+        <input type="text" id="flat-website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="flat-form__group">
+        <label for="flat-email">Váš email <span class="required">*</span></label>
+        <input type="email" id="flat-email" name="email" required placeholder="např. jan.novak@email.cz" />
+        <span class="flat-form__error" id="email-error">Zadejte platný email.</span>
+      </div>
+
+      <div class="flat-form__group">
+        <label for="flat-phone">Telefonní číslo <span class="required">*</span></label>
+        <input type="tel" id="flat-phone" name="phone" required placeholder="+420 123 456 789" pattern="^(\+?[0-9\s\-\.]{9,15})$" />
+        <span class="flat-form__error" id="phone-error">Zadejte platné telefonní číslo vč. předvolby (např. +420).</span>
+      </div>
+
+      <div class="flat-form__group">
+        <label for="flat-message">Termín a další požadavky <span class="required">*</span></label>
+        <textarea id="flat-message" name="message" required rows="5" placeholder="Od kdy do kdy byste byt potřebovali? Máte nějaké speciální požadavky?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        <span>Odeslat zprávu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+
+      <div id="flat-form-success" class="flat-form__status flat-form__status--success">
+        Děkujeme, vaše zpráva byla úspěšně odeslána. Brzy se vám ozveme.
+      </div>
+      <div id="flat-form-error" class="flat-form__status flat-form__status--error">
+        Omlouváme se, ale při odesílání došlo k chybě. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .flat-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .flat-modal[aria-hidden="false"] {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .flat-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+  .flat-modal__content {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .flat-modal[aria-hidden="false"] .flat-modal__content {
+    transform: translateY(0);
+  }
+
+  .flat-modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .flat-modal__close:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+
+  .flat-modal h2 {
+    color: #1f2937;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  .flat-modal__subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .flat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .flat-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .flat-form__group--hidden {
+    display: none !important;
+  }
+
+  .flat-form label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.95rem;
+  }
+
+  .flat-form .required {
+    color: #ef4444;
+  }
+
+  .flat-form input,
+  .flat-form textarea {
+    padding: 0.875rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #f9fafb;
+    color: #1f2937;
+  }
+
+  .flat-form input:focus,
+  .flat-form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    background: #ffffff;
+  }
+
+  .flat-form input:invalid:not(:placeholder-shown),
+  .flat-form textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+  }
+
+  .flat-form__error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    display: none;
+  }
+
+  .flat-form input:invalid:not(:placeholder-shown) + .flat-form__error {
+    display: block;
+  }
+
+  .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-submit:active {
+    transform: translateY(0);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .flat-form__status {
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: none;
+    margin-top: 1rem;
+  }
+
+  .flat-form__status--success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+
+  .flat-form__status--error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  @media (max-width: 640px) {
+    .flat-modal__content {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('flatContactModal');
+    const openBtns = document.querySelectorAll('[data-flat-contact-open]');
+    const closeBtns = document.querySelectorAll('[data-flat-contact-close]');
+    const form = document.getElementById('flatContactForm') as HTMLFormElement;
+    const successMsg = document.getElementById('flat-form-success');
+    const errorMsg = document.getElementById('flat-form-error');
+
+    if (!modal || !form) return;
+
+    // Open modal
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    // Close modal
+    const closeModal = () => {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      
+      // Reset form on close
+      setTimeout(() => {
+        if(successMsg) successMsg.style.display = 'none';
+        if(errorMsg) errorMsg.style.display = 'none';
+      }, 300);
+    };
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) submitBtn.disabled = true;
+      if (successMsg) successMsg.style.display = 'none';
+      if (errorMsg) errorMsg.style.display = 'none';
+
+      // Anti-spam check (honeypot)
+      const honeypot = (document.getElementById('flat-website') as HTMLInputElement)?.value;
+      if (honeypot) {
+        // If honeypot is filled, silently fake success
+        if (submitBtn) submitBtn.disabled = false;
+        if (successMsg) successMsg.style.display = 'block';
+        form.reset();
+        return;
+      }
+
+      // Form data
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/send-flat-email.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          // Success
+          if (successMsg) successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          // Server returned an error
+          if (errorMsg) errorMsg.style.display = 'block';
+        }
+      } catch (err) {
+        // Network error
+        if (errorMsg) errorMsg.style.display = 'block';
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  });
+</script>

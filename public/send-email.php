@@ -1,5 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  // Anti-spam honeypot check
+  if (!empty($_POST['website'])) {
+    // Falešný úspěch pro roboty
+    http_response_code(200);
+    echo 'Email byl úspěšně odeslán';
+    exit;
+  }
+
   $from = $_POST['from'];
   $to = $_POST['to'];
   $firstName = $_POST['fname'];
