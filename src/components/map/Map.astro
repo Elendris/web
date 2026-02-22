@@ -6,14 +6,29 @@
   document.addEventListener("DOMContentLoaded", () => {
     let mapLoaded = false;
 
-    const onScroll = () => {
+    const loadMap = () => {
       if (!mapLoaded) {
         loadGoogleMapsAPI();
         mapLoaded = true;
-        window.removeEventListener('scroll', onScroll);
       }
     };
 
-    window.addEventListener('scroll', onScroll);
+    // Try to load map via IntersectionObserver if possible, fallback to timeout/scroll
+    const mapElement = document.getElementById("map");
+    
+    if (mapElement && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries && entries[0] && entries[0].isIntersecting) {
+          loadMap();
+          observer.disconnect();
+        }
+      }, { rootMargin: "500px" }); // Load when within 500px of viewport
+      
+      observer.observe(mapElement);
+    } else {
+      // Fallback
+      window.addEventListener('scroll', () => loadMap(), { once: true });
+      setTimeout(loadMap, 3000); // Load after 3s anyway
+    }
   });
 </script>
