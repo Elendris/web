@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronájem vybaveného bytu Brno-Slatina | Krátkodobý pronájem</title>
+  <meta name="description" content="Hledáte krátkodobé ubytování v Brně? Nabízíme moderní, plně vybavený byt 3+1 k pronájmu v Brně-Slatině. Ideální pro firmy, kolegy nebo rodiny na pracovní cestě.">
+  <meta name="keywords" content="krátkodobý pronájem bytu Brno, vybavený byt Brno Slatina, ubytování pro firmy Brno, pronájem bytu na měsíc">
+  <link rel="canonical" href="https://elendris.cz/byt/">
+  <link rel="alternate" hreflang="cs" href="https://elendris.cz/byt/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elendris.cz/byt/">
+  <meta property="og:title" content="Pronájem vybaveného bytu Brno-Slatina">
+  <meta property="og:description" content="Moderní, plně vybavený byt 3+1 k pronájmu v Brně-Slatině.">
+  <meta property="og:image" content="https://elendris.cz/images/byt/avif/obyvak1a.avif">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Apartment","name":"Plně vybavený byt 3+1 pro krátkodobý pronájem - Brno Slatina","description":"Moderní, kompletně zařízený byt 3+1 (80 m²) k pronájmu v Brně-Slatině.","address":{"@type":"PostalAddress","addressLocality":"Brno","addressRegion":"Slatina","addressCountry":"CZ"},"numberOfRooms":"4","floorSize":{"@type":"QuantitativeValue","value":"80","unitCode":"MTK"}}</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  <link rel="icon" href="/favicons/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root{--fp-primary:#667eea;--fp-secondary:#764ba2;--fp-text:#1f2937;--fp-text-light:#6b7280;--fp-bg:#f9fafb;--fp-shadow-sm:0 1px 2px rgba(0,0,0,.05);--fp-shadow-md:0 4px 6px -1px rgba(0,0,0,.1);--fp-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);--fp-radius:1rem}
+    .flat-rental{background:var(--fp-bg)}
+    .flat-hero{position:relative;height:80vh;min-height:500px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+    .flat-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);z-index:0}
+    .flat-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.8));z-index:1}
+    .flat-hero__content{position:relative;z-index:2;max-width:800px;padding:2rem}
+    .flat-hero h1{font-size:clamp(2rem,5vw,4rem);font-weight:800;margin-bottom:1rem;line-height:1.1;text-shadow:0 4px 16px rgba(0,0,0,.6);color:#fff}
+    .flat-hero__subtitle{font-size:clamp(1rem,2vw,1.3rem);line-height:1.6;margin-bottom:2rem;color:rgba(255,255,255,.95);text-shadow:0 2px 8px rgba(0,0,0,.6)}
+    .flat-hero__features{display:inline-flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:center;background:rgba(0,0,0,.4);backdrop-filter:blur(10px);padding:.75rem 1.5rem;border-radius:100px;border:1px solid rgba(255,255,255,.1)}
+    .flat-hero__features span{display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:1rem;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+    .flat-hero__features .sep{opacity:.5}
+    .flat-container{max-width:1400px;margin:-3rem auto 0;padding:0 2rem 4rem;position:relative;z-index:10;display:grid;grid-template-columns:1fr 360px;gap:3rem}
+    .flat-specs{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+    .spec-card{background:#fff;padding:1.25rem 1.5rem;border-radius:var(--fp-radius);box-shadow:var(--fp-shadow-sm);display:flex;align-items:center;gap:1.5rem;border:1px solid rgba(0,0,0,.05)}
+    .spec-icon{color:var(--fp-primary);padding:.75rem;background:var(--fp-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .spec-details{display:flex;flex-direction:column}
+    .spec-details strong{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fp-text-light);margin-bottom:.2rem}
+    .spec-details span{font-size:1.1rem;font-weight:600;color:var(--fp-text)}
+    .flat-description{background:#fff;padding:2.5rem;border-radius:var(--fp-radius);box-shadow:var(--fp-shadow-sm);margin-bottom:2.5rem}
+    .flat-description h2{font-size:1.8rem;font-weight:800;margin-bottom:1rem;color:var(--fp-text)}
+    .flat-description .lead{font-size:1.1rem;line-height:1.8;color:var(--fp-text-light);margin-bottom:2.5rem}
+    .flat-description h3{font-size:1.3rem;font-weight:700;margin-bottom:1rem;color:var(--fp-text)}
+    .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+    .check-list{list-style:none;padding:0;margin:0}
+    .check-list li{position:relative;padding-left:2rem;margin-bottom:.75rem;color:var(--fp-text);line-height:1.6}
+    .check-list li::before{content:"";position:absolute;left:0;top:5px;width:1.1rem;height:1.1rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat}
+    .flat-gallery{margin-bottom:2.5rem}
+    .flat-gallery h2{font-size:1.8rem;font-weight:800;margin-bottom:1.5rem;color:var(--fp-text)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .gallery-item{position:relative;border-radius:var(--fp-radius);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--fp-shadow-sm);transition:all .3s}
+    .gallery-item.large{grid-column:span 2;grid-row:span 2}
+    .gallery-item:hover{transform:scale(1.02);box-shadow:var(--fp-shadow-lg);z-index:10}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .gallery-item:hover img{transform:scale(1.1)}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);color:#fff;font-weight:500;font-size:.9rem;opacity:0;transform:translateY(10px);transition:all .3s}
+    .gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
+    .gallery-more{text-align:center;margin-top:1.5rem}
+    .btn-outline{background:transparent;border:2px solid var(--fp-primary);color:var(--fp-primary);padding:.75rem 2rem;border-radius:100px;font-weight:600;cursor:pointer;transition:all .3s}
+    .btn-outline:hover{background:var(--fp-primary);color:#fff}
+    .sticky-card{position:sticky;top:2rem;background:#fff;padding:2rem;border-radius:var(--fp-radius);box-shadow:var(--fp-shadow-lg);border:1px solid rgba(0,0,0,.05)}
+    .sticky-card h3{font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;color:var(--fp-text)}
+    .price-display{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--fp-bg)}
+    .price-value{font-size:2rem;font-weight:800;color:var(--fp-primary);line-height:1}
+    .price-period{color:var(--fp-text-light);font-size:1rem;margin-left:.5rem}
+    .info-rows{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+    .info-row{display:flex;justify-content:space-between;align-items:center}
+    .info-row span{color:var(--fp-text-light)}
+    .contact-actions{display:flex;flex-direction:column;gap:1rem}
+    .btn-fp-primary{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:1rem;border-radius:12px;font-weight:600;font-size:1rem;border:none;cursor:pointer;background:linear-gradient(135deg,var(--fp-primary),var(--fp-secondary));color:#fff;box-shadow:0 4px 12px rgba(102,126,234,.3);transition:all .3s}
+    .btn-fp-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(102,126,234,.4)}
+    .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--fp-primary);text-decoration:none;font-weight:600;margin-bottom:2rem}
+    .back-link:hover{text-decoration:underline}
+    @media(max-width:1024px){.flat-container{grid-template-columns:1fr;margin-top:0;padding-top:2rem}.flat-hero{height:auto;padding:6rem 1.5rem 3rem}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){.features-grid{grid-template-columns:1fr;gap:1.5rem}.gallery-item.large{grid-column:span 2;grid-row:span 1}.flat-description{padding:1.5rem}.flat-hero h1{font-size:2rem}}
+    /* flat contact dialog */
+    #flatContactDialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+    #flatContactDialog{padding:0;border:none;border-radius:16px;max-width:500px;width:calc(100% - 2rem);box-shadow:0 20px 40px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto}
+    .flat-dialog-inner{padding:2.5rem}
+    .flat-dialog-inner h2{color:var(--fp-text);font-size:1.6rem;font-weight:800;margin:0 0 .5rem}
+    .flat-dialog-subtitle{color:var(--fp-text-light);font-size:1rem;line-height:1.5;margin-bottom:1.5rem}
+    .flat-dialog-close{position:absolute;top:1.25rem;right:1.25rem;background:transparent;border:none;color:var(--fp-text-light);cursor:pointer;padding:.5rem;border-radius:50%;display:flex}
+    .flat-dialog-close:hover{background:#f3f4f6;color:var(--fp-text)}
+    .flat-form{display:flex;flex-direction:column;gap:1.25rem}
+    .flat-form label{font-weight:600;color:#374151;font-size:.95rem;display:block;margin-bottom:.4rem}
+    .flat-form .req{color:#ef4444}
+    .flat-form input,.flat-form textarea{width:100%;padding:.875rem 1rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;font-family:inherit;background:#f9fafb;color:var(--fp-text);box-sizing:border-box}
+    .flat-form input:focus,.flat-form textarea:focus{outline:none;border-color:var(--fp-primary);box-shadow:0 0 0 3px rgba(102,126,234,.2);background:#fff}
+    .btn-flat-submit{display:flex;align-items:center;justify-content:center;gap:.75rem;background:linear-gradient(135deg,var(--fp-primary),var(--fp-secondary));color:#fff;padding:1rem;border:none;border-radius:8px;font-weight:600;font-size:1.1rem;cursor:pointer;transition:transform .2s,box-shadow .2s;width:100%}
+    .btn-flat-submit:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(102,126,234,.3)}
+    .btn-flat-submit:disabled{opacity:.7;cursor:not-allowed;transform:none}
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Přeskočit na obsah</a>
+
+<nav class="nav--flat" aria-label="Navigace">
+  <ul id="mainMenu" class="menu" data-sticky="false" data-open="false" role="list" style="margin-left:0">
+    <li><a href="/cs/#home" title="Elendris" rel="internal">Elendris</a></li>
+    <li><a href="/cs/#about" title="O nás" rel="internal">O nás</a></li>
+    <li><a href="/cs/#rooms" title="Pokoje" rel="internal">Pokoje</a></li>
+    <li><a href="/cs/#contact" title="Kontakt" rel="internal">Kontakt</a></li>
+  </ul>
+  <div class="nav__right" style="margin-left:auto">
+    <a href="tel:+420603999579" class="link phone-link" rel="noopener" title="Telefon: +420 603 999 579">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-phone"></use></svg>
+      +420 603 999 579
+    </a>
+    <button class="btn btn--small btn--flat-email" data-flat-contact-open>Napsat email</button>
+    <button id="menuBtn" data-open="false" class="burger" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<a href="tel:+420603999579" class="dock__link" aria-label="Telefon" title="+420 603 999 579">
+  <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-phone"></use></svg>
+</a>
+
+<main id="main" class="flat-rental">
+  <section class="flat-hero" aria-labelledby="flat-h1">
+    <div class="flat-hero__bg" style="background-image:url('/images/byt/avif/obyvak1a.avif')" role="img" aria-label="Obývací pokoj bytu"></div>
+    <div class="flat-hero__overlay" aria-hidden="true"></div>
+    <div class="flat-hero__content">
+      <h1 id="flat-h1">Pronájem bytu 3+1 v Brně</h1>
+      <p class="flat-hero__subtitle">Moderní, plně vybavený byt v klidné lokalitě pro krátkodobé pronájmy firmám i jednotlivcům.</p>
+      <div class="flat-hero__features" aria-label="Klíčové parametry">
+        <span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          80 m²
+        </span>
+        <span class="sep" aria-hidden="true">•</span>
+        <span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Až 4 osoby
+        </span>
+        <span class="sep" aria-hidden="true">•</span>
+        <span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Min. 4 noci
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="flat-container">
+    <div class="flat-content">
+      <a href="/cs/" class="back-link" rel="internal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Zpět na ubytování
+      </a>
+
+      <section class="flat-specs" aria-label="Parametry bytu">
+        <div class="spec-card">
+          <div class="spec-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+          </div>
+          <div class="spec-details"><strong>Dispozice</strong><span>3+1 (80 m²)</span></div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="spec-details"><strong>Typ</strong><span>Cihlový dům</span></div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="spec-details"><strong>Lokalita</strong><span>Brno - Slatina</span></div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="spec-details"><strong>Dostupnost</strong><span>Ihned</span></div>
+        </div>
+      </section>
+
+      <section class="flat-description" aria-labelledby="flat-about-title">
+        <h2 id="flat-about-title">O ubytování</h2>
+        <p class="lead">Nabízíme k pronájmu prostorný byt 3+1 o celkové ploše cca 80 m² v klidné části Brna. Byt je plně vybavený a připravený k okamžitému nastěhování. Ideální pro pracovní týmy nebo rodiny.</p>
+        <div class="features-grid">
+          <div>
+            <h3>Dispozice</h3>
+            <ul class="check-list">
+              <li><strong>Obývací pokoj</strong> - prostorný a světlý s jídelním koutem</li>
+              <li><strong>Ložnice 1</strong> - hlavní ložnice s dostatkem úložného prostoru</li>
+              <li><strong>Ložnice 2</strong> - druhá ložnice ideální pro děti nebo hosty</li>
+              <li><strong>Kuchyň</strong> - plně vybavená kuchyňská linka se spotřebiči</li>
+              <li><strong>Koupelna</strong> - moderní koupelna s vanou</li>
+              <li><strong>WC</strong> - samostatné WC</li>
+              <li><strong>Předsíň a chodba</strong> - vstupní prostory se šatnou</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Vybavení &amp; Výhody</h3>
+            <ul class="check-list">
+              <li>Plně vybavená kuchyň (sporák, lednice, varná konvice)</li>
+              <li>Pračka k dispozici</li>
+              <li>Kompletní nábytek v pokojích</li>
+              <li>Vysokorychlostní internet</li>
+              <li>Klidná lokalita s občanskou vybaveností</li>
+              <li>Výborná dostupnost MHD a dálnice D1</li>
+              <li>Parkování na ulici před domem</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="flat-gallery" aria-labelledby="flat-gallery-title">
+        <h2 id="flat-gallery-title">Fotogalerie</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item large">
+            <img src="/images/byt/avif/obyvak1a.avif" alt="Obývací pokoj" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Obývací pokoj</span>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/byt/avif/kuchynsky_kout.avif" alt="Kuchyňský kout" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Kuchyně</span>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/byt/avif/loznice1a.avif" alt="Ložnice 1" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Hlavní ložnice</span>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/byt/avif/loznice2.avif" alt="Ložnice 2" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Druhá ložnice</span>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/byt/avif/koupelna1a.avif" alt="Koupelna" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Koupelna</span>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/byt/avif/jidelini_kout1a.avif" alt="Jídelní kout" loading="lazy">
+            <span class="gallery-label" aria-hidden="true">Jídelní kout</span>
+          </div>
+        </div>
+        <div class="gallery-more">
+          <button class="btn-outline" id="showMoreBtn" aria-expanded="false" aria-controls="galleryHidden">Zobrazit více fotek</button>
+        </div>
+        <div class="gallery-grid" id="galleryHidden" hidden style="margin-top:1rem">
+          <div class="gallery-item"><img src="/images/byt/avif/obyvak1b.avif" alt="Obývací pokoj - foto 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/obyvak1c.avif" alt="Obývací pokoj - foto 3" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/obyvak1d.avif" alt="Obývací pokoj - foto 4" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/jidelni_kout1b.avif" alt="Jídelní kout - foto 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/loznice1b.avif" alt="Ložnice - foto 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/koupelna1b.avif" alt="Koupelna - foto 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/zachod.avif" alt="WC" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/predsin.avif" alt="Předsíň" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/chodba.avif" alt="Chodba" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/satna1a.avif" alt="Šatna" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/satna1b.avif" alt="Šatna - foto 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="/images/byt/avif/lodzie.avif" alt="Lodžie" loading="lazy"></div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="flat-sidebar" aria-labelledby="sidebar-title">
+      <div class="sticky-card">
+        <h3 id="sidebar-title">Cena a rezervace</h3>
+        <div class="price-display">
+          <span class="price-value">Dohodou</span>
+          <span class="price-period">/ měsíc</span>
+        </div>
+        <div class="info-rows">
+          <div class="info-row"><span>Kauce</span><strong>2 nájmy</strong></div>
+          <div class="info-row"><span>Energie</span><strong>Dle spotřeby</strong></div>
+          <div class="info-row"><span>Min. délka</span><strong>4 noci</strong></div>
+        </div>
+        <div class="contact-actions">
+          <button class="btn-fp-primary" data-flat-contact-open aria-haspopup="dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Napsat email
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer__container">
+    <a href="/cs/" class="footer__logo" rel="noreferer">
+      <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" width="70" height="60">
+    </a>
+    <span>Fyzická osoba zapsaná v Živnostenském rejstříku v Magistrát města Brna od 31.8.2016<br>
+      © 2016 - 2025 Elendris s.r.o.</span>
+    <div>
+      <span>Vytvořil
+        <a href="https://lukaschylik.dev/" target="_blank" rel="external" title="Vytvořil Lukáš Chylík" class="link link--light link--underline">Lukáš Chylík</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Flat contact dialog -->
+<dialog id="flatContactDialog" aria-labelledby="flat-dialog-title" aria-modal="true">
+  <div class="flat-dialog-inner" style="position:relative">
+    <button class="flat-dialog-close" aria-label="Zavřít">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 id="flat-dialog-title">Napište nám</h2>
+    <p class="flat-dialog-subtitle">Máte zájem o pronájem bytu? Vyplňte formulář a my se vám co nejdříve ozveme zpět.</p>
+    <form id="flatContactForm" class="flat-form" action="/send-flat-email.php" method="POST" novalidate>
+      <input type="text" name="website" id="flat-contact-website" tabindex="-1" aria-hidden="true" autocomplete="off" style="display:none">
+      <div>
+        <label for="flat-email">Váš email <span class="req" aria-hidden="true">*</span></label>
+        <input type="email" id="flat-email" name="email" required aria-required="true" placeholder="jan.novak@email.cz" autocomplete="email">
+      </div>
+      <div>
+        <label for="flat-phone">Telefonní číslo <span class="req" aria-hidden="true">*</span></label>
+        <input type="tel" id="flat-phone" name="phone" required aria-required="true" placeholder="+420 123 456 789" autocomplete="tel">
+      </div>
+      <div>
+        <label for="flat-message">Termín a další požadavky <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="flat-message" name="message" required aria-required="true" rows="5" placeholder="Od kdy do kdy byste byt potřebovali?"></textarea>
+      </div>
+      <button type="submit" class="btn-flat-submit">
+        <span>Odeslat zprávu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<!-- Success dialog -->
+<dialog id="flatSuccessDialog" aria-labelledby="flat-success-title" aria-modal="true">
+  <div class="flat-dialog-inner" style="position:relative">
+    <button class="flat-dialog-close" aria-label="Zavřít">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 id="flat-success-title">Děkujeme!</h2>
+    <p>Vaše zpráva byla úspěšně odeslána. Brzy se vám ozveme zpět.</p>
+    <button class="btn-fp-primary" data-close-flat-success>Zavřít</button>
+  </div>
+</dialog>
+
+<script src="/js/navigation.js" defer></script>
+<script src="/js/flat-contact.js" defer></script>
+<script>
+  // Gallery show more
+  document.getElementById('showMoreBtn').addEventListener('click', function() {
+    var hidden = document.getElementById('galleryHidden');
+    hidden.hidden = false;
+    this.hidden = true;
+  });
+  // Flat success dialog close
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-close-flat-success]')) {
+      var d = document.getElementById('flatSuccessDialog');
+      if (d) d.close();
+    }
+  });
+</script>
+</body>
+</html>

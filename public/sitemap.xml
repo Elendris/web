@@ -6,9 +6,24 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://elendris.cz/</loc>
-  <lastmod>2022-11-28T18:18:41+00:00</lastmod>
+  <loc>https://elendris.cz/cs/</loc>
+  <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+<url>
+  <loc>https://elendris.cz/en/</loc>
+  <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+<url>
+  <loc>https://elendris.cz/byt/</loc>
+  <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
 </url>
 
 </urlset>

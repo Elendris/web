@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elendris - Ubytování u kostela</title>
+  <meta name="description" content="Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety. Ubytování Elendris v Brně-Slatině, pár minut od letiště a dálnice D1.">
+  <meta name="keywords" content="ubytování Brno, hotel, pokoje, rezervace, rodinný, obchodní, cestování, penzion Brno">
+  <link rel="canonical" href="https://elendris.cz/cs/">
+  <link rel="alternate" hreflang="cs" href="https://elendris.cz/cs/">
+  <link rel="alternate" hreflang="en" href="https://elendris.cz/en/">
+  <link rel="alternate" hreflang="x-default" href="https://elendris.cz/cs/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elendris.cz/cs/">
+  <meta property="og:title" content="Elendris - Ubytování u kostela">
+  <meta property="og:description" content="Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety.">
+  <meta property="og:image" content="https://elendris.cz/images/header/header-img-1-l.webp">
+  <meta property="og:locale" content="cs_CZ">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BedAndBreakfast","name":"Elendris","description":"Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety","url":"https://elendris.cz","telephone":"+420603999579","email":"info@elendris.cz","address":{"@type":"PostalAddress","streetAddress":"Krejčího 550/2","addressLocality":"Brno","postalCode":"627 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":49.17764,"longitude":16.69207},"priceRange":"1200-2500 CZK/noc","checkinTime":"15:00","checkoutTime":"10:00"}</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  <link rel="icon" href="/favicons/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Přeskočit na obsah</a>
+
+<nav aria-label="Hlavní navigace">
+  <a href="/cs/" class="nav__logo" rel="internal" title="Elendris">
+    <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" width="70" height="60">
+  </a>
+  <ul id="mainMenu" class="menu" data-sticky="false" data-open="false" role="list">
+    <li><a href="/cs/#home" title="Elendris" rel="internal">Elendris</a></li>
+    <li><a href="/cs/#about" title="O nás" rel="internal">O nás</a></li>
+    <li><a href="/cs/#rooms" title="Pokoje" rel="internal">Pokoje</a></li>
+    <li><a href="/cs/#contact" title="Kontakt" rel="internal">Kontakt</a></li>
+    <li>
+      <div class="lang-switch">
+        <button class="lang-switch__btn" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Změnit jazyk" id="langSwitchBtn">
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-lang"></use></svg>
+          <span>CS</span>
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-chevron-down"></use></svg>
+        </button>
+        <ul class="lang-switch__popover" data-open="false" role="listbox" aria-label="Vybrat jazyk">
+          <li><a href="/cs/" lang="cs" hreflang="cs" rel="alternate">Čeština</a></li>
+          <li><a href="/en/" lang="en" hreflang="en" rel="alternate">English</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div class="nav__right">
+    <a href="tel:+420603999579" class="link phone-link" rel="noopener" title="Telefon: +420 603 999 579">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-phone"></use></svg>
+      +420 603 999 579
+    </a>
+    <button class="btn btn--small" data-reservation aria-haspopup="dialog">Rezervovat</button>
+    <button id="menuBtn" data-open="false" class="burger" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<a href="tel:+420603999579" class="dock__link" aria-label="Telefon" title="+420 603 999 579">
+  <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-phone"></use></svg>
+</a>
+
+<header id="home">
+  <div class="container header__container">
+    <div class="header__content">
+      <h1>Elendris</h1>
+      <span aria-hidden="true">Elendris</span>
+      <div>
+        <small>Ideální volba jak pro pracovní pobyty, tak pro rodinné výlety</small>
+      </div>
+      <div class="d-flex ai-c gap-l">
+        <button class="btn" data-reservation aria-haspopup="dialog">Rezervovat</button>
+        <a class="btn btn--secondary" href="#rooms" title="Vybrat pokoj">Více informací</a>
+      </div>
+    </div>
+    <div class="anim">
+      <div class="anim__pic anim__pic--large" data-scroll-anim="false"></div>
+      <div class="anim__pic anim__pic--small" data-scroll-anim="false"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="about" aria-labelledby="about-title">
+  <div class="container container--small">
+    <h2 id="about-title" class="center-text">Vítejte</h2>
+    <p class="center-text w-100">Hledáte klidné a komfortní místo k odpočinku během pracovního týdne či víkendu v Brně?<br><br>
+      Ubytování <strong>Elendris</strong> – Ubytování u kostela je ideální volbou jak pro pracovní pobyty, tak pro rodinné výlety. Nacházíme se v klidné části Brno-Slatina, <strong>jen pár minut</strong> od letiště a dálnice D1.</p>
+    <div class="tiles">
+      <div class="tile">
+        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-parking"></use></svg>
+        <strong>Parkování uvnitř areálu</strong>
+      </div>
+      <div class="tile">
+        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-grill"></use></svg>
+        <strong>Venkovní posezení a trampolína pro děti</strong>
+      </div>
+      <div class="tile">
+        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-coffee"></use></svg>
+        <strong>Káva a čaj k dispozici během pobytu</strong>
+      </div>
+      <div>
+        <div class="tile">
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-kitchen"></use></svg>
+          <strong>Sdílená kuchyň pro hosty</strong>
+        </div>
+        <div class="tile">
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bus"></use></svg>
+          <strong>Zastávka MHD 30 metrů (trolejbus 31)</strong>
+        </div>
+      </div>
+    </div>
+    <p class="center-text w-100">Nabízíme možnost <strong>online check-in</strong>. Pokud zaplatíte předem, pošleme Vám přístupový kód a můžete přijet kdykoliv i během noci.<br>
+      Příjezd je možný <strong>od <time datetime="15:00">15:00</time> do <time datetime="20:00">20:00</time></strong>.
+      Odjezd je <strong>do <time datetime="10:00">10:00</time></strong>.</p>
+    <div class="center-text m-y-3xl">
+      <a href="#rooms" class="btn" title="Vybrat pokoj">Vybrat pokoj</a>
+    </div>
+  </div>
+</section>
+
+<section class="flat-promo" aria-labelledby="flat-promo-title">
+  <div class="container container--small">
+    <div class="flat-promo__content">
+      <div class="flat-promo__icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="flat-promo__text">
+        <h3 id="flat-promo-title">Potřebujete delší pobyt nebo ubytování každý týden od pondělí do pátku?</h3>
+        <p>Máme pro vás nabídku celého bytu jen pro vás.</p>
+      </div>
+      <div class="flat-promo__action">
+        <a href="/byt" class="btn btn--primary" title="Zobrazit nabídku bytu">Zobrazit nabídku</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" aria-labelledby="rooms-title">
+  <div class="container">
+    <h2 id="rooms-title" class="title">Naše pokoje</h2>
+    <p class="desc">Všechny naše pokoje jsou klimatizované a mají vlastní koupelnu. Rodinné pokoje jsou vybaveny vanou. Snídani vám přineseme přímo na pokoj v čase, který vám vyhovuje.<br><br>
+      V celém objektu je k dispozici zabezpečená <strong>vysokorychlostní Wi-Fi</strong>. Můžete využít kuchyňku s lednicí a mrazákem. Po celý den je zdarma káva a čaj. Celý objekt je nekuřácký.</p>
+  </div>
+  <div class="rooms">
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-1" data-room="1">
+      <img src="/images/rooms/room-1/room-1-1.avif" alt="Jednolůžkový pokoj" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Jednolůžkový pokoj</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-2" data-room="2">
+      <img src="/images/rooms/room-2/room-2-1.avif" alt="Dvoulůžkový pokoj" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Dvoulůžkový pokoj</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-3" data-room="3">
+      <img src="/images/rooms/room-3/room-3-1.avif" alt="Třílůžkový pokoj" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Třílůžkový pokoj</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-4" data-room="4">
+      <img src="/images/rooms/room-4/room-4-1.avif" alt="Rodinný pokoj" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Rodinný pokoj</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-5" data-room="5">
+      <img src="/images/rooms/room-5/room-5-1.avif" alt="Rodinný pokoj s kuchyňským koutem" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Rodinný pokoj s kuchyňským koutem</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+    <button class="card" aria-haspopup="dialog" aria-controls="dialog-6" data-room="6">
+      <img src="/images/rooms/room-6/room-6-1.avif" alt="Pokoj s vanou" loading="lazy" width="400" height="267">
+      <div class="card__content"><strong>Pokoj s vanou</strong><div class="btn btn--small btn--light">Zobrazit</div></div>
+    </button>
+  </div>
+  <div class="container">
+    <p class="center-text w-100">Máte-li jakékoliv dotazy, kontaktujte nás e-mailem
+      <a href="mailto:info@elendris.cz" class="link link--underline" rel="noopener">info@elendris.cz</a></p>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title">
+  <div id="map" role="application" aria-label="Mapa okolí penzionu Elendris" style="min-height:450px;width:100%"></div>
+  <div class="container">
+    <div class="contact">
+      <h2 id="contact-title" class="extends-h3">Kde nás najdete?</h2>
+      <p>Najdete nás v městské části Brno&nbsp;-&nbsp;Slatina, pár minut autem od dálnice D1 a Letiště Brno&nbsp;-&nbsp;Tuřany.</p>
+      <h4>Adresa</h4>
+      <address>
+        <strong>Elendris - ubytování u kostela</strong><br>
+        Krejčího 550/2<br>
+        Brno 627 00<br>
+        Česká Republika
+      </address>
+      <span><b>IČ:&nbsp;</b>68645881</span>
+      <h4>Kontaktujte nás</h4>
+      <div>
+        <a href="mailto:info@elendris.cz" rel="noopener" title="E-mail: info@elendris.cz" class="link">
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-envelope"></use></svg>
+          info@elendris.cz
+        </a>
+        <a href="tel:+420603999579" rel="noopener" title="Telefon: +420 603 999 579" class="link">
+          <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-phone"></use></svg>
+          +420 603 999 579
+        </a>
+      </div>
+      <div class="contact__footer">
+        <h4>Jak se k nám dostanete?</h4>
+        <p>Pro cestu k nám můžete využít <strong>navigaci</strong>.</p>
+        <div>
+          <a href="https://waze.com/ul/hu2ezgbdb4" target="_blank" rel="external noopener" title="Waze" class="btn">
+            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-waze"></use></svg>
+            Waze
+          </a>
+          <a href="https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9" target="_blank" rel="external noopener" title="Otevřít Google Maps" class="btn btn--secondary">
+            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-map"></use></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer__container">
+    <a href="/cs/" class="footer__logo" rel="noreferer">
+      <img src="/images/logos/elendris-logo.svg" alt="Elendris logo" title="Elendris logo" width="70" height="60">
+    </a>
+    <span>Fyzická osoba zapsaná v Živnostenském rejstříku v Magistrát města Brna od 31.8.2016<br>
+      © 2016 - 2025 Elendris s.r.o.</span>
+    <div>
+      <span>Vytvořil
+        <a href="https://lukaschylik.dev/" target="_blank" rel="external" title="Vytvořil Lukáš Chylík" class="link link--light link--underline">Lukáš Chylík</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Room dialogs -->
+<dialog id="dialog-1" aria-labelledby="dialog-1-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-1-title">Jednolůžkový pokoj</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="1">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-1/room-1-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-1/room-1-1.avif" alt="Jednolůžkový pokoj - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-1/room-1-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-1/room-1-2.avif" alt="Jednolůžkový pokoj - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Útulný jednolůžkový pokoj ideální pro krátkodobé i dlouhodobé pobyty. Vybaven kvalitní postelí, pracovním stolem a vlastní koupelnou se sprchovým koutem.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="1" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-2" aria-labelledby="dialog-2-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-2-title">Dvoulůžkový pokoj</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="2">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-2/room-2-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-2/room-2-1.avif" alt="Dvoulůžkový pokoj - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-2/room-2-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-2/room-2-2.avif" alt="Dvoulůžkový pokoj - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Elegantní dvoulůžkový pokoj s možností oddělených postelí nebo manželského lůžka. Vybaven šatní skříní, pracovním stolem a vlastní koupelnou.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="2" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-3" aria-labelledby="dialog-3-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-3-title">Třílůžkový pokoj</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="3">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-3/room-3-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-3/room-3-1.avif" alt="Třílůžkový pokoj - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-3/room-3-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-3/room-3-2.avif" alt="Třílůžkový pokoj - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Prostorný třílůžkový pokoj vhodný pro rodiny nebo skupiny. Disponuje třemi lůžky, dostatkem úložného prostoru a vlastní koupelnou se sprchovým koutem.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="3" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-4" aria-labelledby="dialog-4-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-4-title">Rodinný pokoj</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="4">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-4/room-4-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-4/room-4-1.avif" alt="Rodinný pokoj - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-4/room-4-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-4/room-4-2.avif" alt="Rodinný pokoj - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Praktický a pohodlný rodinný pokoj pro 4 osoby. Vybaven manželskou postelí a dvěma přistýlkami. Rodinná koupelna s vanou je ideální pro pohodlí celé rodiny.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="4" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-5" aria-labelledby="dialog-5-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-5-title">Rodinný pokoj s kuchyňským koutem</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="5">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-5/room-5-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-5/room-5-1.avif" alt="Rodinný pokoj s kuchyňským koutem - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-5/room-5-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-5/room-5-2.avif" alt="Rodinný pokoj s kuchyňským koutem - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Rodinný pokoj vybavený plně vybaveným kuchyňským koutem s lednicí, mikrovlnkou a varnou konvicí. Ideální pro delší pobyty a rodiny s dětmi.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-kitchen"></use></svg> Kuchyňský kout</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="5" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dialog-6" aria-labelledby="dialog-6-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="dialog-6-title">Pokoj s vanou</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog__content">
+    <div class="dialog__gallery" data-gallery="6">
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-6/room-6-1.avif" aria-label="Zobrazit fotku 1">
+        <img src="/images/rooms/room-6/room-6-1.avif" alt="Pokoj s vanou - foto 1" loading="lazy" width="300" height="200">
+      </button>
+      <button class="dialog__gallery-item" data-lightbox-src="/images/rooms/room-6/room-6-2.avif" aria-label="Zobrazit fotku 2">
+        <img src="/images/rooms/room-6/room-6-2.avif" alt="Pokoj s vanou - foto 2" loading="lazy" width="300" height="200">
+      </button>
+    </div>
+    <div class="dialog__info">
+      <p>Stylový pokoj s prostornou koupelnou vybavenou vanou. Disponuje manželskou postelí, pracovním stolem a výhledem do zahrady.</p>
+      <ul class="dialog__features">
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-wifi"></use></svg> Wi-Fi zdarma</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-clima"></use></svg> Klimatizace</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
+        <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
+      </ul>
+      <button class="btn" data-reservation data-preselect-room="6" aria-haspopup="dialog">Rezervovat pokoj</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Reservation dialog -->
+<dialog id="reservationDialog" aria-labelledby="reservation-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="reservation-title">Rezervace</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <form id="reservationForm" action="/send-email.php" method="POST" novalidate>
+    <input type="text" name="website" id="reservation-website" tabindex="-1" aria-hidden="true" autocomplete="off" style="display:none">
+    <div class="form-item form-item--half">
+      <label for="arrival">Datum příjezdu <span aria-hidden="true">*</span></label>
+      <input type="date" id="arrival" name="arrival" required aria-required="true">
+    </div>
+    <div class="form-item form-item--half">
+      <label for="departure">Datum odjezdu <span aria-hidden="true">*</span></label>
+      <input type="date" id="departure" name="departure" required aria-required="true">
+    </div>
+    <div class="form-item form-item--half">
+      <label for="name">Jméno a příjmení <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+    </div>
+    <div class="form-item form-item--half">
+      <label for="email">E-mail <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+    </div>
+    <div class="form-item form-item--half">
+      <label for="phone">Telefon</label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel">
+    </div>
+    <div class="form-item form-item--half">
+      <label for="guests">Počet hostů <span aria-hidden="true">*</span></label>
+      <input type="number" id="guests" name="guests" min="1" max="6" required aria-required="true" value="1">
+    </div>
+    <div class="form-item">
+      <label for="room">Pokoj</label>
+      <select id="room" name="room">
+        <option value="">-- Vybrat pokoj --</option>
+        <option value="1">Jednolůžkový pokoj</option>
+        <option value="2">Dvoulůžkový pokoj</option>
+        <option value="3">Třílůžkový pokoj</option>
+        <option value="4">Rodinný pokoj</option>
+        <option value="5">Rodinný pokoj s kuchyňským koutem</option>
+        <option value="6">Pokoj s vanou</option>
+      </select>
+    </div>
+    <div class="form-item form-item--checkbox">
+      <input type="checkbox" id="breakfast" name="breakfast" value="yes">
+      <label for="breakfast">Mám zájem o snídani</label>
+    </div>
+    <div class="form-item">
+      <label for="note">Poznámka</label>
+      <textarea id="note" name="note" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn">Odeslat rezervaci</button>
+  </form>
+</dialog>
+
+<!-- Success dialog -->
+<dialog id="successDialog" aria-labelledby="success-title" aria-modal="true">
+  <div class="dialog__header">
+    <h3 id="success-title">Děkujeme za rezervaci!</h3>
+    <button class="dialog__close" aria-label="Zavřít dialog">
+      <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <p>Vaše rezervace byla úspěšně odeslána. Brzy se vám ozveme s potvrzením.</p>
+  <button class="btn" data-close-dialog>Zavřít</button>
+</dialog>
+
+<!-- Lightbox dialog -->
+<dialog id="lightboxDialog" class="lightbox" aria-label="Prohlížeč obrázků" aria-modal="true">
+  <button class="lightbox__close" aria-label="Zavřít lightbox">
+    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
+  </button>
+  <button class="lightbox__prev" aria-label="Předchozí obrázek">
+    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-chevron-down"></use></svg>
+  </button>
+  <img class="lightbox__img" src="" alt="" id="lightboxImg">
+  <button class="lightbox__next" aria-label="Další obrázek">
+    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-chevron-down"></use></svg>
+  </button>
+</dialog>
+
+<script src="/js/navigation.js" defer></script>
+<script src="/js/rooms.js" defer></script>
+<script src="/js/reservation.js" defer></script>
+<script src="/js/map.js" defer></script>
+</body>
+</html>
