@@ -8,6 +8,19 @@
   const langPopover = document.querySelector('.lang-switch__popover');
   const TABLET = 768;
 
+  function closeBurgerMenu() {
+    if (menu) menu.setAttribute('data-open', 'false');
+    if (menuBtn) {
+      menuBtn.setAttribute('data-open', 'false');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function closeLangPopover() {
+    if (langPopover) langPopover.setAttribute('data-open', 'false');
+    if (langSwitchBtn) langSwitchBtn.setAttribute('aria-expanded', 'false');
+  }
+
   // --- Sticky nav via IntersectionObserver ---
   if (nav && menu) {
     let rafId;
@@ -43,11 +56,7 @@
   // Close menu on nav link click
   document.querySelectorAll('.menu > li > a').forEach(function (link) {
     link.addEventListener('click', function () {
-      if (menu) menu.setAttribute('data-open', 'false');
-      if (menuBtn) {
-        menuBtn.setAttribute('data-open', 'false');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
+      closeBurgerMenu();
     });
   });
 
@@ -55,11 +64,7 @@
   document.addEventListener('click', function (e) {
     if (!nav) return;
     if (!nav.contains(e.target)) {
-      if (menu) menu.setAttribute('data-open', 'false');
-      if (menuBtn) {
-        menuBtn.setAttribute('data-open', 'false');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
+      closeBurgerMenu();
     }
   });
 
@@ -74,17 +79,25 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (!langSwitchBtn.closest('.lang-switch').contains(e.target)) {
-        langPopover.setAttribute('data-open', 'false');
-        langSwitchBtn.setAttribute('aria-expanded', 'false');
+      const langRoot = langSwitchBtn.closest('.lang-switch');
+      if (langRoot && !langRoot.contains(e.target)) {
+        closeLangPopover();
       }
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
-        langPopover.setAttribute('data-open', 'false');
-        langSwitchBtn.setAttribute('aria-expanded', 'false');
+        closeLangPopover();
+        closeBurgerMenu();
         langSwitchBtn.focus();
+      }
+    });
+  }
+
+  if (!langSwitchBtn || !langPopover) {
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeBurgerMenu();
       }
     });
   }
@@ -104,17 +117,16 @@
   document.addEventListener('click', function (e) {
     const btn = e.target.closest('[data-reservation]');
     if (!btn || !reservationDialog) return;
-    const preselect = btn.getAttribute('data-preselect-room');
+    const preselect = btn.getAttribute('data-room-id') || btn.getAttribute('data-preselect-room');
     if (preselect) {
       const roomSelect = document.getElementById('room');
       if (roomSelect) roomSelect.value = preselect;
     }
-    reservationDialog.showModal();
     // Close any open room dialog first
     document.querySelectorAll('dialog[id^="dialog-"]').forEach(function (d) {
       if (d.open) d.close();
     });
-    reservationDialog.showModal();
+    if (!reservationDialog.open) reservationDialog.showModal();
     trapFocus(reservationDialog);
   });
 

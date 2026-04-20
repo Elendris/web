@@ -14,10 +14,23 @@
   });
 
   // --- Dialog close buttons ---
-  document.querySelectorAll('.dialog__close, [data-close-dialog]').forEach(function (btn) {
+  document.querySelectorAll('.dialog__close, .detail__close, [data-close-dialog]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       const dialog = btn.closest('dialog');
       if (dialog) dialog.close();
+    });
+  });
+
+  // Reservation buttons inside room dialogs: ensure expected data-room-id is present
+  document.querySelectorAll('dialog[id^="dialog-"] [data-reservation]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const dialog = btn.closest('dialog');
+      if (dialog) {
+        const roomId = dialog.id.replace('dialog-', '');
+        if (!btn.getAttribute('data-room-id')) {
+          btn.setAttribute('data-room-id', roomId);
+        }
+      }
     });
   });
 
@@ -51,6 +64,8 @@
 
   let lightboxImages = [];
   let lightboxIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   function openLightbox(images, index) {
     lightboxImages = images;
@@ -110,6 +125,26 @@
         updateLightboxImg();
       }
     });
+
+    // Swipe gestures for touch devices
+    lightbox.addEventListener('touchstart', function (e) {
+      if (!e.changedTouches || !e.changedTouches.length) return;
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', function (e) {
+      if (!e.changedTouches || !e.changedTouches.length || lightboxImages.length < 2) return;
+      touchEndX = e.changedTouches[0].screenX;
+      const delta = touchStartX - touchEndX;
+      if (Math.abs(delta) < 40) return;
+
+      if (delta > 0) {
+        lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+      } else {
+        lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+      }
+      updateLightboxImg();
+    }, { passive: true });
   }
 
   // --- Focus helper ---

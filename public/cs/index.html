@@ -270,7 +270,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="1" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="1" data-room-id="1" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -299,7 +299,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="2" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="2" data-room-id="2" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -328,7 +328,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Vlastní koupelna</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="3" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="3" data-room-id="3" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -357,7 +357,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="4" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="4" data-room-id="4" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -386,7 +386,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-kitchen"></use></svg> Kuchyňský kout</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="5" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="5" data-room-id="5" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -415,7 +415,7 @@
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-bath"></use></svg> Koupelna s vanou</li>
         <li><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-food"></use></svg> Snídaně na pokoj</li>
       </ul>
-      <button class="btn" data-reservation data-preselect-room="6" aria-haspopup="dialog">Rezervovat pokoj</button>
+      <button class="btn" data-reservation data-preselect-room="6" data-room-id="6" aria-haspopup="dialog">Rezervovat pokoj</button>
     </div>
   </div>
 </dialog>
@@ -424,7 +424,7 @@
 <dialog id="reservationDialog" aria-labelledby="reservation-title" aria-modal="true">
   <div class="dialog__header">
     <h3 id="reservation-title">Rezervace</h3>
-    <button class="dialog__close" aria-label="Zavřít dialog">
+    <button id="reservationClose" class="dialog__close" aria-label="Zavřít dialog">
       <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
     </button>
   </div>
@@ -474,7 +474,10 @@
       <label for="note">Poznámka</label>
       <textarea id="note" name="note" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn">Odeslat rezervaci</button>
+    <div class="d-flex gap-l ai-c">
+      <button type="submit" class="btn">Odeslat rezervaci</button>
+      <button type="button" id="cancelBtn" class="btn btn--secondary" data-close-dialog>Zrušit</button>
+    </div>
   </form>
 </dialog>
 
@@ -487,11 +490,11 @@
     </button>
   </div>
   <p>Vaše rezervace byla úspěšně odeslána. Brzy se vám ozveme s potvrzením.</p>
-  <button class="btn" data-close-dialog>Zavřít</button>
+  <button id="closeSuccessDialog" class="btn" data-close-dialog>Zavřít</button>
 </dialog>
 
 <!-- Lightbox dialog -->
-<dialog id="lightboxDialog" class="lightbox" aria-label="Prohlížeč obrázků" aria-modal="true">
+<dialog id="lightboxDialog" class="lightbox" aria-label="Galerie" aria-modal="true">
   <button class="lightbox__close" aria-label="Zavřít lightbox">
     <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#icon-close"></use></svg>
   </button>

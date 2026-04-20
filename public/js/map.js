@@ -34,27 +34,32 @@
     {
       lat: 49.17764, lng: 16.69207,
       title: t.elendris,
+      image: '/images/logos/elendris-logo.svg',
       info: '<strong>' + t.elendris + '</strong><br>Krejčího 550/2, Brno 627 00',
       isPrimary: true,
     },
     {
       lat: 49.1711, lng: 16.6745,
       title: t.bruno,
+      image: '/images/logos/elendris-logo.svg',
       info: '<strong>' + t.bruno + '</strong><br><a href="https://www.brunofamilypark.cz" target="_blank" rel="noopener">' + t.moreInfo + '</a>',
     },
     {
       lat: 49.1547, lng: 16.8813,
       title: t.golf,
+      image: '/images/logos/elendris-logo.svg',
       info: '<strong>' + t.golf + '</strong><br><a href="https://www.gcausterlitz.cz" target="_blank" rel="noopener">' + t.moreInfo + '</a>',
     },
     {
       lat: 49.1952, lng: 16.6079,
       title: t.historicalCenter,
+      image: '/images/logos/elendris-logo.svg',
       info: '<strong>' + t.historicalCenter + '</strong>',
     },
     {
       lat: 49.3636, lng: 16.7184,
       title: t.moravianKarst,
+      image: '/images/logos/elendris-logo.svg',
       info: '<strong>' + t.moravianKarst + '</strong><br><a href="https://www.cavesbrno.cz" target="_blank" rel="noopener">' + t.moreInfo + '</a>',
     },
   ];
@@ -112,9 +117,18 @@
       });
 
       marker.addListener('click', function () {
-        infoWindow.setContent(m.info);
+        const content =
+          '<div style="display:flex;gap:10px;align-items:flex-start;max-width:260px">' +
+          '<img src="' + m.image + '" alt="' + m.title + '" width="44" height="44" style="flex:0 0 44px;object-fit:contain" />' +
+          '<div>' + m.info + '</div>' +
+          '</div>';
+        infoWindow.setContent(content);
         infoWindow.open(map, marker);
       });
+    });
+
+    map.addListener('click', function () {
+      infoWindow.close();
     });
 
     // Responsive center update
