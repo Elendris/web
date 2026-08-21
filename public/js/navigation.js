@@ -112,23 +112,6 @@
     }, 2000);
   }
 
-  // --- Open reservation dialog on [data-reservation] click ---
-  const reservationDialog = document.getElementById('reservationDialog');
-  document.addEventListener('click', function (e) {
-    const btn = e.target.closest('[data-reservation]');
-    if (!btn || !reservationDialog) return;
-    const preselect = btn.getAttribute('data-room-id') || btn.getAttribute('data-preselect-room');
-    if (preselect) {
-      const roomSelect = document.getElementById('room');
-      if (roomSelect) roomSelect.value = preselect;
-    }
-    // Close any open room dialog first
-    document.querySelectorAll('dialog[id^="dialog-"]').forEach(function (d) {
-      if (d.open) d.close();
-    });
-    if (!reservationDialog.open) reservationDialog.showModal();
-    trapFocus(reservationDialog);
-  });
 
   // --- Focus trap helper ---
   function trapFocus(dialog) {

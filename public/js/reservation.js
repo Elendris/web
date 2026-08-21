@@ -148,7 +148,7 @@
     updateFormState();
   }
 
-  // Export for external callers (e.g. rooms.js)
+  // Export for external callers
   window.addRoomToReservation = addRoomToReservation;
 
   if (addRoomButton) {
@@ -178,7 +178,7 @@
     const btn = e.target.closest('[data-reservation]');
     if (!btn) return;
 
-    // If inside another dialog, close it first
+    // If inside another dialog (e.g. room detail), close it first
     const parentDialog = btn.closest('dialog');
     if (parentDialog && parentDialog !== reservationDialog) {
       parentDialog.close();
@@ -190,8 +190,21 @@
     }
 
     if (roomId) {
-      // If list is empty or doesn't have this room, add it
-      if (roomsList && roomsList.children.length === 0) {
+      // Check if there is an existing empty/unselected row in roomsList
+      const emptyRow = roomsList ? Array.from(roomsList.querySelectorAll('.reservation__room')).find(function (r) {
+        const s = r.querySelector('select');
+        return s && s.value === '';
+      }) : null;
+
+      if (emptyRow) {
+        const select = emptyRow.querySelector('select');
+        const guestContainer = emptyRow.querySelector('[id^="guestCountContainer"]');
+        const bedsContainer = emptyRow.querySelector('[id^="separateBedsContainer"]');
+        const idMatch = guestContainer ? guestContainer.id.match(/\d+/) : null;
+        const counter = idMatch ? idMatch[0] : '1';
+        select.value = roomId;
+        handleRoomSelectChange(select, guestContainer, bedsContainer, counter);
+      } else {
         addRoomToReservation(roomId);
       }
     } else if (roomsList && roomsList.children.length === 0) {
