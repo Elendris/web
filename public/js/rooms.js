@@ -2,9 +2,10 @@
   'use strict';
 
   // --- Room dialog open ---
-  document.querySelectorAll('.card[data-room]').forEach(function (card) {
+  document.querySelectorAll('.card').forEach(function (card) {
     card.addEventListener('click', function () {
-      const roomId = card.getAttribute('data-room');
+      const roomId = card.getAttribute('data-room') || (card.id ? card.id.replace('card-', '') : null);
+      if (!roomId) return;
       const dialog = document.getElementById('dialog-' + roomId);
       if (dialog) {
         dialog.showModal();
@@ -21,19 +22,6 @@
     });
   });
 
-  // Reservation buttons inside room dialogs: ensure expected data-room-id is present
-  document.querySelectorAll('dialog[id^="dialog-"] [data-reservation]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const dialog = btn.closest('dialog');
-      if (dialog) {
-        const roomId = dialog.id.replace('dialog-', '');
-        if (!btn.getAttribute('data-room-id')) {
-          btn.setAttribute('data-room-id', roomId);
-        }
-      }
-    });
-  });
-
   // Close dialog on backdrop click
   document.querySelectorAll('dialog').forEach(function (dialog) {
     dialog.addEventListener('click', function (e) {
@@ -43,7 +31,7 @@
 
   // Close dialog on Escape (native behavior) — restore focus to trigger
   let lastFocused = null;
-  document.querySelectorAll('.card[data-room]').forEach(function (card) {
+  document.querySelectorAll('.card').forEach(function (card) {
     card.addEventListener('click', function () { lastFocused = card; });
   });
   document.querySelectorAll('dialog').forEach(function (dialog) {
@@ -71,8 +59,10 @@
     lightboxImages = images;
     lightboxIndex = index;
     updateLightboxImg();
-    lightbox.showModal();
-    lightboxClose && lightboxClose.focus();
+    if (lightbox) {
+      lightbox.showModal();
+      if (lightboxClose) lightboxClose.focus();
+    }
   }
 
   function updateLightboxImg() {
@@ -84,14 +74,27 @@
     if (lightboxNext) lightboxNext.style.display = lightboxImages.length > 1 ? '' : 'none';
   }
 
-  document.querySelectorAll('.dialog__gallery-item').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const gallery = btn.closest('.dialog__gallery');
+  // Handle gallery thumbnail click inside room details
+  document.querySelectorAll('.gallery__item').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const gallery = btn.closest('.gallery');
       if (!gallery) return;
-      const items = Array.from(gallery.querySelectorAll('.dialog__gallery-item'));
-      const images = items.map(function (b) { return b.getAttribute('data-lightbox-src'); });
-      const index = items.indexOf(btn);
-      openLightbox(images, index);
+
+      const mainImg = btn.querySelector('img');
+      const mainSrc = mainImg ? mainImg.getAttribute('src') : '';
+      const hiddenImgs = Array.from(gallery.querySelectorAll('.detail__hidden-pics img, .detail__hidden-pics a'));
+      const images = [];
+
+      if (mainSrc) images.push(mainSrc);
+      hiddenImgs.forEach(function (el) {
+        const src = el.getAttribute('data-src') || el.getAttribute('src') || el.getAttribute('href');
+        if (src && !images.includes(src)) images.push(src);
+      });
+
+      if (images.length) {
+        openLightbox(images, 0);
+      }
     });
   });
 
