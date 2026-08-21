@@ -5,6 +5,9 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NC]
 
+# Redirect homepage to Czech version (single-step server-side redirect)
+RewriteRule ^$ /cs/ [R=301,L]
+
 # Astro routing
 RewriteBase /
 
