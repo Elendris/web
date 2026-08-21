@@ -1,7 +1,0 @@
-$font-text: "Open sans", sans-serif;
-$font-title: system-ui, sans-serif;
-
-@mixin generate-fonts {
-    --font-text: #{$font-text};
-    --font-title: #{$font-title};
-}
