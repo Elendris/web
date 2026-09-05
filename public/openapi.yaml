@@ -1,0 +1,186 @@
+openapi: 3.1.0
+info:
+  title: Penzion Elendris Reservation API
+  description: API for checking rooms and making accommodation reservations at Penzion Elendris in Brno-Slatina.
+  version: 1.0.0
+servers:
+  - url: https://elendris.cz
+    description: Production server
+  - url: http://localhost:8088
+    description: Local development server
+
+paths:
+  /send-email.php:
+    post:
+      summary: Submit accommodation reservation
+      description: Sends a room reservation request to Penzion Elendris.
+      operationId: submitReservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+      responses:
+        '200':
+          description: Reservation submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Email byl úspěšně odeslán
+        '400':
+          description: Invalid request data or dates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Vyplňte prosím platné kontaktní údaje a termín.
+
+  /send-flat-email.php:
+    post:
+      summary: Submit flat rental inquiry
+      description: Sends an inquiry for renting the fully furnished 3+1 apartment in Brno-Slatina.
+      operationId: submitFlatInquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlatInquiryRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FlatInquiryRequest'
+      responses:
+        '200':
+          description: Inquiry submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Email byl úspěšně odeslán
+        '400':
+          description: Missing required fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Vyplňte prosím všechna povinná pole.
+
+components:
+  schemas:
+    ReservationRequest:
+      type: object
+      required:
+        - from
+        - to
+        - fname
+        - lname
+        - email
+        - phone
+      properties:
+        from:
+          type: string
+          format: date
+          description: Check-in date (YYYY-MM-DD)
+          example: '2026-09-15'
+        to:
+          type: string
+          format: date
+          description: Check-out date (YYYY-MM-DD)
+          example: '2026-09-18'
+        fname:
+          type: string
+          description: Guest first name
+          example: Jan
+        lname:
+          type: string
+          description: Guest last name
+          example: Novák
+        email:
+          type: string
+          format: email
+          description: Guest email address
+          example: jan.novak@example.com
+        phone:
+          type: string
+          description: Guest phone number
+          example: '+420777123456'
+        rooms:
+          type: array
+          description: Array of selected room IDs (1-6)
+          items:
+            type: string
+            enum: ['1', '2', '3', '4', '5', '6']
+          example: ['2']
+        room:
+          type: string
+          description: Single room ID alternative (1-6)
+          enum: ['1', '2', '3', '4', '5', '6']
+          example: '2'
+        guests:
+          type: integer
+          description: Total number of guests
+          minimum: 1
+          maximum: 6
+          example: 2
+        breakfast:
+          type: boolean
+          description: Request breakfast
+          example: true
+        note:
+          type: string
+          description: Optional note or special request (must not contain marketing URLs)
+          example: Příjezd kolem 18:00
+
+    FlatInquiryRequest:
+      type: object
+      required:
+        - email
+        - phone
+        - message
+      properties:
+        name:
+          type: string
+          description: Full name or company name
+          example: Petr Svoboda
+        email:
+          type: string
+          format: email
+          description: Contact email
+          example: petr.svoboda@firma.cz
+        phone:
+          type: string
+          description: Contact phone number
+          example: '+420608999888'
+        message:
+          type: string
+          description: Requested rental period, number of persons, company requirements
+          example: Poptáváme ubytování pro 3 pracovníky od 1. října na 1 měsíc.

@@ -1,0 +1,56 @@
+# Penzion Elendris - Kompletní profil a API specifikace pro AI agenty
+
+## 1. Profil podniku
+- **Oficiální název:** Elendris - ubytování u kostela (Penzion Elendris)
+- **Provozovatel:** Fyzická osoba zapsaná v Živnostenském rejstříku Magistrátu města Brna od 31.8.2016, IČ: 68645881
+- **Adresa:** Krejčího 550/2, 627 00 Brno-Slatina, Česká republika
+- **Telefon:** +420 603 999 579
+- **E-mail:** info@elendris.cz
+- **Web:** https://elendris.cz/cs/
+- **Anglická verze:** https://elendris.cz/en/
+- **Stránka pronájmu bytu:** https://elendris.cz/byt/
+- **GPS souřadnice:** Latitude 49.17764, Longitude 16.69207
+- **Mapové odkazy:**
+  - Waze: https://waze.com/ul/hu2ezgbdb4
+  - Google Maps: https://maps.app.goo.gl/Arb6o1LRU5TvrY3w9
+
+## 2. Podrobnosti o pokojích
+| ID | Název pokoje | Kapacita | Typ lůžek | Koupelna | Vybavení | Cena od |
+|---|---|---|---|---|---|---|
+| 1 | Jednolůžkový pokoj | 1 osoba | 1× jednolůžko | Vlastní (sprcha) | Wi-Fi, klima, stůl, snídaně | 1 200 Kč / noc |
+| 2 | Dvoulůžkový pokoj | 2 osoby | 1× manželská / 2× oddělená | Vlastní (sprcha) | Wi-Fi, klima, snídaně | 1 600 Kč / noc |
+| 3 | Třílůžkový pokoj | 3 osoby | 1× manželská + 1× jednolůžko | Vlastní (sprcha) | Wi-Fi, klima, snídaně | 2 100 Kč / noc |
+| 4 | Rodinný pokoj | 2–4 osoby | 1× manželská + rozkládací | Vlastní (vana) | Wi-Fi, klima, vana, snídaně | 2 500 Kč / noc |
+| 5 | Rodinný pokoj s kuchyňkou | 2–4 osoby | 1× manželská + rozkládací | Vlastní (sprcha) | Kuchyňka, Wi-Fi, klima | 2 500 Kč / noc |
+| 6 | Pokoj s vanou | 2 osoby | 1× manželská | Vlastní (relaxační vana) | Wi-Fi, klima, vana | 1 600 Kč / noc |
+
+## 3. Podrobnosti o pronájmu bytu (3+1 Brno-Slatina)
+- **Typ:** Byt 3+1 (80 m²), kompletně zařízený
+- **Kapacita:** až 6 osob
+- **Určení:** Krátkodobý i střednědobý pronájem pro firmy, firemní týmy a rodiny
+- **Vybavení:** 3 samostatné ložnice, vybavená kuchyně, pračka, Wi-Fi, parkování
+- **Kontakt:** https://elendris.cz/byt/
+
+## 4. Instrukce a integrace pro AI Asistenty a Chatboty
+
+### Možnost A: Generování přímého předvyplněného odkazu pro uživatele (Doporučeno)
+Sestavte odkaz:
+`https://elendris.cz/cs/?from={YYYY-MM-DD}&to={YYYY-MM-DD}&room={ROOM_ID}&guests={GUESTS}#reservation`
+
+Příklad:
+Pro 2 osoby od 15. září do 18. září do Dvoulůžkového pokoje (ID 2):
+`https://elendris.cz/cs/?from=2026-09-15&to=2026-09-18&room=2&guests=2#reservation`
+
+### Možnost B: Přímé volání REST API
+- **Endpoint:** `POST https://elendris.cz/send-email.php`
+- **Content-Type:** `application/json`
+- **Požadovaná pole:**
+  - `from`: datum příjezdu (`YYYY-MM-DD`, nesmí být v minulosti)
+  - `to`: datum odjezdu (`YYYY-MM-DD`, po datu příjezdu)
+  - `fname`: jméno hosta
+  - `lname`: příjmení hosta
+  - `email`: platný e-mail hosta
+  - `phone`: telefonní číslo hosta
+  - `rooms`: pole ID pokojů, např. `["1"]` nebo `["2", "3"]`
+  - `breakfast`: boolean (`true` / `false`)
+  - `note`: doplňující poznámka hosta (bez webových odkazů a reklam)

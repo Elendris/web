@@ -9,6 +9,16 @@
 
   statusLiveRegion = ensureStatusLiveRegion();
 
+  // Inject Time-Trap hidden timestamp input
+  let timeInput = flatContactForm.querySelector('input[name="form_ts"]');
+  if (!timeInput) {
+    timeInput = document.createElement('input');
+    timeInput.type = 'hidden';
+    timeInput.name = 'form_ts';
+    flatContactForm.appendChild(timeInput);
+  }
+  timeInput.value = Math.floor(Date.now() / 1000);
+
   // Open dialog on [data-flat-contact-open] or [data-flat-contact] click
   document.querySelectorAll('[data-flat-contact-open], [data-flat-contact]').forEach(function (btn) {
     btn.addEventListener('click', function () {

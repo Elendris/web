@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Penzion Elendris",
+  "name_for_model": "penzion_elendris_booking",
+  "description_for_human": "Ubytování a rezervace pokojů v Penzionu Elendris v Brně-Slatině.",
+  "description_for_model": "Plugin for checking accommodation details, rooms, prices and submitting room reservations or flat rental inquiries at Penzion Elendris in Brno, Czech Republic.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://elendris.cz/openapi.yaml"
+  },
+  "logo_url": "https://elendris.cz/images/logos/elendris-logo.svg",
+  "contact_email": "info@elendris.cz",
+  "legal_info_url": "https://elendris.cz/cs/#contact"
+}

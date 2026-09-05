@@ -16,12 +16,118 @@
   <meta property="og:description" content="Ideal for both business travelers and families.">
   <meta property="og:image" content="https://elendris.cz/images/header/header-img-1-l.webp">
   <meta property="og:locale" content="en_US">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BedAndBreakfast","name":"Elendris","description":"Ideal for both business travelers and families","url":"https://elendris.cz","telephone":"+420603999579","email":"info@elendris.cz","address":{"@type":"PostalAddress","streetAddress":"Krejčího 550/2","addressLocality":"Brno","postalCode":"627 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":49.17764,"longitude":16.69207},"priceRange":"1200-2500 CZK/night","checkinTime":"15:00","checkoutTime":"10:00"}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BedAndBreakfast",
+    "@id": "https://elendris.cz/#lodging",
+    "name": "Elendris - Guesthouse near the church",
+    "alternateName": "Penzion Elendris",
+    "description": "Ideal for both business travelers and families. Elendris accommodation in Brno-Slatina, minutes from the airport and D1 motorway.",
+    "url": "https://elendris.cz/en/",
+    "telephone": "+420603999579",
+    "email": "info@elendris.cz",
+    "image": "https://elendris.cz/images/header/header-img-1-l.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Krejčího 550/2",
+      "addressLocality": "Brno",
+      "addressRegion": "South Moravian Region",
+      "postalCode": "627 00",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.17764,
+      "longitude": 16.69207
+    },
+    "priceRange": "1200 - 2500 CZK",
+    "currenciesAccepted": "CZK",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "checkinTime": "15:00",
+    "checkoutTime": "10:00",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Free enclosed parking with CCTV", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Free High-Speed Wi-Fi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Room Breakfast Service", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Garden with BBQ facilities", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Shared equipped kitchenette", "value": true }
+    ],
+    "containsPlace": [
+      {
+        "@type": "HotelRoom",
+        "name": "Single Room",
+        "description": "Cozy single room for solo travelers with private bathroom, Wi-Fi, and air conditioning.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Single bed" },
+        "offers": { "@type": "Offer", "price": "1200", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=1#reservation" }
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Double Room",
+        "description": "Comfortable double room with double bed or twin beds, private bathroom, and air conditioning.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Double bed" },
+        "offers": { "@type": "Offer", "price": "1600", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=2#reservation" }
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Triple Room",
+        "description": "Spacious triple room with double bed and single bed.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Double bed and single bed" },
+        "offers": { "@type": "Offer", "price": "2100", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=3#reservation" }
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Family Room",
+        "description": "Large family room with double bed, sofa bed, and bathroom with bathtub.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 4 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Double bed and sofa bed" },
+        "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=4#reservation" }
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Family Room with Kitchenette",
+        "description": "Family room for up to 4 guests with private equipped kitchenette.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 4 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Double bed and sofa bed" },
+        "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=5#reservation" }
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Room with Bathtub",
+        "description": "Double room featuring a relaxing bathtub.",
+        "occupancy": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
+        "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Double bed" },
+        "offers": { "@type": "Offer", "price": "1600", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": "https://elendris.cz/en/?room=6#reservation" }
+      }
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://elendris.cz/en/?room={room}#reservation",
+        "inLanguage": "en",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "LodgingReservation",
+        "name": "Reservation at Penzion Elendris"
+      }
+    }
+  }
+  </script>
   <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
   <link rel="manifest" href="/favicons/site.webmanifest">
-  <link rel="icon" href="/favicons/favicon.ico">
+  <link rel="help" type="text/markdown" href="/llms.txt" title="LLMs Information">
+  <link rel="service-desc" type="application/yaml" href="/openapi.yaml" title="OpenAPI Specification">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>

@@ -10,6 +10,7 @@
   const submitBtn = document.getElementById('submitBtn');
   const cancelBtn = document.getElementById('cancelBtn');
   const closeBtn = document.getElementById('reservationClose');
+  const closeSuccessDialog = document.getElementById('closeSuccessDialog');
 
   if (!form || !reservationDialog) return;
 
@@ -51,6 +52,17 @@
   }[lang];
 
   let roomCounter = 0;
+  const formLoadTimestamp = Math.floor(Date.now() / 1000);
+
+  // Inject Time-Trap hidden timestamp input
+  let timeInput = form.querySelector('input[name="form_ts"]');
+  if (!timeInput) {
+    timeInput = document.createElement('input');
+    timeInput.type = 'hidden';
+    timeInput.name = 'form_ts';
+    form.appendChild(timeInput);
+  }
+  timeInput.value = formLoadTimestamp;
 
   function updateFormState() {
     const hasRooms = roomsList && roomsList.children.length > 0;
@@ -65,7 +77,7 @@
     }
   }
 
-  function handleRoomSelectChange(select, guestCountContainer, separateBedsContainer, counter) {
+  function handleRoomSelectChange(select, guestCountContainer, separateBedsContainer, counter, initialGuests) {
     const val = select.value;
 
     if (val && val !== '1') {
@@ -79,10 +91,11 @@
     }
 
     if (val && val !== '1' && val !== '2' && val !== '3') {
+      const defaultGuests = initialGuests ? Math.min(4, Math.max(1, parseInt(initialGuests, 10))) : 2;
       guestCountContainer.innerHTML =
         '<label class="form-item">' +
         i18n.guestCount +
-        ' <input type="number" min="1" max="4" name="guestCount' + counter + '" inputmode="numeric" required value="2">' +
+        ' <input type="number" min="1" max="4" name="guestCount' + counter + '" inputmode="numeric" required value="' + defaultGuests + '">' +
         '</label>';
     } else {
       guestCountContainer.innerHTML = '';
@@ -91,7 +104,7 @@
     updateFormState();
   }
 
-  function addRoomToReservation(roomId) {
+  function addRoomToReservation(roomId, guestCount) {
     if (!roomsList) return;
     roomCounter++;
     const currentCounter = roomCounter;
@@ -128,7 +141,7 @@
 
     if (roomId && select) {
       select.value = roomId;
-      handleRoomSelectChange(select, guestContainer, bedsContainer, currentCounter);
+      handleRoomSelectChange(select, guestContainer, bedsContainer, currentCounter, guestCount);
     }
 
     if (select) {
@@ -221,10 +234,24 @@
     }
   });
 
+  // Close success dialog
+  if (closeSuccessDialog && successDialog) {
+    closeSuccessDialog.addEventListener('click', function () {
+      successDialog.close();
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete('reservated');
+      window.history.replaceState({}, '', cleanUrl.toString());
+    });
+  }
+
   // Close on backdrop
-  reservationDialog.addEventListener('click', function (e) {
-    if (e.target === reservationDialog) {
-      reservationDialog.close();
+  [reservationDialog, successDialog].forEach(function (dlg) {
+    if (dlg) {
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg) {
+          dlg.close();
+        }
+      });
     }
   });
 
@@ -260,9 +287,14 @@
       });
 
       if (response.ok) {
-        const target = new URL(window.location.href);
-        target.searchParams.set('reservated', 'true');
-        window.location.href = target.toString();
+        if (reservationDialog.open) reservationDialog.close();
+        if (successDialog) {
+          successDialog.showModal();
+        } else {
+          const target = new URL(window.location.href);
+          target.searchParams.set('reservated', 'true');
+          window.location.href = target.toString();
+        }
       } else {
         alert(i18n.errorMsg);
       }
@@ -276,6 +308,45 @@
     }
   });
 
-  // Initial state update
+  // -------------------------------------------------------------
+  // AI Deep-Link & URL Query Parameters Auto-Fill
+  // (e.g., ?from=2026-09-01&to=2026-09-05&room=2&guests=3#reservation)
+  // -------------------------------------------------------------
+  function handleUrlParams() {
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+
+    if (params.get('reservated') === 'true' && successDialog) {
+      successDialog.showModal();
+      return;
+    }
+
+    const fromVal = params.get('from');
+    const toVal = params.get('to');
+    const roomVal = params.get('room');
+    const guestsVal = params.get('guests');
+    const hasReservationIntent = url.hash === '#reservation' || fromVal || toVal || roomVal;
+
+    if (fromVal && arrivalInput) {
+      arrivalInput.value = fromVal;
+      if (departureInput) departureInput.min = fromVal;
+    }
+    if (toVal && departureInput) {
+      departureInput.value = toVal;
+    }
+
+    if (hasReservationIntent) {
+      if (!reservationDialog.open) {
+        reservationDialog.showModal();
+      }
+      if (roomVal) {
+        addRoomToReservation(roomVal, guestsVal);
+      } else if (roomsList && roomsList.children.length === 0) {
+        addRoomToReservation();
+      }
+    }
+  }
+
+  handleUrlParams();
   updateFormState();
 })();

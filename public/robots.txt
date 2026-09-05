@@ -1,4 +1,41 @@
+# Robots.txt for Elendris (https://elendris.cz/)
 User-agent: *
 Allow: /
 
+# Explicit AI Search and Agent Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Sitemap & LLMs information
 Sitemap: https://elendris.cz/sitemap.xml
+# LLMs Guide: https://elendris.cz/llms.txt
